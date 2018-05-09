@@ -1,0 +1,136 @@
+<html>
+<body>
+<table cellpadding="0" border="1" width="572" style="border-style: none; width: 429.35pt;">
+<tbody><tr style="min-height: 82.5pt;">
+<td width="234" valign="bottom" style="padding: 0cm 0cm 0cm 5pt; width: 210pt; min-height: 82.5pt;">
+<p class="MsoNormal"><span lang="EN-US" style="color: white;"><img alt="Avaya" src="cid:logo"></span></p>
+</td>
+<td width="332" valign="bottom" style="padding: 0cm 0cm 7.5pt 11.25pt; background: rgb(51, 153, 0) none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; width: 249.2pt; min-height: 82.5pt;">
+<p class="MsoNormal"><b><span lang="EN-US" style="font-size: 21pt; color: white;">Existing Contract Notice:</span></b><span lang="EN-US" style="color: white;"><br>
+</span><span lang="EN-US" style="font-size: 11.5pt; color: white;">Avaya Contract Actions Required</span><span lang="EN-US" style="color: white;"></span></p>
+</td>
+</tr>
+<tr>
+<td width="568" style="padding: 26.25pt 15pt 11.25pt 0cm; width: 426.35pt;" colspan="2">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">OEFC,<br>
+<br>
+During the Token Redemption process for maintenance, it was indicated that this customer has an existing contract that may require action.  As part of the Avaya process, please review the customer and existing contracts that may need to be modified or cancelled with this transaction.
+<br><br>
+Note: the Token redemption process creates a NEW Maintenance Contract for the customer and does not provide any ability to modify/cancel existing contracts.
+<p class="MsoNormal"><span lang="EN-US" style="FONT-SIZE: 8.5pt">Please review the information regarding the new contract created, and complete any actions required on existing contracts.    Contact or notify the customer, as required.</span></p>	
+</td>
+</tr>
+<tr>
+<td style="border-style: none; padding: 0cm 0cm 18.75pt;" colspan="2">
+<table cellspacing="0" cellpadding="0" border="1" width="567" style="border: medium none ; width: 425.55pt;">
+<tbody><tr>
+<td width="546" style="border-style: solid none solid solid; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 409.55pt;">
+<table cellspacing="0" cellpadding="0" border="1" width="525" style="border: medium none ; width: 393.75pt; border-collapse: collapse;">
+<tbody><tr>
+<td width="185" style="border-style: solid solid solid solid; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Customer Sold_to/Ship_to</span></p>
+</td>
+<td width="340" style="border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$endCustomerShipToId</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Customer</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;"><b>$customerName</b><br>$customerAddress<br><br>$customerContact</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Contract Number</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;"><b>$contractNumber</b></span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Contract Start Date</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$contractStartDate</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Token Number (reference)</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$TokenNumber</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Date Redeemed/Contract created</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$DateRedeemed</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Reseller/Partner</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$ResellerName<br>$bpLinkId</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Token Redeemed/Contract Initiated by</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$redeemerName<br>$redeemerContact</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Service Description</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;"><b>IPOSS</b><br>$tokenServiceDescription</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Customer Hardware Covered</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$tokenHardwareDetails</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Comments/Additional info</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$additionalInfo</span></p>
+</td>
+</tr>
+</tbody></table>
+</td>
+<td width="21" style="border-style: solid solid solid none; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 16pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">&nbsp;</span></p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+
+<tr>
+<td width="568" style="padding: 0cm 0cm 7.5pt; width: 426.35pt;" colspan="2">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">This is an automated notification. Please do not respond to this
+email.<br><br> Thank You.</span></p>
+</td>
+</tr>
+</tbody></table>
+
+</body>
+</html>

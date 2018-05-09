@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="getSoldToList">
+		<![CDATA[ 	select distinct account_number from CXP2.v_css_user_access_list where user_logon = :user_logon ]]>
+    </sql-query>
+    <sql-query name="getBusinessPartners1">
+		<![CDATA[ 	select distinct prm_linkid, cb.account_number, bp.name as business_partner_name, street1, city, state, zipcode, ctry.name as country from CXP2.BUSINESS_PARTNER bp join CXP2.CUSTOMER_BP cbp on BP.BUSINESS_PARTNER_ID=CBP.BUSINESS_PARTNER_ID join CXP2.CUSTOMER c on C.CUSTOMER_ID=cbp.customer_id join CXP2.CUSTOMER cb on c.root_account_id =cb.parent_account_id and C.ACCOUNT_TYPE ='PHN' join CXP2.address a on a.customer_id = cb.customer_id join CXP2.country ctry on ctry.COUNTRY_ID=a.country_id where CB.STATUS='A' and C.STATUS ='A' and prm_linkid = :bpLinkId]]>
+    </sql-query>
+    
+     <sql-query name="getBusinessPartners2">
+		<![CDATA[ 	select distinct prm_linkid, account_number, bp.name as business_partner_name, street1, city, state, zipcode, ctry.name as country from CXP2.BUSINESS_PARTNER bp join CXP2.CUSTOMER_BP cbp on BP.BUSINESS_PARTNER_ID=CBP.BUSINESS_PARTNER_ID join CXP2.CUSTOMER c on C.CUSTOMER_ID=cbp.customer_id left outer join CXP2.address a on a.customer_id = c.customer_id join CXP2.country ctry on ctry.COUNTRY_ID=a.country_id where prm_linkid = :bpLinkId and C.ACCOUNT_TYPE ='PHN' and c.STATUS='A' ]]>
+    </sql-query>
+    <sql-query name="getSoldToObjectList1">
+		<![CDATA[ 	select distinct account_number, name from CXP2.v_css_user_access_list where user_logon = :user_logon order by account_number ]]>
+    </sql-query>
+     <sql-query name="getSoldToObjectList2">
+		<![CDATA[ 	select distinct account_number, name from CXP2.v_css_user_access_list order by account_number ]]>
+    </sql-query>
+    <sql-query name="getSoldToExistForTheUser">
+		<![CDATA[ 	select count(*) from CXP2.v_css_user_access_list where account_number = :soldTo and user_logon = :user_logon ]]>
+    </sql-query>
+    <sql-query name="getCustomerName">
+		<![CDATA[ 	select distinct name from CXP2.customer where trim(account_number) = :accountNumber ]]>
+    </sql-query>
+    
+    <sql-query name="isSoldToExist">
+		<![CDATA[ 	select count(*) from CXP2.customer where account_type != 'PHN' and status != 'X' and account_number = :soldTo ]]>
+    </sql-query>
+    
+    <sql-query name="isSoldToValid">
+		<![CDATA[ 	select count(*) from CXP2.v_css_user_access_list where account_number = :soldTo ]]>
+    </sql-query>
+    
+    <sql-query name="getSoldToCountry">
+		<![CDATA[ 	select cu.account_number, cty.name from CXP2.customer cu, CXP2.ADDRESS ad, CXP2.COUNTRY cty where cu.customer_id = ad.customer_id and ad.country_id = cty.country_id and cu.account_type != 'PHN' and cu.status != 'X' and cu.account_number IN (:soldToList) ]]>
+    </sql-query>
+    
+</hibernate-mapping>

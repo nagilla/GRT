@@ -1,0 +1,20 @@
+<html>
+<body>
+<table cellpadding="0" border="1" width="572" style="border-style: none; width: 429.35pt;">
+<tbody><tr style="min-height: 82.5pt;">
+<td width="234" valign="bottom" style="padding: 0cm 0cm 0cm 5pt; width: 210pt; min-height: 82.5pt;">
+<p class="MsoNormal"><span lang="EN-US" style="color: white;"><img alt="Avaya" src="cid:logo"></span></p>
+</td>
+</tr>
+<tr>
+<td width="568" style="padding: 26.25pt 15pt 11.25pt 0cm; width: 426.35pt;" colspan="2">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Dear Avaya Admin,<br>
+<br>
+GRT registration ID $registrationID has failed submission to $destination. Please check GRT log for detail. If it is connectivity issue, this registration needs to be resubmitted once connectivity is restored.
+</span></p>
+</td>
+</tr>
+</tbody></table>
+
+</body>
+</html>

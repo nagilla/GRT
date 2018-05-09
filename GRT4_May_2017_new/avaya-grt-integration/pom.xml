@@ -1,0 +1,440 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.avaya.grt</groupId>
+    <artifactId>avaya-grt</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  
+  <artifactId>avaya-grt-integration</artifactId>
+  <packaging>jar</packaging>
+  
+  <dependencies>
+  
+	  <dependency>
+    	<groupId>log4j</groupId>
+    	<artifactId>log4j</artifactId>
+    	<version>1.2.17</version>
+	  </dependency>
+	  
+	  	  
+	  <dependency>
+		<groupId>javax.xml</groupId>
+		<artifactId>jaxrpc-api</artifactId>
+		<version>1.1</version>
+	  </dependency>	
+	  
+	 <dependency>
+	    <groupId>org.apache.ant</groupId>
+	    <artifactId>ant</artifactId>
+        <version>1.8.2</version>
+     </dependency>	 
+	
+	<dependency>
+		<groupId>javax.mail</groupId>
+		<artifactId>mail</artifactId>
+		<version>1.4</version>
+	</dependency>
+	 
+	<dependency>
+            <groupId>accountupdate</groupId>
+            <artifactId>accountupdate</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/accountupdate.jar</systemPath>
+    </dependency> 
+	
+	<dependency>
+            <groupId>addresssearch</groupId>
+            <artifactId>addresssearch</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/addresssearch.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.annogen_1.0.1.0</groupId>
+            <artifactId>com.bea.core.annogen_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.annogen_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.descriptor_1.0.1.0</groupId>
+            <artifactId>com.bea.core.descriptor_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.descriptor_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.diagnostics.core_1.0.1.0</groupId>
+            <artifactId>com.bea.core.diagnostics.core_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.diagnostics.core_1.0.1.0.jar</systemPath>
+    </dependency>
+        
+    <dependency>
+            <groupId>com.bea.core.logging_1.0.1.0</groupId>
+            <artifactId>com.bea.core.logging_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.logging_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.management.core_1.0.1.0</groupId>
+            <artifactId>com.bea.core.management.core_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.management.core_1.0.1.0.jar</systemPath>
+    </dependency>
+        
+    <dependency>
+            <groupId>com.bea.core.store_1.0.1.0</groupId>
+            <artifactId>com.bea.core.store_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.store_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.utils.classloaders_1.0.1.0</groupId>
+            <artifactId>com.bea.core.utils.classloaders_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.utils.classloaders_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.utils.full_1.0.1.0</groupId>
+            <artifactId>com.bea.core.utils.full_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.utils.full_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.weblogic.saaj_1.0.1.0</groupId>
+            <artifactId>com.bea.core.weblogic.saaj_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.weblogic.saaj_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    
+    <dependency>
+            <groupId>com.bea.core.weblogic.security.wls_2.0.1.0</groupId>
+            <artifactId>com.bea.core.weblogic.security.wls_2.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.weblogic.security.wls_2.0.1.0.jar</systemPath>
+    </dependency>
+  
+    <dependency>
+            <groupId>com.bea.core.weblogic.security_2.0.1.0</groupId>
+            <artifactId>com.bea.core.weblogic.security_2.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.weblogic.security_2.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.weblogic.stax_1.0.1.0</groupId>
+            <artifactId>com.bea.core.weblogic.stax_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.weblogic.stax_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.weblogic.workmanager_1.0.1.0</groupId>
+            <artifactId>com.bea.core.weblogic.workmanager_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.weblogic.workmanager_1.0.1.0.jar</systemPath>
+    </dependency>
+    
+    
+    <dependency>
+            <groupId>com.bea.core.workarea_1.0.1.0</groupId>
+            <artifactId>com.bea.core.workarea_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.workarea_1.0.1.0.jar</systemPath>
+    </dependency>
+  
+     <dependency>
+            <groupId>com.bea.core.xml.beaxmlbeans_2.3.1.0</groupId>
+            <artifactId>com.bea.core.xml.beaxmlbeans_2.3.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.xml.beaxmlbeans_2.3.1.0.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>com.bea.core.xml.staxb.buildtime_1.0.1.0</groupId>
+            <artifactId>com.bea.core.xml.staxb.buildtime_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.xml.staxb.buildtime_1.0.1.0.jar</systemPath>
+    </dependency>
+	
+	<dependency>
+            <groupId>com.bea.core.xml.staxb.runtime_1.0.1.0</groupId>
+            <artifactId>com.bea.core.xml.staxb.runtime_1.0.1.0</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.bea.core.xml.staxb.runtime_1.0.1.0.jar</systemPath>
+    </dependency>
+
+	
+	<dependency>
+            <groupId>commons-lang-2.6</groupId>
+            <artifactId>commons-lang-2.6</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/commons-lang-2.6.jar</systemPath>
+    </dependency>
+    
+    
+	<dependency>
+            <groupId>customerlookup</groupId>
+            <artifactId>customerlookup</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/customerlookup.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>javax.jms_1.1</groupId>
+            <artifactId>javax.jms_1.1</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javax.jms_1.1.jar</systemPath>
+    </dependency>
+    
+    
+    <dependency>
+            <groupId>javax.xml.rpc_1.1</groupId>
+            <artifactId>javax.xml.rpc_1.1</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/javax.xml.rpc_1.1.jar</systemPath>
+    </dependency>
+    
+    
+    <dependency>
+            <groupId>LOABinding</groupId>
+            <artifactId>LOABinding</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/LOABinding.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>sap-clientproxy-eqr</groupId>
+            <artifactId>sap-clientproxy-eqr</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/sap-clientproxy-eqr.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>sap-clientproxy-eqm</groupId>
+            <artifactId>sap-clientproxy-eqm</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/sap-clientproxy-eqm.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>sap-clientproxy-new</groupId>
+            <artifactId>sap-clientproxy-new</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/sap-clientproxy-new.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>ShipToCreate</groupId>
+            <artifactId>ShipToCreate</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/ShipToCreate.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>siebel-clientproxy</groupId>
+            <artifactId>siebel-clientproxy</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/siebel-clientproxy.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>SoldToCreate</groupId>
+            <artifactId>SoldToCreate</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/SoldToCreate.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>TokenRedemption</groupId>
+            <artifactId>TokenRedemption</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/TokenRedemption.jar</systemPath>
+    </dependency>
+    
+    <!--dependency>
+            <groupId>extremeTable_modified</groupId>
+            <artifactId>extremeTable_modified</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/extremeTable_modified.jar</systemPath>
+    </dependency-->
+    
+    <dependency>
+            <groupId>tokensearch</groupId>
+            <artifactId>tokensearch</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/tokensearch.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>wseeclient</groupId>
+            <artifactId>wseeclient</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/wseeclient.jar</systemPath>
+    </dependency>
+    
+     <dependency>
+			<groupId>com.avaya.grt</groupId>
+			<artifactId>avaya-grt-common</artifactId>
+			<version>${project.version}</version>
+	</dependency>
+	<dependency>
+			<groupId>com.avaya.grt</groupId>
+			<artifactId>avaya-grt-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.0.3</version>
+	</dependency>
+
+	<dependency>
+            <groupId>acsbi-clientproxy-polling</groupId>
+            <artifactId>acsbi-clientproxy-polling</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/acsbi-clientproxy-polling.jar</systemPath>
+    </dependency>
+	
+	<dependency>
+            <groupId>acsbi-sidmid-query</groupId>
+            <artifactId>acsbi-sidmid-query</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/acsbi-sidmid-query.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>art_Client-new2</groupId>
+            <artifactId>art_Client-new2</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/art_Client-new2.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>art_Step2_Client</groupId>
+            <artifactId>art_Step2_Client</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/art_Step2_Client.jar</systemPath>
+    </dependency>
+	
+	<dependency>
+            <groupId>art_sidmid_query</groupId>
+            <artifactId>art_sidmid_query</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/art_sidmid_query.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>afid-clientproxy</groupId>
+            <artifactId>afid-clientproxy</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/afid-clientproxy.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>salConcentrator</groupId>
+            <artifactId>salConcentrator</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/salConcentrator.jar</systemPath>
+    </dependency>
+    
+    <dependency>
+            <groupId>offboarddevice-clientproxy</groupId>
+            <artifactId>offboarddevice-clientproxy</artifactId>
+            <version>1</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/offboarddevice-clientproxy.jar</systemPath>
+    </dependency>
+	<dependency>
+		<groupId>eqm-siebel-update</groupId>
+		<artifactId>eqm-siebel-update</artifactId>
+		<version>1</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/lib/eqm-siebel-update.jar</systemPath>
+	</dependency>
+	<!-- system to system installer SALGW -->
+	<dependency>
+		<groupId>art-salgw-old.jar</groupId>
+		<artifactId>art-salgw-old.jar</artifactId>
+		<version>1</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/lib/art-salgw-old.jar</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>art-salgw-new.jar</groupId>
+		<artifactId>art-salgw-new.jar</artifactId>
+		<version>1</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/lib/art-salgw-new.jar</systemPath>
+	</dependency>
+	
+	<dependency>
+		<groupId>bpAuthorizationService.jar</groupId>
+		<artifactId>bpAuthorizationService.jar</artifactId>
+		<version>1</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/lib/bpAuthorizationService.jar</systemPath>
+	</dependency>
+	<dependency>
+		<groupId>contractLookupService.jar</groupId>
+		<artifactId>contractLookupService.jar</artifactId>
+		<version>1</version>
+		<scope>system</scope>
+		<systemPath>${project.basedir}/lib/contractLookupService.jar</systemPath>
+	</dependency>
+	
+	</dependencies>
+  
+  <build />
+  
+</project>

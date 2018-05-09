@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.TechnicalOrder" 
+    table="TECHNICAL_ORDER"
+	dynamic-insert="true" dynamic-update="true"
+>
+    <id
+        name="orderId"
+        type="string"
+        column="ORDER_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+	<property
+        name="createdBy"
+        type="string"
+        column="CREATED_BY"
+        length="50"
+    />
+    <property
+        name="createdDate"
+        type="java.util.Date"
+        column="CREATED_DATE"
+        length="11"
+    />
+    <property
+        name="deleted"
+        type="string"
+        column="DELETED"
+        length="3"
+    />
+    <property
+        name="description"
+        type="string"
+        column="DESCRIPTION"
+        length="250"
+    />
+    <!-- [AVAYA]: 08-15-2011 Add serialNumber column (Start) -->
+	<!-- [AVAYA]: 08-29-2011 Reduced serialNumber length from 50 to 20 -->
+    <!-- [AVAYA]: 09-14-2011 Reduced serialNumber length from 20 to 18 -->
+    <property
+        name="serialNumber"
+        type="string"
+        column="SERIALNUMBER"
+        length="18"
+    />
+    <!-- [AVAYA]: 08-15-2011, 08-29, 09-14 Add serialNumber column (End) -->
+    <property
+        name="initialQuantity"
+        type="long"
+        column="INITIAL_QUANTITY"
+        not-null="true"
+        length="19"
+    />
+    <property
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="orderType"
+        type="string"
+        column="ORDER_TYPE"
+        not-null="true"
+        length="10"
+    />
+    <property
+        name="remainingQuantity"
+        type="long"
+        column="REMAINING_QUANTITY"
+        length="19"
+    />
+    <property
+        name="solutionElementCode"
+        type="string"
+        column="SOLUTION_ELEMENT_CODE"
+        length="50"
+    />
+    <property
+        name="groupId"
+        type="string"
+        column="GROUP_ID"
+        length="50"
+    />
+	<property
+        name="updatedBy"
+        type="string"
+        column="UPDATED_BY"
+        length="50"
+    />
+	<property
+        name="updatedDate"
+        type="java.util.Date"
+        column="UPDATED_DATE"
+        length="11"
+    />
+    <property
+        name="isBaseUnit"
+        type="string"
+        column="IS_BASEUNIT"
+        length="1"
+    />
+    
+    <property
+        name="isSourceIPO"
+        type="string"
+        column="IS_SOURCEIPO"
+        length="1"
+    />
+    
+    <property
+        name="releaseString"
+        type="string"
+        column="RELEASE_STRING"
+        length="20"
+    />
+    
+    <property
+        name="materialExclusion"
+        type="string"
+        column="MATERIAL_EXCLUSION"
+        length="20"
+    />
+    
+    <property
+        name="openQuantity"
+        type="long"
+        column="OPEN_QUANTITY"
+        length="20"
+    />
+    
+      <property
+            name="isIPOEligible"
+            type="string"
+            column="IS_IPOELIGIBLE"
+            length="6"
+    />
+    
+    <property
+            name="sr_Created"
+            type="string"
+            column="SR_CREATED"
+            length="20"
+    />
+    
+     <property
+            name="error_Desc"
+            type="string"
+            column="ERROR_DESC"
+            length="250"
+    />
+    
+    <property
+            name="isSalesOut"
+            type="string"
+            column="IS_SALES_OUT"
+            length="50"
+    />
+
+    <property
+        name="isSelected"
+        type="long"
+        column="IS_SELECTED"
+        length="1"
+    />
+    
+    <property
+        name="hasActiveEquipmentContract"
+        type="long"
+        column="HAS_ACTIVE_EQUIPMENT_CONTRACT"
+        length="1"
+    />
+
+    <property
+        name="hasActiveSiteContract"
+        type="long"
+        column="HAS_ACTIVE_SITE_CONTRACT"
+        length="1"
+    />    
+ 
+     <property
+            name="equipmentNumber"
+            type="string"
+            column="EQUIPMENT_NUMBER"
+     />
+  
+     <property
+            name="summaryEquipmentNumber"
+            type="string"
+            column="SUMMARY_EQUIPMENT_NUMBER"
+     />           
+ 
+     <property
+            name="productLine"
+            type="string"
+            column="PRODUCT_LINE"
+            length="250"
+    />
+
+     <property
+            name="seid"
+            type="string"
+            column="SEID"
+            length="50"
+    />
+    
+    <property
+            name="salSeIdPrimarySecondary"
+            type="string"
+            column="SAL_PRIMARY_SECONDARY_SEIDS"
+            length="50"
+    />
+    
+    <property
+            name="sid"
+            type="string"
+            column="SID"
+            length="50"
+    />
+    
+    <property
+            name="mid"
+            type="string"
+            column="MID"
+            length="50"
+    />
+        
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to SiteRegistration -->
+    <many-to-one
+        name="siteRegistration"
+        class="com.avaya.grt.mappers.SiteRegistration"
+        lazy="false" cascade="none">
+        <column name="SITE_REGISTRATION_ID" not-null="true" length="50"/>
+    </many-to-one>
+    <!-- bi-directional many-to-one association to TechnicalRegistration -->
+    <set
+        name="technicalRegistrations"
+        inverse="true"
+         lazy="false"
+        cascade="all"
+      
+    >
+        <key>
+            <column name="TECHNICAL_ORDER_ID" /> <!-- a foreign key in TECHNICAL_REGISTRATION referencing the primary key of this table. -->
+        </key>
+        <one-to-many class="com.avaya.grt.mappers.TechnicalRegistration" />
+    </set>
+	
+	<set
+        name="siebelAsset"
+        inverse="true"
+        lazy="true"
+       >
+		<key>
+			<column name="TECH_ORDER_ID" />
+			 <!-- a foreign key in TECHNICAL_ORDER referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.SiebelAsset" />
+	</set>
+	
+    <property
+        name="autoTR"
+        type="boolean"
+        column="IS_AUTO_TR"
+        length="38"
+    />
+    
+    <property
+        name="assetPK"
+        type="string"
+        column="ASSET_PK"
+        length="50"
+    />
+    
+    <property
+        name="salGateway"
+        type="boolean"
+        column="IS_SAL_GATEWAY"
+        length="1"
+    />
+    <property
+        name="completedDate"
+        type="java.util.Date"
+        column="COMPLETED_DATE"
+        length="11"
+    />
+    
+    <property
+        name="completedBysiteRegId"
+        type="string"
+        column="COMPLETED_BY_REGID"
+        length="50"
+    /> 
+    
+        <property
+        name="actionType"
+        type="java.lang.String"
+        column="ACTION_TYPE"
+        length="1"
+    />    
+   
+</class>
+</hibernate-mapping>

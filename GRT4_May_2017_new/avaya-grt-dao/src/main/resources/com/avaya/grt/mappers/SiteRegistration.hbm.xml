@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.SiteRegistration" table="SITE_REGISTRATION" dynamic-insert="true" dynamic-update="true">
+	<id
+        name="registrationId"
+        type="string"
+        column="REGISTRATION_ID"
+        length="50"
+    ></id>        
+    <version name="version" column="VERSION" type="int"/>
+	<property
+        name="createdBy"
+        type="string"
+        column="CREATED_BY"
+        length="50"
+    />
+	<property
+        name="address"
+        type="string"
+        column="ADDRESS"
+        length="250"
+    />
+	<property
+        name="address2"
+        type="string"
+        column="ADDRESS2"
+        length="250"
+    />
+	<property
+        name="city"
+        type="string"
+        column="CITY"
+        length="50"
+    />
+	<property
+        name="state"
+        type="string"
+        column="STATE"
+        length="50"
+    />
+	<property
+        name="zip"
+        type="string"
+        column="ZIP"
+        length="10"
+    />
+    <property
+        name="company"
+        type="string"
+        column="COMPANY"
+        length="150"
+    />
+	<property
+        name="siebelSync"
+        type="string"
+        column="SIEBEL_SYNC"
+        length="1"
+    />
+	<property
+        name="companyPhone"
+        type="string"
+        column="COMPANY_PHONE"
+        length="19"
+    />
+	<property
+        name="region"
+        type="string"
+        column="REGION"
+        length="20"
+    />
+	<property
+        name="createdDate"
+        type="java.util.Date"
+        column="CREATED_DATE"
+        length="7"
+    />
+	<property
+        name="salMigrationOnly"
+        type="string"
+        column="SAL_MIGRATION_ONLY"
+        length="5"
+    />    
+	<property
+        name="customerName"
+        type="string"
+        column="CUSTOMER_NAME"
+        length="150"
+    />
+	<property
+        name="expedireRefernceNo"
+        type="string"
+        column="EXPEDIRE_REFERNCE_NO"
+        length="20"
+    />
+	<property
+        name="expedite"
+        type="string"
+        column="EXPEDITE"
+        length="3"
+    />
+    <property
+        name="finalValidationSrNo"
+        type="string"
+        column="FINAL_VALIDATION_SR_NO"
+        length="50"
+    />
+    <property
+        name="firstName"
+        type="string"
+        column="FIRST_NAME"
+        length="50"
+    />
+    <property
+        name="installBaseSrNo"
+        type="string"
+        column="INSTALL_BASE_SR_NO"
+        length="50"
+    />
+    <property
+        name="lastName"
+        type="string"
+        column="LAST_NAME"
+        length="50"
+    />
+	<property
+        name="noAdditionalProductFlag"
+        type="string"
+        column="NO_ADDITIONAL_PRODUCT_FLAG"
+        length="3"
+    />
+	<property
+        name="onsiteEmail"
+        type="string"
+        column="ONSITE_EMAIL"
+        length="150"
+    />
+	<property
+        name="onsiteFirstName"
+        type="string"
+        column="ONSITE_FIRST_NAME"
+        length="50"
+    />
+	<property
+        name="onsiteLastName"
+        type="string"
+        column="ONSITE_LAST_NAME"
+        length="50"
+    />
+	<property
+        name="onsitePhone"
+        type="string"
+        column="ONSITE_PHONE"
+        length="19"
+    />
+	<property
+        name="reportEmailId"
+        type="string"
+        column="REPORT_EMAIL_ID"
+        length="250"
+    />
+	<property
+        name="reportPhone"
+        type="string"
+        column="REPORT_PHONE"
+        length="19"
+    />
+	<property
+        name="soldToId"
+        type="string"
+        column="SOLD_TO_ID"
+        not-null="true"
+        length="50"
+    />
+	<property
+        name="soldToLocation"
+        type="string"
+        column="SOLD_TO_LOCATION"
+        not-null="true"
+        length="150"
+    />
+	<property
+        name="soldToType"
+        type="string"
+        column="SOLD_TO_TYPE"
+        not-null="true"
+        length="25"
+    />
+	<property
+        name="updatedBy"
+        type="string"
+        column="UPDATED_BY"
+        length="50"
+    />
+	<property
+        name="updatedDate"
+        type="java.util.Date"
+        column="UPDATED_DATE"
+        length="7"
+    />
+	<property
+        name="userName"
+        type="string"
+        column="USER_NAME"
+        length="50"
+    />
+    <property
+        name="siteCountry"
+        type="string"
+        column="SITE_COUNTRY"
+        length="15"
+    />
+    
+     <property
+        name="sendMail"
+        type="string"
+        column="SEND_MAIL"
+        length="2"
+    />
+	<property
+        name="skipInstallBaseCreation"
+        type="string"
+        column="SKIP_INSTALL_BASE_CREATION"
+        length="3"
+    />
+    
+	 <property
+        name="inventoryFile"
+        type="string"
+        column="INVENTORY"
+    />
+    
+     <property
+        name="typeOfImplementation"
+        type="string"
+        column="TYPE_OF_IMPLEMENTATION"
+        
+    />
+    
+     <property
+        name="cut_over_date"
+        type="java.util.Date"
+        column="CUT_OVER_DATE"
+        
+    />
+    
+     <property
+        name="typeOfUser"
+        type="string"
+        column="TYPE_OF_USER"
+        length="20"
+        
+    />
+    
+     <property
+        name="submitted"
+        type="string"
+        column="SUBMITTED"
+        length="20"
+        
+    />
+    <property
+        name="userRole"
+        type="string"
+        column="USER_ROLE"
+        
+        
+    />
+    <property
+        name="bpLinkId"
+        type="string"
+        column="BP_LINK_ID"
+        length="50"
+    />
+    <property
+        name="isSrCompleted"
+        type="string"
+        column="IS_SR_COMPLETED"
+        length="20"
+        
+    />
+    <property
+        name="isEQRSrCompleted"
+        type="string"
+        column="IS_EQR_SR_COMPLETED"
+        length="20"
+        
+    />
+    
+    <property
+        name="isEQMSrCompleted"
+        type="string"
+        column="IS_EQR_MOVE_SR_COMPLETED"
+        length="20"
+    />
+        
+     <property
+        name="registrationIdentifier"
+        type="string"
+        column="REGISTRATION_IDENTIFIER"
+        length="30"
+        
+    />
+     <property
+        name="registrationNotes"
+        type="string"
+        column="REGISTRATION_NOTES"
+        length="4000"
+        
+    />
+    <property
+        name="hasSubmittedTrManually"
+        type="long"
+        column="HAS_SUBMITTED_TR_MANUALLY"
+        length="1"
+    />
+    
+    <property
+        name="ibSubmittedDate"
+        type="java.util.Date"
+        column="IB_SUBMITTED_DATE"
+    />
+    
+    <property
+        name="ibCompletedDate"
+        type="java.util.Date"
+        column="IB_COMPLETED_DATE"
+    />
+    
+    <property
+        name="ibOverriddenBy"
+        type="string"
+        column="IB_OVERRIDDEN_BY"
+        length="50"
+    />
+    
+    <property
+        name="eqrSubmittedDate"
+        type="java.util.Date"
+        column="EQR_SUBMITTED_DATE"
+    />
+    
+    <property
+        name="eqrCompletedDate"
+        type="java.util.Date"
+        column="EQR_COMPLETED_DATE"
+    />
+    
+    <property
+        name="eqrOverriddenBy"
+        type="string"
+        column="EQR_OVERRIDDEN_BY"
+        length="50"
+    />
+    
+    <property
+        name="tobCompletedDate"
+        type="java.util.Date"
+        column="TOB_COMPLETED_DATE"
+    />
+    
+    <property
+        name="tobOverriddenBy"
+        type="string"
+        column="TOB_OVERRIDDEN_BY"
+        length="50"
+    />
+    
+    <property
+        name="soldToBox"
+        type="string"
+        column="SOLD_TO_BOX"
+        length="1"
+    />
+      
+    <property
+        name="ipoAccessType"
+        type="string"
+        column="IPO_ACCESS_TYPE"
+        length="50"
+    />
+    
+    <property
+        name="toSoldToId"
+        type="string"
+        column="TO_SOLD_TO_ID"
+        length="50"
+    />
+    
+     <property
+        name="toSoldToLocation"
+        type="string"
+        column="TO_SOLD_TO_LOCATION"
+        length="150"
+    />
+    <property
+        name="toCustomerName"
+        type="string"
+        column="TO_CUSTOMER_NAME"
+        length="150"
+    />
+    <property
+        name="eqrMoveSrNo"
+        type="string"
+        column="EQR_MOVE_SR_NO"
+        length="50"
+    />
+            
+    <property
+        name="eqrMoveSubmittedDate"
+        type="java.util.Date"
+        column="EQR_MOVE_SUBMITTED_DATE"
+        length="7"
+    />
+    <property
+        name="eqrMoveCompletedDate"
+        type="java.util.Date"
+        column="EQR_MOVE_COMPLETED_DATE"
+        length="7"
+    />
+    
+    <property name="activeSR" type="string"
+		formula="(CONCAT (
+             CONCAT (
+                (SELECT ibSR.siebel_sr_no
+                   FROM sr_request ibSR
+                  WHERE ibSR.sr_request_id = INSTALL_BASE_SR_REQUEST_ID),
+                (SELECT eqrSR.siebel_sr_no
+                   FROM sr_request eqrSR
+                  WHERE eqrSR.sr_request_id =
+                           FINAL_VALIDATION_SR_REQUEST_ID)),
+             (SELECT eqmSR.siebel_sr_no
+                FROM sr_request eqmSR
+               WHERE eqmSR.sr_request_id = EQR_MOVE_SR_REQUEST_ID)))"/>
+    
+	<!-- Associations -->
+	<!-- bi-directional many-to-one association to ProcessStep -->
+	<many-to-one
+        name="processStep"
+        class="com.avaya.grt.mappers.ProcessStep"
+        lazy="proxy"
+    >
+		<column name="PROCESS_STEP_ID" not-null="true" length="50"/>
+	</many-to-one>
+	<!-- bi-directional many-to-one association to Status -->
+	<many-to-one
+        name="status"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="STATUS_ID" not-null="true" length="50"/>
+	</many-to-one>
+	<!-- bi-directional many-to-one association to Status -->
+	  <many-to-one
+        name="installBaseStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="INSTALL_BASE_STATUSID" not-null="false" length="50"/>
+	</many-to-one> 
+	<!-- bi-directional many-to-one association to Status -->
+	  <many-to-one
+        name="techRegStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="TECH_REG_STATUSID" not-null="false" length="50"/>
+	</many-to-one> 
+	
+	<!-- bi-directional many-to-one association to Status -->
+	  <many-to-one
+        name="finalValidationStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="FINAL_VALIDATION_STATUSID" not-null="false" length="50"/>
+	</many-to-one> 
+	
+	<many-to-one
+        name="eqrMoveStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="EQR_MOVE_STATUSID" not-null="false" length="50"/>
+	</many-to-one> 
+	
+	<!-- bi-directional many-to-one association to Status -->
+	  <many-to-one
+        name="finalValidationSubStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="FINAL_VALIDATION_SUB_STATUSID" not-null="false" length="50"/>
+	</many-to-one>
+	
+	<many-to-one
+        name="installBaseSubStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="INSTALL_BASE_SUB_STATUSID" not-null="false" length="50"/>
+	</many-to-one> 
+	
+	<many-to-one
+        name="eqrMoveSubStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="EQR_MOVE_SUB_STATUSID" not-null="false" length="50"/>
+	</many-to-one> 
+	<!-- bi-directional many-to-one association to TechnicalOrder -->
+	<set
+        name="technicalOrders"
+        inverse="true"
+        lazy="true"
+        cascade="all"
+    >
+		<key>
+			<column name="SITE_REGISTRATION_ID" />
+			 <!-- a foreign key in TECHNICAL_ORDER referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.TechnicalOrder" />
+	</set>
+	<!-- bi-directional many-to-one association to Registration Questions -->
+	<set
+        name="registrationQuestions"
+        inverse="true"
+        lazy="true"
+        cascade="all"
+    >
+		<key>
+			<column name="SITE_REGISTRATION_ID" />
+			 <!-- a foreign key in TECHNICAL_ORDER referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.RegistrationQuestions" />
+	</set>
+	
+	<!-- bi-directional one-to-one association to SRRequest -->
+    <many-to-one
+        name="installBaseSrRequest"
+        class="com.avaya.grt.mappers.SRRequest"
+        lazy="proxy" unique="true"
+    >
+		<column name="INSTALL_BASE_SR_REQUEST_ID" length="50"/>
+	</many-to-one>
+	
+	<!-- bi-directional one-to-one association to SRRequest -->
+    <many-to-one
+        name="finalValidationSrRequest"
+        class="com.avaya.grt.mappers.SRRequest"
+        lazy="proxy" unique="true"
+    >
+		<column name="FINAL_VALIDATION_SR_REQUEST_ID" length="50"/>
+	</many-to-one>
+	
+	<!-- bi-directional one-to-one association to SRRequest -->
+    <many-to-one
+        name="eqrMoveSrRequest"
+        class="com.avaya.grt.mappers.SRRequest"
+        lazy="proxy" unique="true"
+    >
+		<column name="EQR_MOVE_SR_REQUEST_ID" length="50"/>
+	</many-to-one>
+	
+	<!-- bi-directional one-to-one association to SRRequest -->
+    <many-to-one
+        name="eqrActiveContractsSrRequest"
+        class="com.avaya.grt.mappers.SRRequest"
+        lazy="proxy" unique="true"
+    >
+		<column name="ACTIVE_CONTRACT_SR" length="50"/>
+	</many-to-one>
+	
+	<!-- bi-directional many-to-one association to RegistrationType -->
+    <many-to-one
+        name="registrationType"
+        class="com.avaya.grt.mappers.RegistrationType"
+        lazy="proxy" unique="true"
+    >
+		<column name="REGISTRATIONTYPEID" length="50"/>
+	</many-to-one>
+
+<!-- bi-directional many-to-one association to Registration Questions -->
+	<set
+        name="salMigratedAssets"
+        inverse="true"
+        lazy="true"
+        cascade="all"
+    >
+		<key>
+			<column name="SITE_REGISTRATION_ID" />
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.SiteList" />
+	</set>
+</class>
+</hibernate-mapping>

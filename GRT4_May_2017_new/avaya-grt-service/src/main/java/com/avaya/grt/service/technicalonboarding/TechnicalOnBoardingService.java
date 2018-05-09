@@ -1,0 +1,92 @@
+package com.avaya.grt.service.technicalonboarding;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.avaya.grt.mappers.CompatibilityMatrix;
+import com.avaya.grt.mappers.ExpandedSolutionElement;
+import com.avaya.grt.mappers.HardwareServer;
+import com.avaya.grt.mappers.LocalTRConfig;
+import com.avaya.grt.mappers.SRRequest;
+import com.avaya.grt.mappers.SiteList;
+import com.avaya.grt.mappers.SiteRegistration;
+import com.avaya.grt.mappers.TechnicalRegistration;
+import com.avaya.registration.DeviceTOBResponseType;
+import com.grt.dto.AUXMCMain;
+import com.grt.dto.Asset;
+import com.grt.dto.CMMain;
+import com.grt.dto.RegistrationSummary;
+import com.grt.dto.SALGateway;
+import com.grt.dto.SALGatewayIntrospection;
+import com.grt.dto.TRConfig;
+import com.grt.dto.TechnicalRegistrationSummary;
+import com.grt.util.ARTOperationType;
+import com.grt.util.DataAccessException;
+import com.grt.util.ProcessStepEnum;
+import com.grt.util.SearchParam;
+import com.grt.util.StatusEnum;
+import com.grt.util.TechRecordEnum;
+
+public interface TechnicalOnBoardingService {
+
+	public int getTechnicalRegistrationSummaryListCount(String registrationId, List<SearchParam> searchParams) throws DataAccessException;
+	public List<TechnicalRegistrationSummary> getTechnicalRegistrationSummaryList(String soldToId, String registrationId, int offSet, int fetchSize, List<SearchParam> searchParams,String userId) throws DataAccessException;
+	//GRT 4.0 Changes
+	public List<TechnicalRegistrationSummary> getTechnicalRegistrationSummaryListSearch(String soldToId, String registrationId, int offSet, int fetchSize, List<SearchParam> searchParams,String userId) throws DataAccessException;
+	
+	public SiteRegistration getSiteRegistrationOnRegId(String registrationId) throws DataAccessException;
+	public SiteRegistration updateSiteRegistrationProcessStepAndStatus(String registrationId, ProcessStepEnum step, StatusEnum status) throws DataAccessException;
+	public RegistrationSummary getRegistrationSummary(String registrationId) throws DataAccessException;
+	public SiteRegistration changeOwnership(SiteRegistration siteRegistration, String userId) throws DataAccessException;
+	public Map<String, Set<String>> getEligibleAccessTypes(List<String> materialCodes)  throws DataAccessException;
+	public Set<String> getEligibleAccessTypes(String materialCode)  throws DataAccessException;
+	 public List<TRConfig> fetchTRConfigs(String materialCode);
+	 public Set<String> getEligibleAccessTypesByGroupId(String groupId)  throws DataAccessException;
+	 public String getGroupSeCodes(String groupId) throws DataAccessException;
+	 public List<SALGateway> getSALGateways(String soldToId, String salSEID, String salFlag);
+	 public List<String> getReleasesByGroupId(String groupId, boolean sslvpn) throws DataAccessException;
+	 public List<String> getSPVersionsByGroupId(String groupId, String releaseNumber) throws DataAccessException;
+	 public List<HardwareServer> getHardwareServersTemplate(String template) throws DataAccessException;
+	 public List<LocalTRConfig> getLocalTRConfig(String groupId) throws DataAccessException;
+	 public List<TechnicalRegistrationSummary> getExistingTOBRecords(String soldToNumber,String registrationId);
+	 public List<Asset> queryProductRegistrationData(String SEID, int pageSize, boolean recordCountNeeded, int startRowNum) throws Exception;
+	 public List<String> getReleasesByGroupId(String groupId) throws DataAccessException;
+	 public List<LocalTRConfig> getLocalTRConfig(TRConfig trConfig) throws DataAccessException;
+	 public SiteRegistration getTechnicalRegistrationDetails(String registrationId) throws DataAccessException;
+	 public Boolean submitTechnicalRegistrationSummary(List<TechnicalRegistrationSummary> trSummary) throws DataAccessException, Exception;
+	 public Boolean submitAlarmTechnicalRegistrationSummary(List<TechnicalRegistration> trs, List<SiteList> sls, String registrationId) throws DataAccessException, Exception;
+	 public SALGatewayIntrospection introspectSALGateway(String gatewaySeid, String soldToId) throws DataAccessException;
+	 public Integer validateSeCodeAndSid(String sid, String seCode) throws DataAccessException;
+	 public List<String> validateSIDAndFL(String sid, String fl, String seCode) throws Exception;
+	 public List<String> validateSIDMID(String sid) throws Exception;
+	 public String AFIDService(String afId) throws Exception;
+	 public String SIDMIDService(String sid, String mid) throws Exception;
+	 public SALGatewayIntrospection getSalAlarmConnectivityDetails(List<String> seids) throws Throwable;
+	 public CompatibilityMatrix getCompatibilityMatrix(String seCode);
+	 public String getHyperLinkedSalGatewaySeid(String primarySalGatewaySeid, String secondarySalGatewatSeid, String soldToId);
+	 public SiteList updateSiteListStatus(SiteList siteList, StatusEnum status) throws DataAccessException;
+	 public boolean doTechnicalRegistration(SiteRegistration sr, List<TechnicalRegistration> trs, List<SiteList> sls, ARTOperationType operationType) throws Exception;
+	 public TechnicalRegistration updateTechRegStatus(TechnicalRegistration technicalRegistration, StatusEnum status, SiteRegistration siteRegistration) throws DataAccessException;
+	 public void updateStepAResubmittedDate(TechnicalRegistration technicalRegistration) throws DataAccessException;
+	 public SiteRegistration getTechnicalRegistrationDetails(String registrationId, boolean isSuperUser) throws DataAccessException;
+	 public boolean isSoldToValidForCurrentUser(String soldTo, String userId, String bpLinkId) throws DataAccessException;
+	 public String saveTechnicalRegistration (TechnicalRegistration technicalRegistration) throws DataAccessException;
+	 public TechnicalRegistration fetchTechnicalRegistrationByID(String techRegId) throws DataAccessException;
+	 public DeviceTOBResponseType submitReTestList(List<TechnicalRegistration> techReg) throws Exception;
+	 public List<ExpandedSolutionElement> getAssetsWithSameSIDandMID(String SID, String MID, String SEID) throws DataAccessException;
+	 public List<ExpandedSolutionElement> getAssetsWithSameSIDandMIDandSEID(String SID, String MID, String SEID) throws DataAccessException;
+	 public List<ExpandedSolutionElement> getSALGWDetails(String SEID) throws DataAccessException;
+	 public void saveSalSiteList(SiteList siteList)throws DataAccessException;
+	 public String saveSalSiteListOnly(SiteList siteList) throws DataAccessException;
+	 public void sendStepBEmail(String registrationId, StatusEnum status, String siebelSrNumber) throws DataAccessException;
+	 public SRRequest createSR(SiteRegistration siteRegistration, List<TechnicalRegistration> trs, List<SiteList> sls, TechRecordEnum type) throws Exception;
+	 public TechnicalRegistrationSummary addTechnicalOrder(TechnicalRegistrationSummary trSummaryOld);
+	 public String checkExistSRAndEntitlement(String soldToId, String seId, String accessType);
+	 public TechnicalRegistration getConnectivityDetailsBySeid(String seid) throws Exception;
+	 public int deleteTechOrderByRegId(String regId);
+	 public int deleteTechRegByOrderIds( List<String> orderIds );
+	 public CMMain validateCMMain(String cmMainSeid);
+	 public Map<String, String> checkExistSRAndEntlForRetest(String soldToId, String seId, String accessType);
+	 public AUXMCMain validateAUXMCMainSEID(String cmMainSeid);
+}

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+
+	<!-- this is a bit of a trick. The properties read here are passed to the 
+		PropertyPlaceholderConfigurer which populates properties within the spring 
+		application context. However the same properties object is also passed to 
+		the Mybatis SqlSessionFactory beans, that way one properties file for both 
+		purposes. -->
+	<bean id="properties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:com/avaya/grt/config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties" ref="properties" />
+	</bean>
+
+
+
+	<!-- GRT -->
+
+
+	<bean id="grtDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${grt.driver}" />
+		<property name="url" value="${grt.url}" />
+		<property name="username" value="${grt.username}" />
+		<property name="password" value="${grt.password}" />
+	</bean>
+
+	<bean id="transactionManagerGRT"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="grtDataSource" />
+	</bean>
+
+	<bean id="sqlSessionFactoryGrt" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configurationProperties" ref="properties" />
+		<property name="dataSource" ref="grtDataSource" />
+		<property name="mapperLocations" value="classpath*:com.avaya.grt.mappers/**/*.xml" />
+		<property name="transactionFactory">
+			<bean
+				class="org.mybatis.spring.transaction.SpringManagedTransactionFactory">
+				<constructor-arg>
+					<ref bean="grtDataSource" />
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+<!--  	<bean id="productMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.avaya.tango.mappers.ProductMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryGrt" />
+	</bean> 
+
+
+	<bean id="productFinder" class="com.avaya.tango.services.ProductFinderImpl">
+		<property name="productMapper" ref="productMapper" />
+		<property name="productAliasMapper" ref="productAliasMapper" />
+		<property name="viewProductAliasMapper" ref="viewProductAliasMapper" />
+		<property name="productReleaseMapper" ref="productReleaseMapper" />
+	</bean> -->
+
+
+
+	<!-- Seibel -->
+
+	<bean id="grtSiebelDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${siebel.driver}" />
+		<property name="url" value="${siebel.url}" />
+		<property name="username" value="${siebel.username}" />
+		<property name="password" value="${siebel.password}" />
+	</bean>
+
+	<bean id="transactionManagerSiebel"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="grtSiebelDataSource" />
+	</bean>
+
+	<bean id="sqlSessionFactorySiebel" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configurationProperties" ref="properties" />
+		<property name="dataSource" ref="grtSiebelDataSource" />
+		<property name="mapperLocations" value="classpath*:com.avaya.siebel.mappers/**/*.xml" />
+		<property name="transactionFactory">
+			<bean
+				class="org.mybatis.spring.transaction.SpringManagedTransactionFactory">
+				<constructor-arg>
+					<ref bean="grtSiebelDataSource" />
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+<!--  <bean id="topSolutionMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.avaya.siebel.mappers.TopSolutionMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactorySiebel" />
+	</bean>
+-->
+	
+	<!-- CXP -->
+
+	<bean id="grtCXPDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${cxp.driver}" />
+		<property name="url" value="${cxp.url}" />
+		<property name="username" value="${cxp.username}" />
+		<property name="password" value="${cxp.password}" />
+	</bean>
+	
+		<bean id="transactionManagerCxp"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="grtCXPDataSource" />
+	</bean>
+
+	<bean id="sqlSessionFactoryCxp" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configurationProperties" ref="properties" />
+		<property name="dataSource" ref="grtCXPDataSource" />
+		<property name="mapperLocations" value="classpath*:com.avaya.cxp.mappers/**/*.xml" />
+		<property name="transactionFactory">
+			<bean
+				class="org.mybatis.spring.transaction.SpringManagedTransactionFactory">
+				<constructor-arg>
+					<ref bean="grtCXPDataSource" />
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+
+<!-- 	<bean id="transactionManagerCxp"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceCxp" />
+	</bean>
+-->
+
+<!-- CAT -->
+
+	<bean id="grtCATDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${cat.driver}" />
+		<property name="url" value="${cat.url}" />
+		<property name="username" value="${cat.username}" />
+		<property name="password" value="${cat.password}" />
+	</bean>
+	<bean id="transactionManagerCat"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="grtCATDataSource" />
+	</bean>
+	<bean id="sqlSessionFactoryCat" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configurationProperties" ref="properties" />
+		<property name="dataSource" ref="grtCATDataSource" />
+		<property name="mapperLocations" value="classpath*:com.avaya.cat.mappers/**/*.xml" />
+		<property name="transactionFactory">
+			<bean
+				class="org.mybatis.spring.transaction.SpringManagedTransactionFactory">
+				<constructor-arg>
+					<ref bean="grtCATDataSource" />
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+<!-- FMW -->
+
+	<bean id="fmwDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${fmw.driver}" />
+		<property name="url" value="${fmw.url}" />
+		<property name="username" value="${fmw.username}" />
+		<property name="password" value="${fmw.password}" />
+	</bean>
+
+<bean id="transactionManagerFmw"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="fmwDataSource" />
+	</bean>
+
+	<bean id="sqlSessionFactoryFmw" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configurationProperties" ref="properties" />
+		<property name="dataSource" ref="fmwDataSource" />
+		<property name="mapperLocations" value="classpath*:com.avaya.fmw.mappers/**/*.xml" />
+		<property name="transactionFactory">
+			<bean
+				class="org.mybatis.spring.transaction.SpringManagedTransactionFactory">
+				<constructor-arg>
+					<ref bean="fmwDataSource" />
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+</beans>

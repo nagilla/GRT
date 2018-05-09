@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.RegistrationQuestions" 
+    table="REGISTRATION_QUESTIONS"
+    
+>
+
+    <id
+        name="regId"
+        type="string"
+        column="ORDER_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+    
+    <property
+        name="questionKey"
+        type="string"
+        column="QUESTION_KEY"
+        length="50"
+    />
+    <property
+        name="answerKey"
+        type="string"
+        column="ANSWER_KEY"
+        length="50"
+    />
+    <!-- bi-directional many-to-one association to SiteRegistration -->
+    <many-to-one
+        name="siteRegistration"
+        class="com.avaya.grt.mappers.SiteRegistration"
+        lazy="false">
+        <column name="SITE_REGISTRATION_ID" not-null="true" length="50"/>
+    </many-to-one> 
+   
+</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.MaterialInclusion" table="MATERIAL_INCLUSION">
+	<id
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        length="10"
+    />
+    
+</class>
+
+<sql-query name="getMaterialInclusion">
+		<![CDATA[ 	SELECT MATERIAL_CODE FROM MATERIAL_INCLUSION ]]>
+</sql-query>
+</hibernate-mapping>

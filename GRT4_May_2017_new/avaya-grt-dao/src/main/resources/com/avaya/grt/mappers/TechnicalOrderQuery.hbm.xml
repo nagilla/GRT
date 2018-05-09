@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<sql-query name="getTechnicalOrderByType">
+		<![CDATA[  Select order_id from Technical_Order technicalOrder where site_registration_Id= :registrationId and technicalOrder.order_Type = :orderType order by technicalOrder.product_Line, to_number(regexp_substr(technicalOrder.material_Code,'^[0-9]+'))]]>
+    </sql-query>
+    <sql-query name="getTechnicalOrderByTypeFV">
+		<![CDATA[  Select order_id from Technical_Order technicalOrder where site_registration_Id= :registrationId and technicalOrder.order_Type = :orderType and upper(technicalOrder.deleted) = 'YES' order by technicalOrder.product_Line, to_number(regexp_substr(technicalOrder.material_Code,'^[0-9]+'))]]>
+    </sql-query>
+     <sql-query name="updateTODOpenQuantity">
+		<![CDATA[  UPDATE TECHNICAL_ORDER SET OPEN_QUANTITY = 0, COMPLETED_DATE = SYSDATE, COMPLETED_BY_REGID = :completedByRegId WHERE ORDER_TYPE= :orderType AND SITE_REGISTRATION_ID = :registrationId and MATERIAL_CODE IN (:mcInClause)]]>
+    </sql-query>
+   
+    <query name="fetchTechnicalOrderByTypeD">
+		<![CDATA[  Select technicalOrder from TechnicalOrder technicalOrder where technicalOrder.siteRegistration.registrationId=:registrationId 
+				   and technicalOrder.orderType =:orderType AND upper(technicalOrder.deleted) = 'YES' 
+				   order by technicalOrder.productLine, to_number(regexp_substr(technicalOrder.materialCode,'^[0-9]+'))
+		]]>
+	</query>
+	<query name="fetchTechnicalOrderByType">
+		<![CDATA[  Select technicalOrder from TechnicalOrder technicalOrder where technicalOrder.siteRegistration.registrationId=:registrationId 
+				   and technicalOrder.orderType =:orderType
+				   order by technicalOrder.productLine, to_number(regexp_substr(technicalOrder.materialCode,'^[0-9]+'))
+		]]>
+	</query>
+	<query name="fetchTechnicalOrderByTypeEM">
+		<![CDATA[  Select technicalOrder from TechnicalOrder technicalOrder where technicalOrder.siteRegistration.registrationId=:registrationId 
+				   and technicalOrder.orderType =:orderType AND upper(technicalOrder.deleted) = 'YES'
+				   order by technicalOrder.productLine, to_number(regexp_substr(technicalOrder.materialCode,'^[0-9]+'))
+		]]>
+	</query>
+	
+	<query name="getTechnicalOrderListForEuipmentNumberList">
+		<![CDATA[ Select technicalOrder from TechnicalOrder technicalOrder where technicalOrder.orderType = :orderType and technicalOrder.siteRegistration.registrationId=:registrationId
+	]]>
+	</query>
+	<sql-query name="deleteTechnicalOrderForRegIdIB">
+		<![CDATA[  DELETE FROM TECHNICAL_ORDER WHERE SITE_REGISTRATION_ID=:registrationId AND ORDER_TYPE = 'IB']]>
+    </sql-query>
+    
+    <sql-query name="deleteTechnicalOrderForRegIdEQR">
+		<![CDATA[  DELETE FROM TECHNICAL_ORDER WHERE SITE_REGISTRATION_ID=:registrationId AND ORDER_TYPE IN ('FV','EQR')]]>
+    </sql-query>
+	
+	<sql-query name="deleteTechnicalOrderForRegIdEQM">
+		<![CDATA[  DELETE FROM TECHNICAL_ORDER WHERE SITE_REGISTRATION_ID=:registrationId AND ORDER_TYPE IN ('EM')]]>
+    </sql-query>
+</hibernate-mapping>

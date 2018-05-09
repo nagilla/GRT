@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.BPAccountTempAccess" 
+    table="BP_ACCOUNT_TEMP_ACCESS"
+    lazy="false"
+>
+    <id
+        name="tempAccessId"
+        type="string"
+        column="TEMP_ACCESS_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+    <property
+        name="bpLinkId"
+        type="string"
+        column="BP_LINK_ID"
+        length="50"
+    />
+    <property
+        name="accountId"
+        type="string"
+        column="ACCOUNT_ID"
+        length="50"
+    />
+    <property
+        name="siebelId"
+        type="string"
+        column="SIEBEL_ID"
+        length="50"
+    />
+    <property
+        name="accountName"
+        type="string"
+        column="NAME"
+        length="400"
+    />
+    <property
+        name="createdBy"
+        type="string"
+        column="CREATED_BY"
+        length="200"
+    />
+    <property
+        name="createdDate"
+        type="java.util.Date"
+        column="CREATED_DATE"
+        length="11"
+    />
+    <property
+        name="expiryDate"
+        type="java.util.Date"
+        column="EXPIRY_DATE"
+        length="11"
+    />
+</class>
+</hibernate-mapping>

@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.SiteList" lazy="false" table="SITE_LIST" dynamic-insert="true" dynamic-update="true">
+	<id
+        name="id"
+        type="string"
+        column="ID"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        length="50"
+    />
+	<property
+        name="model"
+        type="string"
+        column="MODEL"
+        length="50"
+    />
+	<property
+        name="productId"
+        type="string"
+        column="PRODUCT_ID"
+        length="50"
+    />
+	<property
+        name="solutionElementId"
+        type="string"
+        column="SOLUTION_ELEMENT_ID"
+        length="50"
+    />     
+	<property
+        name="remoteAccess"
+        type="string"
+        column="REMOTE_ACCESS"
+        length="1"
+    />
+	<property
+        name="seCode"
+        type="string"
+        column="SE_CODE"
+        length="50"
+    />
+	<property
+        name="siteId"
+        type="string"
+        column="SITE_ID"
+        length="50"
+    />
+	<property
+        name="soldToId"
+        type="string"
+        column="SOLD_TO_ID"
+        not-null="true"
+        length="50"
+    />
+	<property
+        name="transportAlarm"
+        type="string"
+        column="TRANSPORT_ALARM"
+        length="1"
+    />
+    
+    <property
+        name="artSrNo"
+        type="string"
+        column="ART_SR_NO"
+        length="25"
+    />
+    
+    <property
+        name="errorCode"
+        type="string"
+        column="ERROR_CODE"
+        length="25"
+    />
+	
+	<property
+        name="subErrorCode"
+        type="string"
+        column="SUB_ERROR_CODE"
+        length="25"
+    />
+    
+	<property
+        name="isEligible"
+        type="string"
+        column="IS_ELIGIBLE"
+        length="1"
+    />
+    
+    <property
+        name="errorDesc"
+        type="string"
+        column="ERROR_DESC"
+        length="4000"
+    />
+    <property
+        name="installScript"
+        type="string"
+        column="INSTALL_SCRIPT"
+        length="4000"
+    />	
+    <property
+        name="primarySALGatewaySEID"
+        type="string"
+        column="PRIMARY_SAL_GATEWAY_SEID"
+        length="50"
+    />
+    <property
+        name="secondarySALGatewaySEID"
+        type="string"
+        column="SECONDARY_SAL_GATEWAY_SEID"
+        length="50"
+    />
+    <property
+        name="sid"
+        type="string"
+        column="SID"
+        length="50"
+    />
+    <property
+        name="mid"
+        type="string"
+        column="MID"
+        length="50"
+    />
+	<property
+        name="materialCodeDescription"
+        type="string"
+        column="MATERIAL_CODE_DESC"
+        length="400"
+    />
+    <property
+        name="productLine"
+        type="string"
+        column="PRODUCT_LINE"
+        length="400"
+    />
+    
+    <!-- Added for GRT4.0 step B automation starts -->
+    <property
+        name="deviceOnboardOp"
+        type="string"
+        column="DEVICE_ONBOARD_OP"
+    />
+    <property
+        name="transactionDetails"
+        type="string"
+        column="TRANSACTION_DETAILS"
+        length="4000"
+    /> 
+    <property
+        name="failedSeid"
+        type="string"
+        column="FAILED_SEID"
+        length="50"
+    />
+    <!-- Added for GRT4.0 step B automation ends -->
+    
+	<!-- Associations -->
+	<!-- bi-directional many-to-one association to Status -->
+	<many-to-one
+        name="status"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+        cascade="none"        
+    >
+		<column name="STATUS_ID" not-null="true" length="50"/>
+	</many-to-one>
+	<!-- bi-directional one-to-one association to SRRequest -->
+    <many-to-one
+        name="srRequest"
+        class="com.avaya.grt.mappers.SRRequest"
+        lazy="proxy"
+        cascade="none"
+    >
+		<column name="SR_REQUEST_ID" length="50"/>
+	</many-to-one>	
+
+	<!-- bi-directional one-to-one association to SRRequest -->
+    <many-to-one
+        name="siteRegistration"
+        class="com.avaya.grt.mappers.SiteRegistration"
+        lazy="proxy"
+        cascade="none"
+    >
+		<column name="SITE_REGISTRATION_ID" length="50"/>
+	</many-to-one>
+	
+	<!-- GRT 3.0 New Properties-->
+    <property
+        name="groupId"
+        type="string"
+        column="GROUP_ID"
+        length="50"
+    />
+
+<!--    <property-->
+<!--        name="stepBStatus"-->
+<!--        type="string"-->
+<!--        column="STEPB_STATUS"-->
+<!--        length="50"-->
+<!--    />-->
+    
+    <!-- bi-directional many-to-one association to StepBStatus -->
+	<many-to-one
+        name="stepBStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+        cascade="none"        
+    >
+		<column name="STEPB_STATUS" not-null="false" length="50"/>
+	</many-to-one>
+	
+	  <many-to-one
+	        name="stepBSRRequest"
+	        class="com.avaya.grt.mappers.SRRequest"
+	        lazy="proxy"
+	        cascade="none"
+	    >
+			<column name="STEPB_SR_REQUEST" length="50"/>
+	 </many-to-one>	
+    
+    <property
+        name="deviceStatus"
+        type="string"
+        column="DEVICE_STATUS"
+        length="50"
+    />
+
+    <property
+        name="deviceLastAlarmReceivedDate"
+        type="string"
+        column="DEVICE_LAST_ALARM_RECE_DT"
+        length="50"
+    />
+    
+     <property
+        name="numberOfSubmit"
+        type="string"
+        column="NUMBER_OF_SUBMIT"
+        length="2"
+    />                
+        <set name="explodedSolutionElements" inverse="true" lazy="true" cascade="all">
+        <key>
+            <column name="ID"/>
+        </key>
+        <one-to-many class="com.avaya.grt.mappers.ExpandedSolutionElement" />
+    </set>
+    
+    <property
+        name="selectForRemoteAccess"
+        type="boolean"
+        column="SELECT_REMOTE_ACCESS"
+        length="1"
+    />
+
+    <property
+        name="selectForAlarming"
+        type="boolean"
+        column="SELECT_ALARMING"
+        length="1"
+    />
+    
+    <!-- Begin: New columns added for QC-33301 requirement -->  	
+	<property
+        name="stepASubmittedDate"
+        type="java.util.Date"
+        column="STEPA_SUBMITTED_DATE"
+    />
+
+	<property
+        name="stepACompletedDate"
+        type="java.util.Date"
+        column="STEPA_COMPLETED_DATE"
+    />
+
+	<property
+        name="stepBSubmittedDate"
+        type="java.util.Date"
+        column="STEPB_SUBMITTED_DATE"
+    />
+    
+	<property
+        name="stepBCompletedDate"
+        type="java.util.Date"
+        column="STEPB_COMPLETED_DATE"
+    />
+    
+    <property
+        name="artId"
+        type="string"
+        column="ART_ID"
+        length="50"
+    />
+
+    <!-- End: New columns added for QC-33301 requirement -->        
+    
+</class>
+</hibernate-mapping>

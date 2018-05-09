@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.SolnElementCode" table="SOLN_ELEMENT_CODE">
+	<meta attribute="implement-equals">true</meta>
+	<cache usage="read-only"/>
+	<id
+        name="seCode"
+        type="string"
+        column="SE_CODE"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+    <property
+        name="osWinPw"
+        type="string"
+        column="OS_WIN_PW"
+        length="1"
+    />
+    <property
+        name="rasPw"
+        type="string"
+        column="RAS_PW"
+        length="1"
+    />
+    <property
+        name="rootPw"
+        type="string"
+        column="ROOT_PW"
+        length="1"
+    />
+    <property
+        name="sidMid"
+        type="string"
+        column="SID_MID"
+        length="1"
+    />
+    <property
+        name="version"
+        type="string"
+        column="VERSION"
+        length="1"
+    />
+    
+	<!-- Associations -->
+	<!-- bi-directional many-to-one association to ArtProductSolutionElement -->
+	<set
+        name="artProductSolutionElements"
+        inverse="true"
+        lazy="true"
+    >
+		<key>
+			<column name="SE_CODE" />
+			 <!-- a foreign key in ART_PRODUCT_SOLUTION_ELEMENT referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.ArtProductSolutionElement" />
+	</set>
+	<!-- bi-directional many-to-one association to MtrlCodeSolnElmntCode -->
+	<set
+        name="mtrlCodeSolnElmntCodes"
+        inverse="true"
+        lazy="true"
+    >
+		<key>
+			<column name="SE_CODE" />
+			 <!-- a foreign key in MTRL_CODE_SOLN_ELMNT_CODE referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.MtrlCodeSolnElmntCode" />
+	</set>
+
+</class>
+</hibernate-mapping>

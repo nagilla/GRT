@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.HardwareServer" 
+    table="HARDWARE_SERVERS"
+    lazy="false"
+>
+    <id
+        name="hardwareServerId"
+        type="string"
+        column="HARDWARE_SERVER_ID"
+        length="50"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="template"
+        type="string"
+        column="TEMPLATE"
+        length="100"
+    />
+    <property
+        name="productType"
+        type="string"
+        column="PRODUCT_TYPE"
+        length="100"
+    />
+    <property
+        name="hardwareServerCode"
+        type="string"
+        column="HARDWARE_SERVER_CODE"
+        length="100"
+    />
+	<property
+        name="hardwareServerDescription"
+        type="string"
+        column="HARDWARE_SERVER_DESC"
+        length="400"
+    />    
+    	</class>
+</hibernate-mapping>

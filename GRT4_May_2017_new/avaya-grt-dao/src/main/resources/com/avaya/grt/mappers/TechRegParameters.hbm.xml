@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.avaya.grt.mappers.TechRegParameters" table="TECH_REG_PARAMETERS">
+		<id name="parameterId"
+	        type="string"
+	        column="PARAMETER_ID"
+	        length="50">
+	        
+	        <generator class="sequence">
+            	<param name="sequence">GRTSEQUENCE_TR_PARAMS</param>
+        	</generator>
+	    </id>  
+	    
+	          
+	   <property
+	        name="paramKey"
+	        type="string"
+	        column="PARAM_KEY"
+	        length="50" 
+	   />
+	   <property
+	        name="paramValue"
+	        type="string"
+	        column="PARAM_VALUE"
+	        length="50" 	        
+	   />  
+            
+    <many-to-one
+        name="techRegId"
+        class="com.avaya.grt.mappers.TechnicalRegistration"
+    >
+		<column name="TECHNICAL_REGISTRATION_ID" length="50"/>
+	</many-to-one>
+	
+	<many-to-one
+        name="siteListId"
+        class="com.avaya.grt.mappers.SiteList"
+    >
+		<column name="SITE_LIST_ID" length="50"/>
+	</many-to-one>
+  	 </class>
+</hibernate-mapping>

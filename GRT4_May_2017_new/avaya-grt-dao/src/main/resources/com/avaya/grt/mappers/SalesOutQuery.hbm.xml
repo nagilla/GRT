@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <sql-query name="getSoldToObjectListFromSalesOut">
+		<![CDATA[ 	select distinct SOLD_TO_ID, COMPANY_NAME from SALES_OUT where BP_LINK_ID = :bpLinkId order by SOLD_TO_ID ]]>
+    </sql-query>
+    <sql-query name="getBpSoldToExistForTheUser">
+		<![CDATA[ 	select count(*) from SALES_OUT where SOLD_TO_ID = :soldTo and BP_LINK_ID = :bpLinkId ]]>
+    </sql-query>
+    <sql-query name="getRegistrationDetailFromSalesOut">
+    <![CDATA[ 	select distinct COMPANY_NAME from SALES_OUT where SOLD_TO_ID = :accountNumber ]]>
+    </sql-query>
+    <sql-query name="getPendingOrdersWithBPLinkId">
+		<![CDATA[ select s1.MATERIAL_CODE, sum(s1.QUANTITY_SOLD) QUANTITY_SOLD, s1.PRODUCT_LINE from Sales_Out s1 where s1.SOLD_TO_ID = :soldToId and s1.BP_LINK_ID = :bpLink and s1.DELETED = 'No' and length(trim(S1.material_code)) > 0 group by s1.MATERIAL_CODE, s1.PRODUCT_LINE order by s1.PRODUCT_LINE ]]>
+    </sql-query>
+    <sql-query name="getPendingOrdersWithoutBPLinkId">
+		<![CDATA[ select ltrim(s1.MATERIAL_CODE, '0') , sum(s1.QUANTITY_SOLD) QUANTITY_SOLD, s1.PRODUCT_LINE from Sales_Out s1 where s1.SOLD_TO_ID = :soldToId  and s1.DELETED = 'No' and length(trim(S1.material_code)) > 0 group by s1.MATERIAL_CODE, s1.PRODUCT_LINE order by s1.PRODUCT_LINE  ]]>
+    </sql-query>
+     <sql-query name="getBpSoldToExist">
+		<![CDATA[ 	select count(*) from SALES_OUT where SOLD_TO_ID = :soldTo ]]>
+    </sql-query>
+     <sql-query name="getSoldToIdFromSalesOut">
+		<![CDATA[ 	select distinct SOLD_TO_ID from SALES_OUT where BP_LINK_ID = :bpLinkId ]]>
+    </sql-query>
+    
+</hibernate-mapping>

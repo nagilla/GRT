@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.avaya.grt.mappers.Country" table="COUNTRY">
+		<id name="code" type="string" length="4" />
+		<property name="name" type="string" length="50" />
+		<property name="euflag" type="yes_no" length="1" />
+		<property name="threeCharISOCode" type="string" column="THREE_CHAR_ISO_CODE" length="3" />
+		<set name="states" inverse="true" lazy="true" cascade="all-delete-orphan">
+			<key>
+				<column name="CODE" />
+			</key>
+			<one-to-many class="com.avaya.grt.mappers.State" />
+		</set>
+		<set name="provinces" inverse="true" lazy="true" cascade="all-delete-orphan">
+			<key>
+				<column name="CODE" />
+			</key>
+			<one-to-many class="com.avaya.grt.mappers.Province" />
+		</set>
+	</class>
+</hibernate-mapping>

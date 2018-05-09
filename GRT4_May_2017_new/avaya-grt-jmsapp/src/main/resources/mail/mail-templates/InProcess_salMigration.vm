@@ -1,0 +1,123 @@
+<html>
+<body>
+<table cellpadding="0" border="1" width="572" style="border-style: none; width: 429.35pt;">
+<tbody><tr style="min-height: 82.5pt;">
+<td width="234" valign="bottom" style="padding: 0cm 0cm 0cm 5pt; width: 210pt; min-height: 82.5pt;">
+<p class="MsoNormal"><span lang="EN-US" style="color: white;"><img alt="Avaya" src="cid:logo"></span></p>
+</td>
+<td width="332" valign="bottom" style="padding: 0cm 0cm 7.5pt 11.25pt; background: rgb(198, 8, 8) none repeat scroll 0% 0%; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; width: 249.2pt; min-height: 82.5pt;">
+<p class="MsoNormal"><b><span lang="EN-US" style="font-size: 11.5pt; color: white;">Registration Request Alert:</span></b><span lang="EN-US" style="color: white;"><br>
+</span><span lang="EN-US" style="font-size: 21pt; color: white;">In Process Notification</span><span lang="EN-US" style="color: white;"></span></p>
+</td>
+</tr>
+<tr>
+<td width="568" style="padding: 26.25pt 15pt 11.25pt 0cm; width: 426.35pt;" colspan="2">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Dear Avaya Customer,<br>
+<br>
+This notification is to inform you that the  SAL Migration Technical On-Boarding request for the registration ID listed below has been received via the Avaya Global Registration Tool. The request is currently being processed. 
+<br><br>
+Thank you for your patience during the processing period. Avaya appreciates and values your business. 
+Please note: You will receive an email notification if additional information is needed and/or once the process is complete. For additional information regarding the request, visit <span lang="EN-US" style="font-size: 8pt;"><a target="_blank" href="http://support.avaya.com/"><span style="color: windowtext;">Avaya Support</span></a></span>
+<br>
+</span>
+</p>
+</td>
+</tr>
+<tr>
+<td style="border-style: none; padding: 0cm 0cm 18.75pt;" colspan="2">
+<table cellspacing="0" cellpadding="0" border="1" width="567" style="border: medium none ; width: 425.55pt;">
+<tbody><tr>
+<td width="546" style="border-style: solid none solid solid; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 409.55pt;">
+<table cellspacing="0" cellpadding="0" border="1" width="525" style="border: medium none ; width: 393.75pt; border-collapse: collapse;">
+<tbody><tr>
+<td width="185" style="border-style: solid solid solid solid; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Registration ID</span></p>
+</td>
+<td width="340" style="border-style: solid solid solid none; border-width: 1pt 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$registrationID</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Date Reported</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$dateReported</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Requestor Name</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$requestorName</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Requestor Email(s)</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$requestorEmail</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Customer Name</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$customerName</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Customer Sold-to</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$soldTo</span></p>
+</td>
+</tr>
+<tr>
+<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Registration Notes</span></p>
+</td>
+<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$notes</span></p>
+</td>
+</tr>
+</tbody></table>
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;"></span></p>
+</td>
+<td width="21" style="border-style: solid solid solid none; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 16pt;">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">&nbsp;</span></p>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td width="568" style="padding: 0cm 0cm 11.25pt; width: 426.35pt;" colspan="2">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;"><a target="_blank" href="http://support.avaya.com/"><span style="color: windowtext;">Support</span></a></span><span lang="EN-US" style="font-size: 8.5pt;"><br>
+To access this Registration Request go to:
+<br>
+<span>&nbsp;</span><a target="_blank" href="https://grt.avaya.com">grt.avaya.com</a> -&gt; 
+Select Update Existing Registration
+link -&gt; Select the Registration ID 
+</span>
+</p>
+
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">For help or questions with your registration go to: <a target="_blank" href="https://support.avaya.com/helpcenter/getGenericDetails?detailId=C2009101293650506080">Registration Help</a></span></p>
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Search InSite Knowledge Management and explore downloads,
+documentation, tutorials, and on-line technical support.</span></p>
+</td>
+</tr>
+<tr>
+<td width="568" style="padding: 0cm 0cm 7.5pt; width: 426.35pt;" colspan="2">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">This is an automated notification. Please do not respond to this
+email.</span></p>
+</td>
+</tr>
+</tbody></table>
+
+</body>
+</html>

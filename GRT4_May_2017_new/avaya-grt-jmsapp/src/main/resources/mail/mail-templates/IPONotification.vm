@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta content="MSHTML 6.00.6000.17107" name="GENERATOR"></head>
+<body>
+<table 
+style="WIDTH: 429.35pt; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+cellPadding=0 width=572 border=1>
+  <tbody>
+  <tr style="MIN-HEIGHT: 82.5pt">
+    <td 
+    style="padding: 0cm 0cm 0cm 5pt; width: 210pt; MIN-HEIGHT: 82.5pt;" 
+    vAlign=bottom width=234>
+      <p class="MsoNormal"><span lang="EN-US" style="COLOR: white"><img alt=Avaya src="cid:logo"></span></p></td>
+    <td 
+    style="PADDING-RIGHT: 0cm; PADDING-LEFT: 11.25pt; MIN-HEIGHT: 82.5pt; BACKGROUND: rgb(51,153,0); PADDING-BOTTOM: 7.5pt; WIDTH: 249.2pt; PADDING-TOP: 0cm; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous" 
+    vAlign=bottom width=332>
+      <p class="MsoNormal"><b><span lang="EN-US" 
+      style="FONT-SIZE: 11.5pt; COLOR: white">Registration Request 
+      Alert:</span></b><span lang="EN-US" style="COLOR: white"><br></span><span 
+      lang=EN-US style="FONT-SIZE: 21pt; COLOR: white">IPO Closed 
+      Notification</span><span lang="EN-US" style="COLOR: white"></span></p></td></tr>
+  <tr>
+    <td 
+    style="PADDING-RIGHT: 15pt; PADDING-LEFT: 0cm; PADDING-BOTTOM: 11.25pt; WIDTH: 426.35pt; PADDING-TOP: 26.25pt" 
+    width=568 colSpan=2>
+      <p class="MsoNormal"><span lang="EN-US" style="FONT-SIZE: 8.5pt">Dear Avaya 
+      Customer,<br><br>This notification is to inform you that the IP Office Technical On-Boarding request for the registration ID listed below has been completed and your on-boarding file is attached. 
+      Thank you again for your patience during the processing period. Please let us know if these changes can be made. </span></p></td></tr>
+  <tr>
+    <td 
+    style="PADDING-RIGHT: 0cm; PADDING-LEFT: 0cm; PADDING-BOTTOM: 18.75pt; BORDER-TOP-STYLE: none; PADDING-TOP: 0cm; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none" 
+    colSpan=2>
+      <table 
+      style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; WIDTH: 425.55pt; BORDER-BOTTOM: medium none" 
+      cellSpacing=0 cellPadding=0 width=567 border=1>
+        <tbody>
+        <tr>
+          <td 
+          style="BORDER-RIGHT: 1pt; PADDING-RIGHT: 0cm; BORDER-TOP: 1pt solid; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt solid; WIDTH: 409.55pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+          width=546>
+            <table 
+            style="BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; WIDTH: 393.75pt; BORDER-BOTTOM: medium none; BORDER-COLLAPSE: collapse" 
+            cellSpacing=0 cellPadding=0 width=525 border=1>
+              <tbody>
+              <tr>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: 1pt solid; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt solid; WIDTH: 138.75pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=185>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">Registration ID</span></p></td>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: 1pt solid; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: medium none; WIDTH: 255pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=340>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">$registrationID</span></p></td></tr>
+              <tr>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt solid; WIDTH: 138.75pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=185>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">Date Reported</span></p></td>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: medium none; WIDTH: 255pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=340>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">$dateReported</span></p></td></tr>
+              <tr>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt solid; WIDTH: 138.75pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=185>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">Date Completed</span></p></td>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: medium none; WIDTH: 255pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=340>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">$dateCompleted</span></p></td></tr>
+              <tr>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt solid; WIDTH: 138.75pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=185>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">Requestor Name</span></p></td>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: medium none; WIDTH: 255pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=340>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">$requestorName</span></p></td></tr>
+              <tr>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt solid; WIDTH: 138.75pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=185>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">Requestor Email(s)</span></p></td>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: medium none; WIDTH: 255pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=340>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">$requestorEmail</span></p></td></tr>
+              <tr>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt solid; WIDTH: 138.75pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=185>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">Customer Name</span></p></td>
+                <td 
+                style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: medium none; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: medium none; WIDTH: 255pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+                width=340>
+                  <p class="MsoNormal"><span lang="EN-US" 
+                  style="FONT-SIZE: 8.5pt">$customerName</span></p></td></tr>
+                  <tr>
+				<td width="185" style="border-style: none solid solid; border-width: medium 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 138.75pt;">
+				<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Customer Sold-to</span></p>
+				</td>
+				<td width="340" style="border-style: none solid solid none; border-width: medium 1pt 1pt medium; padding: 6pt 0cm 6pt 15pt; width: 255pt;">
+				<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">$soldTo</span></p>
+				</td>
+				</tr>
+                  </tbody></table>
+            <p class="MsoNormal"><span lang="EN-US" 
+            style="FONT-SIZE: 8.5pt"></span></p></td>
+          <td 
+          style="BORDER-RIGHT: 1pt solid; PADDING-RIGHT: 0cm; BORDER-TOP: 1pt solid; PADDING-LEFT: 15pt; PADDING-BOTTOM: 6pt; BORDER-LEFT: 1pt; WIDTH: 16pt; PADDING-TOP: 6pt; BORDER-BOTTOM: 1pt solid" 
+          width=21>
+            <p class="MsoNormal"><span lang="EN-US" 
+            style="FONT-SIZE: 8.5pt"></span>&nbsp;</p></td></tr></tbody></table>
+</td></tr>
+  
+  <tr>
+  <td style="border-style: none; padding: 0cm 0cm 18.75pt;" colspan="2">
+  <table cellspacing="0" cellpadding="0" border="1" width="567" style="border: medium none ; width: 425.55pt;">
+  <tbody><tr>
+  <td width="546" style="border-style: solid none solid solid; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 409.55pt;">
+  <table cellspacing="0" cellpadding="0" border="1" width="525" style="border: medium none ; width: 393.75pt; border-collapse: collapse;">
+  <tbody>
+  $dynamicData
+  </tbody></table>
+  </td>
+  <td width="21" style="border-style: solid solid solid none; border-width: 1pt 1pt 1pt; padding: 6pt 0cm 6pt 15pt; width: 16pt;">
+  <p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">&nbsp;</span></p>
+  </td>
+  </tr>
+  </tbody></table>
+  
+  </td>
+</tr>
+
+
+  <tr>
+    <td width="568" style="padding: 0cm 0cm 11.25pt; width: 426.35pt;" colspan="2">
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;"><a target="_blank" href="http://support.avaya.com/"><span style="color: windowtext;">Support</span></a></span><span lang="EN-US" style="font-size: 8.5pt;"><br>
+To access this Registration Request go to:
+<br>
+<span>&nbsp;</span><a target="_blank" href="https://grt.avaya.com">grt.avaya.com</a> -&gt; 
+Select Update Existing Registration
+link -&gt; Select the Registration ID 
+<br>
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">For help or questions with your registration go to: <a target="_blank" href="https://support.avaya.com/helpcenter/getGenericDetails?detailId=C2009101293650506080">Registration Help</a></span></p>
+
+</span>
+</p>
+<p class="MsoNormal"><span lang="EN-US" style="font-size: 8.5pt;">Search InSite Knowledge Management and explore downloads,
+documentation, tutorials, and on-line technical support.</span></p>
+</td>
+</tr>
+  <tr>
+    <td 
+    style="PADDING-RIGHT: 0cm; PADDING-LEFT: 0cm; PADDING-BOTTOM: 7.5pt; WIDTH: 426.35pt; PADDING-TOP: 0cm" 
+    width=568 colSpan=2>
+      <p class="MsoNormal"><span lang="EN-US" style="FONT-SIZE: 8.5pt">This is an 
+      automated notification. Please do not respond to this 
+  email.</span></p></td></tr></tbody></table></body></html>

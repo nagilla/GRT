@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@grtdev-scan.nonprod.avaya.com:1526/grtdev" />
+				<!-- <property name="username" value="esr" /> <property name="password" 
+					value="esrPass1$" /> -->
+				<property name="username" value="GRT_3_0_DEV" />
+				<property name="password" value="Grt_dev_199" />
+				<!-- <property name="username" value="edi" /> <property name="password" 
+					value="t@ng0Ed1" /> -->
+			</dataSource>
+		</environment>
+	</environments>
+</configuration>

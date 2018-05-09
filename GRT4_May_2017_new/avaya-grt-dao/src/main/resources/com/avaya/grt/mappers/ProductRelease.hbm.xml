@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.ProductRelease" table="PRODUCT_RELEASE">
+	<id
+        name="releaseNo"
+        type="string"
+        column="RELEASE_NO"
+        length="25"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="releaseNumber"
+        type="string"
+        column="RELEASE_NUMBER"
+        not-null="true"
+        length="50"
+    />
+
+	<property
+        name="template"
+        type="string"
+        column="TEMPLATE"
+        not-null="true"
+        length="50"
+    />
+    	<property
+        name="seCode"
+        type="string"
+        column="SE_CODE"
+        not-null="true"
+        length="50"
+    />
+    
+    <property
+        name="systemPlatform"
+        type="boolean"
+        column="SYSTEM_PLATFORM"
+        not-null="true"
+    />
+    <property
+        name="productType"
+        type="string"
+        column="PRODUCT_TYPE_CODE"
+        not-null="true"
+    />
+    <property
+        name="sslVpnEligible"
+        type="boolean"
+        column="SSL_VPN_ELIGIBLE"
+        not-null="true"
+    />
+    
+    <property
+        name="redemptionPrerequisiteSECode"
+        type="boolean"
+        column="REDEMPT_PREREQ_SE_CODE"
+        not-null="true"
+    />
+    
+	<!-- bi-directional many-to-one association to ArtProductType
+	<many-to-one
+        name="artProductType"
+        class="com.grt.domain.ArtProductType"
+        lazy="proxy"
+    >
+		<column name="PRODUCT_TYPE_CODE" not-null="true" length="50"/>
+	</many-to-one> -->
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+    
+    <bean id="properties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:grt.properties</value>
+				<value>classpath:grt_ui.properties</value>
+			</list>
+		</property>
+	</bean>  
+	
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties" ref="properties" />
+	</bean>
+	
+	<!-- 
+	<bean id="SiebelConfig" class="com.avaya.grt.SiebelConfig">
+		
+
+	</bean>
+	-->
+	
+	<!-- Siebel starts -->
+	<!-- 
+	<bean id="dataSourceSiebel" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//lshrdbs-esmreps.us1.avaya.com:1521/ESMREPS" />
+		<property name="username" value="grt" />
+		<property name="password" value="Staple334#" />
+	</bean> 
+	-->
+	<bean id="dataSourceSiebel" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${siebel.jndi}" />
+	</bean>
+	
+	<bean id="sqlSessionFactorySiebel" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceSiebel" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/siebel/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>			
+			<!-- <prop key="hibernate.show_sql">true</prop> -->
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
+			<prop key="hibernate.jndi.class">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.WeblogicTransactionManagerLookup</prop>
+			<prop key="hibernate.connection.release_mode">after_transaction</prop>
+			<!-- 			
+			<prop key="hibernate.transaction.auto_close_session">true</prop>
+			<prop key="hibernate.transaction.flush_before_completion">true</prop> -->
+			
+		</props>
+		</property>
+	</bean>
+	
+	<!--
+	<bean id="transactionManagerSiebel" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactorySiebel" />
+    </bean>
+	-->
+	
+	<!-- Siebel ends -->
+	
+	<!-- GRT starts -->	
+	<!-- 
+	<bean id="dataSourceGRT" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//grtdev-scan.nonprod.avaya.com:1526/grtdev" />
+		<property name="username" value="GRT_3_0_UAT" />
+		<property name="password" value="Grt_uat_199" />
+	</bean>
+	-->
+	<bean id="dataSourceGRT" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${grt.jndi}" />
+	</bean>
+	<bean id="sqlSessionFactoryGRT" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceGRT" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/grt/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<!-- <prop key="hibernate.show_sql">true</prop> -->
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.max_fetch_depth">4</prop>
+			<prop key="hibernate.cache.use_second_level_cache">true</prop>
+			<prop key="hibernate.cache.use_query_cache">true</prop>
+			<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+			<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
+			<prop key="hibernate.jndi.class">weblogic.jndi.WLInitialContextFactory</prop>
+        	<prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.WeblogicTransactionManagerLookup</prop>
+        	<prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>
+        	<prop key="hibernate.connection.release_mode">after_transaction</prop>
+			<!--  			
+			<prop key="hibernate.transaction.auto_close_session">true</prop>
+			<prop key="hibernate.transaction.flush_before_completion">true</prop> -->
+			<prop key="hibernate.default_schema">grt</prop>
+		</props>
+		</property>
+	</bean>
+<!--
+
+	<bean id="transactionManagerGRT" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryGRT" />
+    </bean>
+	-->
+	<!-- GRT ends -->
+    
+    <bean id="siebelClient" class="com.grt.integration.siebel.SiebelClient">
+		<property name="maximumRetry" value="${siebel.retryCount}" />
+		<property name="alsbUser" value="${grt_alsb_user}" />
+		<property name="alsbPasswd" value="${grt_alsb_password}" />
+		<property name="accountEndPoint" value="${siebel_account_endpoint_url}" />
+		<property name="serviceEndPoint" value="${siebel_sr_endpoint_url}" />
+		<property name="activityEndPoint" value="${siebel_activity_endpoint_url}" />
+		<property name="attachmentEndPoint" value="${siebel_attachment_endpoint_url}" />
+		<property name="assetEndPoint" value="${siebel_asset_endpoint_url}" />
+		<property name="eqmAssetUpdateEndPoint" value="${eqm_siebel_asset_update_url}" />
+	</bean>
+    
+    <bean id="sapClient" class="com.grt.integration.sap.SapClient">
+		<property name="maximumRetry" value="${sap_retry_count}" />
+		<property name="alsbUser" value="${grt_alsb_user}" />
+		<property name="alsbPasswd" value="${grt_alsb_password}" />
+		<property name="sapEndPoint" value="${sap_endpoint_url}" />
+		<property name="eqrEndPoint" value="${eqr_endpoint_url}" />
+		<property name="eqmEndPoint" value="${eqm_endpoint_url}" />
+		<property name="customerLookupEndPoint" value="${customerlookup_endpoint_url}" />
+		<property name="systemIdentifier" value="${system_identifier}" />
+		<property name="applicationMode" value="${mode}" />
+	</bean>
+	
+	<bean id="genericClient" class="com.grt.integration.art.GenericClient">
+		<property name="alsbUser" value="${grt_alsb_user}" />
+		<property name="alsbPasswd" value="${grt_alsb_password}" />
+		<property name="maximumRetry" value="${retry_count}" />
+		<property name="artConnectionTimeOut" value="${art_connection_timeout}" />
+		<property name="offboardEndPoint" value="${offboard_endpoint_url}" />
+		<property name="loaEndPoint" value="${loa_endpoint}" />
+	</bean>
+	<bean id="artClient" class="com.grt.integration.art.ARTClient">
+		<property name="maximumRetry" value="${retry_count}" />
+		<property name="maximumFMWRetry" value="${retry_count}" />
+		<property name="artUser" value="${art_username}" />
+		<property name="artPasswd" value="${art_password}" />
+		<property name="artEndPoint" value="${art_endpoint_url}" />
+		<property name="artAlarmEndPoint" value="${art_alarm_endpoint_url}" />
+		<property name="artConnectionTimeOut" value="${art_connection_timeout}" />
+		<property name="artSocketTimeOut" value="${art_socket_timeout}" />
+		<property name="alsbUser" value="${grt_alsb_user}" />
+		<property name="alsbPasswd" value="${grt_alsb_password}" />
+		<property name="acsbiPollingUrl" value="${acsbi_polling_url}" />
+		<property name="acsbiValidatesidUrl" value="${acsbi_validatesid_url}" />
+		<property name="salConcentratorEndpoint" value="${sal_concentrator_endpoint_url}" />
+		<property name="afidEndPoint" value="${afid_endpoint_url}" />
+		<property name="sidMidEndPoint" value="${sidmid_endpoint_url}" />
+		<property name="systemIdentifier" value="${system_identifier}" />
+		<property name="artSalgwOldEp" value="${art_salgw_installer_old}" />
+		<property name="artSalgwNewEp" value="${art_salgw_installer_new}" />
+	</bean>
+	
+	 <bean id="ipossClient" class="com.grt.integration.iposs.IpossClient">
+		<property name="maximumRetry" value="${retry_count}" />
+		<property name="alsbUser" value="${grt_alsb_user}" />
+		<property name="alsbPasswd" value="${grt_alsb_password}" />
+		<property name="tokenSearchEndPoint" value="${tokensearch_endpoint_url}" />
+		<property name="tokenRedemptionEndPoint" value="${tokenredemption_endpoint_url}" />
+		<property name="addressSearchEndPoint" value="${addressearch_endpoint_url}" />
+		<property name="shipToAddressEndPoint" value="${shiptoaddress_endpoint_url}" />
+		<property name="soldToAddressEndPoint" value="${soldtoaddress_endpoint_url}" />
+		<property name="sfdcSSRCreationEndPoint" value="${sfdc_ssr_creattion_endpoint_url}" />
+		<property name="loaEndPoint" value="${loa_endpoint_url}" />
+		<property name="bpAuthEndPoint" value="${bp_auth_endpoint_url}" />	
+		<property name="contractLookupEndPoint" value="${contract_lookup_endpoint_url}" />	
+		<property name="artConnectionTimeOut" value="${art_connection_timeout}" />
+	</bean>    
+	
+	
+	<!-- CXP starts -->
+	<!-- 
+	<bean id="dataSourceCXP" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//dlptlovdb01.nonprod.avaya.com:1526/ptldev1" />
+		<property name="username" value="CXP2CP" />
+		<property name="password" value="cplogic123" />
+	</bean>
+	-->
+	<bean id="dataSourceCXP" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${cxp.jndi}" />
+	</bean>
+	
+	<bean id="sqlSessionFactoryCXP" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceCXP" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/cxp/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<!-- <prop key="hibernate.show_sql">true</prop> -->
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
+			<prop key="hibernate.jndi.class">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.WeblogicTransactionManagerLookup</prop>
+			<prop key="hibernate.connection.release_mode">after_transaction</prop>
+			<!-- 			
+			<prop key="hibernate.transaction.auto_close_session">true</prop>
+			<prop key="hibernate.transaction.flush_before_completion">true</prop> -->
+		</props>
+		</property>
+	</bean>
+	
+	<!--
+	<bean id="transactionManagerCXP" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryCXP" />
+    </bean>
+	-->
+	
+	<!-- CXP ends -->
+	
+	<!-- CAT starts -->
+	<!-- 
+    <bean id="dataSourceCAT" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//lshrdbs-cssstg2.us1.avaya.com:1521/cssstg2" />
+		<property name="username" value="grt" />
+		<property name="password" value="A2v4a6y8a_77" />
+	</bean>
+	-->
+	<bean id="dataSourceCAT" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${cat.jndi}" />
+	</bean>
+	
+	<bean id="sqlSessionFactoryCAT" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceCAT" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/cat/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<!-- <prop key="hibernate.show_sql">true</prop> -->
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
+			<prop key="hibernate.jndi.class">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.WeblogicTransactionManagerLookup</prop>
+			<prop key="hibernate.connection.release_mode">after_transaction</prop>
+			<!--  			
+			<prop key="hibernate.transaction.auto_close_session">true</prop>
+			<prop key="hibernate.transaction.flush_before_completion">true</prop> -->
+		</props>
+		</property>
+	</bean>
+
+	<!--
+	<bean id="transactionManagerCAT" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryCAT" />
+    </bean>
+	-->
+	
+	<!-- CAT ends -->
+	
+	<!-- FMW starts -->
+	<!-- 
+	<bean id="dataSourceFMW" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//tlesbdb01.us1.avaya.com:1526/fmwdev" />
+		<property name="username" value="FMW_LOG" />
+		<property name="password" value="Icantr1d#65" />
+	</bean>
+	 -->
+	<bean id="dataSourceFMW" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${fmw.jndi}" />
+	</bean>
+	
+	<bean id="sqlSessionFactoryFMW" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceFMW" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/fmw/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<!-- <prop key="hibernate.show_sql">true</prop> -->
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</prop>
+			<prop key="hibernate.jndi.class">weblogic.jndi.WLInitialContextFactory</prop>
+			<prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.WeblogicTransactionManagerLookup</prop>
+			<prop key="hibernate.connection.release_mode">after_transaction</prop>
+			<!--  			
+			<prop key="hibernate.transaction.auto_close_session">true</prop>
+			<prop key="hibernate.transaction.flush_before_completion">true</prop> -->
+		</props>
+		</property>
+	</bean>
+	
+	<!--
+	<bean id="transactionManagerFMW" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryFMW" />
+    </bean>
+	-->
+	
+	<!-- FMW ends -->
+    <bean id="registrationGraphDao" class="com.avaya.grt.dao.graph.RegistrationGraphDaoImpl" parent="baseHibernateDao">  
+    </bean>
+    <bean id="installBaseDao" class="com.avaya.grt.dao.installbase.InstallBaseDaoImpl" parent="technicalRegistrationDao">
+	
+	</bean>
+	<bean id="eqrDao" class="com.avaya.grt.dao.equipmentremoval.EQRDaoImpl" parent="technicalRegistrationErrorDao">  
+    	    	
+    </bean>
+    <bean id="eqmDao" class="com.avaya.grt.dao.equipmentmove.EQMDaoImpl" parent="technicalRegistrationErrorDao">  
+    	    	
+    </bean>
+    <bean id="administratorDao" class="com.avaya.grt.dao.administrator.AdministratorDaoImpl" parent="technicalRegistrationDao">
+	
+	</bean>
+    <bean id="technicalRegistrationErrorDao" class="com.avaya.grt.dao.TechnicalRegistrationErrorDao" parent="technicalRegistrationDao" >
+ 
+    </bean>
+	<bean id="technicalRegistrationDao" class="com.avaya.grt.dao.TechnicalRegistrationDao" parent="technicalRegistrationArtDao">    
+    </bean>
+	<bean id="technicalRegistrationArtDao" class="com.avaya.grt.dao.TechnicalRegistrationArtDao" parent="baseHibernateDao">  
+    </bean>
+	<bean id="technicalOnBoardingDao" class="com.avaya.grt.dao.technicalonboarding.TechnicalOnBoardingDaoImpl" parent="baseHibernateDao" >
+	</bean>
+	
+	<bean id="salMigrationDao" class="com.avaya.grt.dao.salmigration.SalMigrationDaoImpl" parent="baseHibernateDao" >
+	</bean>
+	
+	<!-- Account creation -->
+	<bean id="accountDao" class="com.avaya.grt.dao.account.AccountDaoImpl" parent="baseHibernateDao">    
+    </bean>
+	
+	<bean id="catSoldToDao" class="com.avaya.grt.dao.cat.CatSoldToDaoImpl" parent="baseHibernateDao">    
+		<property name="catUserName" value="${cat_user_name}" />
+    </bean>
+    
+    <bean id="cxpSoldToDao" class="com.avaya.grt.dao.cxp.CXPSoldToDaoImpl" parent="baseHibernateDao">    
+		<property name="cxpUserName" value="${cxp_user_name}" />
+    </bean>
+    
+	
+	<bean id="baseHibernateDao" class="com.avaya.grt.dao.BaseHibernateDao">
+		<property name="sqlSessionFactoryGRT" ref="sqlSessionFactoryGRT" />
+		<property name="sqlSessionFactoryFMW" ref="sqlSessionFactoryFMW" />
+		<property name="sqlSessionFactoryCXP" ref="sqlSessionFactoryCXP" />
+		<property name="sqlSessionFactoryCAT" ref="sqlSessionFactoryCAT" />
+		<property name="sqlSessionFactorySiebel" ref="sqlSessionFactorySiebel" />
+		<property name="salGatewayMaterialCode" value="${salGatewayMaterialCode}" />
+	</bean>
+	
+	<bean id="registrationGraphService" class="com.avaya.grt.service.graph.RegistrationGraphServiceImpl" >
+		<property name="registrationGraphDao" ref="registrationGraphDao" />
+		</bean>
+	<bean id="installBaseService" class="com.avaya.grt.service.installbase.InstallBaseServiceImpl" parent="baseRegistrationService">
+		<property name="installBaseDao" ref="installBaseDao" />
+				
+	</bean>
+	<bean id="eqrService" class="com.avaya.grt.service.equipmentremoval.EQRServiceImpl" parent="baseRegistrationService" >
+		<property name="eqrDao" ref="eqrDao" />
+			
+	</bean>
+	<bean id="eqmService" class="com.avaya.grt.service.equipmentmove.EQMServiceImpl" parent="eqrService" >
+		<property name="eqmDao" ref="eqmDao" />
+			
+	</bean> 
+	<bean id="administratorService" class="com.avaya.grt.service.administrator.AdministratorServiceImpl" parent="baseRegistrationService" >
+		<property name="administratorDao" ref="administratorDao" />
+			
+	</bean> 
+    	
+	<bean id="technicalOnBoardingService" class="com.avaya.grt.service.technicalonboarding.TechnicalOnBoardingServiceImpl" parent="baseRegistrationService">  
+		<property name="technicalOnBoardingDao" ref="technicalOnBoardingDao" />
+		<property name="siebelClient" ref="siebelClient" />
+	
+	</bean>
+	
+	<bean id="salMigrationService" class="com.avaya.grt.service.salmigration.SalMigrationServiceImpl" parent="baseRegistrationService">  
+		<property name="salMigrationDao" ref="salMigrationDao" />
+	</bean>
+	
+	<bean id="ipoSchemaUtil" class="com.avaya.grt.web.util.IPOSchemaUtil">
+    </bean>
+	
+	<!-- Account creation -->
+	<!-- bean id="siebelService" class="com.avaya.grt.service.SiebelService" parent="baseRegistrationService">  
+		<property name="siebelDao" ref="siebelDao" />	
+	</bean-->
+	<bean id="accountService" class="com.avaya.grt.service.account.AccountServiceImpl" parent="baseRegistrationService">  
+		<property name="ipossClient" ref="ipossClient" />	
+		<property name="technicalRegistrationDao" ref="technicalRegistrationDao" />
+		<property name="catSoldToDao" ref="catSoldToDao" />
+		<!-- property name="siebelService" ref="siebelService" /-->
+		<property name="cxpSoldToDao" ref="cxpSoldToDao" />
+		<property name="accountDao" ref="accountDao" />
+		<!-- property name="defaultGrantPeriodInDays" value="${default_grant_period_in_days}" /-->
+	</bean>
+
+	<bean id="baseRegistrationService" class="com.avaya.grt.service.BaseRegistrationService" >
+			<property name="baseHibernateDao" ref="baseHibernateDao" />
+			<property name="siebelUpdateQueue" value="${siebelUpdateQueue}" />
+			<property name="srCreationGenericContactFName" value="${sr_creation_generic_contact_fname}" />
+			<property name="srCreationGenericContactLName" value="${sr_creation_generic_contact_lname}" />
+			<property name="srCreationGenericContactPhone" value="${sr_creation_generic_contact_phone}" />
+			<property name="srCreationGenericContactEmail" value="${sr_creation_generic_contact_email}" />
+			<property name="siebelClient" ref="siebelClient" />
+			<property name="sapClient" ref="sapClient" />
+			<property name="genericClient" ref="genericClient" />
+			<property name="mailUtil" ref="mailUtil" />
+			<property name="vCodesList" value="${vCodesList}" />
+			 <property name="ossnoIP" value="${ossno_ip}" />
+    		<property name="artServiceName" value="${service_name}" />
+    		<property name="artClient" ref="artClient" />
+	</bean>
+	<!-- Mail setting configuration starts -->
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean" 
+          p:resourceLoaderPath="classpath:${mail.templates.dir}" 
+          p:preferFileSystemAccess="true"/>
+          
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"
+          p:host="${mail.host}"
+          p:username="${mail.auth.name}"
+          p:password="${mail.auth.password}">
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">false</prop>
+                <prop key="mail.smtp.starttls.enable">false</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="mailUtil" class="com.grt.util.MailUtil">
+		<property name="javaMailSender" ref="mailSender"/>
+	  	<property name="velocityEngine" ref="velocityEngine"/>
+	  	<property name="sendFrom" value="${mail.send.from}"/>
+	  	<property name="logoResource" value="classpath:${mail.logo.file.path}"/>
+	  	<property name="awaitingInfoTemplate" value="${mail.awaiting.info.template.file}"/>
+	  	<property name="awaitingInfoIbEqrTemplate" value="${mail.awaiting.info.ib.eqr.template.file}"/>
+	  	<property name="awaitingInfoTobFirstAttemptTemplate" value="${mail.awaiting.info.tob.first.attempt.template.file}"/>
+	  	<property name="awaitingInfoTobSecondAttemptTemplate" value="${mail.awaiting.info.tob.second.attempt.template.file}"/>
+	  	<property name="completedTemplate" value="${mail.completed.template.file}"/>
+	  	<property name="completedIbEqrTemplate" value="${mail.completed.ib.eqr.template.file}"/>
+	  	<property name="completedEqrTemplate" value="${mail.completed.eqr.template.file}"/>
+	  	<property name="validatedInfoRecordValidationTemplate" value="${mail.validated.info.record.validation.template.file}"/>
+	  	<property name="completedTobTemplate" value="${mail.completed.tob.template.file}"/>
+	  	<property name="completedSALMigrationTemplate" value="${mail.completed.sal.migration.template.file}"/>
+	  	<property name="completedSALStepBTemplate" value="${mail.completed.stepb.template.file}"/>
+	  	<property name="inProcessTemplate" value="${mail.in.process.template.file}"/>
+	  	<property name="inProcessIbEqrTemplate" value="${mail.in.process.ib.eqr.template.file}"/>
+	  	<property name="inProcessSALMigrationTemplate" value="${mail.in.process.sal.migration.template.file}"/>
+	  	<property name="systemTemplate" value="${mail.system.template.file}"/>
+	  	<property name="mailSendToSystemList" value="${mail.send.to.system.list}"/>
+	  	<property name="ipoTemplate" value="${mail.ipo.template.file}"/>
+	  	<property name="onBoardingTemplate" value="${mail.onBoarding.template.file}"/>
+	  	<property name="cmPollingCompletionTemplate" value="${mail.CMPollingCompletion.template.file}"/>
+	  	<property name="stepBSRCancellation" value="${mail.cancelled.stepbtemplate.file}"/>
+	  	<property name="tokenRedemptionOefcTemplate" value="${mail.token.redemption.oefc.file}"/>
+	  	<property name="tokenRedemptionOefcEmailList" value="${mail.send.to.token.redemption.oefc}"/>
+	  	<property name="duplicateAccountCMDTemplate" value="${mail.account.creation.duplicate.cmd.file}"/>
+	  	<property name="duplicateAccountCreationEmailList" value="${mail.send.to.duplicate.account.creation.cmd}"/>
+	  	<property name="accountCreationTemplate" value="${mail.account.creation.oefc.file}"/>
+	  	<property name="acsbiEpnSurveyUrl" value="${acsbi_epn_survey_url}" />
+	  	<property name="inProcessEqmTemplate" value="${mail.in.process.eqm.template.file}" />
+	  	<property name="completedEqmTemplate" value="${mail.completed.eqm.template.file}" />
+	  	<property name="awaitingInfoTemplateForAlarm" value="${mail.awaiting.info.alarm.connectivity}" />
+	</bean>
+    <!-- Mail setting configuration ends -->
+    
+     <bean id="springApplicationContext" class="com.avaya.grt.ws.rest.SpringApplicationContext" />   
+     <!-- Property configuration for GrtConfig starts -->
+     	 <import resource="applicationContextUI.xml" />
+     <!-- Property configuration for GrtConfig ends -->
+    
+</beans>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.LogServiceDetails" 
+    table="LOG_SERVICE_DETAILS"
+    lazy="false"
+>
+    <id
+        name="serviceDetailId"
+        type="string"
+        column="SERVICE_DETAIL_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+    <property
+        name="serviceCode"
+        type="string"
+        column="SERVICE_CODE"
+        length="50"
+    />
+    <property
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        length="50"
+    />
+    <property
+        name="quantity"
+        type="double"
+        column="QUANTITY"
+        length="20"
+    />
+    <property
+        name="listPrice"
+        type="double"
+        column="LIST_PRICE"
+        length="20"
+    />
+    <property
+        name="discountPrice"
+        type="double"
+        column="DISCOUNT_PRICE"
+        length="20"
+    />
+    <property
+        name="netPrice"
+        type="double"
+        column="NET_PRICE"
+        length="20"
+    />
+    <property
+        name="itemNumber"
+        type="string"
+        column="ITEM_NUMBER"
+        length="50"
+    />
+    <property
+        name="serviceCodeDescription"
+        type="string"
+        column="SERVICE_CODE_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="materialCodeDescription"
+        type="string"
+        column="MATERIAL_CODE_DESCRIPTION"
+        length="500"
+    />
+    <!-- bi-directional many-to-one association to TokenRedemption -->
+    <many-to-one
+        name="tokenRedemption"
+        class="com.avaya.grt.mappers.TokenRedemption"
+        lazy="false" cascade="none">
+        <column name="TOKEN_REDEMPTION_ID" not-null="true" length="50"/>
+    </many-to-one>
+</class>
+</hibernate-mapping>

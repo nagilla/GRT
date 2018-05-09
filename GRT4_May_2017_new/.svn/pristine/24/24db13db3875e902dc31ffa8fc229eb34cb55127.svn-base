@@ -1,0 +1,25 @@
+/*** START EQUIP MOVE STYLES ***/
+
+.eqm-process {}
+
+.eqm-process .controls {
+  text-align: center;
+  margin: 20px 0 20px;
+  clear: both; }
+
+.eqm-process #eqmProcessForm .select-remove-wrap {
+  height: 24px;
+  padding: 6px 34px 2px;
+  background: #eeedea;}
+
+.eqm-process #equip-table-wrap.data-table-wrap .collapse-box-container {
+  display: block;}
+
+.erroWrap {
+    max-width:350px;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+
+/*** END EQUIP MOVE STYLES ***/

@@ -1,0 +1,81 @@
+/*** START SITE CONTACT VALIDATION STYLES ***/
+.site-contact-validation .form {
+  display: table;
+  width: 100%;
+}
+
+.site-contact-validation .form > * {
+  display: table-cell;
+  width: 1%;
+  padding-right: 30px;
+}
+
+.site-contact-validation .form > *:last-child {
+  padding-right: 0;
+}
+
+.site-contact-validation .form > * h5 {
+  text-transform: uppercase;
+}
+
+.site-contact-validation .form > * textarea {
+  margin-top: 10px;
+  width: calc(100% - 12px);
+  min-height: 395px;
+  resize: none;
+}
+
+.site-contact-validation .form > * .input-row {
+  width: 100%;
+  display: table;
+  margin: 10px 0;
+}
+
+.site-contact-validation .form > * .input-row > * {
+  display: table-cell;
+  width: 50%;
+  vertical-align: middle;
+}
+
+.site-contact-validation .form > * .input-row > *:first-child {
+  padding-right: 10px;
+}
+
+.site-contact-validation .form > * .input-row > *.selectList_container {
+  display: inline-block;
+  width: auto;
+}
+
+.site-contact-validation .form > * .input-row input[type="text"] {
+  width: calc(100% - 12px);
+}
+
+.site-contact-validation .form > * .input-row + h5 {
+  margin-top: 25px;
+}
+
+.site-contact-validation .form > * .input-row.radio-group > * {
+  display: initial;
+  width: inherit;
+}
+
+.site-contact-validation .controls {
+  text-align: center;
+  margin-top: 20px;
+  clear: both;
+}
+
+.site-contact-validation .controls img {
+  position: relative;
+  top: 4px;
+  left: 4px;
+}
+
+.site-contact-validation .input-row span.sameAsAboveTxt{
+	width: 43% !important;
+}
+
+.site-contact-validation .input-row #sameAsAbove{
+	padding-right : 0px;
+}
+/*** END SITE CONTACT VALIDATION STYLES ***/

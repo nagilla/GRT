@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="8.1">
+    <xs:element name="response">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="header" type="headerType"/>
+                <xs:element name="data">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="inventory">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="hardware">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Units">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element maxOccurs="unbounded" name="Unit" minOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="DeviceNumber" type="xs:unsignedByte" />
+                                                                            <xs:element name="description" type="xs:string" />
+                                                                            <xs:element name="VersionMajor" type="xs:unsignedByte" />
+                                                                            <xs:element name="VersionMinor" type="xs:unsignedByte" />
+                                                                            <xs:element name="VersionBuild" type="xs:unsignedShort" />
+                                                                            <!-- 
+                                                                                * This field is the IP Office product serial number
+                                                                                * Its value is retrived from the GOD layer
+                                                                                * This is the exact same value seen from the IP Office Manager
+                                                                                * Please note sometimes this value will not represent the 
+                                                                                * actual HW serialnumber due to technical limitations.
+                                                                                * However, for consistency with the Manager this value
+                                                                                * is displayed at all times.
+                                                                            -->
+                                                                            <xs:element name="SerialNumber" type="xs:string" />
+                                                                            <xs:element name="MacAddress" type="xs:string" />
+                                                                            <xs:element name="IPAddress" type="xs:string" />
+                                                                            <xs:element name="ModuleNumber" type="xs:unsignedByte" />
+                                                                            <xs:element name="State" type="xs:string" />
+                                                                            <xs:element name="TAAUnit" type="xs:boolean" maxOccurs="1" minOccurs="0" />
+                                                                            <xs:element name="FullDescription" type="xs:string" />
+                                                                            <!-- 
+                                                                                * "Code" in this case is the inventory code which uniquely represents
+                                                                                * An external expansion unit.
+                                                                                * Currently, the code is the material code (as of Jan 2012) of the hardware.
+                                                                            -->
+                                                                            <xs:element name="Code" type="xs:string" />
+                                                                            <!-- 
+                                                                                * This field is only applicable for Avaya provided Dell and HP business Edition
+                                                                                * servers. In all other situations this field will not appear.
+                                                                                * The value is the Manufacturer System Information Serial Number of a HP or Dell
+                                                                                * machine. This is the number that Dell and HP support will ask first
+                                                                            -->
+                                                                            <xs:element name="SysManufacturerSerialNo" type="xs:string" maxOccurs="1" minOccurs="0" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Modules">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element maxOccurs="unbounded" name="Module" minOccurs="0">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="DeviceNumber" type="xs:unsignedByte" />
+                                                                            <xs:element name="description" type="xs:string" />
+                                                                            <xs:element name="VersionMajor" type="xs:unsignedByte" />
+                                                                            <xs:element name="VersionMinor" type="xs:unsignedByte" />
+                                                                            <xs:element name="VersionBuild" type="xs:unsignedShort" />
+                                                                            <xs:element name="SerialNumber" type="xs:string" />
+                                                                            <xs:element name="MacAddress" type="xs:string" />
+                                                                            <xs:element name="IPAddress" type="xs:string" />
+                                                                            <xs:element name="ModuleNumber" type="xs:unsignedByte" />
+                                                                            <xs:element name="BaseCardState" type="xs:string" />
+                                                                            <xs:element name="DaughterCardState" type="xs:string" />
+                                                                            <xs:element name="TAABaseCard" type="xs:boolean" maxOccurs="1" minOccurs="0" />
+                                                                            <xs:element name="TAATrunkCard" type="xs:boolean" maxOccurs="1" minOccurs="0" />
+                                                                            <xs:element name="BaseCardFullDescription" type="xs:string" />
+                                                                            <!-- 
+                                                                                * "CodeBaseCard" in this case is the inventory code which uniquely represents
+                                                                                * a base card.
+                                                                                * Currently, the code is the material code (as of Jan 2012) of the hardware.
+                                                                                * If the value is empty, it means the hardware does not exist or does not have an applicable material code.
+                                                                                * ignore this hardware for the purpose of Ibase and technical Registration
+                                                                            -->
+                                                                            <xs:element name="CodeBaseCard" type="xs:string" />
+                                                                            <xs:element name="TrunkCardFullDescription" type="xs:string" />
+                                                                            <!-- 
+                                                                                * "CodeTrunkCard" in this case is the inventory code which uniquely represents
+                                                                                * a trunk/daughter card.
+                                                                                * Currently, the code is the material code (as of Jan 2012) of the hardware.
+                                                                                * If the value is empty, it means the trunk card does not exist or does not have an applicable material code
+                                                                                * ignore for purpose of IBase creation and Technical Registration
+                                                                            -->
+                                                                            <xs:element name="CodeTrunkCard" type="xs:string" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="SDCard" maxOccurs="2" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="CurrentOperatingMode" type="xs:string" />
+                                                                <!-- 
+                                                                    * "Code" in this case is the inventory code which uniquely represents
+                                                                    * the SD card
+                                                                    * Currently, the code is the material code (as of Jan 2012) of the hardware.
+                                                                    * The code is based on the currentOperatingMode of the SDCard
+                                                                -->
+                                                                <xs:element name="Code" type="xs:string" />
+                                                                <xs:element name="SerialNumber" type="xs:unsignedInt" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Software">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="component" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="description" type="xs:string" />
+                                                                <xs:element name="version" type="xs:string" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="licenses">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <!-- 
+                                                        * "licenseFeatureKey" is the unqiue number of an IPO system which is used to generate licenses
+                                                        * This number is called different things depending on platform and mode
+                                                        * IP 500 V2 standard mode: Dongle Serial Number
+                                                        * IP 500 V2 Quick mode: Feature Key
+                                                        * IPO on Linux: System Identification
+                                                    -->
+                                                    <xs:element name="licenseFeatureKey" type="xs:string" />
+                                                    <xs:element maxOccurs="unbounded" name="license" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Key" type="xs:string" />
+                                                                <xs:element name="Type" type="xs:unsignedByte" />
+                                                                <xs:element name="TypeDescription" type="xs:string" />
+                                                                <xs:element name="Status" type="xs:string" />
+                                                                <xs:element name="Quantity" type="xs:unsignedByte" />
+                                                                <xs:element name="ExpiryDate" type="xs:string" />
+                                                                <!-- 
+                                                                    * "Code" in this case is the inventory code which uniquely represents
+                                                                    * a license
+                                                                    * The code is mapped by looking at a license's Type, Quantity, and ExpirtyDate.
+                                                                    * Currently, the code is the material code (as of Jan 2012) of License
+                                                                    * If Code is empty, that indicates no material code mapping is performed 
+                                                                -->
+                                                                <xs:element name="Code" type="xs:string" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="set" type="xs:int" use="optional" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="status" type="xs:int" use="required" />
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="headerType">
+        <xs:sequence>
+            <xs:element name="definition" type="xs:string"/>
+            <xs:element name="version" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<query name="getSSLVPNProductReleases">
+		<![CDATA[ Select productRelease from ProductRelease productRelease where productRelease.sslVpnEligible = 1]]>
+    </query>
+   
+   <query name="getReleasesWithoutSSL">
+		<![CDATA[ Select productRelease from ProductRelease productRelease where upper(productRelease.productType)=:productType ]]>
+    </query>
+   
+    <query name="getReleasesWithSSL">
+		<![CDATA[ Select productRelease from ProductRelease productRelease where upper(productRelease.productType)=:productType and productRelease.sslVpnEligible=1 ]]>
+    </query>
+</hibernate-mapping>

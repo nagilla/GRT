@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.LocalTRConfig" 
+    table="LOCAL_TR_CONFIG"
+    lazy="false" mutable="false"
+>
+    <id
+        name="localTRConfigId"
+        type="string"
+        column="LOCAL_TR_CONFIG_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+    <property
+        name="productType"
+        type="string"
+        column="product_type"
+        length="50"
+    />
+    <property
+        name="seCode"
+        type="string"
+        column="se_code"
+        length="50"
+    />
+    <property
+        name="comments"
+        type="string"
+        column="comments"
+        length="2000"
+    />
+    <property
+        name="connectivityType"
+        type="string"
+        column="connectivity_type"
+        length="10"
+    />
+    <property
+        name="privateIpEligible"
+        type="boolean"
+        column="private_ip_eligible"
+        length="1"
+    />
+    <property
+        name="alarmOriginationEligible"
+        type="boolean"
+        column="alarm_origination_eligible"
+        length="1"
+    />
+    <property
+        name="randomPasswordEligible"
+        type="boolean"
+        column="random_password_eligible"
+        length="1"
+    />
+    <property
+        name="vpmsldnEligibleSeid"
+        type="boolean"
+        column="vpmsldn_eligible_seid"
+        length="1"
+    />
+    <property
+        name="foptionEligible"
+        type="boolean"
+        column="foption_eligible"
+        length="1"
+    />
+    <property
+        name="docrEligible"
+        type="boolean"
+        column="docr_eligible"
+        length="1"
+    />
+    <property
+        name="authFileIdEligible"
+        type="boolean"
+        column="auth_file_id_eligible"
+        length="1"
+    />
+    <property
+        name="inadsEligible"
+        type="boolean"
+        column="inads_eligible"
+        length="1"
+    />
+    <property
+        name="cmProduct"
+        type="boolean"
+        column="cm_product"
+        length="1"
+    />
+     <property
+        name="template"
+        type="string"
+        column="template"
+        length="50"
+    />
+</class>
+</hibernate-mapping>

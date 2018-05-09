@@ -1,0 +1,117 @@
+@CHARSET "ISO-8859-1";
+
+/*
+/////////////////////////////////////////////////////////////////////////////
+//
+// cobrowse.css
+//
+// Copyright 2008-2015 Avaya Inc. All Rights Reserved.
+//
+// Usage of this source is bound to the terms described
+// in licenses/License.txt
+//
+// Avaya - Confidential & Proprietary. Use pursuant to your signed agreement
+// or Avaya Policy
+//
+/////////////////////////////////////////////////////////////////////////////
+*/
+
+/*
+ *	A default stylesheet for the user to extend.
+ */
+html, body {
+	width: 99%;
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, san-serif;
+	font-size: 12px;
+	background-color: #ffffff;
+}
+
+.featurette-divider {
+    margin: 15px 0;
+}
+
+.form-control {
+    height: 30px;
+    padding: 4px 6px;
+}
+
+.modal-header {
+    padding: 10px;
+}
+
+.modal-body {
+    margin: 10px;
+    padding: 20px;
+}
+
+#move-top.main-top-button {
+    bottom: 40px;
+    display: none;
+    position: fixed;
+    right: 20px;
+    z-index: 100;
+}
+
+#move-top .spacer {
+    transition: all 0.2s ease-in-out 0s;
+}
+
+#move-top:hover .spacer {
+    background-color: lightgrey;
+}
+
+#move-top .spacer {
+    background: url("../img/circle-bg.png") repeat scroll 0 0 #ffffff;
+    border-radius: 50px;
+    display: block;
+    height: 40px;
+    margin: -4px 0 0 -4px;
+    position: absolute;
+    width: 40px;
+    z-index: -1;
+}
+
+.form_main_div {
+    font-family:Verdana, Arial;
+    font-size: 12px;
+    font-weight: normal;
+    padding:5px;
+}
+
+.form_header_div {
+    color:white;
+    width: 100%;
+    color:white;
+    font-weight: normal;
+    background-color: #3399CC;
+    padding:15px;
+}
+
+td {
+    height: 22px;
+}
+
+input,select,label {
+    padding: 3px;
+    margin: 2px;
+}
+
+button {
+    width: 70px;
+    height: 30px;
+}
+
+span.asterisk {
+    color: red;
+    font-size: 15px;
+    display: inline-block;
+}
+
+/* Form Styles */
+td.cui-form-label {
+    width: 35%;
+    text-align: right;
+    padding: 5px;
+}

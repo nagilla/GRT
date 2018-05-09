@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="salmigration" namespace="/salmigration" extends="default">
+		<default-interceptor-ref name="defaultStack" />
+	
+		 <action name="salMigrationOnly" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="salMigration">
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="saveSiteRegistration" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="saveSiteRegistration">
+			<result name="success" type="dispatcher">/WEB-INF/content/salmigration/salGatewayMigrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="addToList" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="addToList">
+			<result name="salgw" type="dispatcher">/WEB-INF/content/salmigration/salGatewayMigrationList.jsp</result>
+			<result name="tobConfig" type="dispatcher">/WEB-INF/content/technicalRegistrationConfig.jsp</result>
+			<result name="tobConfigUpdate" type="dispatcher">/WEB-INF/content/technicalRegistrationUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="nextForSal" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="nextForSal">
+			<result name="success" type="dispatcher">/WEB-INF/content/salmigration/salMigrationDetails.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="backFromSALGatewayMigrationList" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="backFromSALGatewayMigrationList">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="backFromSALMigrationDetails" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="backFromSALMigrationDetails">
+			<result name="success" type="dispatcher">/WEB-INF/content/salmigration/salGatewayMigrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="cancelSALMigrationDetails" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="cancelSALMigrationDetails">
+			<!-- <result name="success" type="redirectAction">
+				<param name="actionName">home-action</param>
+				<param name="namespace">/</param>
+			</result> -->
+			<!-- Fix https redirect issue - cobrowse -->
+			<result name="success" type="redirect">https://${hostName}/grt/home-action.action</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="getSALGatewayDetails" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="getSALGatewayDetails">
+			<result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+			</result>   
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		 <action name="saveExistingRegisteredAssetsList" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="saveExistingRegisteredAssetsList">
+			<result name="error" type="dispatcher">/WEB-INF/content/salmigration/salMigrationDetails.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		 <action name="createNewSALGateway" class="com.avaya.grt.web.action.salmigration.SalMigrationAction" method="createNewSALGateway">
+			<result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<result name="error" type="dispatcher">/WEB-INF/content/salmigration/salGatewayMigrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+	</package>
+	
+</struts>

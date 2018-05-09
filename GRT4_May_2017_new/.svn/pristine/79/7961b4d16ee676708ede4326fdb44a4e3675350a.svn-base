@@ -1,0 +1,339 @@
+@CHARSET "ISO-8859-1";
+
+/*
+/////////////////////////////////////////////////////////////////////////////
+//
+// cbe.css
+//
+// Copyright 2008-2015 Avaya Inc. All Rights Reserved.
+//
+// Usage of this source is bound to the terms described
+// in licences/License.txt
+//
+// Avaya - Confidential & Proprietary. Use pursuant to your signed agreement
+// or Avaya Policy
+//
+/////////////////////////////////////////////////////////////////////////////
+*/
+
+ .cbe-radio-agent-touch {
+      position: absolute;
+      z-index: 2147483641;
+      border: 1px solid red;
+      border-radius: 5px;          
+      opacity: 0.6;
+      filter:alpha(opacity=60); /* For UA < IE8 */
+}
+
+.cbe-agent-touch {
+    border-style: solid;
+    border-color: red;
+}
+
+.cbe-container {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    width: 275px;
+    position: fixed;
+    height: auto;
+
+    z-index: 2147483647;
+    background: ghostwhite scroll;
+    cursor: auto;
+
+    opacity:1 !important;
+    filter:alpha(opacity=90); /* For UA < IE8 */
+
+    border: 1px solid #AAAAAA;
+    box-shadow: 0 0 30px 1px #CCCCCC;
+
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -khtml-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -khtml-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Docking Options */
+.cbe-dock-BR {top: 10px;right: 10px}
+.cbe-dock-BL {bottom: 10px;left: 10px}
+.cbe-dock-TL {top: 10px;left: 10px}
+.cbe-dock-TR {top: 10px;right: 10px}
+.cbe-dock-TC {top: 10px;left: 35%}
+.cbe-dock-BC {bottom: 10px;left: 35%}
+
+.cbe-header {
+
+    color: white;
+    padding: 1px;
+    height: 30px;
+    cursor: pointer;
+
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -khtml-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-radius-topright: 8px;
+    -webkit-border-top-right-radius: 5px;
+    -khtml-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+	
+	/* For browsers not supporting below gradients */
+	background: #40464F;
+
+    background-image: linear-gradient(bottom, rgb(41,49,58) 47%, rgb(64,70,79) 74%);
+    background-image: -o-linear-gradient(bottom, rgb(41,49,58) 47%, rgb(64,70,79) 74%);
+    background-image: -moz-linear-gradient(bottom, rgb(41,49,58) 47%, rgb(64,70,79) 74%);
+    background-image: -webkit-linear-gradient(bottom, rgb(41,49,58) 47%, rgb(64,70,79) 74%);
+    background-image: -ms-linear-gradient(bottom, rgb(41,49,58) 47%, rgb(64,70,79) 74%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.47, rgb(41,49,58)),
+        color-stop(0.74, rgb(64,70,79))
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#40464F", endColorstr="#29313A", GradientType=0); /* for IE */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#40464F', endColorstr='#29313A', GradientType=0)";
+}
+
+.cbe-header > span {
+    float: left;
+    margin: 4px 4px 4px 4px;
+    font-size: 13px;
+}
+
+.cbe-icon {
+    background: no-repeat center;
+}
+
+.cbe-spinner-head {
+    width: 34px;
+    height: 18px;
+    float: left;
+    display: none;
+    background: no-repeat center;
+    background-image: url(/grt/live-chat/images/cobrowse/spinner.gif);
+}
+
+.cbe-spinner {
+    width: 34px;
+    height: 18px;
+    float: left;
+    display: block;
+    margin-top: 10px;
+    background: no-repeat center;
+    background-image: url(/grt/live-chat/images/cobrowse/spinner.gif);
+}
+
+.cbe-icon-status {
+    width: 22px;
+    height: 24px;
+    float: left;
+    margin: 2px;
+    background: no-repeat center;
+}
+
+.cbe-icon-green {background-image: url(/grt/live-chat/images/cobrowse/green.png);}
+.cbe-icon-red {background-image: url(/grt/live-chat/images/cobrowse/red.png);}
+.cbe-icon-yellow {background-image: url(/grt/live-chat/images/cobrowse/yellow.png);}
+.cbe-icon-grey {background-image: url(/grt/live-chat/images/cobrowse/grey.png);}
+
+.cbe-icon-minimize {background-image: url(/grt/live-chat/images/cobrowse/minimize.png);}
+.cbe-icon-maximize {background-image: url(/grt/live-chat/images/cobrowse/maximize.png);}
+.cbe-icon-cobrowse {background-image: url(/grt/live-chat/images/cobrowsecobrowse.png); width:31px; height:22px; margin:10px; float:left;}
+
+.cbe-header-button {
+    width: 18px;
+    height: 18px;
+    float: right;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.cbe-info {
+    padding: 5px;
+    color: black;
+    border-width: 1px;
+    text-align: left;
+    font-size: 12px;
+    margin: 0px;
+}
+
+.cbe-request {
+    margin: 1px;
+    padding: 0px;
+    color: #ffffff;
+    text-align: left;
+    font-size: 12px;
+    height: 80px;
+    background: tan;
+}
+
+.cbe-revoke {
+    margin: 1px;
+    padding: 5px;
+    color: white;
+    text-align: left;
+    font-size: 12px;
+    height: 60px;
+    background: tan;
+}
+
+.cbe-error {
+    padding: 3px;
+    color: red;
+    text-align: left;
+    font-size: 14px;
+    margin: 5px;
+}
+
+.cbe-disclaimer {
+    color: floralwhite;
+    text-align: left;
+    font-size: 09px;
+    margin: 0px;
+    padding: 10px;
+    background: #000000;
+    height: 35px;
+    overflow: auto;
+}
+
+.cbe-btn-revoke {
+    /* background: #DA4F49 linear-gradient(to bottom, #EE5F5B, #BD362F) repeat-x; */
+    /* Fix for Safari */
+    background-color: #DA4F49;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#EE5F5B), to(#BD362F));
+    background-image: -webkit-linear-gradient(top, #EE5F5B, #BD362F);
+    background-image: -moz-linear-gradient(top, #EE5F5B, #BD362F);
+    background-image: -o-linear-gradient(top, #EE5F5B, #BD362F);
+    background-image: linear-gradient(to bottom, #EE5F5B, #BD362F);
+    background-repeat: repeat;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    /*height: 20px;*/
+    font-size: 14px;
+    margin:5px;
+    padding: 6px 14px;
+    cursor: pointer;
+    float:left;
+}
+
+.cbe-btn {
+    /* background: #363636 linear-gradient(to bottom, #444444, #222222) repeat-x; */
+    /* Fix for Safari */
+    background-color: #363636;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#444444), to(#454545));
+    background-image: -webkit-linear-gradient(top, #444444, #222222);
+    background-image:    -moz-linear-gradient(top, #444444, #222222);
+    background-image:      -o-linear-gradient(top, #444444, #222222);
+    background-image:         linear-gradient(to bottom, #444444, #222222);
+    background-repeat: repeat;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    margin:5px;
+    padding: 6px 14px;
+    cursor: pointer;
+    float:left;
+}
+
+.cbe-btn-big {
+    font: 16px Calibri;
+    margin: 10px;
+}
+
+.cbe-btn-XL {
+    /*height: 30px;*/
+    font: 22px Verdana;
+}
+
+.cbe-btn-small {
+    /*height: 20px;*/
+    font-size: 14px;
+}
+
+.cbe-input {
+    font-size: 13px;
+    width: 200px;
+    color: #555555;
+    display: inline-block;
+    height: 22px;
+    margin: 3px;
+    padding: 2px 3px;
+    vertical-align: middle;
+}
+
+.cbe-remote-cursor {
+     height: 32px;
+     width: 32px;
+     top: 0px;
+     left: 0px;
+     position: absolute;
+     background-image: url(/grt/live-chat/images/cobrowse/pointer.png);
+	 /*NOTE: the "z-index": of trans DIV is kept as 2147483646 which is less than that of cbeToolbar z-index: 2147483647*/
+	 z-index: 2147483646;
+	 
+ }
+
+.cbe-highlight {
+    position: absolute;
+    z-index: 2147483641;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    background: #adadad;
+    opacity: 0.6;
+	filter:alpha(opacity=60); /* For UA < IE8 */
+}
+
+.cbe-highlight-img {
+    position: absolute;
+    z-index: 2147483641;
+    border: 7px solid #adadad;
+    border-radius: 10px;
+    background: transparent;
+    opacity: 0.9;
+	filter:alpha(opacity=90); /* For UA < IE8 */
+}
+
+.cbe-mask-help {
+	background-image: url(/grt/live-chat/images/cobrowse/mask.png);
+	display: inline-block;
+	height: 22px;
+	width: 24px;
+    cursor: help;
+}
+
+.cbe-block-help {
+    background-image: url(/grt/live-chat/images/cobrowse/mask.png);
+    display: inline-block;
+    height: 22px;
+    width: 24px;
+    cursor: help;
+}
+
+.cbe-readonly-mask {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0; /* For IE */
+	filter:alpha(opacity=00); /* For UA < IE8 */
+	/*NOTE: the "z-index": of trans DIV is kept as 2147483645 which is less than that of cbeToolbar z-index: 2147483647*/
+	z-index: 2147483645;
+	color: #003399;
+	background-color: #003399; /* For IE */
+	
+}
+.cbe-cursor-not-allowed {
+	cursor:not-allowed;
+	/*overflow-y: hidden;*/
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.ArtProductSolutionElement" 
+    table="ART_PRODUCT_SOLUTION_ELEMENT"
+>
+    <id
+        name="productTypeId"
+        type="string"
+        column="PRODUCT_TYPE_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+
+    <property
+        name="aorigRequired"
+        type="string"
+        column="AORIG_REQUIRED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="privateIpAddress"
+        type="string"
+        column="PRIVATE_IP_ADDRESS"
+        length="1"
+    />
+    <property
+        name="productTypeCode"
+        type="string"
+        column="PRODUCT_TYPE_CODE"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="randomPasswordGen"
+        type="string"
+        column="RANDOM_PASSWORD_GEN"
+        length="1"
+    />
+    <property
+        name="release233Higher"
+        type="string"
+        column="RELEASE_233_HIGHER"
+        length="1"
+    />
+    <property
+        name="seidVoicePortalMgmtServer"
+        type="string"
+        column="SEID_VOICE_PORTAL_MGMT_SERVER"
+        length="1"
+    />
+    <property
+        name="sesEdgeCoreRouter"
+        type="string"
+        column="SES_EDGE_CORE_ROUTER"
+        length="1"
+    />
+    <property
+        name="templateName"
+        type="string"
+        column="TEMPLATE_NAME"
+        length="50"
+    />
+
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to SolnElementCode -->
+    <many-to-one
+        name="solnElementCode"
+        class="com.avaya.grt.mappers.SolnElementCode"
+        lazy="false"
+    >
+        <column name="SE_CODE" not-null="true" length="50"/>
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

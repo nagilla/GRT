@@ -1,0 +1,25 @@
+ib_intiated_before_hours=4
+salGatewayMaterialCode = 340055
+sr_creation_generic_contact_fname=GRT
+sr_creation_generic_contact_lname=Administrator
+sr_creation_generic_contact_phone=8662829248
+sr_creation_generic_contact_email=grt@avaya.com
+
+factory=weblogic.jndi.WLInitialContextFactory
+jmsUrl=t3://fmwprodc3.avaya.com:8101
+jmsUrlSiebel=t3://fmwprodc3.avaya.com:8101
+jndifactory=weblogic.jndi.factories
+
+jndiSecurityPrincipal=GRTWS
+jndiSecurityCredentials=GRTWS20Prod11
+crossDomainUser=cross-domain
+crossDomainCredentials=GRTWS20Prod11
+
+jmsDestinationJndiNameTechReg=GRT.TechRegNew.Response.Queue
+
+JmsConnectionFactoryJndiName=GRT.XAConnectionFactory
+JmsConnectionFactoryJndiNameForSiebel=GCT.XA.Messaging.ConnectionFactory
+
+ibaseQueue=IBResponse
+eqrQueue=EQRResponse
+siebelUpdateQueue=GRT.Siebel.Update.Asset.Queue

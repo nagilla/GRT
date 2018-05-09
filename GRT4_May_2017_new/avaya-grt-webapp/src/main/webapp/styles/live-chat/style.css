@@ -1,0 +1,553 @@
+@CHARSET "ISO-8859-1";
+
+/*
+/////////////////////////////////////////////////////////////////////////////
+//
+// style.css
+//
+// Copyright 2008-2015 Avaya Inc. All Rights Reserved.
+//
+// Usage of this source is bound to the terms described
+// in licences/Licence.txt
+//
+// Avaya - Confidential & Proprietary. Use pursuant to your signed agreement
+// or Avaya Policy
+//
+/////////////////////////////////////////////////////////////////////////////
+*/
+
+/*
+ *	A default stylesheet for the user to extend.
+ */
+/* html, body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Arial, san-serif;
+	font-size: 12px;
+	color: #333333;
+  background-color: #ffffff;
+} */
+
+/*
+ *	Paragraphs in general scale to match their parent div
+ */
+/* p {
+	word-wrap: break-word;
+	width: 100%;
+} */
+
+/*
+ *	The clear uses the clear attribute to prevent divs from being on
+ *	either side of it, and should come before the footer div to keep
+ *	the footer at the bottom of the page.
+ */
+.clear {
+	width: 100%;
+	clear: both;
+}
+
+.button {
+}
+
+/*
+ *	HEADER
+ *	****************************************************************
+ */
+/* .header {
+	display: block;
+	width: 100%;
+	height: 64px;
+	background-color: rgb(209, 8, 18);
+	background-image: url("../images/AvayaLogoCustom2.jpg");
+	background-repeat: no-repeat;
+}
+.header div {
+	display: inline-block;
+} */
+
+/*
+ *	MENU
+ *	****************************************************************
+ */
+/* .menu {
+	display: inline;
+	margin-left: 200px;
+	margin-top: 32px;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+}
+.menu a {
+	color: white;
+	text-decoration: none;
+}
+.menu a:hover {
+	color: black;
+}
+
+ */
+/*
+ *	MAIN
+ *	****************************************************************
+ */
+/* .main {
+	display: block;
+	width: 100%;
+	height: 458px;
+	background-color: white;
+	background-image: url("../images/customerengagement_878x458_white.jpg");
+	background-repeat: no-repeat;
+}
+
+.title {
+	padding-top: 20px;
+	padding-left: 20px;
+	font-size: 21px;
+	color: white;
+}
+ */
+/* .panel {
+	position: relative;
+	top: 200px;
+	width: 400px;
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-image: url("../images/ambient-red.jpg");
+	background-repeat: no-repeat;
+}
+ */
+/* .panel a {
+	color: white;
+	text-decoration: none;
+}
+ */
+/*
+ * PRODUCTS
+ */
+
+/* .products {
+	color: white;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	width: 90%
+} */
+
+/* .products .heading {
+	font-size: 14px;
+	text-decoration:underline;
+	padding-bottom: 5px;
+	padding-top: 10px;
+}
+.products .item {
+	font-style:italic;
+	width: 60%;
+	min-width: 200px;
+	float: left;
+	overflow:auto;
+}
+
+.products .image {
+	float: right;
+	max-width: 200px;
+	max-height: 200px;
+} */
+
+/*
+ *	FOOTER
+ *	****************************************************************
+ */
+/* .footer{
+	padding: 0px;
+	background-color: rgb(105, 105, 105);
+	color: white;
+	width: 100%;
+	text-align: center;
+}
+.footerSocialMedia {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-right: 35px;
+	padding-left: 10px;
+	background-color: rgb(238, 238, 238);
+	text-align: right;
+	vertical-align: middle;
+}
+.footerColumn {
+	display: inline-block;
+	width: 160px;
+	padding-top: 12px;
+	padding-right: 2px;
+	padding-bottom: 18px;
+	padding-left: 2px;
+	text-align: left;
+	vertical-align: top;
+	color: rgb(190, 190, 190);
+}
+.footerLinks {
+	padding-top: 10px;
+}
+.footerLinks a {
+	padding: 0px 0px 0px 0px;
+	color: white;
+	text-decoration: none;
+}
+.footerLinks a:hover {
+	color: rgb(190, 190, 190);
+}
+.footerGeneral {
+	background-color: rgb(74, 74, 74);
+}
+.footerGeneralLeft {
+	display: inline;
+	width: 50%;
+	padding: 4px 4px 14px 14px;
+	text-align: left;
+}
+.footerGeneralRight {
+	display: inline-block;
+	width: 50%;
+	padding: 4px 14px 14px 4px;
+	text-align: right;
+}
+.footerGeneral a {
+	color: white;
+	font-size: 11px;
+	text-decoration: none;
+}
+.footerGeneral a:hover {
+	color: rgb(190, 190, 190);
+}
+
+ */
+/*
+ *	CHAT
+ *	****************************************************************
+ */
+#live-chat .slide-out-div-chat {
+	padding-top: 10px;
+	padding-bottom: 0px;
+	padding-right: 20px;
+	padding-left: 20px;
+	width: 550px;
+	background: #4a4a4a;
+	color: white;
+}
+
+#live-chat #chatForm {
+	display: block;
+	margin-top: 10px;
+}
+#live-chat #chatInterface {
+	display: none;
+}
+/*
+ *	The messages in the chat are posted inside this div.
+ *	The overflow setting, when combined with a maximum height,
+ *	gives the div a scrollbar.
+ */
+#live-chat #messages {
+	border-bottom: 1px solid #cccccc;
+	padding-left: 0px;
+	padding-right: 5px;
+	padding-top: 0px;
+	padding-bottom: 5px;
+	/* height: 230px; original*/ 
+	height: 270px;
+	word-wrap: break-word;
+	overflow-y: scroll;
+/*	white-space: pre-wrap; */
+}
+
+/*
+ * URLs inside the message are white to stand out against the background.
+ */
+#live-chat #messages a {
+	color: white;
+}
+#live-chat #participants {
+	padding-top: 4px;
+}
+#live-chat #participants div {
+	display: inline-block;
+	width: 145px;
+	border: 1px dotted #cccccc;
+}
+#live-chat #controls {
+	padding-top: 7px;
+}
+
+#live-chat .urlInput {
+	width: 145px;
+}
+
+#live-chat #usersDiv {
+	height: 45px;
+}
+
+#live-chat .bigtext {
+	font-size: 19px;
+}
+#live-chat .smalltext {
+	font-size: 13px;
+}
+
+#live-chat .sectionBorder {
+	display: block;
+	border-bottom: 1px solid #cccccc;
+	padding-bottom: 5px;
+}
+
+#live-chat .formTable {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	padding: 0px;
+}
+#live-chat .formTable td {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+#live-chat .formLabel {
+	padding: 0px;
+	font-size: 11px;
+	color: white;
+}
+#live-chat .formField {
+	width: 170px;
+	padding-bottom: 2px;
+	text-align: left;
+}
+#live-chat .formField input, #live-chat select {
+	width: 160px;
+	border: 1px solid #cccccc;
+	padding: 3px;
+	background-color: #4a4a4a;
+	font-size: 12px;
+	color: white;
+}
+#live-chat .formField select {
+	width: 160px;
+}
+
+#live-chat .formCheckbox {
+	padding-right: 172px;
+	text-align: right;
+}
+
+#live-chat #openbutton-chat {
+	width: 160px;
+}
+
+#live-chat .chatField {
+	width: 305px;
+	border: 1px solid #cccccc;
+	padding: 3px;
+	background-color: #4a4a4a;
+	font-size: 12px;
+	color: white;
+}
+/*
+.escalation {
+    display: block;
+    position: relative;
+    background: #4a4a4a;
+    left: -20px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom:10px
+}
+*/
+
+#live-chat .pagepush {
+	background: #4a4a4a;
+	padding-left:20px;
+	left:-20px;
+	padding-right:20px;
+	position:relative;
+	width:100%;
+}
+
+#live-chat .poweredBy {
+	display: block;
+	border-top: 1px solid #cccccc;
+	padding-top: 10px;
+	text-align: right;
+	position: relative;
+	left: -20px;
+	width: 520px;
+	padding-right: 40px;
+	font-size: 10px;
+    background: #4a4a4a;
+}
+
+#live-chat #escalationType {
+	width: 300px;
+}
+
+/*
+ *	Sent chat messages are inside a red paragraph
+ */
+#live-chat p.sent {
+	/* color: rgb(255,51,0); */
+	/* color: rgb(255,255,255); */
+	color: darkorange;
+}
+
+/*
+ *	Received chat messages are inside a blue paragraph,
+ *	with italics to help distinguish them from sent paragraphs
+ */
+#live-chat p.response {
+	color: rgb(0,204,255);
+	font-style: italic;
+	margin: 5px;
+}
+
+
+#live-chat .center {
+	text-align: center;
+}
+
+#live-chat .user {
+	display: inline;
+	width: 170px;
+}
+
+#live-chat .hidden {
+	display: none;
+}
+
+#live-chat .typing {
+	background: yellow;
+	color: black;
+}
+
+#live-chat .urlField:invalid {
+	background-color:white;
+	color: #4a4a4a;
+}
+
+#live-chat .urlField:valid {
+	background-color: #4a4a4a;
+	color:white;
+}
+
+#live-chat .areaInput {
+	width: 50px;
+	background-color: #4A4A4A;
+	color:white;
+}
+
+#live-chat .phoneInput {
+	width: 100px;
+	background-color: #4A4A4A;
+	color:white;
+}
+
+/*****
+*
+*   Configuration panel for demos
+*************************************
+*/
+
+#live-chat .configHeader {
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:5px;
+}
+
+#live-chat .configButton {
+	width:100%;
+}
+
+#live-chat .configPanel {
+	display:none;
+	width: 400px;
+	height: 400px;
+	min-width:200px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#live-chat  #configLink {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+/*
+ *	COBROWSE
+ *	****************************************************************
+ */
+ #live-chat #cobrowse {
+ 	width: 100%;
+ 	height: 800px; 
+ 	display: none;
+}
+
+
+/* New Style*/
+
+#live-chat select {
+	background: #4a4a4a;
+}
+
+#live-chat #openbutton-chat {
+	border-radius: 6px;
+    border: 1px solid #d8dcdf;
+    background: #eee url(images/ui-bg_highlight-hard_100_eeeeee_1x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #4a4a4a;
+    height: 23px;
+    text-transform: none;
+    padding: 2px;
+    font-size: 12px;
+}
+#live-chat #address-chat {
+	width: 170px;
+}
+
+#live-chat #openbutton-chat {
+	border-radius: 6px;
+    border: 1px solid #d8dcdf;
+    background: #eee url(images/ui-bg_highlight-hard_100_eeeeee_1x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #4a4a4a;
+    height: 23px;
+    text-transform: none;
+    padding: 2px;
+    font-size: 12px;
+}
+
+#live-chat .button {
+    border-radius: 6px;
+    border: 1px solid #d8dcdf;
+    background: #eee url(images/ui-bg_highlight-hard_100_eeeeee_1x100.png) 50% 50% repeat-x;
+    font-weight: bold;
+    color: #4a4a4a;
+    height: 23px;
+    text-transform: none;
+    padding: 2px;
+    font-size: 12px;
+    min-width: inherit;
+}
+#live-chat #sendbutton-chat {
+	width : 98px;
+}
+#live-chat #closebutton-chat {
+	width : 58px;
+}
+
+
+
+
+
+
+
+
+

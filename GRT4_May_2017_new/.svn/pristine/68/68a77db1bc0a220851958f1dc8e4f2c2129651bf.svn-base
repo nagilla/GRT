@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.ProductFamily" 
+    table="PRODUCT_FAMILY"
+    lazy="false"
+>
+    <id
+        name="productFamilyCode"
+        type="string"
+        column="PRODUCT_FAMILY_CODE"
+        length="50"
+    >
+        <generator class="assigned" />
+    </id>
+    <!-- bi-directional many-to-one association to MaterialCode -->
+    <many-to-one
+        name="materialCodeBean"
+        class="com.avaya.grt.mappers.MaterialCode"
+        lazy="false"
+    >
+        <column name="MATERIAL_CODE" not-null="true" length="50"/>
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

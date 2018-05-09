@@ -1,0 +1,30 @@
+# avaya-grt-webapp main log4j.properities
+log4j.rootLogger=DEBUG, FILE
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+log4j.logger.org.hibernate=INFO
+log4j.logger.org.hibernate.transaction=INFO
+log4j.logger.org.hibernate.jdbc=DEBUG
+log4j.logger.org.hibernate.cache=INFO
+log4j.logger.java.sql=INFO
+log4j.logger.java.sql.Connection=DEBUG
+log4j.logger.java.sql.Statement=DEBUG
+log4j.logger.java.sql.PreparedStatement=DEBUG
+log4j.logger.java.sql.ResultSet=INFO
+log4j.logger.org.apache.cxf.interceptor.LoggingInInterceptor=DEBUG
+log4j.logger.org.apache.cxf.interceptor.LoggingOutInterceptor=DEBUG 
+
+
+# Pattern to output the caller's file name and line number.
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n
+
+# Define the file appender
+log4j.appender.FILE.File=logs/grt.log
+log4j.appender.FILE=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.FILE.DatePattern='.'MMddyy
+# Define the layout for file appender
+log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE.layout.conversionPattern=%d %t %-5p %c{2} %x - %m%n
+

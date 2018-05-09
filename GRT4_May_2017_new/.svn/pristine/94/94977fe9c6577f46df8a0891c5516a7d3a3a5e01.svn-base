@@ -1,0 +1,53 @@
+
+/*** START INSTALL BASE CREATION PAGE ***/
+
+.install-base-creation .controls {
+  text-align: center;
+  margin: 0px 0 20px;
+  clear: both; }
+
+
+
+
+
+  .install-base-creation #mec-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+
+  .install-base-creation .controls.manual-entry-btns {
+    background: #eeedea;
+    padding: 20px 0 45px;
+    clear: both;}
+    .install-base-creation .controls.manual-entry-btns .left-col {
+      float: left;
+      width: 36%;
+      text-align: center;}
+    .install-base-creation .controls.manual-entry-btns .right-col {
+      float: right;
+      width: 55%;
+      padding: 0 6% 0 0;
+      text-align: right;}
+
+
+   .install-base-creation .highlightCore{
+   		background-color: cornflowerblue;
+   }
+
+
+#materialCodeSearchPopUp .searchHeader {
+  text-align: center;
+}
+
+#materialCodeSearchPopUp .content {
+
+  min-width: 600px;
+}
+.input-disabled{background-color:#EBEBE4 !important;}
+/*** END INSTALL BASE CREATION PAGE ***/
+
+/******************* MOBILE ONLY STYLES BELOW - MUST BE LAST ON PAGE ********/
+
+/*** START TABLET LANDSCAPE MODE ***/
+@media (max-width: 1100px) {
+
+}
+/*** END TABLET LANDSCAPE MODE ***/

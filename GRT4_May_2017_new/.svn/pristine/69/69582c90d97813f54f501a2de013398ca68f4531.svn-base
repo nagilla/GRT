@@ -1,0 +1,33 @@
+/*** START SAL MIGRATION LIST STYLES ***/
+
+.sal-gateway-migration {}
+.sal-gateway-migration .controls {
+text-align: center;
+margin: 20px 0 20px;
+clear: both; }
+
+.sal-gateway-migration #sal-wrap .collapse-box-container {
+display: block;}
+.sal-gateway-migration #add-sal-wrap .collapse-box-container {
+display: block;}
+
+.sal-gateway-migration #add-sal-wrap.data-table-wrap .data {
+padding: 10px 20px;
+display: table;
+font-size: 12px;
+font-weight: 100;
+width: 100%;}
+.sal-gateway-migration #add-sal-wrap.data-table-wrap .data .col {
+display: table-cell;
+padding: 7px 80px 7px 0; }
+.sal-gateway-migration #add-sal-wrap.data-table-wrap .data .col p {
+margin: 10px 0;
+text-transform: capitalize; }
+.sal-gateway-migration #add-sal-wrap.data-table-wrap .data .col p .title {
+font-weight: 900; }
+.salMigTabBtn p{
+  margin-top: 1px;
+  margin-bottom: 7px;
+}
+
+/*** END SAL MIGRATION LIST STYLES ***/

@@ -1,0 +1,119 @@
+/*** START ACCOUNT CREATION STYLES ***/
+
+.account-creation {}
+  .account-creation .controls {
+    text-align: center;
+    margin: 20px 0 20px;
+    clear: both; }
+
+  .account-creation #account-creation-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-creation #account-address-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-creation #fuzzy-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-creation #token-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-creation #confirm-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-creation #final-wrap.data-table-wrap .collapse-box-container {
+  display: block;}
+  .account-creation #final-2-wrap.data-table-wrap .collapse-box-container {
+  display: block;}
+
+  .account-creation #account-creation-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-creation #account-creation-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-creation #account-creation-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-creation #account-creation-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-creation #account-address-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-creation #account-address-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-creation #account-address-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-creation #account-address-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-creation #token-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-creation #token-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-creation #token-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-creation #token-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-creation #confirm-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-creation #confirm-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-creation #confirm-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-creation #confirm-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-creation #final-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-creation #final-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-creation #final-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-creation #final-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-creation #final-2-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-creation #final-2-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-creation #final-2-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          /* text-transform: capitalize; */ }/* change as per defect 838, capitalisation issue */
+          .account-creation #final-2-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-creation textarea#accountCreationReason {
+    width: 100%;}
+
+
+
+/*** END ACCOUNT CREATION STYLES ***/

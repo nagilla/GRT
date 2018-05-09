@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.SiebelAssetData" 
+    table="SIEBEL_ASSET_DATA"
+>
+    <id
+        name="assetId"
+        type="string"
+        column="ASSET_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+	<property
+        name="assetNumber"
+        type="string"
+        column="ASSET_NUMBER"
+        length="50"
+    />
+   <property
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        length="50"
+    />
+    <property
+        name="quantity"
+        type="long"
+        column="QUANTITY"
+        length="19"
+    />
+    <property
+        name="registrationId"
+        type="string"
+        column="REGISTRATION_ID"
+        length="150"
+    />
+    <property
+        name="serialNumber"
+        type="string"
+        column="SERIAL_NUMBER"
+        length="400"
+    />
+</class>
+</hibernate-mapping>

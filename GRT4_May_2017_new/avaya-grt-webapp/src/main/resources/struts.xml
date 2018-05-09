@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" /> 
+	<constant name="struts.action.excludePattern" value="/rest/.*"/>
+	<constant name="struts.multipart.maxSize" value="30000000" />
+	
+    <package name="default" namespace="/" extends="struts-default">
+	 
+		<interceptors>			
+			<interceptor name="sessionTimeoutInterceptor" class="com.avaya.grt.web.security.SessionTimeoutInterceptor" />
+			<interceptor-stack name="sessionTimeoutStack">
+				<interceptor-ref name="sessionTimeoutInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<!--interceptor-stack name="securedStack">
+				<interceptor-ref name="sessionTimeoutStack" />
+			</interceptor-stack-->
+		</interceptors>
+		<default-interceptor-ref name="sessionTimeoutStack" />
+		
+<!-- 	<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">home-action</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="errHandler" type="redirectAction">
+				<param name="actionName">errorProcessor</param>
+				<param name="exception">${exception}</param>
+				<param name="exceptionStack">${exceptionStack}</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="errHandler" />
+		</global-exception-mappings>
+
+		<action name="errorProcessor" class="com.avaya.grt.web.util.ErrorProcessor">
+			<result name="error">/WEB-INF/content/error.jsp</result>
+		</action>	 -->		
+		<global-results>
+			<result name="login" type="redirectAction">
+				<param name="actionName">home-action</param>
+				<param name="namespace">/</param>
+			</result>
+ 			<!-- <result name="errHandler">/error.jsp</result> -->
+ 			<result name="errHandler" type="dispatcher">/WEB-INF/content/error.jsp				
+			</result>
+		</global-results>
+ 
+		<global-exception-mappings>
+			<exception-mapping  exception="java.lang.IllegalStateException" result="login" />
+  			<exception-mapping  exception="java.lang.Exception" result="errHandler" /> 
+		</global-exception-mappings>
+	</package>
+	
+	<package name="home" namespace="/" extends="default">
+		<default-action-ref name="home-action" />
+
+		<action name="home-action" class="com.avaya.grt.web.action.home.RegistrationHomeAction" method="registrationHome">
+			<result name="success" type="dispatcher">
+				/WEB-INF/content/home/registrationHome.jsp
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<!-- <action name="home-action-old" class="com.avaya.grt.web.action.home.RegistrationHomeAction" method="registrationHome">
+			 <result name="success" type="dispatcher">
+				/WEB-INF/index.html
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action> -->
+		
+		
+	</package>
+
+
+	<!-- Add packages here -->
+	<include file="struts-technicalregistration.xml" />
+	<include file="struts-installbase.xml" />
+	<include file="struts-technicalonboarding.xml"/>
+	<include file="struts-recordvalidation.xml"/>
+	<include file="struts-equipmentmove.xml"/>
+	<include file="struts-endtoendregistration.xml" />
+	<include file="struts-salmigration.xml" />
+	<include file="struts-ipoffice.xml" />
+	<include file="struts-accountcreation.xml"/>
+	<!-- Jsonp action -->
+	<include file="struts-ui-jsonp.xml"/>
+	<include file="struts-technicalregistration-jsonp.xml"/>
+	<include file="struts-installbase-jsonp.xml"/>
+	<include file="struts-technicalonboarding-jsonp.xml"/>
+	<!-- Added for administrator link -->
+	<include file="struts-administrator.xml"/>
+	<include file="struts-common-utils.xml"/>
+</struts>

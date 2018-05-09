@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.SalesOut" 
+    table="SALES_OUT"
+    lazy="false"
+>
+    <id
+        name="salesOutId"
+        type="string"
+        column="SALES_OUT_ID"
+        length="50"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="bpLinkId"
+        type="string"
+        column="BP_LINK_ID"
+        length="50"
+    />
+    <property
+        name="companyName"
+        type="string"
+        column="COMPANY_NAME"
+        length="250"
+    />
+    <property
+        name="deleted"
+        type="string"
+        column="DELETED"
+        length="3"
+    />
+    <property
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="quantitySold"
+        type="long"
+        column="QUANTITY_SOLD"
+        not-null="true"
+        length="19"
+    />
+    <property
+        name="shipToId"
+        type="string"
+        column="SHIP_TO_ID"
+        length="50"
+    />
+    <property
+        name="soldToId"
+        type="string"
+        column="SOLD_TO_ID"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="productLine"
+        type="string"
+        column="PRODUCT_LINE"
+        length="50"
+    />
+
+            
+</class>
+</hibernate-mapping>

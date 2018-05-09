@@ -1,0 +1,226 @@
+/*** START HELPER STYLES ***/
+
+.display-none { display: none !important; }
+
+.input-row {
+  position: relative; }
+
+.scrollable-table-wrap {
+  position: relative; }
+  .scrollable-table-wrap .scrollable-table {
+    overflow: auto; }
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;}
+
+/*** END HELPER STYLES ***/
+
+/*** START ACCORDIAN STYLES ***/
+
+.accordion-header {
+  background-image: -webkit-linear-gradient(top, #f82a1f 0%, #c90005 100%);
+  background-image: linear-gradient(to bottom, #f82a1f 0%, #c90005 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFF82A1F', endColorstr='#FFC90005', GradientType=0);
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer; }
+  .accordion-header i {
+    margin-right: 10px; }
+
+/*** END ACCORDIAN STYLES ***/
+
+/*** START SUMMARY HEADER ***/
+
+.registration-site-summary {
+  border: 1px solid #cccccc;
+  margin-bottom: 30px; }
+  .registration-site-summary h2 {
+    background: #eeedea;
+    height: 30px;
+    padding-left: 10px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: normal;
+    position: relative;
+    text-transform: uppercase;
+    color: #555;
+    border-bottom: 1px solid #ccc;}
+    .registration-site-summary .collapse-box-header a {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 17px;
+      border-left: 1px solid #cccccc;
+      text-align: center; }
+      .registration-site-summary .collapse-box-header a span:after {
+        content: '+';}
+      .registration-site-summary .collapse-box-header.active a span:after {
+        content: '-';
+        font-size: 20px;}
+  .registration-site-summary .data {
+    padding: 10px 20px;
+    display: table;
+    font-size: 12px;
+    font-weight: 100; }
+    .registration-site-summary .data .col {
+      display: table-cell;
+      width: 1%; }
+      .registration-site-summary .data .col p {
+        margin: 10px 0;
+       /*  text-transform: capitalize; */ }
+        .registration-site-summary .data .col p .title {
+          font-weight: 900; }
+
+/*** END SUMMARY HEADER ***/
+
+/*** START DATA TABLE WRAP ***/
+
+.data-table-wrap {
+  border: 1px solid #cccccc;
+  margin-bottom: 30px;
+  position: relative;}
+
+  .data-table-wrap h2 {
+    background: #eeedea;
+    height: 30px;
+    padding-left: 10px;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: normal;
+    position: relative;
+    text-transform: uppercase;
+    color: #555;}
+    .data-table-wrap .collapse-box-container {
+      position:relative;
+      display:none;
+      padding: 0px;}
+    .data-table-wrap h2.collapse-box-header a {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 17px;
+      border-left: 1px solid #cccccc;
+      text-align: center; }
+      .data-table-wrap h2.collapse-box-header a span:after {
+        content: '+';}
+      .data-table-wrap h2.collapse-box-header.active a span:after {
+        content: '-';
+        font-size: 20px;}
+			.data-table-wrap .collapse-box-container th {
+				white-space: nowrap;
+				padding: 8px 30px 7px 8px;
+				border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+				font-weight: normal;
+				font-size: 13px;
+				color: #000;
+				cursor: pointer;
+				vertical-align: middle;
+        text-align: left;}
+    .data-table-wrap .data-table-footer {
+      background: #eeedea;
+			padding: 20px 40px;}
+	    .data-table-wrap .data-table-footer .manual-entry-wrap {
+	      display: inline-block;}
+	    .data-table-wrap .data-table-footer .file-upload-wrap {
+	      display: inline-block;
+	      float: right;
+	      clear:right;}
+		    .data-table-wrap .data-table-footer .file-upload-wrap .upload-label {
+		      margin: 0 -40px 0 0;
+		      font-size: 11px;}
+	    .data-table-wrap .data-table-footer .manual-entry-wrap .button.gray,
+	    .data-table-wrap .data-table-footer .file-upload-wrap .button.gray {
+	      padding: 6px 10px;}
+
+  .legend {
+    margin: 15px 0 20px;}
+    .legend span {
+      margin: 0px 5px;
+      padding: 2px 4px;
+      font-size: 12px;
+      color: #333;
+      text-transform: uppercase;}
+      .best {
+        background-color:#98CD97;}
+      .nearest {
+        background-color:#CCCD5F;}
+      .related {
+        background-color:#CE6564;}
+
+.no-data-found {
+  background: #ccc;
+  width: 100%;
+  text-align: center;
+  padding: 60px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #777;
+  border-right: none;
+}
+/*** END DATA TABLE WRAP ***/
+
+/*** START AUTOCOMPLETE ***/
+
+.ui-autocomplete.global-auto-complete {
+	padding: 0; border: 1px solid #474747;
+	-webkit-box-shadow: 0px 15px 25px 1px #cccccc;
+	-moz-box-shadow: 0px 15px 25px 1px #cccccc;
+	box-shadow: 0px 15px 25px 1px #cccccc;
+	background-color: #fff;
+	max-height:none;
+	background-image: url('../images/loader-transparent.gif'); background-repeat:no-repeat; background-position: center 4px;}
+	.ui-autocomplete.global-auto-complete b { font-weight:bold; color:#404040; }
+	.ui-autocomplete.global-auto-complete #ui-active-menuitem b { color:#C11301; }
+	.ui-autocomplete.global-auto-complete .ui-menu-item {
+		background: #E6E6E6 url('../images/height-independent-gradient-sprite.png') -250px 0 repeat-y;
+		padding:10px; line-height: 16px;
+		border-bottom: 1px solid #333333;
+		cursor:pointer;}
+	.ui-autocomplete.global-auto-complete .ui-menu-item a { /* padding: 2px 12px; */ font-size: 15px; line-height:18px;  }
+	.ui-autocomplete {
+	    max-height: 250px;
+	    overflow-y: auto;
+	    /* prevent horizontal scrollbar */
+	    overflow-x: hidden;}
+
+/*** END AUTOCOMPLETE ***/
+
+/*** START FORM CONTROLS ROW ***/
+
+.controls {
+  text-align: center;}
+
+/*** END FORM CONTROLS ROW ***/
+
+/*** START MISC STYLES ***/
+
+/* Overriding New UI Style to show default radio button */
+input[type="radio"],input[type="checkbox"] {
+	position: relative !important;
+	left: 0px !important;
+	width: auto !important;}
+
+/*** END MISC STYLES ***/
+
+/******************* MOBILE ONLY STYLES BELOW - MUST BE LAST ON PAGE ********/
+
+/*** START TABLET LANDSCAPE MODE ***/
+@media (max-width: 1100px) {
+
+}
+
+.more{
+       margin-top: 10px !important;
+}
+/*** END TABLET LANDSCAPE MODE ***/

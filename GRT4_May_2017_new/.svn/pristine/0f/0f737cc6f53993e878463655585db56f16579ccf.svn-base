@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.SoldToSAPMapping" table="SOLDTO_SAP_MAPPING">
+	<id
+        name="soldTo"
+        type="string"
+        column="SOLD_TO"
+        length="50"
+    >		
+	</id>
+	<property
+        name="sapBox"
+        type="string"
+        column="SAP_BOX"
+        length="1"
+    />
+</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.ArtErrorCode" table="ART_ERROR_CODE">
+	<id
+        name="errorCode"
+        type="string"
+        column="ERROR_CODE"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="insiteUrl"
+        type="string"
+        column="INSITE_URL"
+        not-null="true"
+        length="250"
+    />
+
+	<!-- Associations -->
+
+</class>
+</hibernate-mapping>

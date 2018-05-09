@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.Status" table="STATUS">
+	<id
+        name="statusId"
+        type="string"
+        column="STATUS_ID"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="statusDescription"
+        type="string"
+        column="STATUS_DESCRIPTION"
+        length="250"
+    />
+	<property
+        name="statusShortDescription"
+        type="string"
+        column="STATUS_SHORT_DESCRIPTION"
+        not-null="true"
+        length="50"
+    />
+
+	<!-- Associations -->
+	
+	<!-- bi-directional many-to-one association to SiteRegistration -->
+	<set
+        name="siteRegistrations"
+        inverse="true"
+        lazy="true"
+    >
+		<key>
+			<column name="STATUS_ID" />
+			 <!-- a foreign key in SITE_REGISTRATION referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.SiteRegistration" />
+	</set>
+	<!-- bi-directional many-to-one association to TechnicalRegistration -->
+	<set
+        name="technicalRegistrations"
+        inverse="true"
+        lazy="true"
+    >
+		<key>
+			<column name="STATUS_ID" />
+			 <!-- a foreign key in TECHNICAL_REGISTRATION referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.TechnicalRegistration" />
+	</set>
+</class>
+</hibernate-mapping>

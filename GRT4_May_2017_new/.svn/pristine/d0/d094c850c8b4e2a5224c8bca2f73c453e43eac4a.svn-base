@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.ProcessStep" table="PROCESS_STEP">
+	<id
+        name="processStepId"
+        type="string"
+        column="PROCESS_STEP_ID"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="processStepDescription"
+        type="string"
+        column="PROCESS_STEP_DESCRIPTION"
+        length="250"
+    />
+	<property
+        name="processStepShortDescription"
+        type="string"
+        column="PROCESS_STEP_SHORT_DESCRIPTION"
+        not-null="true"
+        length="50"
+    />
+
+	<!-- Associations -->
+	<!-- bi-directional many-to-one association to SiteRegistration -->
+	<set
+        name="siteRegistrations"
+        inverse="true"
+        lazy="true"
+    >
+		<key>
+			<column name="PROCESS_STEP_ID" />
+			 <!-- a foreign key in SITE_REGISTRATION referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.SiteRegistration" />
+	</set>
+
+</class>
+</hibernate-mapping>

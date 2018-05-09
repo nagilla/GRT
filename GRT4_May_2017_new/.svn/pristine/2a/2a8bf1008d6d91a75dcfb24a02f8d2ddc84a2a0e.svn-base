@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.CompatibilityMatrix" table="COMPATIBILITY_MATRIX">
+	<id
+        name="seCode"
+        type="string"
+        column="SE_CODE"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="model"
+        type="string"
+        column="MODEL"
+        not-null="true"
+        length="50"
+    />
+	<property
+        name="remoteAccess"
+        type="string"
+        column="REMOTE_ACCESS"
+        not-null="true"
+        length="1"
+    />
+	<property
+        name="transportAlarm"
+        type="string"
+        column="TRANSPORT_ALARM"
+        not-null="true"
+        length="1"
+    />
+	<property
+        name="salOnly"
+        type="boolean"
+        column="SAL_ONLY"
+        not-null="true"
+        length="1"
+    />
+	<!-- Associations -->
+
+</class>
+</hibernate-mapping>

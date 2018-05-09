@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<sql-query name="deleteExpandedSolutionElements">
+		<![CDATA[ DELETE FROM exp_solution_element_record WHERE ID=:siteListId]]>
+    </sql-query>
+    <sql-query name="updateExpandedSolutionElementIdTechRegId">
+		<![CDATA[ UPDATE EXP_SOLUTION_ELEMENT_RECORD SET EXP_SOLN_ELMNT_ID = :NEWID, TECHNICAL_REGISTRATION_ID = :NEWTECHREGID WHERE EXP_SOLN_ELMNT_ID = :OLDID]]>
+    </sql-query>
+</hibernate-mapping>

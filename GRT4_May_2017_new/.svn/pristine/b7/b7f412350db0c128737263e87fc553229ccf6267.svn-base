@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.MasterMaterial" table="MATERIAL_MASTER">
+	<id
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        length="50"
+    >		
+	</id>
+	<property
+        name="description"
+        type="string"
+        column="MATERIAL_DESC"
+        length="250"
+    />
+    <property
+        name="serialized"
+        type="string"
+        column="SERIALIZED"
+        length="5"
+    />
+    <property
+        name="blueCde"
+        type="boolean"
+        column="IS_Blue"
+        length="5"
+    />
+    <property
+        name="serviceUsage"
+        type="string"
+        column="SERVICE_USAGE"
+        length="5"
+    />
+</class>
+</hibernate-mapping>

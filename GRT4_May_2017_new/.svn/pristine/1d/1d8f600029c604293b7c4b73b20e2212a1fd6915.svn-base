@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.avaya.grt.mappers.Province" table="PROVINCE">
+		<id name="id" type="string" length="2" />
+		<property name="name" type="string" length="250" />
+		<many-to-one name="country" class="com.avaya.grt.mappers.Country" lazy="proxy">
+			<column name="CODE" not-null="false" length="50"/>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

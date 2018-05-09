@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.SRRequest" table="SR_REQUEST">
+	<id
+        name="srRequestId"
+        type="string"
+        column="SR_REQUEST_ID"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+    <property
+        name="siebelSRNo"
+        type="string"
+        column="SIEBEL_SR_NO"
+        length="50"
+    />
+	<property
+        name="createdDate"
+        type="java.util.Date"
+        column="CREATED_DATE"
+        length="11"
+    />
+	<property
+        name="updatedDate"
+        type="java.util.Date"
+        column="UPDATED_DATE"
+        length="11"
+    />
+	
+	<!-- bi-directional many-to-one association to Status -->
+	<many-to-one
+        name="status"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="STATUS_ID" not-null="true" length="50"/>
+	</many-to-one>
+</class>
+</hibernate-mapping>

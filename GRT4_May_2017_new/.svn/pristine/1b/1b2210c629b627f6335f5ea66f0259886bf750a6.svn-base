@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="getSoldToNotEmpty">
+		<![CDATA[  SELECT SOLD_TO, SOLD_TO_NAME FROM ESR.APPROVED_PERMISSIONS WHERE BP_LINK_ID = :bpLinkId AND SOLD_TO= :soldToId AND PERMISSION_TYPE = 'Registration' AND PERMISSION_STATUS='Active']]>
+    </sql-query>
+    <sql-query name="getSoldToEmpty">
+		<![CDATA[ SELECT SOLD_TO, SOLD_TO_NAME FROM ESR.APPROVED_PERMISSIONS WHERE BP_LINK_ID = :bpLinkId AND PERMISSION_TYPE = 'Registration' AND PERMISSION_STATUS='Active']]>
+    </sql-query>
+    </hibernate-mapping>

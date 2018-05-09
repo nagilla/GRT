@@ -1,0 +1,82 @@
+/*** START ACCOUNT UPDATE STYLES ***/
+
+.account-update {}
+
+  .account-update .controls {
+    text-align: center;
+    margin: 20px 0 20px;
+    clear: both; }
+
+  .account-update #soldto-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-update #soldto-non-wrap.data-table-wrap .collapse-box-container {
+  display: block;}
+  .account-update #address-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-update #fuzzy-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .account-update #t-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+
+  .account-update #soldto-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-update #soldto-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-update #soldto-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-update #soldto-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-update #soldto-non-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-update #soldto-non-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-update #soldto-non-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-update #soldto-non-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-update #address-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-update #address-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-update #address-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-update #address-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .account-update #t-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .account-update #t-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .account-update #t-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .account-update #t-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+
+/*** END ACCOUNT UPDATE STYLES ***/

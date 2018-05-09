@@ -1,0 +1,102 @@
+.butlerbar-dropdowns {
+	font-size: 11px;
+	font-weight: 600;
+	z-index: 8;
+	position: relative
+}
+
+.butlerbar-dropdowns .indicator {
+	display: block;
+	position: absolute;
+	top: -1px
+}
+
+.butlerbar-dropdowns .my-avaya-login .indicator {
+	left: 207px
+}
+
+.butlerbar-dropdowns .country-selector-box .indicator {
+	left: 325px
+}
+
+[data-features=autoComplete] {
+	position: relative;
+	overflow: visible !important
+}
+
+.butlerbar-dropdowns {
+	display: block;
+	clear: both;
+	width: 100%
+}
+
+html.lt-ie9 .butlerbar-dropdowns .country-selector-box .region-selector li
+	{
+	float: left !important
+}
+
+html.lt-ie9 .butlerbar-dropdowns .predictive {
+	top: 0;
+	right: 39px
+}
+
+/* .autoComplete-list,.predictive {
+	display: none;
+	position: absolute;
+	top: 21px;
+	right: 27px;
+	width: 160px;
+	background: #fff;
+	overflow-y: scroll;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+	padding: 10px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	z-index: 999
+} */
+
+.autoComplete-list.is-hidden {
+	display:none;
+}
+.autoComplete-list ul,.predictive ul {
+	/*position: absolute;*/
+	top: 21px;
+	right: 27px;
+	width: 160px;
+	background: #fff;
+	overflow-y: scroll;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+	padding: 10px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	z-index: 999
+	list-style-type: none;
+	margin: 0
+}
+
+.autoComplete-list ul li,.predictive ul li {
+	text-align: left;
+	float: none
+}
+
+.autoComplete-list ul li a,.predictive ul li a {
+	color: #555 !important;
+	font-weight: 400;
+	text-shadow: none !important;
+	border-right: 0;
+	transition: .25s ease-out;
+	-webkit-transition: .25s ease-out;
+	-moz-transition: .25s ease-out;
+	line-height: 1.15 !important;
+	padding: 5px 0 !important;
+	display: block
+}
+
+.autoComplete-list ul li a:hover,.predictive ul li a:hover {
+	color: #c00 !important;
+	text-decoration: underline
+}
+
+.autoComplete-list ul li.active a,.predictive ul li.active a {
+	background: #eeedea
+}

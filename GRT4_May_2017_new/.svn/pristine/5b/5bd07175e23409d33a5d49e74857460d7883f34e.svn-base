@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="technicalregsitration" namespace="/technicalregsitration" extends="default">
+		<action name="newRegistrationWithSoldToValidation" class="com.avaya.grt.web.action.TechRegCommonAction" method="newRegistrationWithSoldToValidation">
+			<interceptor-ref name="token"></interceptor-ref>
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="newRegistrationWithSoldToValidationForAgent" class="com.avaya.grt.web.action.TechRegCommonAction" method="newRegistrationWithSoldToValidationForAgent">
+			<interceptor-ref name="token"></interceptor-ref>
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<!-- FOR IB -->
+		<action name="saveSiteRegistration" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="saveSiteRegistration">
+			<interceptor-ref name="token"></interceptor-ref>
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<result name="back" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+				<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<!-- For TOB -->
+		<action name="saveSiteRegistrationTOB" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="saveSiteRegistration">
+		    <interceptor-ref name="token"></interceptor-ref>
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<result name="back" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="registrationList" class="com.avaya.grt.web.action.TechRegCommonAction" method="registrationList">
+	
+			<result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+						
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="getSrSummaryInfo" class="com.avaya.grt.web.action.TechRegCommonAction" method="getSrSummaryInfo">
+			<!-- <result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result> -->
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="saveSrSummaryInfo" class="com.avaya.grt.web.action.TechRegCommonAction" method="saveSrSummaryInfo">
+			<result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="displayRegistration" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="displayRegistration">
+		<result name="success" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+		<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+		<result name="successRegValidation" type="dispatcher">/WEB-INF/content/recordvalidation/recordValidation.jsp</result>
+		<result name="successEqMove" type="dispatcher">/WEB-INF/content/equipmentmove/eqmProcess.jsp</result>
+		<result name="successRegistrationList" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="displayRegistrationTOB" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="displayRegistration">
+	<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+		<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+		<result name="successRegValidation" type="dispatcher">/WEB-INF/content/recordvalidation/recordValidation.jsp</result>
+		<result name="successEqMove" type="dispatcher">/WEB-INF/content/equipmentmove/eqmProcess.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="updateSiteRegistrationBySuperUser" class="com.avaya.grt.web.action.TechRegCommonAction" method="updateSiteRegistrationBySuperUser">
+		<result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="newRegistration" class="com.avaya.grt.web.action.TechRegCommonAction" method="newRegistration">
+			<interceptor-ref name="token"></interceptor-ref>
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="dynamicSortByField" class="com.avaya.grt.web.action.TechRegCommonAction" method="dynamicSortByField">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+
+		<action name="logout" class="com.avaya.grt.web.action.TechRegCommonAction" method="logout">
+			<result name="default">/WEB-INF/content/common/logout.jsp</result>
+		</action>
+		
+	</package>
+	
+	<package name="technicalregsitrationjson" namespace="/technicalregsitration/json" extends="json-default">
+		
+		 <action name="getCxpSoldToList" class="com.avaya.grt.web.action.TechRegCommonAction" method="getCxpSoldToList">
+			<result type="json">
+				<param name="root">soldToList</param>
+			</result>
+		</action>
+		
+		<action name="registrationListJson" class="com.avaya.grt.web.action.TechRegCommonAction" method="registrationListData">
+			<result type="json">
+				<param name="root">regListMap</param>
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+			<interceptor-ref name="json">
+				<param name="enableSMD">true</param>
+			</interceptor-ref>
+		</action>
+		
+		<action name="updateEmail" class="com.avaya.grt.web.action.TechRegCommonJsonAction" method="updateEmail">
+			<result type="json">
+				<param name="root">ServiceMsg</param>
+			</result>
+		</action>
+		
+		<action name="emailOnBoardingFile" class="com.avaya.grt.web.action.TechRegCommonJsonAction" method="emailOnBoardingFile">
+			<result type="json">
+				<param name="root">serviceMsg</param>
+			</result>
+		</action>
+
+	</package>
+
+</struts>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.MaterialExclusion" table="MATERIAL_EXCLUSION">
+	<id
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        length="10"
+    />
+    
+    <property
+        name="exclusionSource"
+        type="string"
+        column="EXCLUSION_SOURCE"
+        length="10"
+    />
+    
+    <property
+        name="exclusionOrder"
+        type="int"
+        column="EXCLUSION_ORDER"
+    />
+</class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+#usertype-popup input[type="radio"],input[type="checkbox"] {
+	position: relative !important;
+	left: 0px !important;
+	width: auto !important;
+}
+
+span#userMessage{
+	font-weight: bold;
+}
+
+#myForm .buttons{
+	  margin-left: 27.2% !important;
+	    text-align: left !important;
+}

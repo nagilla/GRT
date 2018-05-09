@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+    
+    <bean id="properties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:grt.properties</value>
+				<value>classpath:grt-jms.properties</value>
+			</list>
+		</property>
+	</bean>  
+	
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="properties" ref="properties" />
+	</bean>
+	
+
+	
+	
+	<!-- GRT starts -->
+	
+	<bean id="dataSourceGRT" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />		
+		<property name="url" value="jdbc:oracle:thin:@//grtdev-scan.nonprod.avaya.com:1526/grtdev" />
+		<property name="username" value="GRT_3_0_UAT" />
+		<property name="password" value="Grt_uat_199" />		
+	</bean> 
+	
+	<!-- 
+	<bean id="dataSourceGRT" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${grt.jndi}" />
+	</bean>
+	-->
+	<bean id="sqlSessionFactoryGRT" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	
+		<property name="dataSource" ref="dataSourceGRT" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/grt/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<prop key="show_sql">true</prop>			
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.max_fetch_depth">4</prop>
+			<prop key="hibernate.cache.use_second_level_cache">true</prop>
+			<prop key="hibernate.cache.use_query_cache">true</prop>
+			<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+			<prop key="hibernate.connection.release_mode">after_statement</prop>
+			<!-- <prop key="hibernate.transaction.flush_before_completion">true</prop>
+			<prop key="hibernate.transaction.auto_close_session">false</prop> -->
+			<prop key="hibernate.default_schema">GRT_3_0_UAT</prop>
+		</props>
+		</property>
+		
+	</bean>
+	
+	<bean id="transactionManagerGRT" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryGRT" />
+    </bean>
+	
+	<!-- GRT ends -->
+    <!-- CXP starts -->
+	
+	<bean id="dataSourceCXP" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//dlptlovdb01.nonprod.avaya.com:1526/ptldev1" />
+		<property name="username" value="CXP2CP" />
+		<property name="password" value="cplogic123" />
+	</bean> 
+	<!-- 
+	<bean id="dataSourceCXP" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${cxp.jndi}" />
+	</bean>
+	 -->
+	<bean id="sqlSessionFactoryCXP" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceCXP" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/cxp/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<prop key="show_sql">true</prop>
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.connection.release_mode">after_statement</prop>
+			<!-- <prop key="hibernate.transaction.flush_before_completion">true</prop>
+			<prop key="hibernate.transaction.auto_close_session">false</prop> -->
+		</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManagerCXP" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryCXP" />
+    </bean>
+	
+	
+	<!-- CXP ends -->
+	
+	<!-- CAT starts -->
+	
+	<bean id="dataSourceCAT" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//lshrdbs-cssstg2.us1.avaya.com:1521/cssstg2" />
+		<property name="username" value="grt" />
+		<property name="password" value="A2v4a6y8a_77" />
+	</bean> 
+	<!-- 
+	<bean id="dataSourceCAT" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${cat.jndi}" />
+	</bean>
+	 -->
+	<bean id="sqlSessionFactoryCAT" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceCAT" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/cat/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<prop key="show_sql">true</prop>
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.connection.release_mode">after_statement</prop>
+			<!-- <prop key="hibernate.transaction.flush_before_completion">true</prop>
+			<prop key="hibernate.transaction.auto_close_session">false</prop> -->
+		</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManagerCAT" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryCAT" />
+    </bean>
+	
+	
+	<!-- CAT ends -->
+	
+	<!-- FMW starts -->
+	
+	<bean id="dataSourceFMW" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//tlesbdb01.us1.avaya.com:1526/fmwdev" />
+		<property name="username" value="FMW_LOG" />
+		<property name="password" value="Icantr1d#65" />
+	</bean> 
+	<!-- 
+	<bean id="dataSourceFMW" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${fmw.jndi}" />
+	</bean>
+	-->
+	<bean id="sqlSessionFactoryFMW" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceFMW" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/fmw/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<prop key="show_sql">true</prop>
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.connection.release_mode">after_statement</prop>
+			<!-- <prop key="hibernate.transaction.flush_before_completion">true</prop>
+			<prop key="hibernate.transaction.auto_close_session">false</prop> -->
+		</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManagerFMW" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactoryFMW" />
+    </bean>
+	
+	
+	<!-- FMW ends -->
+	<!-- Siebel starts -->
+	
+	<bean id="dataSourceSiebel" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@//lshrdbs-esmreps.us1.avaya.com:1521/ESMREPS" />
+		<property name="username" value="grt" />
+		<property name="password" value="Staple334#" />
+	</bean> 
+	<!-- 
+	<bean id="dataSourceSiebel" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="${siebel.jndi}" />
+	</bean>
+	--> 
+	<bean id="sqlSessionFactorySiebel" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceSiebel" />
+		
+		<property name="mappingLocations" value="classpath:com/avaya/siebel/mappers/*.hbm.xml" />
+		 
+		<property name="hibernateProperties">
+		<props>
+			<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+			<prop key="hibernate.current_session_context_class">jta</prop>
+			<prop key="show_sql">true</prop>
+			<prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+			<prop key="hibernate.connection.release_mode">after_statement</prop>
+			<!-- <prop key="hibernate.transaction.flush_before_completion">true</prop>
+			<prop key="hibernate.transaction.auto_close_session">false</prop> -->
+		</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManagerSiebel" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	 	<property name="sessionFactory" ref="sqlSessionFactorySiebel" />
+    </bean>
+	
+	
+	<!-- Siebel ends -->
+   <bean id="installBaseDao" class="com.avaya.grt.dao.installbase.InstallBaseDaoImpl" parent="technicalRegistrationDao">  
+    
+    	
+    </bean>
+    <bean id="eqrDao" class="com.avaya.grt.dao.equipmentremoval.EQRDaoImpl" parent="technicalRegistrationErrorDao">  
+    	    	
+    </bean>
+    <bean id="eqmDao" class="com.avaya.grt.dao.equipmentmove.EQMDaoImpl" parent="technicalRegistrationErrorDao">  
+    	    	
+    </bean>
+	<bean id="technicalOnBoardingDao" class="com.avaya.grt.dao.technicalonboarding.TechnicalOnBoardingDaoImpl" >
+		<property name="sqlSessionFactorySiebel" ref="sqlSessionFactorySiebel" />
+		<property name="sqlSessionFactoryGRT" ref="sqlSessionFactoryGRT" />
+	</bean>
+	
+    <bean id="administratorDao" class="com.avaya.grt.dao.administrator.AdministratorDaoImpl" parent="technicalRegistrationDao">
+	
+	</bean>
+
+    <bean id="installBaseJMSDao" class="com.avaya.grt.dao.installbase.InstallBaseJMSDaoImpl" parent="technicalRegistrationDao">
+
+    </bean>
+    
+     <bean id="errorJMSDao" class="com.avaya.grt.dao.error.ErrorJMSDaoImpl">
+ <property name="sqlSessionFactoryGRT" ref="sqlSessionFactoryGRT" /> 
+    </bean>
+    
+    <bean id="technicalRegistrationErrorDao" class="com.avaya.grt.dao.TechnicalRegistrationErrorDao" parent="technicalRegistrationDao" >
+    <property name="sqlSessionFactoryGRT" ref="sqlSessionFactoryGRT" /> 
+      </bean>
+      
+       <bean id="techRegJMSDao" class="com.avaya.grt.dao.techregistration.TechRegJMSDaoImpl" parent="technicalRegistrationAsyncDao">
+    </bean>
+     
+     <bean id="technicalRegistrationAsyncDao" class="com.avaya.grt.dao.TechnicalRegistrationAsyncDao" parent="technicalRegistrationDao">
+     </bean>
+     <bean id="srUpdateJMSDao" class="com.avaya.grt.dao.srupdate.SRUpdateJMSDaoImpl">
+ <property name="sqlSessionFactoryGRT" ref="sqlSessionFactoryGRT" /> 
+    </bean>
+    
+    <bean id="technicalRegistrationSRDao" class="com.avaya.grt.dao.TechnicalRegistrationSRDao" parent="technicalRegistrationDao" >
+    <property name="sqlSessionFactoryGRT" ref="sqlSessionFactoryGRT" /> 
+      </bean>
+    
+     <bean id="technicalRegistrationDao" class="com.avaya.grt.dao.TechnicalRegistrationDao" parent="technicalRegistrationArtDao">
+      	<property name="ibaseQueue" value="${ibaseQueue}" />
+    	<property name="eqrQueue" value="${eqrQueue}" />
+     </bean>
+     
+     <bean id="technicalRegistrationArtDao" class="com.avaya.grt.dao.TechnicalRegistrationArtDao" parent="baseHibernateDao">  
+     	    	</bean>
+     
+	<bean id="baseHibernateDao" class="com.avaya.grt.dao.BaseHibernateDao" >
+	<property name="sqlSessionFactoryGRT" ref="sqlSessionFactoryGRT" /> 
+	<property name="sqlSessionFactoryFMW" ref="sqlSessionFactoryFMW" />
+	 <property name="sqlSessionFactoryCXP" ref="sqlSessionFactoryCXP" />  
+    	 <property name="sqlSessionFactoryCAT" ref="sqlSessionFactoryCAT" />  
+    	<property name="sqlSessionFactorySiebel" ref="sqlSessionFactorySiebel" />
+    	<property name="salGatewayMaterialCode" value="${salGatewayMaterialCode}" /> 
+	</bean>
+       
+</beans>

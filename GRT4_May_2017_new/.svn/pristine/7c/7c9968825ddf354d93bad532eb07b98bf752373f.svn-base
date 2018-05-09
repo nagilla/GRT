@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.PipelineSapTransactions" 
+    table="PIPELINE_SAP_TRANSACTIONS"
+    lazy="false"
+>
+    <id
+        name="plSapTransactionId"
+        type="string"
+        column="PL_SAP_TRANSACTION_ID"
+        length="50"
+    >
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+    <property
+        name="registrationId"
+        type="string"
+        column="REGISTRATION_ID"
+        length="50"
+    />
+    <property
+        name="materialCode"
+        type="string"
+        column="MATERIAL_CODE"
+        length="50"
+    />
+    <property
+        name="shipTo"
+        type="string"
+        column="SHIP_TO"
+        length="50"
+    />
+    <property
+        name="action"
+        type="string"
+        column="ACTION"
+        length="10"
+    />
+    <property
+        name="dateTime"
+        type="java.util.Date"
+        column="DATE_TIME"
+        length="11"
+    />
+    <property
+        name="processed"
+        type="boolean"
+        column="PROCESSED"
+        length="38"
+    />
+    <property
+        name="serialNumber"
+        type="string"
+        column="SERIAL_NUMBER"
+        length="50"
+    />
+    <property
+        name="equipmentNumber"
+        type="string"
+        column="EQUIPMENT_NUMBER"
+        length="50"
+    />
+    <property
+        name="toEquipmentNumber"
+        type="string"
+        column="TO_EQN_NUMBER"
+        length="50"
+    />
+    <property
+        name="technicallyRegisterable"
+        type="boolean"
+        column="TECHNICALLY_REGISTERABLE"
+        length="1"
+    />
+    <property
+        name="quantity"
+        type="long"
+        column="QUANTITY"
+        length="19"
+    />
+    <property
+        name="alreadyTRedQty"
+        type="long"
+        column="ALREADY_TRED_QTY"
+        length="10"
+    />
+    <property
+        name="sapQty"
+        type="long"
+        column="SAP_QTY"
+        length="19"
+    />
+    <property
+        name="ibSubmittedDate"
+        type="java.util.Date"
+        column="IB_SUBMITTED_DATE"
+        length="11"
+    />
+    <property
+        name="sapCompleted"
+        type="boolean"
+        column="IS_SAP_COMPLETED"
+        length="1"
+    />
+    <property
+        name="processedDate"
+        type="java.util.Date"
+        column="PROCESSED_DATE"
+        length="11"
+    />
+    
+    <property
+        name="beforeQuantity"
+        type="java.math.BigDecimal"
+        column="BEFORE_QUANTITY"
+        length="19"
+    /> 
+    
+     <property
+        name="afterQuantity"
+        type="java.math.BigDecimal"
+        column="AFTER_QUANTITY"
+        length="19"
+    />  
+</class>
+</hibernate-mapping>

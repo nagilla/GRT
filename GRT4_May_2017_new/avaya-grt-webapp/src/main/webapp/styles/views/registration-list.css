@@ -1,0 +1,175 @@
+/*** START REGISTRATION LIST STYLES ***/
+
+.registration-list .page-note p {
+	padding-bottom:10px;
+	font-size: 14px;
+}
+.registration-list .page-note .controls {
+	text-align: left;
+	padding: 10px 10px 15px 10px;
+}
+.registration-list .data-table-wrap .collapse-box-container {
+      display: block;}
+/*
+#registrationlist thead {
+	display: none;}
+	#registrationlist thead tr {
+		display: none;} */
+		#registrationlist thead .sorting,
+		#registrationlist thead .sorting_asc,
+		#registrationlist thead .sorting_desc  {
+			background: none;}
+		/* .regListTable td:last-child,
+		#registrationList td:last-child{
+			display:block;} */
+
+
+
+div.dataTables_scroll {clear:both;}
+
+input#userEmail {
+	margin: 10px 0px 0;
+  width: 100%;
+}
+.modal-summary {
+
+}
+.modal-summary tr {
+	display: block;
+	padding: 5px 10px;
+}
+.modal-summary td {
+	vertical-align: top;
+	width: 170px;
+}
+.modal-summary textarea {
+	width: 240px;
+	height: 100px;
+}
+.modal-summary input {
+	padding: 3px 10px;
+	height: 30px;
+	font-size: 14px;
+	width: 100%;
+}
+
+/**********************/
+/* jQuery UI elements */
+/**********************/
+
+/* buttons in TH area */
+.ui-button-text-only .ui-button-text {
+	padding: 3px 10px;
+}
+.ui-button .ui-button-text {
+	display: block;
+	line-height: 1.4;
+}
+.ui-button.ui-corner-all {
+	-moz-border-radius: 0;
+  -webkit-border-radius: 0;
+}
+.ui-button.ui-widget {
+	font-size: 11px;
+	text-transform: uppercase;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	background-image: -webkit-linear-gradient(top, #eaeaea 0%, #cccccc 100%) !important;
+  background-image: linear-gradient(to bottom, #eaeaea 0%, #cccccc 100%) !important;
+  background-repeat: repeat-x !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEAEAEA', endColorstr='#FFCCCCCC', GradientType=0) !important;
+  border: 1px solid #eaeaea !important;
+
+}
+.ui-state-default:hover,
+.ui-widget-content .ui-state-default:hover,
+.ui-widget-header .ui-state-default:hover {
+	background-image: -webkit-linear-gradient(top, #d6d6d6 0%, #cccccc 100%) !important;
+	background-image: linear-gradient(to bottom, #d6d6d6 0%, #cccccc 100%) !important;
+	background-repeat: repeat-x !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD6D6D6', endColorstr='#FFCCCCCC', GradientType=0) !important;
+	border-color: #999999 !important;
+	color: #424242 !important;
+}
+
+/* dialog pop up jquery UI */
+.ui-dialog .ui-dialog-buttonpane {
+	display: none !important;
+}
+.ui-draggable .ui-dialog-titlebar {
+  cursor: default !important;
+}
+.ui-dialog .ui-dialog-titlebar {
+  padding: .5em 1em .3em !important;
+  position: relative !important;
+}
+.ui-corner-all {
+  -moz-border-radius: 0 !important;
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.ui-widget-header {
+  border: 0px solid #aaaaaa !important;
+  background: none !important;
+  color: #424242 !important;
+  font-weight: bold !important;
+}
+.ui-icon-grip-diagonal-se {
+  background-position: -1180px -2224px !important;
+}
+.ui-dialog .ui-dialog-content {
+	font-size: 9px;
+}
+/* Multiselect checkbox position
+.ui-dialog.ui-widget.ui-widget-content{
+	top : 38% !important;
+} */
+/* deprecated styles below
+div#registrationContent div.loading-overlay {
+	position: absolute;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 30%;
+	z-index: 1999;
+	padding-top: 20%;
+	background: #000;
+	background: rgba(255, 255, 255, 0.85);
+}
+
+div.modal-content{
+  min-width: 350px;
+  max-width: 550px;
+  background: #fff;
+  padding: 30px;
+  position: absolute;
+  left: 25%;
+  top: 200px;
+}
+
+.navControl {
+  width: 100%;
+  text-align: center;
+  padding: 60px 0 30px;
+}
+
+#registrationContent #registrationlist_filter{
+	display : none;
+}
+
+table#registrationlist{
+  overflow-x: scroll;
+  display: block;
+}
+*/
+
+#registrationContent #registrationlist_filter{
+	display : none;
+}
+
+/*** START REGISTRATION LIST STYLES ***/

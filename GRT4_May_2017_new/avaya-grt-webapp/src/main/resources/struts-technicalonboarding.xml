@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="technicalonboarding" namespace="/technicalonboarding" extends="default">
+		<action name="technicalRegistrationOnly" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="technicalRegistrationOnly">
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="technicalRegistrationUpdate" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="technicalRegistrationUpdate">
+			<result name="techRegUpdate" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+			<result name="except" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="updateTechnicalRegistrationConfig" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="updateTechnicalRegistrationConfig">
+			<result name="failure" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result> 
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="technicalRegistrationConfig" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="technicalRegistrationConfig">
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<result name="except" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="navigateToTR" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="navigateToTR">
+			<result name="techRegUpdate" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+			<result name="techRegConfig" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<result name="samePage" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="dynamicSortByField" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="dynamicSortByField">
+			<result name="salGatewayMigrationList" type="dispatcher">/WEB-INF/content/technicalonboarding/salGatewayMigrationList.jsp</result>
+			<result name="salMigrationDetails" type="dispatcher">/WEB-INF/content/technicalonboarding/salMigrationDetails.jsp</result>
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="cancelTechnicalRegistrationSummary" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="cancelTechnicalRegistrationSummary">
+			<result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="cancelRegistrationHome" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="cancelRegistrationHome">
+			<!-- <result name="success" type="redirectAction">
+				<param name="actionName">home-action</param>
+				<param name="namespace">/</param>
+			</result> -->
+			<!-- Fix https redirect issue - cobrowse -->
+			<result name="success" type="redirect">https://${hostName}/grt/home-action.action</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="submitTechnicalRegistrationSummary" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="submitTechnicalRegistrationSummary">
+			<result name="current" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="backFromTechnicalRegistrationSummary" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="backFromTechnicalRegistrationSummary">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<result name="registrationList" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="addTechnicalRegistrationConfig" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="addTechnicalRegistrationConfig">
+			<interceptor-ref name="sessionTimeoutStack" />
+			<!-- <interceptor-ref name="token"/> -->
+			
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<result name="except" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<result name="error" type="redirectAction">
+				../technicalregsitration/saveSiteRegistrationTOB
+			</result> 
+			
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+		
+		<action name="populateTRConfigForConfig" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="populateTRConfigForConfig">
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="populateTRConfig" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="populateTRConfig">
+			<result name="techRegUpdate" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateSIDMIDQuery" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="validateSIDMIDQuery">
+			<result name="validate" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateAUXMCMainSEID" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="validateAUXMCMainSEID">
+			<result name="validate" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="submitTrDetails" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="submitTrDetails">
+			<result name="failure" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<result name="stepB" type="dispatcher">/WEB-INF/content/salmigration/SALStepB.jsp</result>
+			<result name="techRegUpdate" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+			<result name="except" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="loadSalStepBDetails" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="loadSalStepBDetails">
+			 <result name="failure" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result> 
+			<result name="success" type="dispatcher">/WEB-INF/content/salmigration/SALStepB.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		 <action name="submitSalAlarmConnectivityDetails" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="submitSalAlarmConnectivityDetails">
+			<result name="success" type="dispatcher">/WEB-INF/content/salmigration/SALStepB.jsp</result> 
+			<result name="failure" type="dispatcher">/WEB-INF/content/salmigration/SALStepB.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action> 
+		
+		<action name="getTechnicalOrderDetails" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="getTechnicalOrderDetails">
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result> 
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action> 
+		
+		<action name="addRegistrableProductsReadyToProcess" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="addRegistrableProductsReadyToProcess">
+			<result name="failure" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<result name="back" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="addToList" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="addToList">
+			<result name="salgw" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+			<result name="tobConfig" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<result name="tobConfigUpdate" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="technicalRegistrationDashboard" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="technicalRegistrationDashboard">
+			<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<result name="successTechOrder" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDetails.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+		
+		<action name="backFromTRDetails" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="backFromTRDetails">
+			<result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="populateTRConfiguration" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="populateTRConfiguration">
+			<result name="techRegUpdates" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="technicalRegistrationRetest" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="technicalRegistrationRetest">
+			<result name="techRegRetest" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			<result name="except" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationDashboard.jsp</result>
+			
+			<result name="error" type="redirectAction">
+				../technicalregsitration/saveSiteRegistrationTOB
+			</result> 
+			
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+
+	
+		<action name="getCompletionDetails" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="getCompletionDetails">
+			<result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">inputStream</param>
+			</result>   
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+			<action name="validateCMMain" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="validateCMMain">
+				<result name="success" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationConfig.jsp</result>
+				<interceptor-ref name="scope">
+					<param name="key">actionForm</param>
+					<param name="session">actionForm</param>
+				</interceptor-ref>
+				<interceptor-ref name="basicStack" />
+			</action>
+		
+			<action name="updateRegistrableProductsReadyToProcess" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="updateRegistrableProductsReadyToProcess">
+				<result name="failure" type="dispatcher">/WEB-INF/content/technicalonboarding/technicalRegistrationUpdate.jsp</result>
+				<interceptor-ref name="scope">
+					<param name="key">actionForm</param>
+					<param name="session">actionForm</param>
+				</interceptor-ref>
+				<interceptor-ref name="basicStack" />
+			</action>
+			
+		</package>
+	<package name="technicalonboardingjson" namespace="/technicalonboarding/json" extends="json-default">
+		<!--default-interceptor-ref name="sessionTimeoutStack" /-->
+		<action name="getEligibleAccessTypes" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="getEligibleAccessTypes">
+			<result type="json">
+				<param name="root">accessTypes</param>
+			</result>
+		</action>
+		
+		<action name="getRegistrationSummaryListDetail" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="getRegistrationSummaryListDetail">
+			<result type="json">
+				<param name="root">registrableProductList</param>
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+		
+		<action name="getExistingTOBRecords" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="getExistingTOBRecords">
+			<result type="json">
+				<param name="root">techRegistrationList</param>
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="getRegistrationSummaryListDetail" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="getRegistrationSummaryListDetail">
+			<result type="json">
+				<param name="root">registrableProductList</param>
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+		<action name="getSALGatewayDetails" class="com.avaya.grt.web.action.technicalonboarding.TechnicalOnBoardingAction" method="getSALGatewayDetails">
+			<result type="json">
+				<param name="root">htmlContentStr</param>
+			</result>
+		</action>
+		
+	</package>
+
+</struts>

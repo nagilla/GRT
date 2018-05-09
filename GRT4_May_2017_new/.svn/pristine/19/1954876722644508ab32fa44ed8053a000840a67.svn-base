@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.avaya.grt.mappers.Region" table="Region"
+		lazy="false">
+
+		<id name="regionId"  type="long"  column="REGIONID"   length="38" />
+		
+		<property name="region" type="string" column="REGION"
+			length="5" />
+		
+		<property name="description" type="string" column="DESCRIPTION"
+			length="50" />
+		
+		<property name="countryCode" type="string" column="COUNTRYCODE"
+			length="50" />
+						
+		<property name="siebeldescription" type="string" column="SIEBELDESCRIPTION"
+			length="50" />			
+		
+	</class>
+</hibernate-mapping>

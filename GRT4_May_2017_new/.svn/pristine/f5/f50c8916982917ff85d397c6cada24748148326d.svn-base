@@ -1,0 +1,72 @@
+/*** START RECORD VALIDATION STYLES ***/
+
+.record-validation {}
+
+.record-validation .controls {
+text-align: center;
+margin: 20px 0 20px;
+clear: both; }
+
+.record-validation #rv-wrap.data-table-wrap .collapse-box-container {
+display: block;}
+.record-validation #summary-table-wrap.data-table-wrap .collapse-box-container {
+}
+.record-validation .unique-tables.data-table-wrap .collapse-box-container {
+}
+
+.record-validation #rv-wrap .manual-entry-btns {
+background: #eeedea;
+padding: 5px 0 0;
+clear: both;
+margin: 0;
+width: 100%;
+height: 44px;}
+.record-validation #rv-wrap .manual-entry-btns span.left-col {
+text-align: left;
+float:left;
+padding:10px 44px;}
+.record-validation #rv-wrap .manual-entry-btns span.left-col span {
+font-size: 14px;
+padding: 0 8px;}
+.record-validation #rv-wrap .manual-entry-btns span.right-col {
+padding: 0 2% 0 0;
+float: right;
+text-align: right;}
+
+.record-validation #rv-wrap  #uploadFile {
+width: 174px;}
+.record-validation #rv-wrap .manual-entry-btns .button {
+font-size: 12px;}
+
+.record-validation .select-remove-wrap {
+height: 24px;
+padding: 6px 34px 2px;
+background: #eeedea;}
+
+#materialCodeSearchPopUp .searchHeader {
+text-align:center;}
+
+#materialCodeSearchPopUp .content {
+
+min-width: 600px}
+#se-wrap .collapse-box-container {
+display: block;}
+
+.record-validation .page-note {
+padding: 0 0 20px;
+width: 75%;
+}
+
+.record-validation #recordValidationSummaryTable a {
+cursor: pointer;
+}
+
+
+.erroWrap {
+max-width:460px;
+text-overflow: ellipsis;
+white-space:nowrap;
+overflow: hidden;
+}
+
+/*** END RECORD VALIDATION STYLES ***/

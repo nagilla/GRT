@@ -1,0 +1,17 @@
+/*** START TOB DASHBOARD STYLES ***/
+
+.tob-dashboard {}
+  .tob-dashboard .controls {
+    text-align: center;
+    margin: 0px 0 20px;
+    clear: both; }
+
+#accessTypeDialog .msg-txt #AceessType {
+  margin: 10px 0;
+}
+#accessTypeDialog .msg-txt p {
+  margin: 0 0 10px 0;
+}
+
+
+/*** END TOB DASHBOARD STYLES ***/

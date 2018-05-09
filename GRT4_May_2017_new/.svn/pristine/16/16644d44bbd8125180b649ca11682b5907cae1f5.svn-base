@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="validateEquipmentNoFromTechnicalRegistrationNew">
+		<![CDATA[ Select tr.equipment_number from technical_registration tr, technical_order techo, site_registration sr where SR.REGISTRATION_ID = TECHO.SITE_REGISTRATION_ID  and TECHO.ORDER_ID=TR.TECHNICAL_ORDER_ID  and sr.sold_to_id=:soldToNumberParam and techo.order_type='TR' and tr.equipment_number is not null and tr.equipment_number IN (:param)  and tr.status_id='1003' ]]>
+    </sql-query>
+    
+    <query name="getTechnicalRegistrationByArtSRForStepB">
+		<![CDATA[ Select tr from TechnicalRegistration tr where tr.stepBSRRequest.siebelSRNo = :srNumber]]>
+    </query>
+    
+    <sql-query name="undoStepBForTechnicalRegistration">
+		<![CDATA[ UPDATE TECHNICAL_REGISTRATION SET STEPB_STATUS = '1005', STEPB_SR_REQUEST = NULL, SELECT_REMOTE_ACCESS = '0', SELECT_ALARMING = '0', STEPB_SUBMITTED_DATE = NULL, STEPB_COMPLETED_DATE = NULL WHERE TECHNICAL_REGISTRATION_ID = :TECHREGID ]]>
+    </sql-query>
+
+	<sql-query name="getExistingRegistration">
+		<![CDATA[ SELECT TOR.SITE_REGISTRATION_ID FROM TECHNICAL_ORDER TOR, TECHNICAL_REGISTRATION TR WHERE TOR.ORDER_ID = TR.TECHNICAL_ORDER_ID AND TR.SOLUTION_ELEMENT_ID = :seId AND TR.STEPB_SUBMITTED_DATE IS NOT NULL AND TR.STEPB_STATUS IN (1002, 1003, 1009, 2002, 2003, 1001)  AND (SELECT_REMOTE_ACCESS = 1 or SELECT_ALARMING = 1) UNION SELECT SL.SITE_REGISTRATION_ID FROM SITE_LIST SL WHERE SL.SOLUTION_ELEMENT_ID = :seId AND SL.STEPB_SUBMITTED_DATE IS NOT NULL AND SL.STEPB_STATUS IN (1002, 1003, 1009, 2002, 2003, 1001)  AND (SELECT_REMOTE_ACCESS = 1 or SELECT_ALARMING = 1)]]>
+    </sql-query>
+    
+    <sql-query name="getExistingTechReg">
+		<![CDATA[ 
+				  SELECT TR.TECHNICAL_REGISTRATION_ID, TOR.ORDER_ID FROM TECHNICAL_ORDER TOR, TECHNICAL_REGISTRATION TR WHERE TOR.ORDER_ID = TR.TECHNICAL_ORDER_ID
+       				AND TR.SOLUTION_ELEMENT_ID = :seId AND TR.STATUS_ID = '1004' AND TOR.MATERIAL_CODE = :materialCode AND TOR.SITE_REGISTRATION_ID IN
+              		(SELECT MAX (STE.REGISTRATION_ID) AS REGISTRATION_ID
+                 	FROM TECHNICAL_ORDER TOR1,
+                      TECHNICAL_REGISTRATION TR1,
+                      SITE_REGISTRATION STE
+               		 WHERE     STE.REGISTRATION_ID = TOR1.SITE_REGISTRATION_ID
+                      AND TOR1.ORDER_ID = TR1.TECHNICAL_ORDER_ID
+                      AND TR1.SOLUTION_ELEMENT_ID = :seId
+                      AND STE.SOLD_TO_ID = :soldTo
+                      AND TR1.STATUS_ID = '1004'
+                      AND TOR1.MATERIAL_CODE = :materialCode)
+		]]>
+	</sql-query>
+	<sql-query name="getConnectivityInfo">
+		<![CDATA[ select access_type, connectivity,technical_registration_id from technical_registration where solution_element_id = :seId ]]>
+    </sql-query>
+    
+    <sql-query name="deleteTechOrderByRegId">
+		<![CDATA[  DELETE FROM TECHNICAL_ORDER WHERE SITE_REGISTRATION_ID=:registrationId and ORDER_TYPE = 'TR_RETEST']]>
+    </sql-query>
+    <sql-query name="deleteTechRegByOrderIds">
+		<![CDATA[  DELETE FROM TECHNICAL_REGISTRATION WHERE TECHNICAL_ORDER_ID in :orderIds]]>
+    </sql-query>
+     <sql-query name="updateTechnicalRegistrationBySEID">
+		<![CDATA[  update technical_registration set connectivity='Yes' where solution_element_id=:SEID]]>
+    </sql-query>
+    <sql-query name="updateTechnicalRegistrationId">
+		<![CDATA[ UPDATE TECHNICAL_REGISTRATION SET TECHNICAL_REGISTRATION_ID = :NEWID WHERE TECHNICAL_REGISTRATION_ID = :OLDID]]>
+    </sql-query>
+</hibernate-mapping>

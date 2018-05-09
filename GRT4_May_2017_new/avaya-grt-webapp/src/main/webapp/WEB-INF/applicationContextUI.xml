@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<bean id="grtConfig" class="com.avaya.grt.web.action.GrtConfig">
+		<property name="service_name" value="${service_name}" />
+		<property name="grtSuggestionsUrl" value="${grt_suggestions_url}" />
+		<property name="grtHelpUrl" value="${grt_help_url}" />
+		<property name="rssOrEpnServeyUrl" value="${rssOrEpnServey_url}" />
+		<!-- Internationalization variables -->
+		<property name="duplicateSidSeCode" value="${duplicateSidSeCode}" />
+		<property name="sidMidValidated" value="${sidMidValidated}" />
+		<property name="invalidSid" value="${invalidSid}" />
+		<property name="sidStandByAlreadyExists" value="${sidStandByAlreadyExists}" />
+		<property name="midConsumed" value="${midConsumed}" />
+		<property name="flNotMatching1" value="${flNotMatching1}" />
+		<property name="flNotMatching2" value="${flNotMatching3}" />
+		<property name="flNotMatching3" value="${flNotMatching3}" />
+		<property name="aaceSidMissing" value="${aaceSidMissing}" />
+		<property name="missingMain" value="${missingMain}" />
+		<property name="registrationListRowNum" value="${rownum.registrationlist}" />
+		
+		<!-- Initializing UI related properties -->
+		<property name="ibTitle" value="${ib_title}" />
+		<property name="remoteSiteSurveyOrEPNSurvey" value="${cm_main_survey_title}" />
+		
+		<property name="ipossTokenRedemptionTitle" value="${ipossTokenRedemption_title}" />
+		<property name="accountCreation" value="${account_create_title}" />
+		<property name="tokenRedemption" value="${token_redem_title}" />
+		<property name="ipossRegistration" value="${ipossRegistration_title}" />
+		
+		<property name="adminLinkTitle" value="${administrator_title}" />
+		<property name="announcementsTitle" value="${announcements_title}" />
+		<property name="exclusionSourcePLDS" value="${exclusion_source_PLDS}" />
+		<property name="exclusionSourceKMAT" value="${exclusion_source_KMAT}" />
+		<property name="supportMenu">
+			<list>
+				<map>
+					<entry key="title" value="${support_home_title}" />
+					<entry key="link" value="${support_home_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${Bash_Shellshock_Vulnerability_Info_title}" />
+					<entry key="link" value="${Bash_Shellshock_Vulnerability_Info_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${contact_support_title}" />
+					<entry key="link" value="${contact_support_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${ssoprofile_title}" />
+					<entry key="link" value="${ssoprofile_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${newserv_req_title}" />
+					<entry key="link" value="${newserv_req_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${downloads_title}" />
+					<entry key="link" value="${downloads_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${grt_title}" />
+					<entry key="link" value="${grt_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${support_forum_title}" />
+					<entry key="link" value="${support_forum_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${biller_direct_title}" />
+					<entry key="link" value="${biller_direct_link}" />
+				</map>
+			</list>
+		</property>
+		<property name="mainMenu">
+			<list>
+				<map>
+					<entry key="title" value="${suggestions_title}" />
+					<entry key="link" value="${suggestions_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${registration_help_title}" />
+					<entry key="link" value="${registration_help_link}" />
+				</map>
+			</list>
+		</property>
+		<property name="footerLinks">
+			<list>
+				<map>
+					<entry key="title" value="${privacy_statement_title}" />
+					<entry key="link" value="${privacy_statement_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${terms_of_use_title}" />
+					<entry key="link" value="${terms_of_use_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${corporate_title}" />
+					<entry key="link" value="${corporate_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${press_room_title}" />
+					<entry key="link" value="${press_room_link}" />
+				</map>
+				<!-- removing avaya labs link
+
+				<map>
+					<entry key="title" value="${avaya_labs_title}" />
+					<entry key="link" value="${avaya_labs_link}" />
+				</map>
+				-->
+				<map>
+					<entry key="title" value="${careers_title}" />
+					<entry key="link" value="${careers_link}" />
+				</map>
+				<map>
+					<entry key="title" value="${site_map_title}" />
+					<entry key="link" value="${site_map_link}" />
+				</map>
+			</list>
+		</property>
+		<property name="address" value="${address}" />
+		<property name="copyRight" value="${copyright}" />
+
+		<property name="recentActivities">
+			<list>
+				<value>${registrationType}</value>
+				<value>${redemptionType}</value>
+				<value>${monitoringType}</value>
+			</list>
+		</property>
+
+		<property name="createNewRegistrationLinks">
+			<list>
+				<map>
+					<entry key="title" value="${ete_title}" />
+					<entry key="journey" value="${ete_journey}" />
+					<entry key="view" value="${ete_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${ib_title}" />
+					<entry key="journey" value="${ib_journey}" />
+					<entry key="view" value="${ib_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${tob_title}" />
+					<entry key="journey" value="${tob_journey}" />
+					<entry key="view" value="${tob_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${eq_title}" />
+					<entry key="journey" value="${eq_journey}" />
+					<entry key="view" value="${eq_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${sal_title}" />
+					<entry key="journey" value="${sal_journey}" />
+					<entry key="view" value="${sal_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${ip_office_title}" />
+					<entry key="journey" value="${ip_office_journey}" />
+					<entry key="view" value="${ip_office_view}" />
+				</map>
+			</list>
+		</property>
+
+		<property name="registrationManagementLinks">
+			<list>
+			<map>
+					<entry key="title" value="${view_installbase_title}" />
+					<entry key="view" value="${view_installbase_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${update_exist_title}" />
+					<entry key="view" value="${update_exist_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${cm_main_survey_title}" />
+					<entry key="view" value="${cm_main_survey_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${account_update_title}" />
+					<entry key="view" value="${account_update_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${administrator_title}" />
+					<entry key="view" value="${administrator_view}" />
+				</map>
+				
+				
+			</list>
+		</property>
+		
+		<property name="ipossTokenRedemptionLinks">
+			<list>
+				
+				<map>
+					<entry key="title" value="${account_create_title}" />
+					<entry key="view" value="${account_create_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${ipossRegistration_title}" />
+					<entry key="view" value="${ipossRegistration_view}" />
+				</map>
+				<map>
+					<entry key="title" value="${token_redem_title}" />
+					<entry key="view" value="${token_redem_view}" />
+				</map>
+				
+			</list>
+		</property>
+
+		<property name="trainings">
+			<map>
+				<entry key="title" value="${training_title} " />
+				<entry key="links">
+					<list>
+						<map>
+							<entry key="title" value="${training1_title}" />
+							<entry key="url" value="${training1_url}" />
+						</map>
+						<map>
+							<entry key="title" value="${training2_title}" />
+							<entry key="url" value="${training2_url}" />
+						</map>
+					</list>
+				</entry>
+			</map>
+		</property>
+
+		<property name="helps">
+			<map>
+				<entry key="title" value="${help_title} " />
+				<entry key="links">
+					<list>
+						<map>
+							<entry key="title" value="${help1_title}" />
+							<entry key="url" value="${help1_url}" />
+						</map>
+						<map>
+							<entry key="title" value="${help2_title}" />
+							<entry key="url" value="${help2_url}" />
+						</map>
+						<map>
+							<entry key="title" value="${help3_title}" />
+							<entry key="url" value="${help3_url}" />
+						</map>
+					</list>
+				</entry>
+			</map>
+		</property>
+
+		<property name="tools">
+			<map>
+				<entry key="title" value="${tools_title}" />
+				<entry key="links">
+					<list>
+						<map>
+							<entry key="title" value="${tool1_title}" />
+							<entry key="url" value="${tool1_url}" />
+						</map>
+						<map>
+							<entry key="title" value="${tool2_title}" />
+							<entry key="url" value="${tool2_url}" />
+						</map>
+					</list>
+				</entry>
+			</map>
+		</property>
+		
+		<!-- Validation And Information Messages -->
+		<property name="onboardFileMsg" value="${INF-0001_Registration_List}" />
+		<property name="onboardFileErrMsg" value="${ERR-0003_Registration_List}" />
+		<property name="updateEmailMsg" value="${INF-0002_Registration_List}" />
+		<property name="soldToExcludedMsg" value="${WRN-0004_Customer_Site_Registration}" />
+		<property name="soldToNotEligibleMsg" value="${WRN-0005_Customer_Site_Registration}" />
+		<property name="soldToNotAuthMsg" value="${WRN-0006_Customer_Site_Registration}" />
+		<property name="soldToNotValidMsg" value="${WRN-0007_Customer_Site_Registration}" />
+		<property name="soldToEmptyMsg" value="${WRN-0008_Customer_Site_Registration}" />
+		<property name="soldToAutoNoteMsg" value="${INF-0009_Customer_Site_Registration}" />
+		<property name="agentUserTypeMsg" value="${INF-0010_Customer_Site_Registration}" />
+		<property name="agentBPUserTypeMsg" value="${INF-0011_Customer_Site_Registration}" />
+		<property name="agentCustUserTypeMsg" value="${INF-0012_Customer_Site_Registration}" />
+		<property name="exclPldsErrMsg" value="${ERR-0013_View_Install_Base}" />
+		<property name="exclEsnaErrMsg" value="${ERR-0495_View_Install_Base}" />
+		<property name="offerCodeErrMsg" value="${ERR-0014_View_Install_Base}" />
+		<property name="defectiveCodeErrMsg" value="${ERR-0022_Install_Base_Creation}" />
+		<property name="blueCodeErrMsg" value="${ERR-0023_Install_Base_Creation}" />
+		<property name="vsalgwErrMsg" value="${WRN-0113_Equipment_Move}" />
+		
+		<property name="EQR_successCode" value="${INF-0025_Install_Base_Creation}" />
+		<property name="EQR_errorCode" value="${ERR-0015_Install_Base_Creation}" />
+		<property name="sapDown_errorCode" value="${ERR-0016_Install_Base_Creation}" />
+		<property name="fmw_errorCode" value="${ERR-0017_Install_Base_Creation}" />
+		<property name="exception_errorcode" value="${ERR-0018_Install_Base_Creation}" />
+		<property name="sapdestination_notfound" value="${ERR-0019_Install_Base_Creation}" />
+		<property name="prepareTechnicalOrderMaterialExclusionError1" value="${ERR-0020_Install_Base_Creation}" />
+		<property name="prepareTechnicalOrderMaterialExclusionError2" value="${ERR-0021_Install_Base_Creation}" />
+		<property name="materialEmptyListRC" value="${INF-0024_Install_Base_Creation}" />
+		
+		<property name="BaseUnitError2" value="${WRN-0027_Install_Base_Creation}" />
+		<property name="BaseUnitError" value="${WRN-0026_Install_Base_Creation}" />
+		<property name="validBaseUunit" value="${INF-0030_Install_Base_Creation}" />
+		<property name="continueRegistration" value="${INF-0031_Install_Base_Creation}" />
+		<property name="uploadedFileSize" value="${WRN-0028_Install_Base_Creation}" />
+		<property name="materialCodeExcluded" value="${INF-0033_Install_Base_Creation}" />
+		<property name="quantitySize" value="${WRN-0034_Install_Base_Creation}" />
+		<property name="invalidSerialNumber" value="${WRN-0035_Install_Base_Creation}" />
+		<property name="invalidSerialNumber18Char" value="${WRN-0036_Install_Base_Creation}" />
+		<property name="validQuantity" value="${WRN-0037_Install_Base_Creation}" />
+		<property name="quantityNotEmpty" value="${WRN-0038_Install_Base_Creation}" />
+		<property name="invalidMaterialCode" value="${WRN-0039_Install_Base_Creation}" />
+		<property name="invalidQuantity" value="${WRN-0040_Install_Base_Creation}" />
+		<property name="formaterialcodes" value="${WRN-0041_Install_Base_Creation}" />
+		<property name="materialCodeNotMatchWithSECode" value="${WRN-0042_Install_Base_Creation}" />
+		
+		<property name="sameMaterialCodeQuantity" value="${WRN-0043_Install_Base_Creation}" />
+		<property name="serialMaterialQuantity" value="${WRN-0044_Install_Base_Creation}" />
+		<property name="serviceUnitMaterialQuantity" value="${WRN-0045_Install_Base_Creation}" />
+		
+		<property name="tobTechnicalError1" value="${INF-0043_Technical_On_Boarding}" />
+		<property name="tobDataError1" value="${INF-0044_Technical_On_Boarding}" />
+		<property name="tobTechnicalError2" value="${INF-0045_Technical_On_Boarding}" />
+		<property name="invalidSidMain" value="${WRN-0047_Technical_On_Boarding}" />
+		<property name="invalidAfid" value="${WRN-0048_Technical_On_Boarding}" />
+		<property name="updateRecordTitle" value="${INF-0046_Technical_On_Boarding}" />
+		<property name="duplicateSalMsg1" value="${ERR-0049_Technical_On_Boarding}" />
+		<property name="duplicateSalMsg2" value="${ERR-0050_Technical_On_Boarding}" />
+		<property name="InstallBaseListSize" value="${INF-0051_Install_Base}" />
+		<property name="InstallBaseListSizeMsg" value="${WRN-0052_Install_Base}"/>
+		<property name="leadingZeroesNote" value="${INF-0053_Customer_Site_Registration}"/>
+		
+		<property name="RVInvalidMC" value="${WRN-0054_Record_Validation}" />
+		<property name="RVDuplicateSN" value="${WRN-0055_Record_Validation}" />
+		<property name="RVInvalidSN" value="${WRN-0056_Record_Validation}" />
+		<property name="RVInvalidQty" value="${WRN-0057_Record_Validation}" />
+		<property name="RVEmptyQty" value="${WRN-0058_Record_Validation}" />
+		<property name="RVInvalidQtyWithSN" value="${WRN-0059_Record_Validation}" />
+		<property name="recordValidationError7" value="${WRN-0060_Record_Validation}" />
+		<property name="RVInvalidOption" value="${INF-0061_Record_Validation}" />
+		<property name="RVMCNotPresentInDB" value="${ERR-0062_Record_Validation}" />
+		<property name="RVExcludedMC" value="${INF-0063_Record_Validation}" />
+		<property name="RVErrorMessage" value="${INF-0064_Record_Validation}" />
+		<property name="RVSuccessMessage" value="${INF-0065_Record_Validation}" />
+		<property name="stepBSuccessMsg" value="${INF-0096_Technical_On_Boarding}" />
+		<property name="stepBFailureMsg" value="${ERR-0097_Technical_On_Boarding}" />
+		
+		<property name="emptyRevisedQuantityMsg" value="${WRN-0068_Record_Validation}" />
+		<property name="selectOneEquipmentMsg" value="${WRN-0069_Record_Validation}" />
+		<property name="mcWithActiveRemovalWarning" value="${INF-0070_Record_Validation}" />
+		<property name="submitConfirmMsg" value="${INF-0071_Record_Validation}" />
+		<property name="saveLoadingTextMsg" value="${INF-0073_Record_Validation}" />
+		<property name="submitLoadingTextMsg" value="${INF-0072_Record_Validation}" />
+		<property name="confirmValidateTextMsg" value="${INF-0074_Record_Validation}" />
+		<property name="cancelConfirmMsgHome" value="${INF-0075_Record_Validation}" />
+		<property name="cancelConfirmMsgRegList" value="${INF-0076_Record_Validation}" />
+		<property name="downloadTemplateMsg" value="${INF-0077_Record_Validation}" />
+		<property name="validOptionMsg" value="${WRN-0078_Record_Validation}" />
+		<property name="largeQuantityErrorMsg" value="${WRN-0079_Record_Validation}" />
+		<property name="validatedStatusMsg" value="${INF-0080_Record_Validation}" />
+		<property name="materialCodeLabel" value="${INF-0081_Record_Validation}" />
+		<property name="blankSerialNumberErrorMsg" value="${WRN-0082_Record_Validation}" />
+		<property name="invalidMaterialCodeErrorMsg" value="${WRN-0083_Record_Validation}" />
+		<property name="seibelTimeoutErrorMsg" value="${ERR-0084_Record_Validation}" />
+		<property name="noRecordErrorMsg" value="${INF-0085_Record_Validation}" />
+		<property name="incorrectFileFormatErrMsg" value="${ERR-0086_Record_Validation}" />
+		<property name="hugeUpdateErrorMessage" value="${WRN-0088_Record_Validation}" />
+		<property name="noActionImportErrorMsg" value="${INF-0089_Record_Validation}" />
+		<property name="saveErrorMsg" value="${ERR-0090_Record_Validation}" />
+		<property name="errorWhileProcessingErrMsg" value="${ERR-0091_Record_Validation}" />
+		<property name="sapDownErrMsg" value="${ERR-0092_Record_Validation}" />
+		<property name="processingFailedErrMsg" value="${ERR-0093_Record_Validation}" />
+		<property name="emptyMaterialListErrorMsg" value="${INF-0094_Record_Validation}" />
+		<property name="unableToMapSoldToErrMsg" value="${ERR-0095_Record_Validation}" />	
+		<property name="validateSuccessMsg" value="${INF-0067_Record_Validation}" />
+		<property name="validateErrorMsg" value="${ERR-0066_Record_Validation}" />
+		
+		
+		<property name="managedElementsRemainder" value="${INF-0098_Technical_On_Boarding}" />
+		<property name="managedElementsRemainderKB" value="${INF-0099_Technical_On_Boarding}" />
+		<property name="noConnectivityMessage" value="${WRN-0100_Technical_On_Boarding}"/>
+		
+		<property name="incorrectHeaderErrMsg" value="${ERR-0087_Record_Validation}" />
+		<property name="equipmentMoveSaveMessage" value="${INF-0103_Equipment_Move}" />
+		<property name="equipmentMoveSaveMessage2" value="${INF-0104_Equipment_Move}" />
+		
+		<!-- <property name="remainingQtyLessThanOne" value="${v0026_Technical_On_Boarding}"/> 
+		<property name="noConnectivityPopUpMessage" value="${i0020_Technical_On_Boarding}"/>
+		<property name="connectivityPopUpMessage" value="${i0021_Technical_On_Boarding}"/>
+		<property name="cancelActionMsg" value="${i0022_Technical_On_Boarding}"/>
+		<property name="selectRecord" value="${i0023_Technical_On_Boarding}"/>
+		<property name="submitTOBData" value="${i0024_Technical_On_Boarding}"/> -->
+		
+		<property name="minThreshhold" value="${minThreshhold}"/>
+		<property name="topRecords" value="${topRecords}"/>
+		
+		<property name="serchMidRange" value="${serchMidRange}"/>
+		<property name="searchLowRange" value="${searchLowRange}"/>
+		<property name="salgwInstDefaultVal" value="${salgw_installer_default}"/>
+		<property name="salgwInstEmailId" value="${salgw_installer_mail}"/>
+		<property name="salgwInstErrMsg" value="${ERR-0101_Salgw_Installer}"/>
+		<property name="salgwInstMandValidMsg" value="${WRN-0102_Salgw_Installer}"/>
+		<property name="salgwInstDownMsg" value="${ERR-0478_Salgw_Installer}"/>
+		<property name="lssOrESSLowerVersionNote" value="${ERR-0479_Technical_On_Boarding}"/>
+		<property name="upgradedMainCMuseRFASIDNote" value="${ERR-0480_Technical_On_Boarding}"/>
+		
+		<property name="salGatewayMaterialCode" value="${salGatewayMaterialCode}"/>
+		<property name="salRequired" value="${WRN-0105_Sal_Migration}" />
+		<property name="duplicateGateway" value="${WRN-0106_Sal_Migration}" />
+		<property name="emptySTSEID" value="${WRN-0107_Sal_Migration}" />
+		<property name="invalidST" value="${WRN-0108_Sal_Migration}" />
+		<property name="invalidSEID" value="${WRN-0109_Sal_Migration}" />
+		<property name="validSTSEID" value="${WRN-0110_Sal_Migration}" />
+		<property name="gatewayAdded" value="${INF-0111_Sal_Migration}" />
+		<property name="selectAsset" value="${WRN-0112_Sal_Migration}" />		
+		
+		<property name="ipoFileSize" value="${ipo_file_size}"/>
+		
+		
+		<!-- Account Update -->
+		<property name="pleaseSelectARecordMsg" value="${WRN-0114_Acc_Update}"/>
+		<property name="emptySoldToError" value="${WRN-0115_Acc_Update}"/>
+		<property name="requiredNameCityCountryError" value="${WRN-0116_Acc_Update}"/>
+		<property name="accountNameLengthError" value="${WRN-0117_Acc_Update}"/>
+		<property name="cityLengthError" value="${WRN-0118_Acc_Update}"/>
+		<property name="mandatoryAccNameStreetCityError" value="${WRN-0119_Acc_Update}"/>
+		<property name="mandatorPhoneEmailNameError" value="${WRN-0120_Acc_Update}"/>
+		<property name="streetLengthError" value="${WRN-0121_Acc_Update}"/>
+		
+		<property name="zipCodeLengthError" value="${WRN-0122_Acc_Update}"/>
+		<property name="phoneNumLengthError" value="${WRN-0123_Acc_Update}"/>
+		<property name="invalidPhoneNumberError" value="${WRN-0124_Acc_Update}"/>
+		<property name="faxLengthError" value="${WRN-0125_Acc_Update}"/>
+		<property name="emailLengthError" value="${WRN-0126_Acc_Update}"/>
+		<property name="stateLengthError" value="${WRN-0127_Acc_Update}"/>
+		<property name="cancelProcessMsg" value="${WRN-0128_Acc_Update}"/>
+		<property name="waitWhileFetchingMsg" value="${WRN-0129_Acc_Update}"/>
+		
+		<property name="stateOrProvince" value="${WRN-0130_Acc_Update}"/>
+		<property name="street2LengthError" value="${WRN-0131_Acc_Update}"/>
+		<property name="phoneNoMax10Error" value="${WRN-0132_Acc_Update}"/>
+		
+		<property name="waitAccountUpdateMsg" value="${INF-0133_Acc_Update}"/>
+		
+		
+		<!-- Account Create -->
+		<property name="mandatoryBPLinkId" value="${WRN-0134_Acc_Create}"/>
+		<property name="tokenLengthErrMsg" value="${WRN-0135_Acc_Create}"/>
+		<property name="errorPleaseInsert" value="${WRN-0136_Acc_Create}"/>
+		<property name="upto" value="${WRN-0137_Acc_Create}"/>
+		<property name="chars" value="${WRN-0138_Acc_Create}"/>
+		<property name="vatLengthErrMsg" value="${WRN-0139_Acc_Create}"/>
+		<property name="tokenValidateAgainErrMsg" value="${WRN-0140_Acc_Create}"/>
+		<property name="invalidSoldToErrMsg" value="${ERR-0141_Acc_Create}"/>
+		<property name="mandatoryFnLnEmailPhone" value="${WRN-0142_Acc_Create}"/>
+		<property name="fnLnLengthErrMsg" value="${WRN-0143_Acc_Create}"/>
+		<property name="emailLengthErrMsg" value="${WRN-0144_Acc_Create}"/>
+		<property name="invalidEmailErrMsg" value="${WRN-0145_Acc_Create}"/>
+		<property name="phoneLength16ErrMsg" value="${WRN-0146_Acc_Create}"/>
+		<property name="internationalPhNoErrMsg" value="${WRN-0147_Acc_Create}"/>
+		<property name="fnLengthErrMsg" value="${WRN-0148_Acc_Create}"/>
+		<property name="lnLengthErrMsg" value="${WRN-0149_Acc_Create}"/>
+		<property name="phoneLength10ErrMsg" value="${WRN-0150_Acc_Create}"/>
+		<property name="mandatoryNameStreetCityCountryErrMsg" value="${WRN-0151_Acc_Create}"/>
+		<property name="accountNameLengthErrMsg" value="${WRN-0152_Acc_Create}"/>
+		<property name="cityLengthErrMsg" value="${WRN-0153_Acc_Create}"/>
+		<property name="nameAlphaNumnericErrMsg" value="${WRN-0154_Acc_Create}"/>
+		<property name="streetAlphaNumericErrMsg" value="${WRN-0155_Acc_Create}"/>
+		<property name="potsalAlphaNumericErrMsg" value="${WRN-0156_Acc_Create}"/>
+		<property name="mandatoryAccNameStreetCityPostalErrMsg" value="${WRN-0157_Acc_Create}"/>
+		
+		<property name="streetLengthErrMsg" value="${WRN-0158_Acc_Create}"/>
+		
+		<property name="postalLengthErrMsg" value="${WRN-0159_Acc_Create}"/>
+		<property name="mandatoryReasonForAccCreation" value="${WRN-0160_Acc_Create}"/>
+		<property name="reasonForAccCreateMinLengthErrMsg" value="${WRN-0161_Acc_Create}"/>
+		<property name="reasonForAccCreateMaxLengthErrMsg" value="${WRN-0162_Acc_Create}"/>
+		<property name="selectAtlestOneRecord" value="${WRN-0163_Acc_Create}"/>
+		<property name="enterAtlestOneEmailMsg" value="${WRN-0164_Acc_Create}"/>
+		<property name="waitAccountCreateMsg" value="${WRN-0165_Acc_Create}"/>
+		<property name="waitSendEmailMsg" value="${WRN-0166_Acc_Create}"/>
+		<property name="noneOfabove" value="${INF-0167_Acc_Create}"/>
+		<property name="existingAccount" value="${INF-0168_Acc_Create}"/>
+		
+		<property name="validationEmailInvalid" value="${WRN-0169_Acc_Create}"/>
+		<property name="mandatoryToken" value="${WRN-0170_Acc_Create}"/>
+		<property name="tokenAlphaNumericErrMsg" value="${ERR-0171_Acc_Create}"/>
+		
+		<property name="waitValidateTokenMsg" value="${INF-0172_Acc_Create}"/>
+		
+		<!-- Entries added by Vipin -->
+		<property name="alertSomethingWrng" value="${ERR-0200_Install_Base_Creation}"/>
+		<property name="incorrectFormat" value="${ERR-0201_Install_Base_Creation}"/>
+		<property name="selMatEntry" value="${ERR-0202_Install_Base_Creation}"/>
+		<property name="selectAtlestOneQuality" value="${WRN-0203_Install_Base_Creation}"/>
+		<property name="notAllValForReg" value="${ERR-0204_Install_Base_Creation}"/>
+		<property name="selectAtlestOneMatCode" value="${ERR-0205_Install_Base_Creation}"/>
+		<property name="selCorrectOptions" value="${ERR-0206_Install_Base_Creation}"/>
+		<property name="enterValidMatCode" value="${ERR-0207_Install_Base_Creation}"/>
+		<property name="uncheckLabelForReg" value="${ERR-0208_Install_Base_Creation}"/>
+		<property name="notAllValforSelReg" value="${WRN-0209_Install_Base_Creation}"/>
+		<property name="selectAtlestOneSrNo" value="${ERR-0210_Install_Base_Creation}"/>
+		<property name="selectAtlestOneCoreUnit" value="${ERR-0211_Install_Base_Creation}"/>
+		<property name="selAtlestOneMatCodeForSubmit" value="${ERR-0212_Install_Base_Creation}"/>
+		<property name="hugeUploadQuantity" value="${ERR-0213_Install_Base_Creation}"/>
+		<property name="incorrectFormateForFile" value="${ERR-0214_Install_Base_Creation}"/>
+		<property name="closeFunNotConfigured" value="${ERR-0215_Install_Base_Creation}"/>
+		
+		<!-- Property mapping for Tehcnical_Onboarding -->
+		<property name="alertEnterSId" value="${ERR-0216_Technical_On_Boarding}"/>
+		<property name="alertEnterMId" value="${ERR-0217_Technical_On_Boarding}"/>
+		<property name="alertEnterMidAsOneForHA" value="${ERR-0218_Technical_On_Boarding}"/>
+		<property name="alertEnterMidAsOneForRadvision" value="${ERR-0219_Technical_On_Boarding}"/>
+		<property name="aletEnterMidForRemSid" value="${ERR-0220_Technical_On_Boarding}"/>
+		<property name="aletEnterMidForMain" value="${ERR-0221_Technical_On_Boarding}"/>
+		<property name="alertClrCmErr" value="${ERR-0222_Technical_On_Boarding}"/>
+		<property name="alertEnterValMainSeid" value="${ERR-0223_Technical_On_Boarding}"/>
+		<property name="alertEnterSidMid" value="${ERR-0224_Technical_On_Boarding}"/>
+		<property name="alertValSidMid" value="${ERR-0225_Technical_On_Boarding}"/>
+		<property name="alertClrError" value="${ERR-0226_Technical_On_Boarding}"/>
+		<property name="alertSeIdNotEmpForVP" value="${ERR-0227_Technical_On_Boarding}"/>
+		<property name="alertPvtIPNotEmpty" value="${ERR-0228_Technical_On_Boarding}"/>
+		<property name="alertEntCorrPvtIP" value="${ERR-0229_Technical_On_Boarding}"/>
+		<property name="alertIpNotEmpForAccTypIP" value="${ERR-0230_Technical_On_Boarding}"/>
+		<property name="alertInvIpAddr" value="${ERR-0231_Technical_On_Boarding}"/>
+		<property name="alertEnterDialInForModem" value="${ERR-0232_Technical_On_Boarding}"/>
+		<property name="alertInvalidDialIn" value="${ERR-0233_Technical_On_Boarding}"/>
+		<property name="alertEnterSEIdForCaas" value="${ERR-0234_Technical_On_Boarding}"/>
+		<property name="alertEnterSEIdForNonSysPrd" value="${ERR-0235_Technical_On_Boarding}"/>
+		<property name="alertEnterAccType" value="${ERR-0236_Technical_On_Boarding}"/>
+		<property name="alertEntUsrNamPwd" value="${ERR-0237_Technical_On_Boarding}"/>
+		<property name="alertSameGtwayNtAllForPriAndSec" value="${ERR-0238_Technical_On_Boarding}"/>
+		<property name="alertSelPriThanSecGtway" value="${ERR-0239_Technical_On_Boarding}"/>
+		<property name="alertInvalidSoldTo" value="${ERR-0240_Technical_On_Boarding}"/>
+		<property name="alertInvalidSeIdFormat" value="${ERR-0241_Technical_On_Boarding}"/>
+		<property name="alertEnterValidSoldToOrSeId" value="${ERR-0242_Technical_On_Boarding}"/>
+		<property name="alertInvalidSeIdAsInput" value="${ERR-0243_Technical_On_Boarding}"/>
+		<property name="alertInvalidSIdFormat" value="${ERR-0244_Technical_On_Boarding}"/>
+		<property name="alertAFIDMaxTenDig" value="${ERR-0245_Technical_On_Boarding}"/>
+		<property name="alertMidNotZero" value="${ERR-0246_Technical_On_Boarding}"/>
+		<property name="alertInvalidMId" value="${ERR-0247_Technical_On_Boarding}"/>
+		<property name="alertRemQuanMinOne" value="${ERR-0248_Technical_On_Boarding}"/>
+		<property name="alertEnterAtlOneRec" value="${ERR-0249_Technical_On_Boarding}"/>
+		<property name="alertSellOneRecForSALMig" value="${ERR-0250_Technical_On_Boarding}"/>
+		<property name="alertInfoRetCode" value="${INF-0251_Technical_On_Boarding}"/>
+		<property name="alertNoAccessToSoldTo" value="${ERR-0252_Technical_On_Boarding}"/>
+		
+		<property name="alertToDateGrtFromDate" value="${ERR-0253_Common_Validation}"/>
+		<property name="alertEnterToDate" value="${ERR-0254_Common_Validation}"/>
+		<property name="alertEnterFromDate" value="${ERR-0255_Common_Validation}"/>
+		<property name="alertEnterToFromDate" value="${ERR-0256_Common_Validation}"/>
+		
+		<property name="errorSystemAlert" value="${ERR-0257_Install_Base_Creation}"/>
+		<property name="infInfMCodeInProcess" value="${INF-0258_Install_Base_Creation}"/>
+		<property name="infIBFedAutomatic" value="${INF-0259_Install_Base_Creation}"/>
+		<property name="errOffrTCNotQual" value="${ERR-0260_Install_Base_Creation}"/>
+		<property name="infIncOrgTrancNo" value="${INF-0261_Install_Base_Creation}"/>
+		<property name="infSendWrtnReq" value="${INF-0262_Install_Base_Creation}"/>
+		<property name="errRdyToSalMig" value="${ERR-0263_Install_Base_Creation}"/>
+		<property name="infCnfrmRegOne" value="${INF-0264_Install_Base_Creation}"/>
+		<property name="infCnfrmRegTwo" value="${INF-0265_Install_Base_Creation}"/>
+		<property name="infCnfrmRegThree" value="${INF-0266_Install_Base_Creation}"/>
+		<property name="errLineItemMaxLimCross" value="${WRN-0267_Install_Base_Creation}"/>
+		<property name="errSOIRLineItemMaxLimCross" value="${ERR-0268_Install_Base_Creation}"/>
+		<property name="cnfrmBckToRegList" value="${WRN-0269_Install_Base_Creation}"/>
+		<property name="cnfrmBckToGrt" value="${WRN-0270_Install_Base_Creation}"/>
+		<property name="errEsnaCode" value="${INF-0267_Install_Base_Creation}"/>
+		
+		<property name="alertIPNotEmpWhenAccTypRASIP" value="${ERR-0271_Technical_On_Boarding}"/>
+		<property name="alertPswrdRetypePwdSame" value="${ERR-0272_Technical_On_Boarding}"/>
+		<property name="alertNoCommonGateway" value="${ERR-0273_Technical_On_Boarding}"/>
+		<property name="cnfrmResetGateway" value="${WRN-0274_Technical_On_Boarding}"/>
+		<property name="cnfrmRetestAlalrmConn" value="${WRN-0275_Technical_On_Boarding}"/>
+		<property name="cnfrmCancWillDelete" value="${WRN-0276_Technical_On_Boarding}"/>
+		<property name="cnfrmSubmitForTOB" value="${WRN-0277_Technical_On_Boarding}"/>
+		<property name="cnfrmNavigationToSALAlarm" value="${WRN-0278_Technical_On_Boarding}"/>
+	
+		<!-- End Entries added by Vipin -->
+		
+		<!-- Entries added by Bhupendra -->
+		<!-- Added for update announcements -->
+		<property name="alertMessageBlankMsg" value="${ERR-0301_Update_Announcements}"/>
+		<property name="alertMessageLenghtOverMsg" value="${ERR-0302_Update_Announcements}"/>
+		<property name="alertStartDateBlankMsg" value="${ERR-0303_Update_Announcements}"/>
+		<property name="alertEndDateBlankMsg" value="${ERR-0304_Update_Announcements}"/>
+		<property name="alertDatesNotValidMsg" value="${ERR-0305_Update_Announcements}"/>
+		<property name="alertStartDateLessCurrDateMsg" value="${ERR-0306_Update_Announcements}"/>
+		<property name="alertStartDateGreaterEndDateMsg" value="${ERR-0307_Update_Announcements}"/>
+		<property name="alertDeleteConfirmationMsg" value="${WRN-0308_Update_Announcements}"/>
+		<property name="alertInvalidTimeFormatMsg" value="${ERR-0309_Update_Announcements}"/>
+		<!-- End of entries added for update announcements -->
+		<!-- added for token redemption -->
+		<property name="tokenIvalidError" value="${ERR-0310_Token_Redemption}"/>
+		<property name="tokenExpiredError" value="${ERR-0311_Token_Redemption}"/>
+		<property name="tokenRedeemedError" value="${ERR-0312_Token_Redemption}"/>
+		<property name="tokenUnauthorizeToRedeemError" value="${ERR-0313_Token_Redemption}"/>
+		<property name="tokenAdditionInfoLengthError" value="${ERR-0314_Token_Redemption}"/>
+		<property name="tokenCancelWarningMsg" value="${WRN-0315_Token_Redemption}"/>
+		<property name="tokenSelectAccountError" value="${ERR-0316_Token_Redemption}"/>
+		<property name="tokenSelectRecordError" value="${ERR-0317_Token_Redemption}"/>
+		<property name="tokenReqNameCityCountryError" value="${ERR-0318_Token_Redemption}"/>
+		<property name="tokenBlankError" value="${ERR-0319_Token_Redemption}"/>
+		<property name="tokenAlphaNumericError" value="${ERR-0320_Token_Redemption}"/>
+		<property name="tokenExcessLengthError" value="${ERR-0321_Token_Redemption}"/>
+		<property name="tokenValidObjectLengthError" value="${ERR-0322_Token_Redemption}"/>
+		<property name="tokenBPLinkIdError" value="${ERR-0323_Token_Redemption}"/>
+		<property name="tokenEndCustomerAccNumberError" value="${ERR-0324_Token_Redemption}"/>
+		<property name="tokenValidatingError" value="${ERR-0325_Token_Redemption}"/>
+		<property name="tokenBPLinkReqError" value="${ERR-0326_Token_Redemption}"/>
+		<property name="tokenBPLinkInvalidError" value="${ERR-0327_Token_Redemption}"/>
+		<property name="tokenBPLinkValidatingExcp" value="${ERR-0328_Token_Redemption}"/>
+		<property name="tokenShipToInvalidError" value="${ERR-0329_Token_Redemption}"/>
+		<property name="tokenRedeemException" value="${ERR-0330_Token_Redemption}"/>
+		<property name="tokenSoldToNotFoundError" value="${ERR-0331_Token_Redemption}"/>
+		<property name="tokenBpUnauthorizedForSoldToError" value="${ERR-0332_Token_Redemption}"/>
+		<property name="tokenCountryUSError" value="${ERR-0333_Token_Redemption}"/>
+		<property name="tokenCountryNonUSError" value="${ERR-0334_Token_Redemption}"/>
+		<property name="tokenFuzzySearchError" value="${ERR-0335_Token_Redemption}"/>
+		<!-- End for token redemption -->
+		<!-- Entries added by Bhupendra -->
+		
+		<!-- Entries added by Rajesh -->
+		<property name="revisedQtyErrForSerializedAsset" value="${ERR-0175_Record_Validation}"/>
+		<property name="revisedQtyErrForTechOnBorded" value="${ERR-0176_Record_Validation}"/>
+		<property name="revisedQtyNoNegativeErrMsg" value="${ERR-0177_Record_Validation}"/>		
+		<property name="noValForUpdateErrMsg" value="${WRN-0178_Acc_Update}"/>
+		<property name="accUpdateSuccessMsgPart1" value="${INF-0179_Acc_Update}"/>
+		<property name="accUpdateSuccessMsgPart2" value="${INF-0180_Acc_Update}"/>
+		<property name="accUpdateErrMsg" value="${ERR-0181_Acc_Update}"/>
+		
+		<property name="invalidCountryCityPostalAccErrMsg" value="${ERR-0182_Acc_Create}"/>
+		<property name="invalidTokenAccErrMsg" value="${ERR-0183_Acc_Create}"/>
+		<property name="invalidSoldToAccErrMsg" value="${ERR-0184_Acc_Create}"/>		
+		<property name="searchAccErrMsg" value="${ERR-0185_Acc_Create}"/>
+		<property name="noRecFoundAccErrMsg" value="${ERR-0186_Acc_Create}"/>
+		
+		<property name="accUpdateErrMsg2" value="${ERR-0187_Acc_Update}"/>		
+		<property name="bpNotAuthorizedForSoldToErrMsg" value="${WRN-0188_Acc_Update}"/>
+		<property name="validateSoldToErrMsg" value="${ERR-0189_Acc_Update}"/>
+		
+		<property name="eqmIncorrectFromSoldToErrMsg" value="${ERR-0190_Equip_Move}"/>
+		<property name="eqmIncorrectToSoldToErrMsg" value="${ERR-0191_Equip_Move}"/>
+		<property name="eqmUnauthorizedSoldToErrMsg" value="${ERR-0192_Equip_Move}"/>
+		<property name="eqmIncorrectFromAndToSoldToErrMsg" value="${ERR-0193_Equip_Move}"/>
+		<property name="eqmSameFromAndToSoldToErrMsg" value="${ERR-0194_Equip_Move}"/>
+		<property name="eqmAssignedQtyErrMsg" value="${ERR-0195_Equip_Move}"/>
+		<property name="eqmSeletOneEqpErrMsg1" value="${ERR-0196_Equip_Move}"/>
+		<property name="eqmSeletOneEqpErrMsg2" value="${ERR-0197_Equip_Move}"/>
+		<property name="eqmActiveContrsctSelErrMsg" value="${WRN-0198_Equip_Move}"/>
+		<property name="eqmRequestSuccessMsg" value="${INF-0199_Equip_Move}"/>
+		<property name="eqmOutageMsg" value="${INF-0400_Equip_Move}"/>
+		<property name="eqmCancelToHomePageErrMsg" value="${WRN-0401_Equip_Move}"/>
+		<property name="eqmCancelToRegPageErrMsg" value="${WRN-0402_Equip_Move}"/>
+		<property name="eqmReqSubmitConfMsg" value="${WRN-0403_Equip_Move}"/>
+		<property name="eqmQtyLessThanZeroErrMsg" value="${ERR-0404_Equip_Move}"/>
+		<property name="eqmQtyGreaterThanExisErrMsg" value="${ERR-0405_Equip_Move}"/>
+		<property name="eqmZeroQtyErrMsg" value="${ERR-0406_Equip_Move}"/>
+		<property name="eqmSaveSuccMsg" value="${INF-0407_Equip_Move}"/>
+		<property name="eqmUnableToSaveErrMsg" value="${ERR-0408_Equip_Move}"/>
+		<property name="eqmProcessErrMsg" value="${ERR-0409_Equip_Move}"/>
+		<property name="eqmSapDownErrMsg" value="${ERR-0410_Equip_Move}"/>
+		<property name="eqmProcessFailErrMsg" value="${ERR-0411_Equip_Move}"/>
+		<property name="eqmBackendSysErrMsg" value="${ERR-0412_Equip_Move}"/>
+		<property name="eqmActTrbTickErrMsg" value="${ERR-0413_Equip_Move}"/>
+		<property name="eqmMatListEmptyerrMsg" value="${ERR-0414_Equip_Move}"/>
+		<property name="eqmfailedWhileProcessErrMsg" value="${ERR-0415_Equip_Move}"/>
+		
+		<property name="salNoGateWayOnSoldToErrMsg" value="${ERR-0416_Sal_Migration}"/>
+		<property name="salNoAccessToSolToErrMsg" value="${ERR-0417_Sal_Migration}"/> 
+		<property name="salFetchErrMsg" value="${ERR-0418_Sal_Migration}"/>
+		<property name="salEndToEndRegConfirmMsg" value="${WRN-0419_Sal_Migration}"/>
+		<property name="salConfirmAssetMigrationMsg" value="${WRN-0420_Sal_Migration}"/>		
+		<property name="salSomethingWrongErrMsg" value="${ERR-0421_Sal_Migration}"/>
+		<property name="salRemoteAccessReqErrMsg" value="${ERR-0422_Sal_Migration}"/>
+		<property name="salSeleSeidRequiedMsg" value="${WRN-0423_Sal_Migration}"/>
+		<property name="salValidateConnectivityConfirmMsg" value="${WRN-0424_Sal_Migration}"/>
+		
+		<property name="regSelectedCancRegErrMsg" value="${ERR-0425_Registration_List}"/>
+		<property name="regInvalidEmailErrMsg" value="${ERR-0426_Registration_List}"/>
+		
+		<property name="siteRegSoldToNotExistErrMsg" value="${ERR-0427_Customer_Site_Registration}"/>
+		
+		<property name="scvInvalidPhoneNoErrMsg" value="${ERR-0428_Site_Contact_Validation}"/>
+		<property name="scvPurchaseOrderReqErrMsg" value="${ERR-0429_Site_Contact_Validation}"/>
+		<property name="scvEmptyFirstNameErrMsg" value="${ERR-0430_Site_Contact_Validation}"/>
+		<property name="scvEmptyFirstLastErrMsg" value="${ERR-0431_Site_Contact_Validation}"/>
+		<property name="scvInvalidEmailErrMsg" value="${ERR-0432_Site_Contact_Validation}"/>
+		<property name="scvEmptyNotifEmailErrMsg" value="${ERR-0433_Site_Contact_Validation}"/>
+		<property name="scvInvalidDate" value="${ERR-0434_Site_Contact_Validation}"/>
+		<property name="scvCutoverDateErrMsg" value="${ERR-0435_Site_Contact_Validation}"/>
+		<property name="scvMaxCharErrMsg" value="${ERR-0436_Site_Contact_Validation}"/>
+		<property name="scvTypedTextMsg" value="${INF-0437_Site_Contact_Validation}"/>
+		
+		<property name="scvZipLengthErrMsg" value="${ERR-0438_Site_Contact_Validation}"/>
+		<property name="scvInvalidCharInZipErrMsg" value="${ERR-0439_Site_Contact_Validation}"/>
+		<property name="scvZipCodeFormaterrMsg" value="${ERR-0440_Site_Contact_Validation}"/>
+		<property name="scvEmptyGrtNotiPhNoErrMsg" value="${ERR-0441_Site_Contact_Validation}"/>
+		<property name="scvEmptyPhNoErrMsg" value="${ERR-0442_Site_Contact_Validation}"/>
+		<property name="scvInvalidGrtNotiPhNoErrMsg" value="${ERR-0443_Site_Contact_Validation}"/>
+		<property name="scvInvalidPhNoErrMsg" value="${ERR-0444_Site_Contact_Validation}"/>
+		
+		<property name="scvBufferOvFlwMsgMiddle" value="${ERR-0445_Site_Contact_Validation}"/>
+		<property name="scvBufferOvFlwMsgRegName" value="${ERR-0446_Site_Contact_Validation}"/> 
+		<property name="scvBufferOvFlwMsgRegId" value="${ERR-0447_Site_Contact_Validation}"/> 
+		<property name="scvBufferOvFlwMsgCompany" value="${ERR-0448_Site_Contact_Validation}"/> 
+		<property name="scvBufferOvFlwMsgSoldTo" value="${ERR-0449_Site_Contact_Validation}"/>
+		<!-- End Entries added by Rajesh -->
+			
+		<property name="scvBufferOvFlwInvalidSoldToFmt" value="${ERR-0450_Site_Contact_Validation}"/> 
+		<property name="accCreateEmailNotifMsg" value="${INF-0451_Acc_Create}"/> 
+		<property name="fileUploadInProcessMsg" value="${INF-0452_Record_Validation}"/> 
+		<property name="pleaseTryAgainErrMsg" value="${ERR-0453_Registration_List}"/>
+		<property name="accCrtInvalidBPLinkIdErrMsg" value="${ERR-0454_Acc_Create}"/> 
+		<property name="accCrtInvalidTokenNonUSErrMsg" value="${ERR-0455_Acc_Create}"/>
+		<property name="accCrtInvalidTokenUSErrMsg" value="${ERR-0456_Acc_Create}"/> 
+		<property name="accCrtValidTokenMsg" value="${INF-0457_Acc_Create}"/> 
+		<property name="accCrtSetUpHierarchyMsg" value="${ERR-0458_Acc_Create}"/> 
+		<property name="accCrtValidateUSGovtMsg" value="${ERR-0459_Acc_Create}"/> 
+		<property name="accCrtValidateSIAccMsg" value="${ERR-0460_Acc_Create}"/> 
+		<property name="accCrtValidateSPAccMsg" value="${ERR-0461_Acc_Create}"/> 
+		<property name="accCrtEmailNotiErrMsg" value="${ERR-0462_Acc_Create}"/> 
+		<property name="accCrtInvalidSoldToErrMsg" value="${ERR-0463_Acc_Create}"/> 
+		<property name="accCrtSoldToNotExistsErrMsg" value="${ERR-0464_Acc_Create}"/> 
+		<property name="accCrtInvalidSoldToNonUSErrMsg" value="${ERR-0465_Acc_Create}"/> 
+		<property name="accCrtSoldToValidatedMsg" value="${INF-0466_Acc_Create}"/> 
+		<property name="tobSslVpnNotAllowedErrMsg" value="${ERR-0467_Technical_On_Boarding}"/>
+		<property name="tobExceptionInFindinfSRErrMsg" value="${ERR-0468_Technical_On_Boarding}"/>
+		<property name="tobRegSetpBFoundForSeidErrMsg" value="${ERR-0469_Technical_On_Boarding}"/>
+		<property name="tobExceptionWhileFindingAlarmErrMsg" value="${ERR-0470_Technical_On_Boarding}"/>
+		<property name="tobSubmitRegPrdtErrMsg" value="${ERR-0471_Technical_On_Boarding}"/>
+		<property name="tobSubmitRedayToProcesstErrMsg" value="${ERR-0472_Technical_On_Boarding}"/>
+		<property name="tobGrtProblemErrMsg" value="${ERR-0473_Technical_On_Boarding}"/>		
+		<property name="tobRetrieveErrMsg" value="${ERR-0474_Technical_On_Boarding}"/>
+		<property name="tobErrWhileProcessingErrMsg" value="${ERR-0475_Technical_On_Boarding}"/>		
+		<property name="rvNotAllowdedNortelMaestroErrMsg" value="${ERR-0476_Record_Validation}"/>
+		<property name="ibFailedInProcessingErrMsg" value="${ERR-0477_Install_Base_Creation}"/>
+		
+		<property name="noConnectityReTestMsg" value="${ERR-0481_No_Connectity_Re_Test}"/>
+		<property name="alertSpecialCharErrorMsg" value="${ERR-0482_Update_Announcements}"/>
+		<property name="rvNortelMaestroWithContractErrMsg" value="${ERR-0483_Record_Validation}"/>
+		<property name="noRowsFoundForUpdateErrMsg" value="${INF-0484_Record_Validation}"/>
+		
+		<property name="nofileChosenForUploadErrMsg" value="${ERR-0485_Record_Validation}"/>
+		
+		<property name="revisedQutyEqlExistQtyErrMsg" value="${ERR-0486_Record_Validation}"/>
+		
+		<property name="tokenBPNotAuthorisedToRedeemErrMsg" value="${ERR-0487_Token_Redemption}"/>
+		<property name="tokenContractNotReplacableErrMsg" value="${ERR-0488_Token_Redemption}"/>
+		<property name="tokenExcpFindingContractsErrMsg" value="${ERR-0489_Token_Redemption}"/>
+		<property name="tokenNoContractsFoundErrMsg" value="${ERR-0490_Token_Redemption}"/>
+		<property name="tokenContractReplaceNoConfirmMsg" value="${WRN-0491_Token_Redemption}"/>
+		<property name="tokenAccountNotEligibleErrMsg" value="${ERR-0492_Token_Redemption}"/>
+		<property name="tokenIpOfficeVersionErrMsg" value="${ERR-0493_Token_Redemption}"/>
+		<property name="tokenNoIPOEquipmentErrMsg" value="${ERR-0494_Token_Redemption}"/>
+		
+		<property name="alertSoftwareReleaseErrorMsg" value="${ERR-0279_Technical_On_Boarding}"/>
+		
+		<property name="alertEnterAUXMCMainSEID" value="${ERR-0280_Technical_On_Boarding}"/>
+		<property name="alertValAUXMCMainSEID" value="${ERR-0281_Technical_On_Boarding}"/>
+		<property name="alertSelectAUXMCType" value="${ERR-0282_Technical_On_Boarding}"/>
+		<!--message for live chat when disabled for users  -->
+		<property name="liveChatDisabled" value="${INF-0496_LiveChat_Disable}"/>
+		
+		<!--  Error Code Map -->		
+		<property name="ewiMessageCodeMap">
+			<map>
+				<entry key="onboardFileMsg" value="INF-0001_Registration_List" />
+				<entry key="updateEmailMsg" value="INF-0002_Registration_List" />
+				<entry key="onboardFileErrMsg" value="ERR-0003_Registration_List" />
+				<entry key="soldToExcludedMsg" value="WRN-0004_Customer_Site_Registration" />
+				<entry key="soldToNotEligibleMsg" value="WRN-0005_Customer_Site_Registration" />
+				<entry key="soldToNotAuthMsg" value="WRN-0006_Customer_Site_Registration" />
+				<entry key="soldToNotValidMsg" value="WRN-0007_Customer_Site_Registration" />
+				<entry key="soldToEmptyMsg" value="WRN-0008_Customer_Site_Registration" />
+				<entry key="soldToAutoNoteMsg" value="INF-0009_Customer_Site_Registration" />
+				<entry key="agentUserTypeMsg" value="INF-0010_Customer_Site_Registration" />
+				<entry key="agentBPUserTypeMsg" value="INF-0011_Customer_Site_Registration" />
+				<entry key="agentCustUserTypeMsg" value="INF-0012_Customer_Site_Registration" />
+				<entry key="exclPldsErrMsg" value="ERR-0013_View_Install_Base" />
+				<entry key="exclEsnaErrMsg" value="ERR-0495_View_Install_Base" />
+				
+				<entry key="offerCodeErrMsg" value="ERR-0014_View_Install_Base" />
+				<entry key="EQR_errorCode" value="ERR-0015_Install_Base_Creation" />
+				<entry key="sapDown_errorCode" value="ERR-0016_Install_Base_Creation" />
+				<entry key="fmw_errorCode" value="ERR-0017_Install_Base_Creation" />
+				<entry key="exception_errorcode" value="ERR-0018_Install_Base_Creation" />
+				<entry key="sapdestination_notfound" value="ERR-0019_Install_Base_Creation" />
+				<entry key="prepareTechnicalOrderMaterialExclusionError1" value="ERR-0020_Install_Base_Creation" />
+				<entry key="prepareTechnicalOrderMaterialExclusionError2" value="ERR-0021_Install_Base_Creation" />
+				<entry key="defectiveCodeErrMsg" value="ERR-0022_Install_Base_Creation" />
+				<entry key="blueCodeErrMsg" value="ERR-0023_Install_Base_Creation" />
+				<entry key="materialEmptyListRC" value="INF-0024_Install_Base_Creation" />
+				<entry key="EQR_successCode" value="INF-0025_Install_Base_Creation" />
+				<entry key="BaseUnitError" value="WRN-0026_Install_Base_Creation" />
+				<entry key="BaseUnitError2" value="WRN-0027_Install_Base_Creation" />
+				<entry key="uploadedFileSize" value="WRN-0028_Install_Base_Creation" />
+				<entry key="validBaseUunit" value="INF-0030_Install_Base_Creation" />
+				<entry key="continueRegistration" value="INF-0031_Install_Base_Creation" />
+				<entry key="materialCodeExcluded" value="INF-0033_Install_Base_Creation" />
+				<entry key="quantitySize" value="WRN-0034_Install_Base_Creation" />
+				<entry key="invalidSerialNumber" value="WRN-0035_Install_Base_Creation" />
+				<entry key="invalidSerialNumber18Char" value="WRN-0036_Install_Base_Creation" />
+				<entry key="validQuantity" value="WRN-0037_Install_Base_Creation" />
+				<entry key="quantityNotEmpty" value="WRN-0038_Install_Base_Creation" />
+				<entry key="invalidMaterialCode" value="WRN-0039_Install_Base_Creation" />
+				<entry key="invalidQuantity" value="WRN-0040_Install_Base_Creation" />
+				<entry key="formaterialcodes" value="WRN-0041_Install_Base_Creation" />
+				<entry key="materialCodeNotMatchWithSECode" value="WRN-0042_Install_Base_Creation" />
+				<entry key="tobTechnicalError1" value="INF-0043_Technical_On_Boarding" />
+				<entry key="tobDataError1" value="INF-0044_Technical_On_Boarding" />
+				<entry key="tobTechnicalError2" value="INF-0045_Technical_On_Boarding" />
+				<entry key="updateRecordTitle" value="INF-0046_Technical_On_Boarding" />
+				<entry key="invalidSidMain" value="WRN-0047_Technical_On_Boarding" />
+				<entry key="invalidAfid" value="WRN-0048_Technical_On_Boarding" />
+				<entry key="duplicateSalMsg1" value="ERR-0049_Technical_On_Boarding" />
+				<entry key="duplicateSalMsg2" value="ERR-0050_Technical_On_Boarding" />
+				<entry key="InstallBaseListSize" value="INF-0051_Install_Base" />
+				<entry key="InstallBaseListSizeMsg" value="WRN-0052_Install_Base"/>
+				<entry key="leadingZeroesNote" value="INF-0053_Customer_Site_Registration"/>
+				<entry key="RVInvalidMC" value="WRN-0054_Record_Validation" />
+				<entry key="RVDuplicateSN" value="WRN-0055_Record_Validation" />
+				<entry key="RVInvalidSN" value="WRN-0056_Record_Validation" />
+				<entry key="RVInvalidQty" value="WRN-0057_Record_Validation" />
+				<entry key="RVEmptyQty" value="WRN-0058_Record_Validation" />
+				<entry key="RVInvalidQtyWithSN" value="WRN-0059_Record_Validation" />
+				<entry key="recordValidationError7" value="WRN-0060_Record_Validation" />
+				<entry key="RVInvalidOption" value="INF-0061_Record_Validation" />
+				<entry key="RVMCNotPresentInDB" value="ERR-0062_Record_Validation" />
+				<entry key="RVExcludedMC" value="INF-0063_Record_Validation" />
+				<entry key="RVErrorMessage" value="INF-0064_Record_Validation" />
+				<entry key="RVSuccessMessage" value="INF-0065_Record_Validation" />
+				<entry key="validateErrorMsg" value="ERR-0066_Record_Validation" />
+				<entry key="validateSuccessMsg" value="INF-0067_Record_Validation" />
+				<entry key="emptyRevisedQuantityMsg" value="WRN-0068_Record_Validation" />
+				<entry key="selectOneEquipmentMsg" value="WRN-0069_Record_Validation" />
+				<entry key="mcWithActiveRemovalWarning" value="INF-0070_Record_Validation" />
+				<entry key="submitConfirmMsg" value="INF-0071_Record_Validation" />
+				<entry key="submitLoadingTextMsg" value="INF-0072_Record_Validation" />
+				<entry key="saveLoadingTextMsg" value="INF-0073_Record_Validation" />
+				<entry key="confirmValidateTextMsg" value="INF-0074_Record_Validation" />
+				<entry key="cancelConfirmMsgHome" value="INF-0075_Record_Validation" />
+				<entry key="cancelConfirmMsgRegList" value="INF-0076_Record_Validation" />
+				<entry key="downloadTemplateMsg" value="INF-0077_Record_Validation" />
+				<entry key="validOptionMsg" value="WRN-0078_Record_Validation" />
+				<entry key="largeQuantityErrorMsg" value="WRN-0079_Record_Validation" />
+				<entry key="validatedStatusMsg" value="INF-0080_Record_Validation" />
+				<entry key="materialCodeLabel" value="INF-0081_Record_Validation" />
+				<entry key="blankSerialNumberErrorMsg" value="WRN-0082_Record_Validation" />
+				<entry key="invalidMaterialCodeErrorMsg" value="WRN-0083_Record_Validation" />
+				<entry key="seibelTimeoutErrorMsg" value="ERR-0084_Record_Validation" />
+				<entry key="noRecordErrorMsg" value="INF-0085_Record_Validation" />
+				<entry key="incorrectFileFormatErrMsg" value="ERR-0086_Record_Validation" />
+				<entry key="incorrectHeaderErrMsg" value="ERR-0087_Record_Validation" />
+				<entry key="hugeUpdateErrorMessage" value="WRN-0088_Record_Validation" />
+				<entry key="noActionImportErrorMsg" value="INF-0089_Record_Validation" />
+				<entry key="saveErrorMsg" value="ERR-0090_Record_Validation" />
+				<entry key="errorWhileProcessingErrMsg" value="ERR-0091_Record_Validation" />
+				<entry key="sapDownErrMsg" value="ERR-0092_Record_Validation" />
+				<entry key="processingFailedErrMsg" value="ERR-0093_Record_Validation" />
+				<entry key="emptyMaterialListErrorMsg" value="INF-0094_Record_Validation" />
+				<entry key="unableToMapSoldToErrMsg" value="ERR-0095_Record_Validation" />
+				<entry key="stepBSuccessMsg" value="INF-0096_Technical_On_Boarding" />
+				<entry key="stepBFailureMsg" value="ERR-0097_Technical_On_Boarding" />
+				<entry key="managedElementsRemainder" value="INF-0098_Technical_On_Boarding" />
+				<entry key="managedElementsRemainderKB" value="INF-0099_Technical_On_Boarding" />
+				<entry key="noConnectivityMessage" value="WRN-0100_Technical_On_Boarding"/>
+				<entry key="salgwInstErrMsg" value="ERR-0101_Salgw_Installer"/>
+				<entry key="salgwInstMandValidMsg" value="WRN-0102_Salgw_Installer"/>
+				<entry key="salgwInstDownMsg" value="ERR-0478_Salgw_Installer"/>
+				<entry key="lssOrESSLowerVersionNote" value="ERR-0479_Technical_On_Boarding"/>
+				<entry key="upgradedMainCMuseRFASIDNote" value="ERR-0480_Technical_On_Boarding"/>
+				<entry key="equipmentMoveSaveMessage" value="INF-0103_Equipment_Move" />
+				<entry key="equipmentMoveSaveMessage2" value="INF-0104_Equipment_Move" />
+				<entry key="salRequired" value="WRN-0105_Sal_Migration" />
+				<entry key="duplicateGateway" value="WRN-0106_Sal_Migration" />
+				<entry key="emptySTSEID" value="WRN-0107_Sal_Migration" />
+				<entry key="invalidST" value="WRN-0108_Sal_Migration" />
+				<entry key="invalidSEID" value="WRN-0109_Sal_Migration" />
+				<entry key="validSTSEID" value="WRN-0110_Sal_Migration" />
+				<entry key="gatewayAdded" value="INF-0111_Sal_Migration" />
+				<entry key="selectAsset" value="WRN-0112_Sal_Migration" />
+				<entry key="vsalgwErrMsg" value="WRN-0113_Equipment_Move" />
+				<entry key="pleaseSelectARecordMsg" value="WRN-0114_Acc_Update"/>
+				<entry key="emptySoldToError" value="WRN-0115_Acc_Update"/>
+				<entry key="requiredNameCityCountryError" value="WRN-0116_Acc_Update"/>
+				<entry key="accountNameLengthError" value="WRN-0117_Acc_Update"/>
+				<entry key="cityLengthError" value="WRN-0118_Acc_Update"/>
+				<entry key="mandatoryAccNameStreetCityError" value="WRN-0119_Acc_Update"/>
+				<entry key="mandatorPhoneEmailNameError" value="WRN-0120_Acc_Update"/>
+				<entry key="streetLengthError" value="WRN-0121_Acc_Update"/>
+				<entry key="zipCodeLengthError" value="WRN-0122_Acc_Update"/>
+				<entry key="phoneNumLengthError" value="WRN-0123_Acc_Update"/>
+				<entry key="invalidPhoneNumberError" value="WRN-0124_Acc_Update"/>
+				<entry key="faxLengthError" value="WRN-0125_Acc_Update"/>
+				<entry key="emailLengthError" value="WRN-0126_Acc_Update"/>
+				<entry key="stateLengthError" value="WRN-0127_Acc_Update"/>
+				<entry key="cancelProcessMsg" value="WRN-0128_Acc_Update"/>
+				<entry key="waitWhileFetchingMsg" value="WRN-0129_Acc_Update"/>
+				<entry key="stateOrProvince" value="WRN-0130_Acc_Update"/>
+				<entry key="street2LengthError" value="WRN-0131_Acc_Update"/>
+				<entry key="phoneNoMax10Error" value="WRN-0132_Acc_Update"/>
+				<entry key="waitAccountUpdateMsg" value="INF-0133_Acc_Update"/>
+				<entry key="mandatoryBPLinkId" value="WRN-0134_Acc_Create"/>
+				<entry key="tokenLengthErrMsg" value="WRN-0135_Acc_Create"/>
+				<entry key="errorPleaseInsert" value="WRN-0136_Acc_Create"/>
+				<entry key="upto" value="WRN-0137_Acc_Create"/>
+				<entry key="chars" value="WRN-0138_Acc_Create"/>
+				<entry key="vatLengthErrMsg" value="WRN-0139_Acc_Create"/>
+				<entry key="tokenValidateAgainErrMsg" value="WRN-0140_Acc_Create"/>
+				<entry key="invalidSoldToErrMsg" value="ERR-0141_Acc_Create"/>
+				<entry key="mandatoryFnLnEmailPhone" value="WRN-0142_Acc_Create"/>
+				<entry key="fnLnLengthErrMsg" value="WRN-0143_Acc_Create"/>
+				<entry key="emailLengthErrMsg" value="WRN-0144_Acc_Create"/>
+				<entry key="invalidEmailErrMsg" value="WRN-0145_Acc_Create"/>
+				<entry key="phoneLength16ErrMsg" value="WRN-0146_Acc_Create"/>
+				<entry key="internationalPhNoErrMsg" value="WRN-0147_Acc_Create"/>
+				<entry key="fnLengthErrMsg" value="WRN-0148_Acc_Create"/>
+				<entry key="lnLengthErrMsg" value="WRN-0149_Acc_Create"/>
+				<entry key="phoneLength10ErrMsg" value="WRN-0150_Acc_Create"/>
+				<entry key="mandatoryNameStreetCityCountryErrMsg" value="WRN-0151_Acc_Create"/>
+				<entry key="accountNameLengthErrMsg" value="WRN-0152_Acc_Create"/>
+				<entry key="cityLengthErrMsg" value="WRN-0153_Acc_Create"/>
+				<entry key="nameAlphaNumnericErrMsg" value="WRN-0154_Acc_Create"/>
+				<entry key="streetAlphaNumericErrMsg" value="WRN-0155_Acc_Create"/>
+				<entry key="potsalAlphaNumericErrMsg" value="WRN-0156_Acc_Create"/>
+				<entry key="mandatoryAccNameStreetCityPostalErrMsg" value="WRN-0157_Acc_Create"/>
+				<entry key="streetLengthErrMsg" value="WRN-0158_Acc_Create"/>
+				<entry key="postalLengthErrMsg" value="WRN-0159_Acc_Create"/>
+				<entry key="mandatoryReasonForAccCreation" value="WRN-0160_Acc_Create"/>
+				<entry key="reasonForAccCreateMinLengthErrMsg" value="WRN-0161_Acc_Create"/>
+				<entry key="reasonForAccCreateMaxLengthErrMsg" value="WRN-0162_Acc_Create"/>
+				<entry key="selectAtlestOneRecord" value="WRN-0163_Acc_Create"/>
+				<entry key="enterAtlestOneEmailMsg" value="WRN-0164_Acc_Create"/>
+				<entry key="waitAccountCreateMsg" value="WRN-0165_Acc_Create"/>
+				<entry key="waitSendEmailMsg" value="WRN-0166_Acc_Create"/>
+				<entry key="noneOfabove" value="INF-0167_Acc_Create"/>
+				<entry key="existingAccount" value="INF-0168_Acc_Create"/>
+				<entry key="validationEmailInvalid" value="WRN-0169_Acc_Create"/>
+				<entry key="mandatoryToken" value="WRN-0170_Acc_Create"/>
+				<entry key="tokenAlphaNumericErrMsg" value="ERR-0171_Acc_Create"/>
+				<entry key="waitValidateTokenMsg" value="INF-0172_Acc_Create"/>
+				
+				<entry key="sameMaterialCodeQuantity" value="WRN-0043_Install_Base_Creation"/>
+				<entry key="serialMaterialQuantity" value="WRN-0044_Install_Base_Creation"/>
+				<entry key="serviceUnitMaterialQuantity" value="WRN-0045_Install_Base_Creation"/>
+				
+				<!-- Entries added by Vipin -->
+				<!-- Adding Map entry For new Msg in IB_Creation -->
+				<entry key="alertSomethingWrng" value="ERR-0200_Install_Base_Creation"/>
+				<entry key="incorrectFormat" value="ERR-0201_Install_Base_Creation"/>
+				<entry key="selMatEntry" value="ERR-0202_Install_Base_Creation"/>
+				<entry key="selectAtlestOneQuality" value="WRN-0203_Install_Base_Creation"/>
+				<entry key="notAllValForReg" value="ERR-0204_Install_Base_Creation"/>
+				<entry key="selectAtlestOneMatCode" value="ERR-0205_Install_Base_Creation"/>
+				<entry key="selCorrectOptions" value="ERR-0206_Install_Base_Creation"/>
+				<entry key="enterValidMatCode" value="ERR-0207_Install_Base_Creation"/>
+				<entry key="uncheckLabelForReg" value="ERR-0208_Install_Base_Creation"/>
+				<entry key="notAllValforSelReg" value="WRN-0209_Install_Base_Creation"/>
+				<entry key="selectAtlestOneSrNo" value="ERR-0210_Install_Base_Creation"/>
+				<entry key="selectAtlestOneCoreUnit" value="ERR-0211_Install_Base_Creation"/>
+				<entry key="selAtlestOneMatCodeForSubmit" value="ERR-0212_Install_Base_Creation"/>
+				<entry key="hugeUploadQuantity" value="ERR-0213_Install_Base_Creation"/>
+				<entry key="incorrectFormateForFile" value="ERR-0214_Install_Base_Creation"/>
+				<entry key="closeFunNotConfigured" value="ERR-0215_Install_Base_Creation"/>
+				
+				<!-- Adding Map entry For new Msg in Technical_onboarding-->
+				<entry key="alertEnterSId" value="ERR-0216_Technical_On_Boarding"/>
+				<entry key="alertEnterMId" value="ERR-0217_Technical_On_Boarding"/>
+				<entry key="alertEnterMidAsOneForHA" value="ERR-0218_Technical_On_Boarding"/>
+				<entry key="alertEnterMidAsOneForRadvision" value="ERR-0219_Technical_On_Boarding"/>
+				<entry key="aletEnterMidForRemSid" value="ERR-0220_Technical_On_Boarding"/>
+				<entry key="aletEnterMidForMain" value="ERR-0221_Technical_On_Boarding"/>
+				<entry key="alertClrCmErr" value="ERR-0222_Technical_On_Boarding"/>
+				<entry key="alertEnterValMainSeid" value="ERR-0223_Technical_On_Boarding"/>
+				<entry key="alertEnterSidMid" value="ERR-0224_Technical_On_Boarding"/>
+				<entry key="alertValSidMid" value="ERR-0225_Technical_On_Boarding"/>
+				<entry key="alertClrError" value="ERR-0226_Technical_On_Boarding"/>
+				<entry key="alertSeIdNotEmpForVP" value="ERR-0227_Technical_On_Boarding"/>
+				<entry key="alertPvtIPNotEmpty" value="ERR-0228_Technical_On_Boarding"/>
+				<entry key="alertEntCorrPvtIP" value="ERR-0229_Technical_On_Boarding"/>
+				<entry key="alertIpNotEmpForAccTypIP" value="ERR-0230_Technical_On_Boarding"/>
+				<entry key="alertInvIpAddr" value="ERR-0231_Technical_On_Boarding"/>
+				<entry key="alertEnterDialInForModem" value="ERR-0232_Technical_On_Boarding"/>
+				<entry key="alertInvalidDialIn" value="ERR-0233_Technical_On_Boarding"/>
+				<entry key="alertEnterSEIdForCaas" value="ERR-0234_Technical_On_Boarding"/>
+				<entry key="alertEnterSEIdForNonSysPrd" value="ERR-0235_Technical_On_Boarding"/>
+				<entry key="alertEnterAccType" value="ERR-0236_Technical_On_Boarding"/>
+				<entry key="alertEntUsrNamPwd" value="ERR-0237_Technical_On_Boarding"/>
+				<entry key="alertSameGtwayNtAllForPriAndSec" value="ERR-0238_Technical_On_Boarding"/>
+				<entry key="alertSelPriThanSecGtway" value="ERR-0239_Technical_On_Boarding"/>
+				<entry key="alertInvalidSoldTo" value="ERR-0240_Technical_On_Boarding"/>
+				<entry key="alertInvalidSeIdFormat" value="ERR-0241_Technical_On_Boarding"/>
+				<entry key="alertEnterValidSoldToOrSeId" value="ERR-0242_Technical_On_Boarding"/>
+				<entry key="alertInvalidSeIdAsInput" value="ERR-0243_Technical_On_Boarding"/>
+				<entry key="alertInvalidSIdFormat" value="ERR-0244_Technical_On_Boarding"/>
+				<entry key="alertAFIDMaxTenDig" value="ERR-0245_Technical_On_Boarding"/>
+				<entry key="alertMidNotZero" value="ERR-0246_Technical_On_Boarding"/>
+				<entry key="alertInvalidMId" value="ERR-0247_Technical_On_Boarding"/>
+				<entry key="alertRemQuanMinOne" value="ERR-0248_Technical_On_Boarding"/>
+				<entry key="alertEnterAtlOneRec" value="ERR-0249_Technical_On_Boarding"/>
+				<entry key="alertSellOneRecForSALMig" value="ERR-0250_Technical_On_Boarding"/>
+				<entry key="alertInfoRetCode" value="INF-0251_Technical_On_Boarding"/>
+				<entry key="alertNoAccessToSoldTo" value="ERR-0252_Technical_On_Boarding"/>
+				
+				<!-- Common Error Msg Mapping for DataTable.ColumnFilter -->
+				<entry key="alertToDateGrtFromDate" value="ERR-0253_Common_Validation"/>
+				<entry key="alertEnterToDate" value="ERR-0254_Common_Validation"/>
+				<entry key="alertEnterFromDate" value="ERR-0255_Common_Validation"/>
+				<entry key="alertEnterToFromDate" value="ERR-0256_Common_Validation"/>
+				
+				<entry key="errorSystemAlert" value="ERR-0257_Install_Base_Creation"/>
+				<entry key="infInfMCodeInProcess" value="INF-0258_Install_Base_Creation"/>
+				<entry key="infIBFedAutomatic" value="INF-0259_Install_Base_Creation"/>
+				<entry key="errOffrTCNotQual" value="ERR-0260_Install_Base_Creation"/>
+				<entry key="infIncOrgTrancNo" value="INF-0261_Install_Base_Creation"/>
+				<entry key="infSendWrtnReq" value="INF-0262_Install_Base_Creation"/>
+				<entry key="errRdyToSalMig" value="ERR-0263_Install_Base_Creation"/>
+				<entry key="infCnfrmRegOne" value="INF-0264_Install_Base_Creation"/>
+				<entry key="infCnfrmRegTwo" value="INF-0265_Install_Base_Creation"/>
+				<entry key="infCnfrmRegThree" value="INF-0266_Install_Base_Creation"/>
+				<entry key="errLineItemMaxLimCross" value="WRN-0267_Install_Base_Creation"/>
+				<entry key="errSOIRLineItemMaxLimCross" value="ERR-0268_Install_Base_Creation"/>
+				<entry key="cnfrmBckToRegList" value="WRN-0269_Install_Base_Creation"/>
+				<entry key="cnfrmBckToGrt" value="WRN-0270_Install_Base_Creation"/>
+				<entry key="errEsnaCode" value="INF-0267_Install_Base_Creation"/>
+				
+				<entry key="alertIPNotEmpWhenAccTypRASIP" value="ERR-0271_Technical_On_Boarding"/>
+				<entry key="alertPswrdRetypePwdSame" value="ERR-0272_Technical_On_Boarding"/>
+				<entry key="alertNoCommonGateway" value="ERR-0273_Technical_On_Boarding"/>
+				<entry key="cnfrmResetGateway" value="WRN-0274_Technical_On_Boarding"/>
+				<entry key="cnfrmRetestAlalrmConn" value="WRN-0275_Technical_On_Boarding"/>
+				<entry key="cnfrmCancWillDelete" value="WRN-0276_Technical_On_Boarding"/>
+				<entry key="cnfrmSubmitForTOB" value="WRN-0277_Technical_On_Boarding"/>
+				<entry key="cnfrmNavigationToSALAlarm" value="WRN-0278_Technical_On_Boarding"/>				
+				<!-- End Entries added by Vipin -->
+				
+				<!-- Entries added by Bhupendra -->
+				<!-- Added for update announcements -->
+				<entry key="alertMessageBlankMsg" value="ERR-0301_Update_Announcements"/>
+				<entry key="alertMessageLenghtOverMsg" value="ERR-0302_Update_Announcements"/>
+				<entry key="alertStartDateBlankMsg" value="ERR-0303_Update_Announcements"/>
+				<entry key="alertEndDateBlankMsg" value="ERR-0304_Update_Announcements"/>
+				<entry key="alertDatesNotValidMsg" value="ERR-0305_Update_Announcements"/>
+				<entry key="alertStartDateLessCurrDateMsg" value="ERR-0306_Update_Announcements"/>
+				<entry key="alertStartDateGreaterEndDateMsg" value="ERR-0307_Update_Announcements"/>
+				<entry key="alertDeleteConfirmationMsg" value="WRN-0308_Update_Announcements"/>
+				<entry key="alertInvalidTimeFormatMsg" value="ERR-0309_Update_Announcements"/>
+				<!-- End of entries added for update announcements -->
+				
+				<!-- added for token redemption -->
+				<entry key="tokenIvalidError" value="ERR-0310_Token_Redemption"/>
+				<entry key="tokenExpiredError" value="ERR-0311_Token_Redemption"/>
+				<entry key="tokenRedeemedError" value="ERR-0312_Token_Redemption"/>
+				<entry key="tokenUnauthorizeToRedeemError" value="ERR-0313_Token_Redemption"/>
+				<entry key="tokenAdditionInfoLengthError" value="ERR-0314_Token_Redemption"/>
+				<entry key="tokenCancelWarningMsg" value="WRN-0315_Token_Redemption"/>
+				<entry key="tokenSelectAccountError" value="ERR-0316_Token_Redemption"/>
+				<entry key="tokenSelectRecordError" value="ERR-0317_Token_Redemption"/>
+				<entry key="tokenReqNameCityCountryError" value="ERR-0318_Token_Redemption"/>
+				<entry key="tokenBlankError" value="ERR-0319_Token_Redemption"/>
+				<entry key="tokenAlphaNumericError" value="ERR-0320_Token_Redemption"/>
+				<entry key="tokenExcessLengthError" value="ERR-0321_Token_Redemption"/>
+				<entry key="tokenValidObjectLengthError" value="ERR-0322_Token_Redemption"/>
+				<entry key="tokenBPLinkIdError" value="ERR-0323_Token_Redemption"/>
+				<entry key="tokenEndCustomerAccNumberError" value="ERR-0324_Token_Redemption"/>
+				<entry key="tokenValidatingError" value="ERR-0325_Token_Redemption"/>
+				<entry key="tokenBPLinkReqError" value="ERR-0326_Token_Redemption"/>
+				<entry key="tokenBPLinkInvalidError" value="ERR-0327_Token_Redemption"/>
+				<entry key="tokenBPLinkValidatingExcp" value="ERR-0328_Token_Redemption"/>
+				<entry key="tokenShipToInvalidError" value="ERR-0329_Token_Redemption"/>
+				<entry key="tokenRedeemException" value="ERR-0330_Token_Redemption"/>
+				<entry key="tokenSoldToNotFoundError" value="ERR-0331_Token_Redemption"/>
+				<entry key="tokenBpUnauthorizedForSoldToError" value="ERR-0332_Token_Redemption"/>
+				<entry key="tokenCountryUSError" value="ERR-0333_Token_Redemption"/>
+				<entry key="tokenCountryNonUSError" value="ERR-0334_Token_Redemption"/>
+				<entry key="tokenFuzzySearchError" value="ERR-0335_Token_Redemption"/>
+				<!-- End for token redemption -->
+				<!-- End Entries added by Bhupendra -->
+				
+				<!-- Entries added by Rajesh -->
+				<entry key="revisedQtyErrForSerializedAsset" value="ERR-0175_Record_Validation"/>
+				<entry key="revisedQtyErrForTechOnBorded" value="ERR-0176_Record_Validation"/>
+				<entry key="revisedQtyNoNegativeErrMsg" value="ERR-0177_Record_Validation"/>
+				
+				<entry key="noValForUpdateErrMsg" value="WRN-0178_Acc_Update"/>
+				<entry key="accUpdateSuccessMsgPart1" value="INF-0179_Acc_Update"/>
+				<entry key="accUpdateSuccessMsgPart2" value="INF-0180_Acc_Update"/>
+				<entry key="accUpdateErrMsg" value="ERR-0181_Acc_Update"/>
+				
+				<entry key="invalidCountryCityPostalAccErrMsg" value="ERR-0182_Acc_Create"/>
+				<entry key="invalidTokenAccErrMsg" value="ERR-0183_Acc_Create"/>
+				<entry key="invalidSoldToAccErrMsg" value="ERR-0184_Acc_Create"/>		
+				<entry key="searchAccErrMsg" value="ERR-0185_Acc_Create"/>
+				<entry key="noRecFoundAccErrMsg" value="ERR-0186_Acc_Create"/>				
+				
+				<entry key="accUpdateErrMsg2" value="ERR-0187_Acc_Update"/>		
+				<entry key="bpNotAuthorizedForSoldToErrMsg" value="WRN-0188_Acc_Update"/>
+				<entry key="validateSoldToErrMsg" value="ERR-0189_Acc_Update"/>
+				
+				<entry key="eqmIncorrectFromSoldToErrMsg" value="ERR-0190_Equip_Move"/>
+				<entry key="eqmIncorrectToSoldToErrMsg" value="ERR-0191_Equip_Move"/>
+				<entry key="eqmUnauthorizedSoldToErrMsg" value="ERR-0192_Equip_Move"/>
+				<entry key="eqmIncorrectFromAndToSoldToErrMsg" value="ERR-0193_Equip_Move"/>
+				<entry key="eqmSameFromAndToSoldToErrMsg" value="ERR-0194_Equip_Move"/>
+				<entry key="eqmAssignedQtyErrMsg" value="ERR-0195_Equip_Move"/>
+				<entry key="eqmSeletOneEqpErrMsg1" value="ERR-0196_Equip_Move"/>
+				<entry key="eqmSeletOneEqpErrMsg2" value="ERR-0197_Equip_Move"/>
+				<entry key="eqmActiveContrsctSelErrMsg" value="WRN-0198_Equip_Move"/>
+				<entry key="eqmRequestSuccessMsg" value="INF-0199_Equip_Move"/>
+				<entry key="eqmOutageMsg" value="INF-0400_Equip_Move"/>
+				<entry key="eqmCancelToHomePageErrMsg" value="WRN-0401_Equip_Move"/>
+				<entry key="eqmCancelToRegPageErrMsg" value="WRN-0402_Equip_Move"/>
+				<entry key="eqmReqSubmitConfMsg" value="WRN-0403_Equip_Move"/>
+				<entry key="eqmQtyLessThanZeroErrMsg" value="ERR-0404_Equip_Move"/>
+				<entry key="eqmQtyGreaterThanExisErrMsg" value="ERR-0405_Equip_Move"/>
+				<entry key="eqmZeroQtyErrMsg" value="ERR-0406_Equip_Move"/>
+				<entry key="eqmSaveSuccMsg" value="INF-0407_Equip_Move"/>
+				<entry key="eqmUnableToSaveErrMsg" value="ERR-0408_Equip_Move"/>
+				<entry key="eqmProcessErrMsg" value="ERR-0409_Equip_Move"/>
+				<entry key="eqmSapDownErrMsg" value="ERR-0410_Equip_Move"/>
+				<entry key="eqmProcessFailErrMsg" value="ERR-0411_Equip_Move"/>
+				<entry key="eqmBackendSysErrMsg" value="ERR-0412_Equip_Move"/>
+				<entry key="eqmActTrbTickErrMsg" value="ERR-0413_Equip_Move"/>
+				<entry key="eqmMatListEmptyerrMsg" value="ERR-0414_Equip_Move"/>
+				<entry key="eqmfailedWhileProcessErrMsg" value="ERR-0415_Equip_Move"/>
+				
+				<entry key="salNoGateWayOnSoldToErrMsg" value="ERR-0416_Sal_Migration"/>
+				<entry key="salNoAccessToSolToErrMsg" value="ERR-0417_Sal_Migration"/> 
+				<entry key="salFetchErrMsg" value="ERR-0418_Sal_Migration"/>
+				<entry key="salEndToEndRegConfirmMsg" value="WRN-0419_Sal_Migration"/>
+				
+				<entry key="salConfirmAssetMigrationMsg" value="WRN-0420_Sal_Migration"/>
+								
+				<entry key="salSomethingWrongErrMsg" value="ERR-0421_Sal_Migration"/>
+				<entry key="salRemoteAccessReqErrMsg" value="ERR-0422_Sal_Migration"/>
+				<entry key="salSeleSeidRequiedMsg" value="WRN-0423_Sal_Migration"/>
+				<entry key="salValidateConnectivityConfirmMsg" value="WRN-0424_Sal_Migration"/>
+				
+				<entry key="regSelectedCancRegErrMsg" value="ERR-0425_Registration_List"/>
+				<entry key="regInvalidEmailErrMsg" value="ERR-0426_Registration_List"/>
+				
+				<entry key="siteRegSoldToNotExistErrMsg" value="ERR-0427_Customer_Site_Registration"/>
+				
+				<entry key="scvInvalidPhoneNoErrMsg" value="ERR-0428_Site_Contact_Validation"/>
+				<entry key="scvPurchaseOrderReqErrMsg" value="ERR-0429_Site_Contact_Validation"/>
+				<entry key="scvEmptyFirstNameErrMsg" value="ERR-0430_Site_Contact_Validation"/>
+				<entry key="scvEmptyFirstLastErrMsg" value="ERR-0431_Site_Contact_Validation"/>
+				<entry key="scvInvalidEmailErrMsg" value="ERR-0432_Site_Contact_Validation"/>
+				<entry key="scvEmptyNotifEmailErrMsg" value="ERR-0433_Site_Contact_Validation"/>
+				<entry key="scvInvalidDate" value="ERR-0434_Site_Contact_Validation"/>
+				<entry key="scvCutoverDateErrMsg" value="ERR-0435_Site_Contact_Validation"/>
+				<entry key="scvMaxCharErrMsg" value="ERR-0436_Site_Contact_Validation"/>
+				
+				<entry key="scvTypedTextMsg" value="INF-0437_Site_Contact_Validation"/>
+				
+				<entry key="scvZipLengthErrMsg" value="ERR-0438_Site_Contact_Validation"/>
+				<entry key="scvInvalidCharInZipErrMsg" value="ERR-0439_Site_Contact_Validation"/>
+				<entry key="scvZipCodeFormaterrMsg" value="ERR-0440_Site_Contact_Validation"/>
+				<entry key="scvEmptyGrtNotiPhNoErrMsg" value="ERR-0441_Site_Contact_Validation"/>
+				<entry key="scvEmptyPhNoErrMsg" value="ERR-0442_Site_Contact_Validation"/>
+				<entry key="scvInvalidGrtNotiPhNoErrMsg" value="ERR-0443_Site_Contact_Validation"/>
+				<entry key="scvInvalidPhNoErrMsg" value="ERR-0444_Site_Contact_Validation"/>
+				
+				<entry key="scvBufferOvFlwMsgMiddle" value="ERR-0445_Site_Contact_Validation"/>
+				<entry key="scvBufferOvFlwMsgRegName" value="ERR-0446_Site_Contact_Validation"/> 
+				<entry key="scvBufferOvFlwMsgRegId" value="ERR-0447_Site_Contact_Validation"/> 
+				<entry key="scvBufferOvFlwMsgCompany" value="ERR-0448_Site_Contact_Validation"/> 
+				<entry key="scvBufferOvFlwMsgSoldTo" value="ERR-0449_Site_Contact_Validation"/>
+				<!-- End Entries added by Rajesh -->
+				
+				<entry key="scvBufferOvFlwInvalidSoldToFmt" value="ERR-0450_Site_Contact_Validation"/> 
+				<entry key="accCreateEmailNotifMsg" value="INF-0451_Acc_Create"/> 
+				<entry key="fileUploadInProcessMsg" value="INF-0452_Record_Validation"/> 
+				<entry key="pleaseTryAgainErrMsg" value="ERR-0453_Registration_List"/> 
+				<entry key="accCrtInvalidBPLinkIdErrMsg" value="ERR-0454_Acc_Create"/> 
+				<entry key="accCrtInvalidTokenNonUSErrMsg" value="ERR-0455_Acc_Create"/> 
+				<entry key="accCrtInvalidTokenUSErrMsg" value="ERR-0456_Acc_Create"/> 
+				<entry key="accCrtValidTokenMsg" value="INF-0457_Acc_Create"/> 
+				<entry key="accCrtSetUpHierarchyMsg" value="ERR-0458_Acc_Create"/> 
+				<entry key="accCrtValidateUSGovtMsg" value="ERR-0459_Acc_Create"/> 
+				<entry key="accCrtValidateSIAccMsg" value="ERR-0460_Acc_Create"/> 
+				<entry key="accCrtValidateSPAccMsg" value="ERR-0461_Acc_Create"/> 
+				<entry key="accCrtEmailNotiErrMsg" value="ERR-0462_Acc_Create"/> 
+				<entry key="accCrtInvalidSoldToErrMsg" value="ERR-0463_Acc_Create"/> 
+				<entry key="accCrtSoldToNotExistsErrMsg" value="ERR-0464_Acc_Create"/> 
+				<entry key="accCrtInvalidSoldToNonUSErrMsg" value="ERR-0465_Acc_Create"/> 
+				<entry key="accCrtSoldToValidatedMsg" value="INF-0466_Acc_Create"/> 
+				<entry key="tobSslVpnNotAllowedErrMsg" value="ERR-0467_Technical_On_Boarding"/>
+				<entry key="tobExceptionInFindinfSRErrMsg" value="ERR-0468_Technical_On_Boarding"/>
+				<entry key="tobRegSetpBFoundForSeidErrMsg" value="ERR-0469_Technical_On_Boarding"/>
+				<entry key="tobExceptionWhileFindingAlarmErrMsg" value="ERR-0470_Technical_On_Boarding"/>
+				<entry key="tobSubmitRegPrdtErrMsg" value="ERR-0471_Technical_On_Boarding"/>
+				<entry key="tobSubmitRedayToProcesstErrMsg" value="ERR-0472_Technical_On_Boarding"/>
+				<entry key="tobGrtProblemErrMsg" value="ERR-0473_Technical_On_Boarding"/>
+				<entry key="tobRetrieveErrMsg" value="ERR-0474_Technical_On_Boarding"/>
+				<entry key="tobErrWhileProcessingErrMsg" value="ERR-0475_Technical_On_Boarding"/>				
+				<entry key="rvNotAllowdedNortelMaestroErrMsg" value="ERR-0476_Record_Validation"/>
+				<entry key="ibFailedInProcessingErrMsg" value="ERR-0477_Install_Base_Creation"/>
+				
+				<entry key="noConnectityReTestMsg" value="ERR-0481_No_Connectity_Re_Test"/>
+				
+				<entry key="alertSpecialCharErrorMsg" value="ERR-0482_Update_Announcements"/>
+				
+				<entry key="rvNortelMaestroWithContractErrMsg" value="ERR-0483_Record_Validation"/>
+				<entry key="noRowsFoundForUpdateErrMsg" value="INF-0484_Record_Validation"/>
+				
+				<entry key="nofileChosenForUploadErrMsg" value="ERR-0485_Record_Validation"/>
+				<entry key="revisedQutyEqlExistQtyErrMsg" value="ERR-0486_Record_Validation"/>
+				
+				<entry key="tokenBPNotAuthorisedToRedeemErrMsg" value="ERR-0487_Token_Redemption"/>
+				<entry key="tokenContractNotReplacableErrMsg" value="ERR-0488_Token_Redemption"/>
+				<entry key="tokenExcpFindingContractsErrMsg" value="ERR-0489_Token_Redemption"/>
+				<entry key="tokenNoContractsFoundErrMsg" value="ERR-0490_Token_Redemption"/>
+				<entry key="tokenContractReplaceNoConfirmMsg" value="WRN-0491_Token_Redemption"/>
+				<entry key="tokenAccountNotEligibleErrMsg" value="ERR-0492_Token_Redemption"/>
+				<entry key="tokenIpOfficeVersionErrMsg" value="ERR-0493_Token_Redemption"/>
+				<entry key="tokenNoIPOEquipmentErrMsg" value="ERR-0494_Token_Redemption"/>
+				
+				<entry key="alertSoftwareReleaseErrorMsg" value="ERR-0279_Technical_On_Boarding"/>
+				
+				<entry key="alertEnterAUXMCMainSEID" value="ERR-0280_Technical_On_Boarding"/>
+				<entry key="alertValAUXMCMainSEID" value="ERR-0281_Technical_On_Boarding"/>
+				<entry key="alertSelectAUXMCType" value="ERR-0282_Technical_On_Boarding"/>
+				
+				<!--message for live chat when disabled for users  -->
+				<entry key="liveChatDisabled" value="INF-0496_LiveChat_Disable"/>
+			</map>
+		</property>		
+	</bean>
+</beans>

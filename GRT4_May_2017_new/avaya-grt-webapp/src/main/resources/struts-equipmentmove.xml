@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="equipmentmove" namespace="/equipmentmove" extends="default">
+		<action name="equipmentMoveOnly" class="com.avaya.grt.web.action.equipmentmove.EquipmentMoveAction" method="equipmentMoveOnly">
+			<result name="success" type="dispatcher">/WEB-INF/content/equipmentmove/eqmLocationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="saveSiteRegistration" class="com.avaya.grt.web.action.equipmentmove.EquipmentMoveAction" method="saveSiteRegistration">
+			<result name="success" type="dispatcher">/WEB-INF/content/equipmentmove/eqmProcess.jsp</result>
+			<result name="except" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="exportEquipmentMoveProcess" class="com.avaya.grt.web.action.equipmentmove.EquipmentMoveAction" method="exportEquipmentMoveProcess">
+			<result name="success" type="dispatcher">/WEB-INF/content/equipmentmove/eqmProcess.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+		<action name="saveEquipmentMoveProcess" class="com.avaya.grt.web.action.equipmentmove.EquipmentMoveAction" method="saveEquipmentMoveProcess">
+			<result name="success" type="dispatcher">/WEB-INF/content/equipmentmove/eqmProcess.jsp</result>
+			<result name="failure" type="dispatcher">/WEB-INF/content/equipmentmove/eqmProcess.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="token"/>
+			<result name="invalid.token" type="dispatcher">
+				/WEB-INF/content/common/registrationList.jsp
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+	
+	
+	<action name="downloadfile" class="com.avaya.grt.web.action.equipmentmove.EquipmentMoveAction" method="execute">
+           <result name="success" type="stream">
+               <param name="contentType">application/xls</param>
+               <param name="inputName">inputStream</param>
+               <param name="contentDisposition">attachment;filename="MaterialEntryUpload.xls"</param>
+               <param name="bufferSize">1024</param>
+           </result>
+       </action>
+	</package>
+	<package name="equipmentmovejson" namespace="/equipmentmove/json" extends="json-default">
+		<action name="isSameCountry" class="com.avaya.grt.web.action.equipmentmove.EquipmentMoveAction" method="isSameCountry">
+			<result type="json">
+				<param name="root">jsonMap</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

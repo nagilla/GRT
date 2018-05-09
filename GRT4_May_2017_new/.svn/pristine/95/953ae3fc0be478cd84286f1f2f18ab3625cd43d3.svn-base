@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.Alert" 
+    table="ALERTS"
+    lazy="false"
+>
+    <id
+        name="alertId"
+        type="string"
+        column="ALERT_ID"
+        length="50"
+    > 
+        <generator class="sequence">
+            <param name="sequence">grtsequence</param>
+        </generator>
+    </id>
+    <property
+        name="message"
+        type="string"
+        column="MESSAGE"
+        length="4000"
+    />
+    <property
+        name="createdBy"
+        type="string"
+        column="CREATED_BY"
+        length="50"
+    />
+    <property
+        name="lastModifiedBy"
+        type="string"
+        column="LAST_MODIFIED_BY"
+        length="50"
+    />
+    <property
+        name="isExist"
+        type="string"
+        column="IS_EXIST"
+        length="1"
+    />
+    <property
+        name="startDate"
+        type="timestamp"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="timestamp"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="createdDate"
+        type="timestamp"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="lastModifiedDate"
+        type="timestamp"
+        column="LAST_MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="type"
+        type="string"
+        column="TYPE"
+        length="20"
+    />
+    <property
+        name="code"
+        type="string"
+        column="CODE"
+        length="10"
+    />
+</class>
+</hibernate-mapping>

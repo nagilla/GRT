@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>
+        JMS_Client
+    </display-name>
+     <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/log4j.properties</param-value>
+    </context-param> 
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+    
+    <listener>
+      <listener-class>com.grt.applicationContext.GRTServletContextListener</listener-class>
+	</listener>
+    
+	<servlet>
+    	<servlet-name>installbase-servlet</servlet-name>
+    	<servlet-class>
+    		com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    	</servlet-class>
+  	</servlet>
+	
+	<servlet-mapping>
+        <servlet-name>installbase-servlet</servlet-name>
+        <url-pattern>/grtInstallBaseWS</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>eqr-servlet</servlet-name>
+    	<servlet-class>
+    		com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    	</servlet-class>
+  	</servlet>
+	
+	<servlet-mapping>
+        <servlet-name>eqr-servlet</servlet-name>
+        <url-pattern>/grtEQRWS</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>eqm-servlet</servlet-name>
+    	<servlet-class>
+    		com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    	</servlet-class>
+  	</servlet>
+	
+	<servlet-mapping>
+        <servlet-name>eqm-servlet</servlet-name>
+        <url-pattern>/grtEQMWS</url-pattern>
+    </servlet-mapping>
+       
+    <servlet>
+    	<servlet-name>techreg-servlet</servlet-name>
+    	<servlet-class>
+    		com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    	</servlet-class>
+  	</servlet>
+	
+	<servlet-mapping>
+        <servlet-name>techreg-servlet</servlet-name>
+        <url-pattern>/grtTechRegWS</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>techregalarm-servlet</servlet-name>
+    	<servlet-class>
+    		com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    	</servlet-class>
+  	</servlet>
+	
+	<servlet-mapping>
+        <servlet-name>techregalarm-servlet</servlet-name>
+        <url-pattern>/grtTechRegAlarmWS</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>assetupdate-servlet</servlet-name>
+    	<servlet-class>
+    		com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    	</servlet-class>
+  	</servlet>
+	
+	<servlet-mapping>
+        <servlet-name>assetupdate-servlet</servlet-name>
+        <url-pattern>/grtAssetUpdateWS</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>srupdate-servlet</servlet-name>
+    	<servlet-class>
+    		com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+    	</servlet-class>
+  	</servlet>
+	
+	<servlet-mapping>
+        <servlet-name>srupdate-servlet</servlet-name>
+        <url-pattern>/grtSRUpdateWS</url-pattern>
+    </servlet-mapping>
+    
+    <security-constraint>
+	      <web-resource-collection>
+	            <web-resource-name>Success</web-resource-name>
+	            <url-pattern>/*</url-pattern>
+	           <http-method>GET</http-method>
+	           <http-method>POST</http-method>
+	      </web-resource-collection>
+	      <auth-constraint>
+	          <role-name>SupportAdminConsoleUser</role-name> 
+	      </auth-constraint>
+	</security-constraint>
+	 <login-config>
+	    <auth-method>BASIC</auth-method>
+	    <realm-name>GRT Webservice Admin</realm-name>
+	</login-config>
+	<security-role>
+	     <role-name>SupportAdminConsoleUser</role-name>
+	</security-role>
+     
+</web-app>

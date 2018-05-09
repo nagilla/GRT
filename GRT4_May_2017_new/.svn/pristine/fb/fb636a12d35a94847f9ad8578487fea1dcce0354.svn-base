@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="administrator" namespace="/administrator" extends="default">
+		<action name="viewAnnouncements" class="com.avaya.grt.web.action.administrator.AdministratorAction" method="viewAnnouncements">
+			<result name="success" type="dispatcher">/WEB-INF/content/admin/administrator.jsp</result>
+			<!-- <result name="nonAdmin" type="dispatcher">/WEB-INF/content/admin/administrator.jsp</result> -->
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">adminAlertForm</param>
+				<param name="session">adminAlertForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="updateAnnouncement" class="com.avaya.grt.web.action.administrator.AdministratorAction" method="updateAnnouncement">
+			<result name="success" type="dispatcher">/WEB-INF/content/admin/administrator.jsp</result>
+			<!-- <result name="nonAdmin" type="dispatcher">/WEB-INF/content/admin/administrator.jsp</result> -->
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="token"/>
+			<result name="invalid.token" type="redirectAction">viewAnnouncements</result>
+			<interceptor-ref name="scope">
+				<param name="key">adminAlertForm</param>
+				<param name="session">adminAlertForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+	</package>
+	
+</struts>

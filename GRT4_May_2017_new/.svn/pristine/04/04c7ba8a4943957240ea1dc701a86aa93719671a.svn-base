@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<query name="getSiteListByArtSR">
+		<![CDATA[ Select siteList from SiteList siteList where siteList.stepBSRRequest.siebelSRNo = :artSrNo]]>
+    </query>
+    
+    <sql-query name="undoStepBForSiteList">
+		<![CDATA[ UPDATE SITE_LIST SET STEPB_STATUS = '1005', STEPB_SR_REQUEST = NULL, SELECT_REMOTE_ACCESS = '0', SELECT_ALARMING = '0', STEPB_SUBMITTED_DATE = NULL, STEPB_COMPLETED_DATE = NULL, ART_SR_NO = NULL WHERE ID = :TECHREGID]]>
+    </sql-query>
+    
+    <sql-query name="updateSiteListId">
+		<![CDATA[ UPDATE SITE_LIST SET ID = :NEWID WHERE ID = :OLDID]]>
+    </sql-query>
+</hibernate-mapping>

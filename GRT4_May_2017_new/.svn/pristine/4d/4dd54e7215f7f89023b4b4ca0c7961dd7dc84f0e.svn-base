@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="getMaterialCodes">
+		<![CDATA[ 	select prodint.name, prodint.alias_name from siebel.s_prod_int prodint
+					where prodint.name in ( :materialCodes ) ]]>
+    </sql-query>
+    <sql-query name="getSolutionElementsForAccountCount">
+		<![CDATA[ select count(*) from (select prodint.name material_code, prodint.alias_name material_description, prod_ln.name product_line, sum(sasset.qty) as Quantity from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln where orgext.loc = :soldToNumberParam and prodint.name not in (:vcodes) and orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id and sasset.status_cd <> 'Inactive' and prodint.pr_prod_ln_id = prod_ln.row_id(+) group by prodint.name, prodint.alias_name, prod_ln.name order by prod_ln.name)	]]>
+    </sql-query>
+    
+    <sql-query name="getSolutionElementsForAccountSubset">
+		<![CDATA[ select * from ( select a.*, rownum num from (select prodint.name material_code, prodint.alias_name material_description, prod_ln.name product_line, sum(sasset.qty) as Quantity from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln where orgext.loc = :soldToNumberParam and prodint.name not in (:vcodes) and orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id and sasset.status_cd <> 'Inactive' and prodint.pr_prod_ln_id = prod_ln.row_id(+) group by prodint.name, prodint.alias_name, prod_ln.name order by prod_ln.name ) a  )	 ]]>
+    </sql-query>
+    <sql-query name="fetchTRConfigs">
+		<![CDATA[ 	select GROUP_ID, GROUP_ID_DESC, PARENT_MATERIAL_CODE, MATERIAL_CODE_DESC, SE_CODE,SE_CODE_DESC, PRODUCT_TYPE, PRODUCT_TYPE_DESC, TEMPLATE, TEMPLATE_NAME, CHILD_MATERIAL_CODE, SPECIAL_NOTE from SIEBEL.CX_VIEW_MC_TO_SE_MAPPING WHERE IS_MAIN_SE_CODE='Y' ]]>
+    </sql-query>
+    
+    <sql-query name="getSolutionElementsForAccount">
+		<![CDATA[ 	select prodint.name, prodint.alias_name, sum(sasset.qty) as \"Quantity\" from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint where orgext.loc = :soldToNumberParam and orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id and sasset.status_cd <> 'Inactive' group by prodint.name, prodint.alias_name ]]>
+    </sql-query>
+    
+    <sql-query name="getEquipmentRemovalRecords">
+		<![CDATA[ select sasset.row_id as asset_pk,asset_num, sasset.x_equipment_num as equipment_num, 
+			NVL(sasset.x_summary_equipment_num, NVL(sasset.ref_number_2, sasset.ref_number_3)) as summary_equipment_num,prodint.name as material_code, 
+			DECODE(  NVL (prodintx.attrib_08, 'N'), 'Y', 'Y', 'N' ) as serialized_flg, prodint.alias_name as material_description,sasset.qty as existing_quantity, 
+			Decode(NVL(sasset.ref_number_3,'N'), 'N', x_seid, DECODE(NVL(x.attrib_03, 'N'), 'N', '', x_seid)) seid, 
+			sasset.x_se_cd se_code, 
+			Decode(NVL(sasset.ref_number_3,'N'), 'N', Decode(NVL(x_seid, 'N'), 'N', '', 'Yes'), DECODE(NVL(x.attrib_03, 'N'), 'N', '', 'Yes')) TECH_REG, 
+			Decode(NVL(x_asset_entitled, 'N'),  'Y', 'Yes', DECODE(NVL(x_site_entitled, 'N'), 'Y', 'Yes', '')) ACTIVE_CONTRACT, x_asset_entitled as asset_entitled, x_site_entitled as site_entitled, prod_ln.name product_line, NVL(x_serial_num, serial_num) as serial_number, sasset.X_RFA_SID, sasset.X_RFA_MID, x.attrib_07 GROUP_ID, sasset.name,  x.ATTRIB_03,sasset.ref_number_2 as Maestro,sasset.x_summary_equipment_num as SAP,sasset.ref_number_3 as Nortel 
+			from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_int_x prodintx, siebel.s_prod_ln prod_ln, siebel.s_asset_x x 
+			where orgext.loc = :soldToParam  and NVL(sasset.x_summary_equipment_num, NVL(sasset.ref_number_2, sasset.ref_number_3)) IS NOT NULL and 
+			orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id and sasset.row_id = x.par_row_id(+) and prodint.pr_prod_ln_id = prod_ln.row_id(+) and prodint.row_id=prodintx.row_id(+) 
+			and sasset.qty > 0 and sasset.status_cd = 'Active' 
+			order by TECH_REG, equipment_num, se_code, GROUP_ID ]]>
+    </sql-query>
+    
+    <sql-query name="getProductLineByMaterialCode">
+		<![CDATA[ select prodint.name as material_code, prod_ln.name product_line 
+from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln, siebel.s_asset_x x 
+where prodint.name= :materialCode and NVL(sasset.x_summary_equipment_num, NVL(sasset.ref_number_2, sasset.ref_number_3)) IS NOT NULL and orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id and sasset.row_id = x.par_row_id(+) and prodint.pr_prod_ln_id = prod_ln.row_id(+) and sasset.qty > 0 and sasset.status_cd = 'Active'  and prod_ln.name is not null ]]>
+    </sql-query>
+    
+    <sql-query name="fetchEquipmentRemovalRecordsForSALGWAndVSALGW">
+		<![CDATA[ select sasset.row_id as asset_pk,asset_num, sasset.x_equipment_num as equipment_num,	    	
+	    	NVL(sasset.x_summary_equipment_num, NVL(sasset.ref_number_2, sasset.ref_number_3)) as summary_equipment_num,
+	    	prodint.name as material_code, prodint.alias_name as material_description,sasset.qty as existing_quantity, 
+	    	Decode(NVL(sasset.ref_number_3,'N'), 'N', x_seid, DECODE(NVL(x.attrib_03, 'N'), 'N', '', x_seid)) seid, 
+			sasset.x_se_cd se_code, 
+			Decode(NVL(sasset.ref_number_3,'N'), 'N', Decode(NVL(x_seid, 'N'), 'N', '', 'Yes'), DECODE(NVL(x.attrib_03, 'N'), 'N', '', 'Yes')) TECH_REG,
+	    	Decode(NVL(x_asset_entitled, 'N'),  'Y', 'Yes', DECODE(NVL(x_site_entitled, 'N'), 'Y', 'Yes', '')) ACTIVE_CONTRACT,
+	    	x_asset_entitled as asset_entitled, x_site_entitled as site_entitled, prod_ln.name product_line,
+	    	NVL(x_serial_num, serial_num) as serial_number, sasset.X_RFA_SID, sasset.X_RFA_MID, x.attrib_07 GROUP_ID
+	    	from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln, siebel.s_asset_x x   	
+	    	where prodint.pr_prod_ln_id = prod_ln.row_id(+) and sasset.prod_id = prodint.row_id and sasset.row_id = x.par_row_id(+)
+	    	and orgext.row_id = sasset.owner_accnt_id  	
+	    	and ((prodint.name = 'V00328') and ( sasset.x_se_cd = 'SALGW' or sasset.x_se_cd = 'VSALGW' ))
+	    	and sasset.qty > 0 and sasset.status_cd = 'Active' and orgext.loc = :soldToParam 	 ]]>
+    </sql-query>
+    
+    <sql-query name="getEligibleGroups">
+		<![CDATA[ 	select distinct group_id, group_id_desc, parent_material_code, material_code_desc, se_code, child_material_code, IS_MAIN_SE_CODE  from SIEBEL.CX_VIEW_MC_TO_SE_MAPPING where group_id in (select group_id from (SELECT group_id, count(*)
+				FROM (select distinct group_id, se_code from SIEBEL.CX_VIEW_MC_TO_SE_MAPPING where se_code in (:seCodesInClause))
+				where se_code in (:seCodesInClause) GROUP BY group_id HAVING count(*) = :seCodes))  ]]> 
+				<!-- <![CDATA[ 	
+					SELECT DISTINCT GROUP_ID,group_id_desc,parent_material_code,material_code_desc,se_code,child_material_code,IS_MAIN_SE_CODE FROM SIEBEL.CX_VIEW_MC_TO_SE_MAPPING 
+					WHERE GROUP_ID IN (SELECT DISTINCT GROUP_ID FROM SIEBEL.CX_VIEW_MC_TO_SE_MAPPING WHERE se_code IN (:seCodesInClause))
+				]]>  -->
+    </sql-query>
+    
+	<sql-query name="getEntitledForAlarming">
+		<!-- <![CDATA[select DISTINCT p.NAME, ENT.X_AV_NAME AS ent_name,ENT.X_STATUS_CD AS ent_status from siebel.s_asset a, siebel.s_prod_int p, siebel.S_ORG_EXT o, SIEBEL.S_ENTLMNT ent, SIEBEL.S_ENTLMNT_ITEM itm where a.PROD_ID =p.ROW_ID and a.OWNER_ACCNT_ID = o.ROW_ID and ITM.DOC_AGREE_ID = ENT.ROW_ID and ENT.X_STATUS_CD='Active' and ENT.X_AV_NAME ='Alarming' and a.STATUS_CD <> 'Inactive' and o.LOC = :soldToParam and p.NAME IN( :materialCodes )]]> -->
+		<![CDATA[ (SELECT DISTINCT p.NAME, ENT.X_AV_NAME AS ent_name, ent.X_STATUS_CD FROM siebel.s_asset a, siebel.s_prod_int p, siebel.S_ORG_EXT o, siebel.S_DOC_AGREE agr, SIEBEL.S_ENTLMNT ent WHERE a.PROD_ID = p.ROW_ID AND a.OWNER_ACCNT_ID = o.ROW_ID and a.OWNER_ACCNT_ID = AGR.TARGET_OU_ID and ENT.PAR_AGREE_ID = agr.ROW_ID AND AGR.X_SITE_IND_FLG ='Y' and ent.ENTL_TYPE_CD='Alarms' and ent.X_STATUS_CD='Active' AND a.STATUS_CD =  'Active' AND o.LOC = :soldToParam AND p.NAME IN (:materialCodes)) UNION (SELECT DISTINCT p.NAME, ENT.X_AV_NAME AS ent_name, ENT.X_STATUS_CD AS ent_status FROM siebel.s_asset a, siebel.s_prod_int p, siebel.S_ORG_EXT o, SIEBEL.S_ENTLMNT ent, SIEBEL.S_ENTLMNT_ITEM itm WHERE a.PROD_ID = p.ROW_ID AND a.OWNER_ACCNT_ID = o.ROW_ID AND ITM.DOC_AGREE_ID = ENT.ROW_ID AND ITM.ASSET_ID = a.ROW_ID AND ENT.X_STATUS_CD = 'Active' AND ENT.X_AV_NAME = 'Alarming' AND a.STATUS_CD =  'Active' AND o.LOC = :soldToParam AND p.NAME IN (:materialCodes)) ]]>
+    </sql-query>
+    <sql-query name="fetchEquipmentsWithSameSIDnMID">
+		<![CDATA[ select sasset.row_id as asset_pk,asset_num, sasset.x_se_cd, sasset.x_seid, orgext.loc, sasset.x_summary_equipment_num, sasset.x_equipment_num, sasset.x_rfa_sid, sasset.x_rfa_mid, prodint.name as material_code from  siebel.s_asset sasset, siebel.s_org_ext orgext, siebel.s_prod_int prodint where sasset.x_seid IS NOT NULL and orgext.row_id = sasset.owner_accnt_id and sasset.status_cd <> 'Inactive' and orgext.loc = :soldToParam and sasset.prod_id = prodint.row_id  and sasset.x_rfa_sid = :sid and sasset.x_rfa_mid = :mid	]]>
+    </sql-query>
+    
+    <sql-query name="getTechnicallyRegisterableRecordsNew">
+    <![CDATA[ select prodint.name, prodint.alias_name, sasset.qty, to_char(sasset.created, 'MM-dd-YYYY'), sasset.x_se_cd, sasset.x_equipment_num, prod_ln.name as product_line from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln, siebel.s_asset_x x where orgext.loc = :soldToNumberParam and orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id and sasset.status_cd <> 'Inactive' and sasset.row_id = x.par_row_id(+) and x.attrib_03 is null and sasset.x_equipment_num is not null and prodint.pr_prod_ln_id = prod_ln.row_id(+) order by prod_ln.name ]]>
+    </sql-query>
+    
+    <sql-query name="getTechnicallyRegisteredRecords">
+    <![CDATA[ select prodint.name, prodint.alias_name, sasset.qty, to_char(sasset.created, 'MM-dd-YYYY'), sasset.x_se_cd, sasset.x_seid, sasset.x_equipment_num, SASSET.X_RFA_SID, SASSET.X_RFA_MID, prod_ln.name product_line, s_asset_xm.x_ip_address, x.attrib_07,sasset.x_alrm_id  from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln,(select par_row_id, x_ip_address from siebel.s_asset_xm where type='IPAddr' and x_subtype='Customer') s_asset_xm, siebel.s_asset_x x where orgext.loc = :soldToNumberParam and orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id and sasset.status_cd <> 'Inactive' and sasset.row_id = x.par_row_id and x.attrib_03 is not null and prodint.pr_prod_ln_id = prod_ln.row_id(+) and sasset.row_id = s_asset_xm.par_row_id(+) order by prod_ln.name  ]]>
+    </sql-query>
+    
+     <sql-query name="getGroupSecodes">
+    <![CDATA[ select  upper(SE_CODE) from SIEBEL.CX_VIEW_MC_TO_SE_MAPPING where group_Id = :GROUPID  ]]>
+    </sql-query>
+    
+    <sql-query name="isSIDValidForSeCode">
+		<![CDATA[ select distinct X_RFA_SID from siebel.s_asset sasset where sasset.X_RFA_SID=:SID and upper(sasset.x_se_cd) IN ('ACCWSW','ACCWTK') and sasset.status_cd <> 'Inactive' ]]>
+    </sql-query>
+    <sql-query name="getSeCodesForSid">
+		<![CDATA[ 	select upper(sasset.x_se_cd) from siebel.s_asset sasset where sasset.X_RFA_SID=:SID and sasset.status_cd <> 'Inactive' ]]>
+    </sql-query>
+    
+     <sql-query name="validateSIDAndFL">
+		<![CDATA[ 	select distinct orgext.loc from siebel.s_asset sasset, siebel.s_org_ext orgext where sasset.X_RFA_SID=:SID and orgext.row_id = sasset.owner_accnt_id and sasset.x_se_cd = 'AACE' and sasset.status_cd <> 'Inactive' ]]>
+    </sql-query>
+    
+    <sql-query name="validateSIDAndMID">
+		<![CDATA[ 	select distinct X_RFA_MID from siebel.s_asset sasset where sasset.X_RFA_SID=:SID and sasset.status_cd <> 'Inactive' ]]>
+    </sql-query>
+    
+    <sql-query name="getAccessTypesForAssets">
+		 <![CDATA[ select saxm.PAR_ROW_ID, saxm.TYPE, saxm.X_SUBTYPE, saxm.X_IP_ADDRESS, saxm.X_PHONE from siebel.s_asset_xm saxm where saxm.type in('IPAddr','Phone') and saxm.PAR_ROW_ID in (:assetIds) order by saxm.PAR_ROW_ID, saxm.X_SUBTYPE]]>
+	</sql-query>
+    
+    <sql-query name="getAgreementsForAssets">
+		 <![CDATA[ select distinct sasset.row_id, agr.X_CONTRACT_NUM, agr.AGREE_CD, agr.STAT_CD from siebel.S_ASSET sasset, siebel.S_ENTLMNT_ITEM itm, siebel.s_entlmnt ent, SIEBEL.S_DOC_AGREE agr 
+		 where sasset.ROW_ID = itm.ASSET_ID and itm.DOC_AGREE_ID  = ent.ROW_ID and ent.PAR_AGREE_ID  = agr.ROW_ID and agr.STAT_CD IN ('Active','Pending') and 
+		 sasset.STATUS_CD  = 'Active' and sasset.ROW_ID in (:assetIds) ]]>
+	</sql-query>
+	
+	<sql-query name="getAssetsWithSameSIDandMID">
+    	<![CDATA[ select sasset.x_se_cd, sasset.x_seid, sasset.x_alrm_id, s_asset_xm.x_ip_address from  siebel.s_asset sasset, (select par_row_id, x_ip_address from siebel.s_asset_xm where type='IPAddr' and x_subtype='Customer') s_asset_xm where sasset.row_id = s_asset_xm.par_row_id(+) and sasset.status_cd <> 'Inactive' and sasset.x_rfa_sid = :sid and sasset.x_rfa_mid = :mid and sasset.x_seid <> :seid  ]]>
+    </sql-query>
+    
+    <sql-query name="getAssetsWithSameSIDandMIDandSEID">
+    	<![CDATA[ select sasset.x_se_cd, sasset.x_seid, sasset.x_alrm_id, s_asset_xm.x_ip_address from  siebel.s_asset sasset, (select par_row_id, x_ip_address from siebel.s_asset_xm where type='IPAddr' and x_subtype='Customer') s_asset_xm where sasset.row_id = s_asset_xm.par_row_id(+) and sasset.status_cd <> 'Inactive' and sasset.x_rfa_sid = :sid and sasset.x_rfa_mid = :mid and sasset.x_seid = :seid  ]]>
+    </sql-query>
+    
+    <sql-query name="getSALGWDetails">
+    	<![CDATA[ select sasset.x_se_cd, sasset.x_seid, sasset.x_alrm_id, s_asset_xm.x_ip_address from  siebel.s_asset sasset, (select par_row_id, x_ip_address from siebel.s_asset_xm where type='IPAddr' and x_subtype='Customer') s_asset_xm where sasset.row_id = s_asset_xm.par_row_id(+) and sasset.status_cd <> 'Inactive' and sasset.x_seid = :seid  ]]>
+    </sql-query>
+	
+	<sql-query name="checkEntitlementBySeid">
+    	<![CDATA[ SELECT distinct ent.X_ENTLMNT_NUM "Ent" FROM siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln, (SELECT par_row_id, x_ip_address FROM siebel.s_asset_xm WHERE type   ='IPAddr' AND x_subtype='Customer') s_asset_xm, siebel.s_asset_x x, SIEBEL.S_DOC_AGREE agr, SIEBEL.S_ENTLMNT ent, SIEBEL.S_ENTLMNT_ITEM itm WHERE orgext.loc = :soldToId AND sasset.x_seid = :seId AND orgext.row_id = sasset.owner_accnt_id AND sasset.prod_id  = prodint.row_id AND sasset.status_cd <>  'Inactive' AND sasset.row_id = x.par_row_id AND x.attrib_03 IS NOT NULL AND prodint.pr_prod_ln_id = prod_ln.row_id(+) AND sasset.row_id = s_asset_xm.par_row_id(+) AND sasset.ROW_ID = itm.ASSET_ID AND ent.ROW_ID = itm.DOC_AGREE_ID and agr.ROW_ID = ent.PAR_AGREE_ID and ent.X_AV_NAME = 'Alarming' and ent.X_STATUS_CD = 'Active' and agr.STAT_CD = 'Active'  ]]>
+    </sql-query>
+    
+    <sql-query name="getSoldToCountrySiebel">
+		<![CDATA[ select org.LOC, adr.COUNTRY from siebel.S_ORG_EXT org, SIEBEL.S_ADDR_ORG adr where org.PR_ADDR_ID = adr.ROW_ID and org.LOC IN (:soldToList) ]]>
+    </sql-query>
+    
+     <sql-query name="fetchTRConfigsForSalGWInstaller">
+		<![CDATA[ 	select GROUP_ID, GROUP_ID_DESC, PARENT_MATERIAL_CODE, MATERIAL_CODE_DESC, SE_CODE,SE_CODE_DESC, PRODUCT_TYPE, PRODUCT_TYPE_DESC, TEMPLATE, TEMPLATE_NAME, CHILD_MATERIAL_CODE, SPECIAL_NOTE from SIEBEL.CX_VIEW_MC_TO_SE_MAPPING WHERE  SPECIAL_NOTE = :productIdentifier ]]>
+    </sql-query>
+        
+     <sql-query name="getSALMigrationEligibleAssets">
+		<![CDATA[ select * from (select prodint.name material_code, prodint.alias_name material_description, prod_ln.name product_line,
+	        		 sasset.x_se_cd, sasset.x_seid, sasset.X_ALRM_ID, SASSET.X_RFA_SID, SASSET.X_RFA_MID, s_asset_xm.x_ip_address
+	        		 from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint, siebel.s_prod_ln prod_ln,
+	        		 (select par_row_id, x_ip_address from siebel.s_asset_xm where type='IPAddr' and x_subtype='Customer') s_asset_xm
+	        		 where orgext.loc = :soldToId and orgext.row_id = sasset.owner_accnt_id and sasset.prod_id = prodint.row_id
+	        		 and prodint.pr_prod_ln_id = prod_ln.row_id(+) and sasset.row_id = s_asset_xm.par_row_id(+)
+	        		 and sasset.status_cd <> 'Inactive' and sasset.x_seid is not null) where x_ip_address is null ]]>
+    </sql-query>
+    
+    <sql-query name="queryAccountContacts">
+		<![CDATA[ SELECT T2.loc as AccountLocation, T14.active_flg as ActiveStatus, T14.email_addr as EmailAddress, T14.fax_ph_num as FaxPhone, T14.fst_name as FirstName, T14.last_name as LastName, 
+					T14.mid_name as MiddleName,  T14.priv_flg as PersonalContact, T14.CUST_STAT_CD as Status,  T14.WORK_PH_NUM as WorkPhone, T14.X_PRIMARY_CONTACT_FLG as PrimaryContactFlag , T14.con_cd as TypeofContact 
+					 FROM SIEBEL.S_ORG_EXT T2, SIEBEL.CX_ORG_SECURITY T3, SIEBEL.S_PARTY T7, SIEBEL.S_EMP_PER T8,  SIEBEL.S_CONTACT T14 WHERE   
+					T14.PR_DEPT_OU_ID = T3.ROW_ID (+) AND T3.EMP_ID (+) = '0-1' AND T3.RESTRICTED (+) = 'N' AND T3.RESTRICTED_FA (+) = '2FA' AND T7.ROW_ID = T8.PAR_ROW_ID (+) AND  
+					T7.ROW_ID = T14.PAR_ROW_ID AND T14.PR_DEPT_OU_ID = T2.PAR_ROW_ID AND (T14.PRIV_FLG = 'N' AND (T14.PR_DEPT_OU_ID IS NULL OR T3.EMP_ID IS NOT NULL OR T14.PR_DEPT_OU_ID = 'No Match Row Id')) AND (T14.CUST_STAT_CD != 'Inactive')  
+					AND T14.X_PRIMARY_CONTACT_FLG='Y' AND (T2.LOC = :accountId) ]]>
+    </sql-query>
+    
+     <sql-query name="validateCMMain">
+		<![CDATA[ 	select prodint.name material_code, prodint.alias_name material_description, orgext.loc, sasset.x_se_cd, sasset.x_seid, SASSET.X_RFA_SID
+					   from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_prod_int prodint where orgext.row_id = sasset.owner_accnt_id
+					   and sasset.prod_id = prodint.row_id and sasset.status_cd <> 'Inactive' and SASSET.X_RFA_MID =1 and sasset.x_seid = :CM_SEID
+					   and sasset.x_se_cd in (:seCodeInClause) ]]>
+    </sql-query>
+    
+    <sql-query name="getReleaseForSEIdsOnAccount">
+    	<![CDATA[ select max(X_release) from siebel.s_org_ext orgext, siebel.s_asset sasset, siebel.s_asset_x x 
+    				where orgext.loc = :soldToNumberParam and orgext.row_id = sasset.owner_accnt_id and sasset.row_id = x.par_row_id 
+    				and sasset.status_cd <> 'Inactive' and sasset.x_se_cd in (:seCodeInClause)  
+    				and X_release NOT LIKE 'R%' and sasset.X_release is not null and x.attrib_03 is not null ]]>
+    </sql-query>
+    
+    <sql-query name="validateAUXMCMainSEID">
+    	<![CDATA[ select sasset.x_seid, sasset.x_rfa_sid, sasset.x_rfa_mid, sasset.status_cd 
+					from siebel.s_asset sasset 
+					where sasset.x_seid = :auxMCMainSeid ]]>
+    </sql-query>
+    
+</hibernate-mapping>

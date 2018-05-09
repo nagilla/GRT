@@ -1,0 +1,395 @@
+/*** START DATA TABLES THEME ***/
+/*
+ * Table
+ */
+table.dataTable {
+	margin: 0 auto;
+	clear: both;
+	width: 100% !important;
+	border-top: 1px solid #ccc;
+}
+table.dataTable thead {
+	white-space: nowrap;
+	font-size: 11px;
+}
+table.dataTable thead td {
+	white-space: nowrap;
+	padding: 11px 30px 7px 8px;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	font-weight: normal;
+	font-size: 13px;
+	color: #000;
+	cursor: pointer;
+	vertical-align: middle;
+	text-align: left;
+}
+
+table.dataTable tfoot th {
+	padding: 3px 18px 3px 10px;
+	border-top: 1px solid #ccc;
+	border-right: none;
+	border-left: none;
+	font-weight: bold;
+}
+
+table.dataTable tr {
+	border-right: none;
+	border-left: none;
+}
+
+table.dataTable td {
+	padding: 8px 10px;
+	border-right: 1px solid #ccc;
+	font-size: 12px;}
+	table.dataTable td a {
+		color: #c00;
+		text-decoration: none;}
+	table.dataTable td a:hover {
+		text-decoration: underline;}
+
+table.dataTable td.center,
+table.dataTable td.dataTables_empty {
+	text-align: center;
+	padding: 60px 0;
+	background: #ccc;
+	font-size: 20px;
+	font-weight: bold;
+	color: #777;
+	border-right: none;
+}
+
+table.dataTable td.dataTables_empty span {
+	position: absolute;
+	left: 44%;
+	top: 33%;
+}
+table.dataTable tr.odd {
+	background-color: #eeedea;
+	border: 1px solid #ccc;
+	border-left: none;
+	border-right: none;
+}
+table.dataTable tr.even { background-color: white; }
+
+table.dataTable tr.odd td.sorting_1 { background-color: #fff; }
+table.dataTable tr.odd td.sorting_2 { background-color: #fff; }
+table.dataTable tr.odd td.sorting_3 { background-color: #fff; }
+table.dataTable tr.even td.sorting_1 { background-color: #fff; }
+table.dataTable tr.even td.sorting_2 { background-color: #fff; }
+table.dataTable tr.even td.sorting_3 { background-color: #fff; }
+
+
+/*
+ * Table wrapper
+ */
+.dataTables_wrapper {
+	position: relative;
+	clear: both;
+	*zoom: 1;
+	border: 1px solid #ccc;
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 42px;
+	border-left: none;
+	border-right: none;
+}
+
+
+
+/*
+ * Page length menu
+ */
+.dataTables_length {
+	float: right;
+	padding: 0 40px 0 10px;
+	margin-top: -24px;
+	margin-right: 219px;
+}
+.dataTables_length label {
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
+/*
+ * Filter
+ */
+.dataTables_filter {
+	float: right;
+  text-align: right;
+  padding: 0 10px;
+  margin-top: -25px;
+  margin-right: 26px;
+}
+.dataTables_filter label {
+	text-transform: uppercase;
+	font-size: 11px;
+}
+.dataTables_filter label input {
+	margin-left: 5px;
+	width: 140px;
+}
+
+
+/*
+ * Table information
+ */
+.dataTables_info {
+	clear: both;
+	float: left;
+	padding: 15px;
+	font-size: 12px;
+	font-weight: normal;
+	color: #999;
+}
+
+
+/*
+ * Pagination
+ */
+.dataTables_paginate {
+	float: right;
+	text-align: right;
+}
+.dataTables_paginate span span {
+	padding: 0 10px;
+}
+/* Two button pagination - previous / next */
+.paginate_disabled_previous,
+.paginate_enabled_previous,
+.paginate_disabled_next,
+.paginate_enabled_next {
+	height: 19px;
+	float: left;
+	cursor: pointer;
+	*cursor: hand;
+	color: #111 !important;
+}
+.paginate_disabled_previous:hover,
+.paginate_enabled_previous:hover,
+.paginate_disabled_next:hover,
+.paginate_enabled_next:hover {
+	text-decoration: none !important;
+}
+.paginate_disabled_previous:active,
+.paginate_enabled_previous:active,
+.paginate_disabled_next:active,
+.paginate_enabled_next:active {
+	outline: none;
+}
+
+.paginate_disabled_previous,
+.paginate_disabled_next {
+	color: #666 !important;
+}
+.paginate_disabled_previous,
+.paginate_enabled_previous {
+	padding-left: 23px;
+}
+.paginate_disabled_next,
+.paginate_enabled_next {
+	padding-right: 23px;
+	margin-left: 10px;
+}
+
+.paginate_enabled_previous { background: url('../datatable/back_enabled.png') no-repeat top left; }
+.paginate_enabled_previous:hover { background: url('../datatable/back_enabled_hover.png') no-repeat top left; }
+.paginate_disabled_previous { background: url('../datatable/back_disabled.png') no-repeat top left; }
+
+.paginate_enabled_next { background: url('../datatable/forward_enabled.png') no-repeat top right; }
+.paginate_enabled_next:hover { background: url('../datatable/forward_enabled_hover.png') no-repeat top right; }
+.paginate_disabled_next { background: url('../datatable/forward_disabled.png') no-repeat top right; }
+
+/* Full number pagination */
+.paging_full_numbers {
+	height: 22px;
+	line-height: 22px;
+	padding: 10px;
+}
+.paging_full_numbers a:active {
+	outline: none
+}
+.paging_full_numbers a:hover {
+	text-decoration: none;
+}
+
+.paging_full_numbers a.paginate_button,
+.paging_full_numbers a.paginate_active {
+	padding: 5px 14px;
+  margin: 0;
+  cursor: pointer;
+  color: #333 !important;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* TEMP - need to create a class for this correctly that doesn't use important */
+a.paginate_button.current{
+	background-image: -webkit-linear-gradient(top, #cccccc 0%, #eaeaea 100%) !important;
+	background-image: linear-gradient(to bottom, #cccccc 0%, #eaeaea 100%) !important;
+	background-repeat: repeat-x  !important;
+	cursor: not-allowed;}
+
+.paging_full_numbers a.paginate_button {
+	background-image: -webkit-linear-gradient(top, #eaeaea 0%, #cccccc 100%);
+	background-image: linear-gradient(to bottom, #eaeaea 0%, #cccccc 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#cccccc', GradientType=0);
+	border-right: 1px solid #999;
+	border-left: 1px solid #efefef;
+	color: #424242;
+}
+
+.paging_full_numbers a.paginate_button:hover {
+	background-color: #ccc;
+	text-decoration: none !important;
+}
+
+.paging_full_numbers a.paginate_active {
+	background-color: #99B3FF;
+}
+.paging_full_numbers a.paginate_button.first:before {
+	content: "<<";
+	font-weight: bold;
+}
+.paging_full_numbers a.paginate_button.last:after {
+		content: ">>";
+		font-weight: bold;
+}
+
+
+/*
+ * Processing indicator
+ */
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	height: 30px;
+	margin-left: -125px;
+	margin-top: -15px;
+	padding: 14px 0 2px 0;
+	border: 1px solid #ccc;
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	background-color: white;
+}
+
+
+/*
+ * Sorting
+ */
+.sorting { background: url('../datatable/sort_both.png') no-repeat 97% 7px; }
+.sorting_asc { background: url('../datatable/sort_asc.png') no-repeat 97% 7px; }
+.sorting_desc { background: url('../datatable/sort_desc.png') no-repeat 97% 7px; }
+
+.sorting_asc_disabled { background: url('../datatable/sort_asc_disabled.png') no-repeat 97% 7px; }
+.sorting_desc_disabled { background: url('../datatable/sort_desc_disabled.png') no-repeat 97% 7px; }
+
+table.dataTable th:active {
+	outline: none;
+}
+
+
+/*
+ * Scrolling
+ */
+.dataTables_scroll {
+	clear: both;
+	border-bottom: 1px solid #ccc;
+}
+
+.dataTables_scrollBody {
+	*margin-top: -1px;
+}
+
+/*
+ * Helpers
+*/
+
+table.dataTable input {
+	padding: 2px 5px;
+	margin:-4px 0;}
+	table.dataTable input.button {
+		padding: 4px 5px;}
+
+th, td {
+	white-space: nowrap;
+	}
+
+	table.dataTable thead .sorting span,
+	table.dataTable thead .sorting_asc span,
+	table.dataTable thead .sorting_desc span  {
+		padding: 0;}
+
+
+/*** END DATA TABLES THEME ***/
+
+/*** START BASIC TABLE - NON DATA TABLE THEME ***/
+
+.basic-table-wrap {
+	overflow-x: auto;}
+.basic-table {
+	width: 100%;
+}
+#existingSALData .basic-table {
+	border-top: 1px solid #ccc;
+}
+.basic-table input {
+	padding: 2px 5px;}
+	.basic-table input.button {
+		padding: 4px 5px;}
+
+.basic-table tbody tr:nth-of-type(odd) {
+  background-color:#eeedea;}
+.basic-table tbody tr {
+	border: 1px solid #ccc;
+  border-left: none;
+  border-right: none;}
+	.basic-table tbody td {
+		padding: 7px 10px;
+	  border-right: 1px solid #ccc;
+	  font-size: 12px;}
+
+.basic-table .collapse-box-container th {
+	white-space: nowrap;
+	padding: 7px 18px 7px 10px;
+	border-bottom: 1px solid #ccc;
+	font-weight: normal;
+	font-size: 12px;
+	color: #666;
+	cursor: pointer;
+	vertical-align: middle;}
+
+	th.osm_table05_th, td.osm_text{
+	 width: 110px;
+    text-align: center;}
+
+.modal table.basic-table {
+	border-left: 1px solid #ccc;
+}
+.modal table.basic-table thead tr {
+	border-top: 1px solid #ccc;
+}
+.modal table.basic-table th {
+	white-space: nowrap;
+	font-weight: normal;
+  font-size: 13px;
+  color: #000;
+  cursor: pointer;
+  vertical-align: middle;
+  text-align: left;
+	padding: 8px 30px 7px 8px;
+  border-right: 1px solid #ccc;
+}
+/*** END BASIC TABLE - NON DATA TABLE THEME ***/
+
+
+/******************* MOBILE ONLY STYLES BELOW - MUST BE LAST ON PAGE ********/
+
+/*** START TABLET LANDSCAPE MODE ***/
+@media (max-width: 1100px) {
+}
+/*** END TABLET LANDSCAPE MODE ***/

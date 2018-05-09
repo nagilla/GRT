@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping schema="{hibernate.default_schema}">
+	<query name="getSiteRegistrationBySiebelSRIB">
+		<![CDATA[ from SiteRegistration siteReg where siteReg.installBaseSrRequest.siebelSRNo = :siebelSR 
+		]]>
+    </query>
+    
+    <query name="getSiteRegistrationBySiebelSRFV">
+		<![CDATA[ from SiteRegistration siteReg where siteReg.finalValidationSrRequest.siebelSRNo = :siebelSR
+		]]>
+    </query>
+    
+    <query name="getSiteRegistrationBySiebelSREQM">
+		<![CDATA[ from SiteRegistration siteReg where siteReg.eqrMoveSrRequest.siebelSRNo = :siebelSR
+		]]>
+    </query>
+    
+    <sql-query name="getRegistrationsCompleted">
+		<![CDATA[ select CREATED_DT,IB_COMPLETED,EQR_COMPLETED,TR_COMPLETED from 
+    ( select to_char(trunc(CREATED_DATE, 'Month'), 'MON-YY') CREATED_DT,SUM(case when INSTALL_BASE_STATUSID = '1004' THEN 1 ELSE 0 END) AS IB_COMPLETED,SUM(case when FINAL_VALIDATION_STATUSID = '1004' THEN 1 ELSE 0 END) AS EQR_COMPLETED,SUM(case when TECH_REG_STATUSID = '1004' THEN 1 ELSE 0 END) AS TR_COMPLETED
+      from site_registration 
+      where trunc(CREATED_DATE) >= TO_DATE(add_months(sysdate,-3), 'DD-MON-YY') and trunc(CREATED_DATE) <= TO_DATE(trunc(sysdate, 'MM')-1, 'DD-MON-YY') and UPPER(user_name)=Upper(:userName)
+      group by to_char(trunc(CREATED_DATE, 'Month'), 'MON-YY')
+    )
+	order by to_Date(CREATED_DT,'MON-YY')]]>
+    </sql-query>
+    
+    <sql-query name="getRegistrationsSaved">
+		<![CDATA[select CREATED_DT,IB_COMPLETED,EQR_COMPLETED,TR_COMPLETED
+	  from ( select to_char(trunc(CREATED_DATE, 'Month'), 'MON-YY') CREATED_DT,SUM(case when INSTALL_BASE_STATUSID <> '1004' THEN 1 ELSE 0 END) AS IB_COMPLETED,SUM(case when FINAL_VALIDATION_STATUSID <> '1004' THEN 1 ELSE 0 END) AS EQR_COMPLETED,SUM(case when TECH_REG_STATUSID <> '1004' THEN 1 ELSE 0 END) AS TR_COMPLETED
+      from site_registration
+      where trunc(CREATED_DATE) >= TO_DATE(add_months(sysdate,-3), 'DD-MON-YY') and trunc(CREATED_DATE) <= TO_DATE(trunc(sysdate, 'MM')-1, 'DD-MON-YY') and UPPER(user_name)=UPPER(:userName)
+      group by to_char(trunc(CREATED_DATE, 'Month'), 'MON-YY')
+    )
+	order by to_Date(CREATED_DT,'MON-YY')]]>
+    </sql-query>
+    
+    <sql-query name="getRegistrationsNotCompleted">
+		<![CDATA[
+			    SELECT CREATED_DT,
+			  TOB_RESUBMITTED,
+			  TOB_NOTINITIATED
+			FROM
+			    (SELECT TO_CHAR(TRUNC(CREATED_DATE, 'Month'), 'MON-YY') CREATED_DT,
+			    SUM(
+			    CASE
+			      WHEN 
+			      sr.registration_id  = ( SELECT DISTINCT techo.site_registration_id
+											FROM technical_registration tr,
+											technical_order techo
+											WHERE tr.technical_order_id = techo.order_id
+											AND tr.status_id               ='1003'
+											AND tr.NUMBER_OF_SUBMIT        < 2
+                							AND techo.site_registration_id = sr.registration_id
+										  ) 
+			      THEN 1
+			      ELSE 0
+			    END) AS TOB_RESUBMITTED,
+			    SUM(
+			    CASE
+			      WHEN 
+				  sr.registration_id  = ( SELECT DISTINCT techo.site_registration_id
+										   FROM technical_registration tr,
+										   technical_order techo
+										   WHERE tr.technical_order_id = techo.order_id
+										   AND tr.access_type             ='SAL'
+										   AND tr.status_id               ='1004'
+										   AND tr.stepb_status            ='1005'	  
+                						   AND techo.site_registration_id = sr.registration_id	  
+				                         )
+			      THEN 1
+			      ELSE 0
+			    END) AS TOB_NOTINITIATED
+				FROM site_registration sr
+				WHERE TRUNC(sr.CREATED_DATE) >= TO_DATE(add_months(sysdate, -3), 'DD-MON-YY')
+				AND TRUNC(sr.CREATED_DATE)   <= TO_DATE(TRUNC(sysdate, 'MM')-1, 'DD-MON-YY')
+				AND UPPER(sr.user_name)       =UPPER(:userName)
+				GROUP BY TO_CHAR(TRUNC(sr.CREATED_DATE, 'Month'), 'MON-YY')
+			    )
+			ORDER BY to_Date(CREATED_DT,'MON-YY')
+    	]]>	
+    </sql-query>
+    
+    <sql-query name="getRegistrationsNotResubmitted">
+		<![CDATA[ select to_char(trunc(CREATED_DATE, 'Month'), 'MON-YY') created_dt, count(*) from site_registration sr, (select distinct site_registration_id from technical_registration tr, technical_order techo
+where tr.technical_order_id = techo.order_id and status_id='1003' and NUMBER_OF_SUBMIT < 2) regs_with_not_inititated_stepb
+where sr.registration_id = regs_with_not_inititated_stepb.site_registration_id
+and trunc(sr.created_date) > TO_DATE(add_months(sysdate,-3), 'DD-MON-YY') and UPPER(sr.user_name)= UPPER( :userName)
+group by trunc(created_date, 'Month')
+order by to_Date(created_dt,'MON-YY')]]>
+    </sql-query>
+    
+    <sql-query name="getRegistrationsNotInitiated">
+		<![CDATA[select to_char(trunc(CREATED_DATE, 'Month'), 'MON-YY') created_dt, count(*) from site_registration sr, (select distinct site_registration_id from technical_registration tr, technical_order techo
+where tr.technical_order_id = techo.order_id and access_type='SAL' and status_id='1004' and stepb_status='1005') regs_with_not_inititated_stepb
+where sr.registration_id = regs_with_not_inititated_stepb.site_registration_id 
+and trunc(sr.created_date) > TO_DATE(add_months(sysdate,-3), 'DD-MON-YY') and UPPER(sr.user_name)= UPPER(:userName)
+group by trunc(created_date, 'Month')
+order by to_Date(created_dt,'MON-YY')]]>
+    </sql-query>
+    
+
+
+ <sql-query name="getRegistrationsCompletedList">
+ <![CDATA[
+ SELECT  NOT_INITITATED,
+        IN_PROCESS,
+        AWAITING_INFO,
+        SAVED
+FROM
+  (SELECT
+    SUM(
+    CASE
+      WHEN ( (INSTALL_BASE_STATUSID = '1005') OR (FINAL_VALIDATION_STATUSID = '1005') OR (TECH_REG_STATUSID = '1005') ) AND (REGISTRATIONTYPEID = 'RTO6')
+      THEN 1
+      ELSE 0
+    END) AS NOT_INITITATED,
+    SUM(
+    CASE
+      WHEN (INSTALL_BASE_STATUSID = '1002') OR (FINAL_VALIDATION_STATUSID = '1002') OR (TECH_REG_STATUSID = '1002') OR (EQR_MOVE_STATUSID = '1002')
+      THEN 1
+      ELSE 0
+    END) AS IN_PROCESS,
+    SUM(
+    CASE
+      WHEN (INSTALL_BASE_STATUSID = '1003') OR (FINAL_VALIDATION_STATUSID = '1003') OR (TECH_REG_STATUSID = '1003') OR (EQR_MOVE_STATUSID = '1003')
+      THEN 1
+      ELSE 0
+    END) AS AWAITING_INFO,
+    SUM(
+    CASE
+      WHEN (INSTALL_BASE_STATUSID = '1007') OR (FINAL_VALIDATION_STATUSID = '1007') OR (TECH_REG_STATUSID = '1007') OR (EQR_MOVE_STATUSID = '1007')
+      THEN 1
+      ELSE 0
+    END) AS SAVED
+  FROM site_registration
+  WHERE UPPER(user_name)=UPPER(:userName)
+  )
+ 
+ ]]>
+ </sql-query>
+ 
+</hibernate-mapping>

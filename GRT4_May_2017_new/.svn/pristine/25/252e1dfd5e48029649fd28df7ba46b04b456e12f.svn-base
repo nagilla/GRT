@@ -1,0 +1,147 @@
+##START:: GLOBAL FEED
+#Global Feed
+ #Links
+support_home_title=Support Home
+support_home_link=https://support.avaya.com
+
+Bash_Shellshock_Vulnerability_Info_title=Bash-Shellshock Vulnerability Info
+Bash_Shellshock_Vulnerability_Info_link=http://www.avaya.com/usa/about-avaya/newsroom/news-releases/2014/pr-141003
+
+contact_support_title=Contact Support
+contact_support_link=https://support.avaya.com/contact
+	
+ssoprofile_title=My SSO Profile
+ssoprofile_link=https://sso.avaya.com	
+	
+newserv_req_title=Open a New Service Request
+newserv_req_link=https://support.avaya.com/service-requests/enterticket.action
+
+downloads_title=Downloads
+downloads_link=https://support.avaya.com/downloads	
+
+grt_title=Global Product Registration Tool
+grt_link=https://grt.avaya.com		
+
+support_forum_title=Support Forums
+support_forum_link=https://support.avaya.com/forums/index.php		
+
+biller_direct_title=Biller Direct
+biller_direct_link=https://support.avaya.com/helpcenter/getGenericDetails?detailId=C2012514164811954037		
+	
+ #Main Menu
+suggestions_title = Suggestions
+suggestions_link = 
+
+registration_help_title = Registration Help
+registration_help_link = 
+
+ #footerLinks
+privacy_statement_title = Privacy Statement
+privacy_statement_link = http://www.avaya.com/gcm/master-usa/en-us/includedcontent/privacy.htm
+
+terms_of_use_title = Terms of Use
+terms_of_use_link = http://www.avaya.com/gcm/master-usa/en-us/includedcontent/termsofuse.htm
+
+address = Avaya Inc., 4655 Great American Parkway Santa Clara, CA 95054-1233 USA
+copyright = © 2015-2016 Avaya Inc.
+##END:: GLOBAL FEED
+
+##START:: HOME FEED
+
+ #Images
+registrationType = /styles/images/graphs/RegistrationType.png
+redemptionType = /styles/images/graphs/RedemptionType.png
+monitoringType = /styles/images/graphs/MonitoringType.png
+
+ #createNewRegistrationLinks
+ ete_title = End-To-End Registration (All Registration Steps)
+ ete_journey = end-to-end
+ ete_view = customer-site-registration
+ 
+ ib_title = Install Base Creation Only
+ ib_journey = 
+ ib_view = customer-site-registration
+ 
+ tob_title = Technical On-Boarding Only
+ tob_journey = 
+ tob_view = customer-site-registration
+ 
+ eq_title = Equipment Removal Only
+ eq_journey = 
+ eq_view = customer-site-registration
+ 
+ sal_title = SAL Migration Only
+ sal_journey = 
+ sal_view = 
+
+ ip_office_title = IP Office w/On-Boarding Functionality (V8.1 and V9.1)
+ ip_office_journey = 
+ ip_office_view = 
+ 
+ #registrationManagementLinks
+ update_exist_title = Update Existing Registration
+ update_exist_view = 
+ 
+ cm_main_survey_title = CM Main/Remote Survey (EPN Survey)
+ cm_main_survey_view = 
+ 
+ administrator_title = Administrator
+ administrator_view =
+ 
+ ipossTokenRedemption_title = IPOSS Token Redemption
+ ipossTokenRedemption_view =
+ 
+ account_create_title = Account Creation
+ account_create_view = 
+ 
+ ipossRegistration_title = Create New IPOSS Registration (V8.1 and higher)
+ ipossRegistration_view =
+ 
+ token_redem_title = Token Redemption
+ token_redem_view = 
+ 
+ account_update_title = Account Update
+ account_update_view = 
+ 
+ view_installbase_title = View Install Base
+ view_installbase_view =
+ 
+ #accordionInfo
+ 
+  #announcements
+  announcements_title=Announcements
+  
+  #trainings
+  training_title = Training
+  training1_title = GRT Training, Videos and Documentation
+  training1_url = https://support.avaya.com/registration
+  
+  training2_title = GRT Frequently Asked Questions
+  training2_url = https://support.avaya.com/ext/index?page=content&id=FAQ101925
+  
+  #Help
+  help_title = Help and Policies
+  help1_title = Contact GRT Support Team for Help
+  help1_url = https://support.avaya.com/css/P8/documents/100177376
+  
+  help2_title = SAL Registration Scenarios Not Supported by GRT
+  help2_url = https://support.avaya.com/ext/index?page=content&id=FAQ101876
+  
+  help3_title = GRT Technical Onboarding Exception Form
+  help3_url = https://support.avaya.com/css/P8/documents/100076044
+  
+  #tools
+  tools_title = Tools and Reports
+  tool1_title = Provide Comments and Suggestions to Avaya
+  tool1_url = https://avaya.uservoice.com/forums/190607-global-registration-tool-grt-
+  
+  tool2_title = ACSBI Reporting
+  tool2_url = https://acsbi.avaya.com
+  
+  exclusion_source_PLDS = Install Base automatically fed from PLDS; move to technical onboarding or manage in PLDS
+  exclusion_source_KMAT = Offer/Tracking Codes do not qualify for Services Install Base and thus cannot be registered
+
+##END:: HOME FEED
+
+#GiftCard 2.0 changes
+exixtingContractDetailsMessage=Here are the contract details for this location. Please contact your customer or OEFC for more information on the contract before you proceed to cancel one. If you are sure of the contract you need to cancel and you select the appropriate one, then Termination Fees may apply. Contact OEFC for applicable fee information.

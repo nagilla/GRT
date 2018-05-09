@@ -1,0 +1,346 @@
+/*** START TOKEN REDEMPTION STYLES ***/
+.token-redemption {}
+  .token-redemption .controls {
+    text-align: center;
+    margin: 20px 0 20px;
+    clear: both; }
+
+  .token-redemption #token-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #token-detail-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #token-service-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #bp-detail-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #bp-detail-address-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #bp-services-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #shipto-bp-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #shipto-nonbp-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #address-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #contract-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #contract-address-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #contract-bplink-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #contract-service-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #contract-email-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #fuzzy-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #final-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #final-2-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #final-3-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+  .token-redemption #final-4-wrap.data-table-wrap .collapse-box-container {
+    display: block;}
+
+
+  .token-redemption #token-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #token-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #token-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #token-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #token-detail-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #token-detail-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #token-detail-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #token-detail-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #token-service-wrap.data-table-wrap .data {
+      padding: 0px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #token-service-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #token-service-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #token-service-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #bp-detail-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #bp-detail-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #bp-detail-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #bp-detail-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #bp-detail-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;
+              border-top: 1px solid #ccc;}
+
+  .token-redemption #bp-detail-address-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #bp-detail-address-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #bp-detail-address-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #bp-detail-address-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #bp-detail-address-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;}
+
+  .token-redemption #bp-services-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #bp-services-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #bp-services-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #bp-services-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #bp-services-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;}
+
+  .token-redemption #shipto-bp-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #shipto-bp-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #shipto-bp-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #shipto-bp-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #shipto-nonbp-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #shipto-nonbp-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #shipto-nonbp-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #shipto-nonbp-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #address-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #address-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #address-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #address-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #contract-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #contract-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #contract-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #contract-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #contract-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;
+              border-top: 1px solid #ccc;}
+
+  .token-redemption #contract-address-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #contract-address-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #contract-address-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #contract-address-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #contract-address-wrap.data-table-wrap .data .col p textarea {
+              width: 400px;
+              margin: 4px 0 0 0;}
+
+  .token-redemption #contract-service-wrap.data-table-wrap .data {
+      padding: 0px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #contract-service-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #contract-service-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #contract-service-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #contract-bplink-wrap.data-table-wrap .data {
+      padding: 0px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #contract-bplink-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #contract-bplink-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #contract-bplink-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+
+  .token-redemption #contract-email-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #contract-email-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #contract-email-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #contract-email-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #contract-email-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;
+              border-top: 1px solid #ccc;}
+
+  .token-redemption #final-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #final-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #final-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #final-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #final-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;
+              border-top: 1px solid #ccc;}
+
+  .token-redemption #final-2-wrap.data-table-wrap .data {
+      padding: 0px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #final-2-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #final-2-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #final-2-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #final-2-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;
+              border-top: 1px solid #ccc;}
+
+  .token-redemption #final-3-wrap.data-table-wrap .data {
+      padding: 0px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #final-3-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #final-3-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #final-3-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #final-3-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;
+              border-top: 1px solid #ccc;}
+
+  .token-redemption #final-4-wrap.data-table-wrap .data {
+      padding: 10px 20px;
+      display: table;
+      font-size: 12px;
+      font-weight: 100;
+      width: 100%;}
+      .token-redemption #final-4-wrap.data-table-wrap .data .col {
+        display: table-cell;
+        padding: 7px 80px 7px 0; }
+        .token-redemption #final-4-wrap.data-table-wrap .data .col p {
+          margin: 10px 0;
+          text-transform: capitalize; }
+          .token-redemption #final-4-wrap.data-table-wrap .data .col p .title {
+            font-weight: 900; }
+            .token-redemption #final-4-wrap.data-table-wrap .data.basic-table-wrap {
+              padding: 0;
+              border-top: 1px solid #ccc;}
+
+/*** END TOKEN REDEMPTION STYLES ***/

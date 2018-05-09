@@ -1,0 +1,114 @@
+/*** START SOLDTO PAGE STYLES ***/
+
+.customer-site-registration.content-wrap {
+  position: relative;
+}
+
+.customer-site-registration.content-wrap .content {
+  width: 60%;
+}
+
+.customer-site-registration.content-wrap .content p {
+  margin-bottom: 10px;
+}
+
+.customer-site-registration.content-wrap .content form .inputs {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.customer-site-registration.content-wrap .content form .inputs input {
+  margin-left: 5px;
+  width: 44%;
+  min-width: 360px;
+}
+
+.customer-site-registration.content-wrap .content form .inputs input + img {
+  position: relative;
+  left: -29px;
+  top: 5px;
+}
+
+.customer-site-registration.content-wrap .content form .inputs .sold-to-auto-complete-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 225px;
+  z-index: 999;
+  background: white;
+  border: 1px solid #333333;
+  margin-top: -1px;
+  margin-left: -2px;
+}
+
+.customer-site-registration.content-wrap .content form .inputs .sold-to-auto-complete-dropdown li {
+  padding: 10px;
+  border-bottom: 1px solid #333333;
+  cursor: pointer;
+}
+
+.customer-site-registration.content-wrap .content form .inputs .sold-to-auto-complete-dropdown li:last-child {
+  border: none;
+}
+
+.customer-site-registration.content-wrap .content form .inputs .sold-to-auto-complete-dropdown li:hover {
+  font-weight: 900;
+}
+
+.customer-site-registration.content-wrap .content form .inputs .sold-to-auto-complete-dropdown li:hover:active {
+  color: #d6d6d6;
+}
+
+.customer-site-registration.content-wrap .content form .error-message {
+  display: none;
+}
+
+.customer-site-registration.content-wrap .content form .error-message .title {
+  font-size: 16px;
+}
+
+.customer-site-registration.content-wrap .content form .error-message .content {
+  width: 100%;
+}
+
+.customer-site-registration.content-wrap .content form .error-message .content p {
+  text-align: center;
+}
+
+.customer-site-registration.content-wrap .content form .error-message .content p > span:first-child {
+  display: block;
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.customer-site-registration.content-wrap .content form .error-message .content p > span:first-child i {
+  color: #ffcc00;
+  display: block;
+  font-size: 45px;
+}
+
+.customer-site-registration.content-wrap .content form .controls {
+  margin-top: 15px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.customer-site-registration.content-wrap .content .associate-modal {
+  display: none;
+}
+
+.customer-site-registration.content-wrap .content .page-note {
+  margin-bottom: 15px;
+}
+
+span#fsoldtoMsg{
+	font-weight: bold;
+}
+
+span#tsoldtoMsg{
+	font-weight: bold;
+}
+
+
+/*** START SOLDTO PAGE STYLES ***/

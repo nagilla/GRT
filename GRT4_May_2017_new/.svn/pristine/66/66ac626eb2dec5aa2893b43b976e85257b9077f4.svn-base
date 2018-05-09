@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	
+	<package name="ipoffice" namespace="/ipoffice" extends="default">
+		<default-interceptor-ref name="defaultStack" />
+	
+	 	<action name="ipoRegistration" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="ipoRegistration">
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="saveSiteRegistration" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="saveSiteRegistration">
+			<result name="success" type="dispatcher">/WEB-INF/content/ipofficewithonboarding/ipoInstall.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="ipoInstall" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="ipoInstall">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<result name="error" type="dispatcher">/WEB-INF/content/ipofficewithonboarding/ipoInstall.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="ipoOnlyIbase" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="ipoOnlyIbase">
+			<result name="error" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+			
+		<action name="backFromIPOffice" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="backFromIPOffice">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/newRegistration.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="cancelIPOffice" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="cancelIPOffice">
+			<!-- <result name="success" type="redirectAction">
+				<param name="actionName">home-action</param>
+				<param name="namespace">/</param>
+			</result> -->
+			<!-- Fix https redirect issue - cobrowse -->
+			<result name="success" type="redirect">https://${hostName}/grt/home-action.action</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>		
+						
+		<action name="ipoReg" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="ipoReg">
+			<result name="success" type="dispatcher">/WEB-INF/content/ipofficewithonboarding/ipoInstall.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action> 
+		
+		<action name="getMaterialVersion" class="com.avaya.grt.web.action.ipoffice.IpOfficeAction" method="getMaterialVersion">
+			<result name="samepage" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,86 @@
+/*** START TOB CONFIG STYLES ***/
+
+.tob-config {}
+  .tob-config .controls {
+    text-align: center;
+    margin: 0px 0 20px;
+    clear: both; }
+
+    .tob-config #tob-config-table-wrap.data-table-wrap .collapse-box-container,
+    .tob-config #tob-product-table-wrap.data-table-wrap .collapse-box-container {
+      display: block;
+      padding: 10px 20px;}
+    .tob-config #tob-sal-table-wrap.data-table-wrap .collapse-box-container {
+      display: block;
+      padding: 0;}
+
+    .tob-config #tob-config-table-wrap.data-table-wrap .data {
+        padding: 0;
+        display: table;
+        font-size: 12px;
+        font-weight: 100;
+        width: 100%;}
+        .tob-config #tob-config-table-wrap.data-table-wrap .data .col {
+          display: table-cell;
+          padding: 7px 80px 7px 0; }
+          .tob-config #tob-config-table-wrap.data-table-wrap .data .col p {
+            margin: 10px 0;
+            text-transform: capitalize; }
+            .tob-config #tob-config-table-wrap.data-table-wrap .data .col p .title {
+              font-weight: 900; }
+
+    .tob-config #tob-cmain-table-wrap.data-table-wrap .data {
+        padding: 10px 20px;
+        display: table;
+        font-size: 12px;
+        font-weight: 100;
+        width: 100%;}
+        .tob-config #tob-cmain-table-wrap.data-table-wrap .data .row {
+          display: table-row;}
+        .tob-config #tob-cmain-table-wrap.data-table-wrap .data .col {
+          display: table-cell;
+          padding: 7px 100px 7px 0; }
+          .tob-config #tob-cmain-table-wrap.data-table-wrap .data .col p {
+            margin: 10px 0;
+            text-transform: capitalize; }
+            .tob-config #tob-cmain-table-wrap.data-table-wrap .data .col p .title {
+              font-weight: 900; }/*** END TOB CONFIG STYLES ***/
+
+
+    .tob-config #tob-sal-table-wrap.data-table-wrap .data {
+        padding: 10px 20px;
+        display: table;
+        font-size: 12px;
+        font-weight: 100;
+        width: 100%;}
+        .tob-config #tob-sal-table-wrap.data-table-wrap .data .col {
+          display: table-cell;
+          padding: 7px 100px 7px 0; }
+          .tob-config #tob-sal-table-wrap.data-table-wrap .data .col p {
+            margin: 10px 0;
+            text-transform: capitalize; }
+            .tob-config #tob-sal-table-wrap.data-table-wrap .data .col p .title {
+              font-weight: 900; }
+
+
+    .tob-config #tob-product-table-wrap.data-table-wrap .data {
+        padding: 0;
+        display: table;
+        font-size: 12px;
+        font-weight: 100;
+        width: 100%;}
+        .tob-config #tob-product-table-wrap.data-table-wrap .data .row {
+          display: table-row;}
+        .tob-config #tob-product-table-wrap.data-table-wrap .data .col {
+          display: table-cell;
+          padding: 7px 100px 7px 0; }
+          .tob-config #tob-product-table-wrap.data-table-wrap .data .col p {
+            margin: 10px 0;
+            text-transform: capitalize; }
+            .tob-config #tob-product-table-wrap.data-table-wrap .data .col p .title {
+              font-weight: 900; }/*** END TOB CONFIG STYLES ***/
+   /*** FOR UAT DEFECT 561***/           
+  .hyper-link{	
+  	color: #c00;
+  	text-decoration: underline;
+  }/*** END UAT DEFECT 561***/

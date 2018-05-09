@@ -1,0 +1,40 @@
+/*** START TOB DETAILS STYLES ***/
+
+.tob-details {}
+.tob-details .controls {
+text-align: center;
+margin: 20px 0 20px;
+clear: both; }
+
+.tob-details #sal-wrap.data-table-wrap .collapse-box-container {
+display: block;}
+.tob-details #sal-third-wrap.data-table-wrap .collapse-box-container {
+display: block;}
+.tob-details #tech-wrap.data-table-wrap .collapse-box-container {
+display: block;}
+.tob-details #retest-wrap.data-table-wrap .collapse-box-container {
+display: block;}
+.tob-details .page-note {
+	margin-top: 15px;
+}
+.tob-details .page-note p {
+	padding-bottom:10px;
+	font-size: 14px;
+	line-height: 1.2em;
+}
+.tob-details .page-note p span {
+	font-weight: bold;
+}
+.tob-details .page-note p a {
+	text-decoration: none;
+	color: #c00;
+}
+.tob-details .page-note p a:hover {
+	text-decoration: underline;
+}
+
+.basic-table a {
+	color: #c00;
+    text-decoration: none;
+}
+/*** END TOB DETAILS STYLES ***/

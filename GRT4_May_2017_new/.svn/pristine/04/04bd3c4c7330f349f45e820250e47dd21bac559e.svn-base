@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class 
+    name="com.avaya.grt.mappers.SuperUser" 
+    table="SUPER_USERS"
+    lazy="false"
+>
+    <id
+        name="userId"
+        type="string"
+        column="USER_ID"
+        length="50"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="company"
+        type="string"
+        column="COMPANY"
+        length="50"
+    />
+    <property
+        name="createdBy"
+        type="string"
+        column="CREATED_BY"
+        length="50"
+    />
+    <property
+        name="createdDate"
+        type="timestamp"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="firstName"
+        type="string"
+        column="FIRST_NAME"
+        length="50"
+    />
+    <property
+        name="isSuperUser"
+        type="string"
+        column="IS_SUPER_USER"
+        length="1"
+    />
+    <property
+        name="lastName"
+        type="string"
+        column="LAST_NAME"
+        length="50"
+    />
+    <property
+        name="updatedBy"
+        type="string"
+        column="UPDATED_BY"
+        length="50"
+    />
+    <property
+        name="updateDate"
+        type="timestamp"
+        column="UPDATE_DATE"
+        length="7"
+    />
+	<property
+		name="megaUser"
+		type="string"
+		column="IS_MEGA_USER"
+		length="1"
+	/>
+    <!-- Associations -->
+
+</class>
+</hibernate-mapping>

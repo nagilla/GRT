@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<sql-query name="fetchPipelineSapTransactionOnSoldTo">
+		<![CDATA[ select material_code, equipment_number, sum(quantity) quantity, action, serial_number, technically_registerable from pipeline_sap_transactions where processed = '0' and action IN ('IB','FV','EM') and ship_to = :soldToParam group by material_code, serial_number, technically_registerable, equipment_number, action order by action desc ]]>
+    </sql-query>
+    <sql-query name="getPipelineForProcessing">
+    <![CDATA[SELECT DISTINCT PST1.REGISTRATION_ID, PST1.ACTION
+  FROM PIPELINE_SAP_TRANSACTIONS PST1,
+       (SELECT DISTINCT IB_SUBMITTED_DATE, SHIP_TO, ACTION
+          FROM PIPELINE_SAP_TRANSACTIONS
+         WHERE REGISTRATION_ID = :registrationId AND ACTION = 'IB') CUTTOFF1
+ WHERE     PST1.IB_SUBMITTED_DATE <= CUTTOFF1.IB_SUBMITTED_DATE
+       AND PST1.ACTION = CUTTOFF1.ACTION
+       AND PST1.SHIP_TO = CUTTOFF1.SHIP_TO
+       AND PST1.PROCESSED = 0 
+       AND PST1.IS_SAP_COMPLETED = 1
+       AND MATERIAL_CODE IN (:mcInClause)
+UNION
+SELECT DISTINCT REGISTRATION_ID, ACTION
+  FROM PIPELINE_SAP_TRANSACTIONS PST,
+       (SELECT DATE_TIME, SHIP_TO
+          FROM PIPELINE_SAP_TRANSACTIONS
+         WHERE ACTION = 'FV' AND REGISTRATION_ID = :registrationId) CUTTOFF
+ WHERE     PST.DATE_TIME <= CUTTOFF.DATE_TIME
+       AND PST.SHIP_TO = CUTTOFF.SHIP_TO
+       AND PROCESSED = 0 
+       AND PST.IS_SAP_COMPLETED = 1
+       AND MATERIAL_CODE IN (:mcInClause)
+UNION
+SELECT DISTINCT REGISTRATION_ID, ACTION
+  FROM PIPELINE_SAP_TRANSACTIONS PST,
+       (SELECT DATE_TIME, SHIP_TO
+          FROM PIPELINE_SAP_TRANSACTIONS
+         WHERE ACTION = 'EM' AND REGISTRATION_ID = :registrationId) CUTTOFF
+ WHERE     PST.DATE_TIME <= CUTTOFF.DATE_TIME
+       AND PST.SHIP_TO = CUTTOFF.SHIP_TO
+       AND PROCESSED = 0 
+       AND PST.IS_SAP_COMPLETED = 1
+       AND MATERIAL_CODE IN (:mcInClause) ]]>
+    </sql-query>
+    
+    <sql-query name="updateProcessedPipelineTransactions">
+    <![CDATA[ UPDATE PIPELINE_SAP_TRANSACTIONS SET PROCESSED=1,PROCESSED_DATE=SYSDATE WHERE REGISTRATION_ID IN (:registrationInClause) AND ACTION = :orderType AND MATERIAL_CODE IN (:mcInClause)]]>
+    </sql-query>
+    
+    <sql-query name="updatePipeLineSAPTransactionsSAPCompletedFlag">
+    <![CDATA[ UPDATE PIPELINE_SAP_TRANSACTIONS SET IS_SAP_COMPLETED=1 WHERE REGISTRATION_ID = :registrationId AND ACTION IN (:orderTypeClause) ]]>
+    </sql-query>
+    
+     <sql-query name="getConsolidatedPipelineRecords">
+    <![CDATA[ SELECT MATERIAL_CODE, ACTION, SUM(QUANTITY) FROM PIPELINE_SAP_TRANSACTIONS WHERE SHIP_TO = :soldToId AND PROCESSED='0' GROUP BY MATERIAL_CODE, ACTION ORDER BY MATERIAL_CODE, ACTION ]]>
+    </sql-query>
+    
+     <sql-query name="updatePipelineTransactionOnRegistrationOverride">
+    <![CDATA[ UPDATE PIPELINE_SAP_TRANSACTIONS SET PROCESSED=1 WHERE REGISTRATION_ID = :registartionId and ACTION = :orderType ]]>
+    </sql-query>
+    
+</hibernate-mapping>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.ExpandedSolutionElement" table="EXP_SOLUTION_ELEMENT_RECORD">
+	<id
+        name="expSolnElemntId"
+        type="string"
+        column="EXP_SOLN_ELMNT_ID"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="seCode"
+        type="string"
+        column="SE_CODE"
+        length="50"
+    />
+	<property
+        name="seID"
+        type="string"
+        column="SEID"
+        not-null="true"
+        length="40"
+    />
+	<property
+        name="ipAddress"
+        type="string"
+        column="IP_ADDRESS"
+        length="40"
+    />
+	<property
+        name="alarmId"
+        type="string"
+        column="ALARM_ID"
+        length="40"
+    />
+    <many-to-one
+        name="technicalRegistration"
+        class="com.avaya.grt.mappers.TechnicalRegistration"
+        lazy="false"
+        cascade="none"
+    >
+		<column name="TECHNICAL_REGISTRATION_ID" length="50"/>
+	</many-to-one>
+	 <!-- <many-to-one
+        name="salNonUiProductList"
+        class="com.avaya.grt.mappers.SalNonuiProductList"
+        lazy="false"
+        cascade="none"
+    >
+		<column name="PRODUCT_REGISTRATION_LIST_ID" length="50"/>
+	</many-to-one>
+	
+    <many-to-one
+        name="salUiProductList"
+        class="com.avaya.grt.mappers.SalUiProductList"
+        lazy="false"
+        cascade="none"
+    >
+		<column name="SAL_UI_PRODUCT_LIST_ID" length="50"/>
+	</many-to-one> -->
+
+    <property
+        name="selectForRemoteAccess"
+        type="boolean"
+        column="SELECT_REMOTE_ACCESS"
+        length="1"
+    />
+
+    <property
+        name="selectForAlarming"
+        type="boolean"
+        column="SELECT_ALARMING"
+        length="1"
+    />    
+
+	<property
+        name="deviceLastAlarmReceivedDate"
+        type="string"
+        column="DEVICE_LAST_ALARM_RECE_DT"
+        length="50"
+    />
+    
+	<property
+        name="deviceStatus"
+        type="string"
+        column="DEVICE_STATUS"
+        length="50"
+    />
+    <property
+        name="retestStatus"
+        type="string"
+        column="RETEST_STATUS"
+        length="60"
+    />
+    <property
+        name="artRespCode"
+        type="string"
+        column="ART_RESPONSE_CODE"
+        length="20"
+    />
+    <property
+        name="artRespMsg"
+        type="string"
+        column="ART_RESPONSE_CODE_DESC"
+        length="60"
+    />
+	<many-to-one
+        name="siteList"
+        class="com.avaya.grt.mappers.SiteList"
+        lazy="false"
+        cascade="none"
+    >
+		<column name="ID" length="50"/>
+	</many-to-one>
+</class>
+</hibernate-mapping>

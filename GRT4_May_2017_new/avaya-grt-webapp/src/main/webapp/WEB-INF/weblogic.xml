@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app" xmlns:wls="http://www.bea.com/ns/weblogic/90" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://www.bea.com/ns/weblogic/90 http://www.bea.com/ns/weblogic/90/weblogic-web-app.xsd">
+	<session-descriptor>
+		<url-rewriting-enabled>false</url-rewriting-enabled>	
+		<cookie-path>/</cookie-path>
+		<cookie-name>JSESSIONID</cookie-name>
+		<cookie-secure>true</cookie-secure >
+		<persistent-store-type>replicated</persistent-store-type>
+	</session-descriptor>
+	<context-root>avaya-grt-webapp</context-root>
+</weblogic-web-app>

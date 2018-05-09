@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<sql-query name="querySAPResponseOnRegistrationId">
+		<![CDATA[ 	SELECT TRANSACTION_ID, SYSTEM_IDENTIFIER, SOURCE_QUEUE_NAME, PAYLOAD FROM FMW_LOG.MESSAGE_AUDIT_LOG WHERE TRANSACTION_ID = :registrationId AND SOURCE_QUEUE_NAME = :source AND STATUS IN ('TRANSFORMED') ORDER BY TRANSACTED_ON DESC ]]>
+    </sql-query>
+    
+    <sql-query name="queryResponseOnRegistrationId">
+		<![CDATA[ SELECT TRANSACTION_ID, SYSTEM_IDENTIFIER, SOURCE_QUEUE_NAME, PAYLOAD FROM FMW_LOG.MESSAGE_AUDIT_LOG WHERE TRANSACTION_ID = :registrationId AND SOURCE_QUEUE_NAME = :source AND STATUS IN ('TRANSFORMED')	 ]]>
+    </sql-query>
+    </hibernate-mapping>

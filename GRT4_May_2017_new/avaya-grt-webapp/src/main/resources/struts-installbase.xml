@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="installbase" namespace="/installbase" extends="default">
+		<default-interceptor-ref name="defaultStack" />
+	
+		 <action name="installbasehome" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="getInstallbaseRegistrationOnly">
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="installBaseCreation" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="installBaseCreation">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateMaterialCodesAgainstSoldTo" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="validateMaterialCodesAgainstSoldTo">
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="token"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="samepage" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		<action name="handleInvalidToken" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="handleInvalidToken">
+			<result name="salMigrationOnly">registrationList</result>
+			<!-- <result name="default">/WEB-INF/content/installbase/registrationList.jsp</result> -->
+			<result name="default" type="redirectAction">
+				<param name="actionName">registrationList</param>
+				<param name="namespace">/technicalregsitration</param>
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="addMaterialEntry" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="addMaterialEntry">
+			
+			<interceptor-ref name="sessionTimeoutStack" />
+				<interceptor-ref name="token"/>
+				<result name="success" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+				<result name="invalid.token" type="redirectAction">
+				../technicalregsitration/saveSiteRegistration
+			</result>
+			
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="saveRegistration" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="saveRegistration">
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="token"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="default" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<result name="salMigrationOnly" type="dispatcher">/WEB-INF/content/installbase/salMigrationOnly.jsp</result>
+			<result name="techRegOnly" type="dispatcher">/WEB-INF/content/installbase/salMigrationOnly.jsp</result>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="cancelInstallStatus" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="cancelInstallStatus">
+			<result name="success" type="dispatcher">/WEB-INF/content/common/registrationList.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="uploadFile" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="uploadFile">
+			<interceptor-ref name="token"></interceptor-ref>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="defaultStack" />
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<result name="error" type="dispatcher">/WEB-INF/content/installbase/installBaseCreation.jsp</result>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="viewInstallBaseOnly" class="com.avaya.grt.web.action.viewinstallbase.ViewInstallBaseAction" method="viewInstallBaseOnly">
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="viewInstallBase" class="com.avaya.grt.web.action.viewinstallbase.ViewInstallBaseAction" method="viewInstallBaseProcess">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/viewInstallBase.jsp</result>
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="generateIBWorkSheet" class="com.avaya.grt.web.action.viewinstallbase.ViewInstallBaseAction" method="generateIBWorkSheet">
+			<result name="success" type="dispatcher">/WEB-INF/content/installbase/viewInstallBase.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+	</package>
+	
+	<package name="installbasejson" namespace="/installbase/json" extends="json-default">
+		<!-- <action name="getCxpSoldToList" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="getCxpSoldToList">
+			<result type="json">
+				<param name="root">soldToList</param>
+			</result>
+		</action> -->
+		
+		<action name="getExistingInstallBaseRecords" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="getExistingInstallBaseRecords">
+			<result type="json">
+				<param name="root">technicalOrderDetailList</param>
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateMaterialCode" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="validateMaterialCode">
+			<result type="json">
+				<param name="root">materialCodeArray</param>
+			</result>
+		</action>
+		
+		<action name="checkForvalidateSerialNumber" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="checkForvalidateSerialNumber">
+			<result type="json">
+				<param name="root">serialNumberFlag</param>
+			</result>
+		</action>
+		
+		<action name="getEligibleGroups" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="getEligibleGroups">
+			<result type="json">
+				<param name="root">retList</param>
+			</result>
+		</action>
+		
+		<action name="getRegistrationSummaryList" class="com.avaya.grt.web.action.installbase.InstallBaseCreationAction" method="getRegistrationSummaryList">
+			<result type="json">
+				<param name="root">registrationSummaries</param>
+			</result>
+		</action>
+		
+	</package>
+	
+</struts>

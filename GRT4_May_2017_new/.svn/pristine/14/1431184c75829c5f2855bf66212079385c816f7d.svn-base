@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.ArtProductType" table="ART_PRODUCT_TYPE">
+	<id
+        name="productTypeCode"
+        type="string"
+        column="PRODUCT_TYPE_CODE"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="afidReqd"
+        type="string"
+        column="AFID_REQD"
+        not-null="true"
+        length="1"
+    />
+	<property
+        name="cmProduct"
+        type="string"
+        column="CM_PRODUCT"
+        not-null="true"
+        length="1"
+    />
+	<property
+        name="description"
+        type="string"
+        column="DESCRIPTION"
+        length="250"
+    />
+	<property
+        name="fullRegistrationRqd"
+        type="string"
+        column="FULL_REGISTRATION_RQD"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="registrationType"
+        type="string"
+        column="REGISTRATION_TYPE"
+        length="10"
+    />
+	<property
+        name="systemPlatformBased"
+        type="string"
+        column="SYSTEM_PLATFORM_BASED"
+        not-null="true"
+        length="1"
+    />
+	<property
+        name="aorigRequired"
+        type="string"
+        column="AORIG_REQUIRED"
+        length="1"
+    />
+	<!-- Associations -->
+	<!-- bi-directional one-to-one association to ArtProductSolutionElement -->
+	<one-to-one
+        name="artProductSolutionElement"
+        class="com.avaya.grt.mappers.ArtProductSolutionElement"
+        lazy="proxy"
+        outer-join="auto"
+    />
+	<!-- bi-directional many-to-one association to ProductRelease -->
+	<set
+        name="productReleases"
+        inverse="true"
+        lazy="true"
+    >
+		<key>
+			<column name="PRODUCT_TYPE_CODE" />
+			 <!-- a foreign key in PRODUCT_RELEASE referencing the primary key of this table. -->
+		</key>
+		<one-to-many class="com.avaya.grt.mappers.ProductRelease" />
+	</set>
+
+</class>
+</hibernate-mapping>

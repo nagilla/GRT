@@ -1,0 +1,15 @@
+/*** START SOLDTO PAGE STYLES ***/
+
+.customer-site-registration.content-wrap .content {
+  width: auto !important;
+}
+
+div.associate-modal span.soldtoBold {
+  font-weight: bold;
+}
+
+.customer-site-registration.content-wrap .content p{
+	margin-bottom :0px !important;
+}
+
+/*** END SOLDTO PAGE STYLES ***/

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="account" namespace="/account" extends="default">
+		<action name="accountUpdatePageLoad" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="accountUpdatePageLoad">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="acoountUpdate" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="validateSoldtoIdForUpdate">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="updateAccount" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="updateAccount">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>		
+		
+		<action name="populateAccountForUpdate" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="populateAccountForUpdate">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>	
+		
+		<action name="showAccountUpdate" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="showAccountUpdate">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>		
+		
+		<action name="showFuzzySearch" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="showFuzzySearch">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="doFuzzySearchForUpdate" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="doFuzzySearchForUpdate">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateAccountForUpdate" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="validateAccountForUpdate">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountUpdate.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+		<!-- Account Creation -->
+		<action name="accountCreation" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="accountCreation">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="nextAccountCreation" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="nextAccountCreation">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="doFuzzySearch" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="doFuzzySearch">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="accountCreationConfirmation" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="accountCreationConfirmation">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="token"/>
+			<result name="invalid.token" type="redirectAction">
+				handleInvalidToken
+			</result>
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="handleInvalidToken" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="handleInvalidToken">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="tokenVerification" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="tokenVerification">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="showShipToSoldTo" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="showShipToSoldTo">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="sendEmailConfirmation" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="sendEmailConfirmation">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="tokenBackButton" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="tokenBackButton">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateShipToId" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="validateShipToId">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="showSoldToId" class="com.avaya.grt.web.action.accountcreation.AccountCreationAction" method="showSoldToId">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/accountCreation.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+				
+		
+		<!--IPOS Registration starts here --> 
+<!-- 		<action name="ipoRegistrationOnly" class="com.avaya.grt.web.action.ipossregistration.IPOSSRegistrationAction" method="ipoRegistration">
+			<result name="toAgentLocationSelection" type="dispatcher">/WEB-INF/content/installbase/agentLocationSelection.jsp</result>
+			<result name="toLocationSelection" type="dispatcher">/WEB-INF/content/installbase/locationSelection.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="saveSiteRegistration" class="com.avaya.grt.web.action.ipossregistration.IPOSSRegistrationAction" method="saveSiteRegistration">
+		<interceptor-ref name="defaultStack" />
+			<result name="IPO" type="dispatcher">/WEB-INF/content/account/ipoInstall.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="ipoInstall" class="com.avaya.grt.web.action.ipossregistration.IPOSSRegistrationAction" method="ipoInstall">
+			<result name="success" type="redirectAction">
+				<param name="actionName">saveSiteRegistration.action</param>
+				<param name="namespace">/technicalregsitration</param>
+			</result>
+			<result name="stay" type="dispatcher">/WEB-INF/content/account/ipoInstall.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<param name="autoCreateSession">true</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action> -->
+		
+		</package>
+		
+		<package name="token" namespace="/token" extends="default">
+		
+		<action name="tokenRedemption" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="tokenRedemption">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateToken" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="validateToken">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="begin" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="begin">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateBpLinkID" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="validateBpLinkID">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<result name="showShipToSoldTo" type="redirectAction">
+				<param name="actionName">showSoldToId</param>
+				<param name="namespace">/token</param>
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="showSoldToId" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="showSoldToId">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> --> 
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+	
+		
+		<action name="lookupBackButton" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="lookupBackButton">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="cancelTokenRedemption" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="cancelTokenRedemption">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="showContractdate" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="showContractdate">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<result name="showShipToSoldTo" type="redirectAction">
+				<param name="actionName">showSoldToId.action</param>
+				<param name="namespace">/account</param>
+			</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="redeemToken" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="redeemToken">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="showFuzzySearch" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="showFuzzySearch">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateShipToId" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="validateShipToId">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="doFuzzySearch" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="doFuzzySearch">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		<action name="validateSelectedRecord" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="validateSelectedRecord">
+			<result name="success" type="dispatcher">/WEB-INF/content/account/tokenRedemption.jsp</result>
+			<interceptor-ref name="sessionTimeoutStack" />
+			<interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+				<!-- <param name="autoCreateSession">true</param> -->
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+		
+		
+		
+	</package>
+	<package name="tokenjson" namespace="/token/json" extends="json-default">
+	
+		<action name="findContracts" class="com.avaya.grt.web.action.tokenredemption.TokenRedemptionAction" method="findContracts">
+		    <result type="json">
+		        <param name="noCache">true</param>
+		        <param name="excludeNullProperties">true</param>
+		        <param name="root">jsonContractString</param>
+		    </result>
+		    <interceptor-ref name="scope">
+				<param name="key">actionForm</param>
+				<param name="session">actionForm</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+	</package>
+	
+
+</struts>
+

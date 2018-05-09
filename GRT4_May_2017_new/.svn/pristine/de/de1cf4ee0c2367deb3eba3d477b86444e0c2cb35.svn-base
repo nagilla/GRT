@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="com.avaya.grt.mappers.TechnicalRegistration" table="TECHNICAL_REGISTRATION" dynamic-insert="true" dynamic-update="true">
+	<id
+        name="technicalRegistrationId"
+        type="string"
+        column="TECHNICAL_REGISTRATION_ID"
+        length="50"
+    >
+		<generator class="sequence">
+			<param name="sequence">grtsequence</param>
+		</generator>
+	</id>
+	<property
+        name="createdBy"
+        type="string"
+        column="CREATED_BY"
+        length="50"
+    />
+	<property
+        name="accessType"
+        type="string"
+        column="ACCESS_TYPE"
+        not-null="true"
+        length="10"
+    />
+	<property
+        name="authorizationFileId"
+        type="string"
+        column="AUTHORIZATION_FILE_ID"
+        length="25"
+    />
+	<property
+        name="connectivity"
+        type="string"
+        column="CONNECTIVITY"
+        length="10"
+    />
+    <property
+        name="alarmOrigination"
+        type="string"
+        column="ALARM_ORIGINATION"
+        length="10"
+    />
+	<property
+        name="createdDate"
+        type="java.util.Date"
+        column="CREATED_DATE"
+        length="7"
+    />
+	<property
+        name="dialInNumber"
+        type="string"
+        column="DIAL_IN_NUMBER"
+        length="10"
+    />
+	<property
+        name="errorCode"
+        type="string"
+        column="ERROR_CODE"
+        length="150"
+    />
+	<property
+        name="mid"
+        type="string"
+        column="MID"
+        length="25"
+    />
+	<property
+        name="model"
+        type="string"
+        column="MODEL"
+        length="25"
+    />
+	<property
+        name="moduleCode"
+        type="string"
+        column="MODULE_CODE"
+        length="50"
+    />
+	<property
+        name="nickname"
+        type="string"
+        column="NICKNAME"
+        length="50"
+    />
+	<property
+        name="productCode"
+        type="string"
+        column="PRODUCT_CODE"
+        length="50"
+    />
+	<property
+        name="productId"
+        type="string"
+        column="PRODUCT_ID"
+        length="25"
+    />
+	<property
+        name="remoteAccess"
+        type="string"
+        column="REMOTE_ACCESS"
+        length="5"
+    />
+	<property
+        name="salGateway"
+        type="string"
+        column="SAL_GATEWAY"
+        length="5"
+    />
+	<property
+        name="serialNumber"
+        type="string"
+        column="SERIAL_NUMBER"
+        length="50"
+    />
+	<property
+        name="sid"
+        type="string"
+        column="SID"
+        length="25"
+    />
+	<property
+        name="softwareRelease"
+        type="string"
+        column="SOFTWARE_RELEASE"
+        length="25"
+    />
+    <property
+        name="systemProductRelease"
+        type="string"
+        column="SP_RELEASE"
+        length="50"
+    />
+	<property
+        name="softwareVersion"
+        type="string"
+        column="SOFTWARE_VERSION"
+        length="25"
+    />
+	<property
+        name="soldToId"
+        type="string"
+        column="SOLD_TO_ID"
+        length="50"
+    />
+	<property
+        name="solutionElement"
+        type="string"
+        column="SOLUTION_ELEMENT"
+        length="50"
+    />
+    <property
+        name="solutionElementId"
+        type="string"
+        column="SOLUTION_ELEMENT_ID"
+        length="50"
+    />
+    <property
+        name="artSrNo"
+        type="string"
+        column="ART_SR_NO"
+        length="25"
+    />
+     <property
+        name="numberOfSubmit"
+        type="string"
+        column="NUMBER_OF_SUBMIT"
+        length="2"
+    />
+    <property
+        name="outboundCallingPrefix"
+        type="string"
+        column="OUTBOUND_CALLING_PREFIX"
+        length="50"
+    />
+    <property
+        name="ipAddress"
+        type="string"
+        column="IP_ADDRESS"
+        length="25"
+    />
+    <property
+        name="randomPassword"
+        type="string"
+        column="RANDOM_PASSWORD"
+        length="1"
+    />
+    <property
+        name="privateIpAddress"
+        type="string"
+        column="PRIVATE_IP_ADDRESS"
+        length="1"
+    />
+    <property
+        name="seidOfVoice"
+        type="string"
+        column="SEID_OF_VOICE"
+        length="1"
+    />
+    <property
+        name="checkReleaseHigher"
+        type="string"
+        column="CHECK_RELEASE_HIGHER"
+        length="1"
+    />
+    <property
+        name="checkSesEdge"
+        type="string"
+        column="CHECK_SED_EDGE"
+        length="1"
+    />
+	<property
+        name="transportAlarm"
+        type="string"
+        column="TRANSPORT_ALARM"
+        length="5"
+    />
+	<property
+        name="updatedBy"
+        type="string"
+        column="UPDATED_BY"
+        length="50"
+    />
+	<property
+        name="updatedDate"
+        type="java.util.Date"
+        column="UPDATED_DATE"
+        length="7"
+    />
+    <property
+        name="alarmId"
+        type="string"
+        column="LOCAL_ALARM_ID"
+    />
+     <property
+        name="ipoUserEmail"
+        type="string"
+        column="IPOUSER_EMAIL"
+    />
+	
+    <property
+        name="artCreatedSrNo"
+        type="string"
+        column="ART_CREATED_SR_NO"
+        length="25"
+    />
+    
+    <!-- GRT 3.0 New Properties STARTS-->
+    <property
+        name="groupId"
+        type="string"
+        column="GROUP_ID"
+        length="50"
+    />
+    <property
+        name="cmMainSeid"
+        type="string"
+        column="CM_MAIN_SEID"
+        length="50"
+    />
+    <property
+        name="cmMainSoldToId"
+        type="string"
+        column="CM_MAIN_SOLDTO_ID"
+        length="50"
+    />
+    <property
+        name="cmMainSid"
+        type="string"
+        column="CM_MAIN_SID"
+        length="50"
+    />
+    <property
+        name="primarySalGWSeid"
+        type="string"
+        column="PRIMARY_SALGW_SEID"
+        length="50"
+    />
+    <property
+        name="secondarySalGWSeid"
+        type="string"
+        column="SECONDARY_SALGW_SEID"
+        length="50"
+    />
+    <property
+        name="hardwareServer"
+        type="string"
+        column="HARDWARE_SERVER"
+        length="100"
+    />
+    <property
+        name="action"
+        type="string"
+        column="ACTION"
+        length="10"
+    />
+    <property
+        name="cmProduct"
+        type="boolean"
+        column="CM_PRODUCT"
+        length="38"
+    />
+    <property
+        name="cmMain"
+        type="boolean"
+        column="CM_MAIN"
+        length="38"
+    />
+    <property
+        name="sendEPNSurveyNotification"
+        type="boolean"
+        column="SEND_EPNSURVEY_NOTIFICATION"
+        length="38"
+    />
+    <property
+        name="failedSeid"
+        type="string"
+        column="FAILED_SEID"
+        length="50"
+    />
+    <property
+        name="submissionCount"
+        type="int"
+        column="SUBMISSION_COUNT"
+        length="3"
+    />
+    <!-- GRT 3.0 New Properties ENDS-->
+    
+	<!-- Associations -->
+	<!-- bi-directional many-to-one association to TechnicalOrder -->
+	<many-to-one
+        name="technicalOrder"
+        class="com.avaya.grt.mappers.TechnicalOrder"
+        lazy="false"
+    >
+		<column name="TECHNICAL_ORDER_ID" length="50"/>
+	</many-to-one>
+	<!-- bi-directional many-to-one association to Status -->
+	<many-to-one
+        name="status"
+        class="com.avaya.grt.mappers.Status"
+        lazy="false"
+        
+    >
+		<column name="STATUS_ID" length="50"/>
+	</many-to-one>
+	
+    <many-to-one
+        name="srRequest"
+        class="com.avaya.grt.mappers.SRRequest"
+    >
+		<column name="SR_REQUEST_ID" length="50"/>
+	</many-to-one>
+	
+    <property
+        name="errorDesc"
+        type="string"
+        column="ERROR_DESCRIPTION"
+        length="400"
+    />
+    
+	<!-- Begin New columns added TR Dash Board -->  
+
+    <property
+        name="subErrorCode"
+        type="string"
+        column="SUB_ERROR_CODE"
+        length="50"
+    />
+    
+    <property
+        name="artId"
+        type="string"
+        column="ART_ID"
+        length="50"
+    />
+
+    <property
+        name="operationType"
+        type="string"
+        column="OPERATION_TYPE"
+        length="50"
+    />
+
+    <property
+        name="transactionDetails"
+        type="string"
+        column="TRANSACTION_DETAILS"
+        length="2000"
+    />      
+    
+     <property
+        name="deviceStatus"
+        type="string"
+        column="DEVICE_STATUS"
+        length="50"
+    />
+
+    <property
+        name="deviceLastAlarmReceivedDate"
+        type="string"
+        column="DEVICE_LAST_ALARM_RECE_DT"
+        length="50"
+    />   
+    
+    <property
+        name="template"
+        type="string"
+        column="TEMPLATE"
+        length="15"
+    />
+    
+    <property
+        name="remoteDeviceType"
+        type="string"
+        column="REMOTE_DEVICE_TYPE"
+        length="50"
+    />
+    
+    <property
+            name="equipmentNumber"
+            type="string"
+            column="EQUIPMENT_NUMBER"
+     />
+  
+     <property
+            name="summaryEquipmentNumber"
+            type="string"
+            column="SUMMARY_EQUIPMENT_NUMBER"
+     />    
+    
+	<many-to-one
+        name="stepBStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+        cascade="none"        
+    >
+		<column name="STEPB_STATUS" length="50"/>
+	</many-to-one>
+	
+	<!-- bi-directional many-to-one association to epnSurveyStatus -->
+	<many-to-one
+        name="epnSurveyStatus"
+        class="com.avaya.grt.mappers.Status"
+        lazy="proxy"
+    >
+		<column name="EPNSURVEY_STATUS" length="50"/>
+	</many-to-one>
+	
+  <many-to-one
+        name="stepBSRRequest"
+        class="com.avaya.grt.mappers.SRRequest"
+        lazy="proxy"
+        cascade="none"
+    >
+	<column name="STEPB_SR_REQUEST" length="50"/>
+</many-to-one>	 
+   
+	<!-- End New columns added TR Dash Board -->  	
+	<set name="explodedSolutionElements" inverse="true" lazy="true" cascade="all">
+        <key>
+            <column name="TECHNICAL_REGISTRATION_ID"/>
+        </key>
+        <one-to-many class="com.avaya.grt.mappers.ExpandedSolutionElement" />
+    </set>
+    
+    <property
+        name="selectForRemoteAccess"
+        type="boolean"
+        column="SELECT_REMOTE_ACCESS"
+        length="1"
+    />
+
+    <property
+        name="selectForAlarming"
+        type="boolean"
+        column="SELECT_ALARMING"
+        length="1"
+    />
+
+	<property
+        name="primarySoldToId"
+        type="string"
+        column="PRIMARY_SOLD_TO_ID"
+        length="50"
+    />
+
+	<property
+        name="secondarySoldToId"
+        type="string"
+        column="SECONDARY_SOLD_TO_ID"
+        length="50"
+    />
+
+    <!-- Begin: New columns added for QC-33301 requirement -->  	
+	<property
+        name="stepASubmittedDate"
+        type="java.util.Date"
+        column="STEPA_SUBMITTED_DATE"
+    />
+
+	<property
+        name="stepACompletedDate"
+        type="java.util.Date"
+        column="STEPA_COMPLETED_DATE"
+    />
+
+	<property
+        name="stepBSubmittedDate"
+        type="java.util.Date"
+        column="STEPB_SUBMITTED_DATE"
+    />
+    
+	<property
+        name="stepBCompletedDate"
+        type="java.util.Date"
+        column="STEPB_COMPLETED_DATE"
+    />
+    
+	<property
+        name="stepAReSubmittedDate"
+        type="java.util.Date"
+        column="STEPA_RE_SUBMITTED_DATE"
+    />
+    <!-- End: New columns added for QC-33301 requirement -->             
+    
+    <property
+        name="username"
+        type="string"
+        column="USERNAME"
+        length="50"
+    />
+    
+    <property
+        name="deviceOnboardOp"
+        type="string"
+        column="DEVICE_ONBOARD_OP"
+        length="50"
+    />
+    
+    <property
+        name="ossNumber"
+        type="string"
+        column="OSS_NUMBER"
+        length="50"
+    />       
+    
+    <property
+        name="installScript"
+        type="string"
+        column="INSTALL_SCRIPT"
+    />
+    
+    <property
+        name="onboarding"
+        type="string"
+        column="ONBOARD_XML"
+    />
+    
+    <property
+        name="auxMC"
+        type="boolean"
+        column="AUXMC"
+        length="1"
+    />
+    
+    <property
+        name="auxMCRegType"
+        type="boolean"
+        column="AUXMC_REG_TYPE"
+        length="1"
+    />
+    
+    <property
+        name="auxMCMainSeid"
+        type="string"
+        column="AUXMC_MAIN_SEID"
+        length="50"
+    />
+    
+</class>
+</hibernate-mapping>

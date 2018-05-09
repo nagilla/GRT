@@ -1,0 +1,21 @@
+/*** START IP OFFICE STYLES ***/
+
+.ip-office {}
+  .ip-office .controls {
+    text-align: center;
+    margin: 20px 0 20px;
+    clear: both; }
+
+		.ip-office #ip-tob-wrap .collapse-box-container {
+      display: block;}
+			.ip-office #ip-upload-wrap .collapse-box-container {
+      display: block;}
+			.ip-office #ip-company-wrap .collapse-box-container {
+	      display: block;}
+	      
+	    #ip-company-wrap  .selectWidth{
+	        width: 340px;
+	      }
+
+
+/*** END IP OFFICE STYLES ***/

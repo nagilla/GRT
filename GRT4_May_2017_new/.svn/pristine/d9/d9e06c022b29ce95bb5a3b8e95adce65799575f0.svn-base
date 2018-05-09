@@ -1,0 +1,37 @@
+@CHARSET "ISO-8859-1";
+
+/*
+/////////////////////////////////////////////////////////////////////////////
+//
+// style.css
+//
+// Copyright 2008-2015 Avaya Inc. All Rights Reserved.
+//
+// Usage of this source is bound to the terms described
+// in licences/Licence.txt
+//
+// Avaya - Confidential & Proprietary. Use pursuant to your signed agreement
+// or Avaya Policy
+//
+/////////////////////////////////////////////////////////////////////////////
+*/
+
+/*
+ *	AvayaCoBrowseWrapper
+ *	****************************************************************
+ */
+ .AvayaCoBrowseWrapper {
+ 
+ }
+
+.join-field {
+	margin: 0px auto; 
+	display: block; 
+	margin-bottom: 5px;
+}
+
+.status-image {
+  float: left !important;
+  padding-right: 5px;
+  margin-top: 1%;
+}

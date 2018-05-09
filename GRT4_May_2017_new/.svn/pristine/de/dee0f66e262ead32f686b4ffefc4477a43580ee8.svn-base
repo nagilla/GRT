@@ -1,0 +1,11 @@
+/*** START SAL STEP B STYLES ***/
+
+.sal-step-b {}
+	.sal-step-b .controls {
+    text-align: center;
+    margin: 20px 0 20px;
+    clear: both; }
+		.sal-step-b #exist-install-table-wrap.data-table-wrap .collapse-box-container {
+		      display: block;}
+
+/*** END SAL STEP B STYLES ***/
